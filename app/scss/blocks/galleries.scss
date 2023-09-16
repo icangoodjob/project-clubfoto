@@ -1,0 +1,351 @@
+.sections-galleries {
+	padding-bottom: 30px;
+	@media screen and (max-width: $md) {
+		padding-bottom: 20px;
+	}
+	& .item-section__header {
+		margin-bottom: 20px;
+	}
+	& .item-section--banner {
+		grid-column: unset;
+	}
+}
+.sections__center {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px 0px;
+	@media screen and (max-width: $xxxl) {
+		gap: 20px 0px;
+	}
+	@media screen and (max-width: $lg) {
+		grid-area: center;
+	}
+	& .item-section {
+		padding-bottom: 16px;
+		@media screen and (max-width: $md) {
+			padding: 12px 10px 10px;
+		}
+		&__footer {
+			margin-top: 16px;
+		}
+	}
+	& .gallery {
+		& .item-section {
+			&__header {
+				margin-bottom: 24px;
+			}
+		}
+		&__bottom {
+			margin-top: 16px;
+		}
+	}
+}
+.aside-left {
+	@media screen and (max-width: $lg) {
+		grid-area: left;
+	}
+}
+.aside-right {
+	@media screen and (max-width: $lg) {
+		grid-area: aside;
+	}
+	& .gallery {
+		&__bottom {
+			margin-top: 20px;
+		}
+	}
+}
+.sections-galleries__body {
+	display: grid;
+	grid-template-columns: 330px 1fr 330px;
+	gap: 30px;
+	align-items: start;
+	@media screen and (max-width: $xxxl) {
+		grid-template-columns: 250px 1fr 250px;
+		gap: 20px;
+	}
+	@media screen and (max-width: $lg) {
+		grid-template-columns: 1fr 300px;
+		grid-template-rows: auto auto;
+		grid-template-areas: "left aside" "center aside";
+	}
+	@media screen and (max-width: $md) {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: "left" "center" "aside";
+	}
+}
+.item-section--partion {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-partions.svg");
+	}
+}
+.item-section--clan-gallery {
+	padding-bottom: 9px;
+	@media screen and (max-width: $md) {
+		padding-bottom: 10px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-clan-gallery.svg");
+	}
+}
+.item-section--winners {
+	padding-bottom: 18px;
+	@media screen and (max-width: $md) {
+		padding: 18px 18px 20px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-winners.svg");
+	}
+}
+.item-section--recent-arrivals {
+	@media screen and (max-width: $md) {
+		padding: 18px 18px 10px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-recent-arrivals.svg");
+	}
+}
+.item-section--best-photo {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-star.svg");
+	}
+}
+.item-section--best-week {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-best-photo.svg");
+	}
+}
+.item-section--recomendation {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-recomendation.svg");
+	}
+}
+.item-section--popular {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-popular.svg");
+	}
+}
+.item-section--young {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-young.svg");
+	}
+}
+.item-section--best-series {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-best-series.svg");
+	}
+}
+.item-section--most-comment {
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-most-comment.svg");
+	}
+}
+.item-section--contests {
+	& .item-section__header {
+		margin-bottom: 16px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-contests.svg");
+	}
+	@media screen and (max-width: $md) {
+		order: 1;
+		& .item-section__footer {
+			margin-top: 15px;
+		}
+	}
+}
+.item-section--showing {
+	& .item-section__header {
+		margin-bottom: 16px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-projects.svg");
+	}
+	@media screen and (max-width: $md) {
+		order: 1;
+		& .item-section__footer {
+			margin-top: 15px;
+		}
+	}
+}
+.item-section--registration {
+	padding: 16px 16px 20px;
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-registration.svg");
+	}
+}
+.item-section--photo-model {
+	padding: 16px 20px 16px;
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-photomodel.svg");
+	}
+}
+.item-section--how-isdone {
+	padding: 16px 16px 20px;
+	& .item-section__footer {
+		margin-top: 23px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-howisdone.svg");
+	}
+}
+.item-section--additional {
+	padding: 16px;
+	& .item-section__header {
+		margin-bottom: 28px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-gallery.svg");
+	}
+}
+.item-section--subscribe {
+	padding: 16px 16px 24px;
+	& .item-section__header {
+		margin-bottom: 31px;
+		max-width: 180px;
+	}
+	& .item-section__icon::before {
+		mask-image: url("../images/icons/sections/icon-subscribe.svg");
+	}
+}
+.banner-left {
+	@media screen and (max-width: $lg) {
+		display: none;
+	}
+}
+.banner-right {
+	@media screen and (max-width: $md) {
+		display: none;
+	}
+}
+.banner-mobile {
+	display: none;
+	@media screen and (max-width: $md) {
+		display: block;
+	}
+}
+.aside-right {
+	& .banner-mobile {
+		order: 2;
+	}
+}
+.sections__center .item-section.banner-mobile {
+	padding: 0;
+}
+.partions__list {
+	@include reset-list;
+}
+.item-partion {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	line-height: 120%;
+	&.active {
+		& .item-partion__link {
+			color: $blueColor;
+		}
+	}
+	&:not(:last-child) {
+		margin-bottom: 10px;
+	}
+	&__link {
+		display: block;
+		flex: 1 1 auto;
+		transition: color 0.2s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $blueColor;
+			}
+		}
+	}
+	&__value {
+		color: #a4a4a4;
+		text-align: right;
+	}
+}
+.card-winner {
+	border-radius: 5px;
+	background: #fff;
+	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+	font-size: 14px;
+	line-height: 120%;
+	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		max-height: 294px;
+		padding-bottom: math.div(294, 294) * 100%;
+	}
+	&__icon {
+		width: 56px;
+		height: 56px;
+		background-image: url("../images/sections/winner/golden.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	&__body {
+		padding: 5px 12px 12px 0;
+		display: flex;
+		align-items: center;
+	}
+	&__content {
+		& > *:not(:last-child) {
+			margin-bottom: 2px;
+		}
+	}
+	&__date {
+		font-size: 12px;
+		color: #a4a4a4;
+	}
+	&__author {
+		span {
+			color: $blueColor;
+		}
+	}
+}
+.registration-info {
+	& .description-block {
+		display: block;
+		margin-bottom: 32px;
+		& > *:not(:last-child) {
+			margin-bottom: 11px;
+		}
+	}
+	&__button {
+		width: 100%;
+	}
+}
+
+.additional-items {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 15px 0px;
+}
+
+.details {
+	&__form {
+	}
+	&__input {
+		padding: 10px 13px 10px;
+		&::placeholder {
+			color: #757c8d;
+		}
+	}
+}
+.subscribe-form {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 25px 0px;
+	&__input {
+		min-height: 54px;
+		padding: 15px 16px;
+		font-family: "Inter", sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		&::placeholder {
+			font-size: 16px;
+			color: #a4a4a4;
+		}
+	}
+}

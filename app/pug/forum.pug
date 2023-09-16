@@ -1,0 +1,73 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Форум";
+	- let mainTopTitle = "Обо всем, кроме фото";
+	- description += pageTitle;
+block content
+	div.forums 
+		include components/main_top
+		.forums__wrapper
+			.container
+				include components/actions
+				.forums__top.top-forum
+					.top-forum__info 
+						h2.top-forum__title.page-title #{mainTopTitle}
+						.top-forum__data 
+							| #[span.top-forum__total Всего 12345 тем ]
+							| | 
+							| #[span.top-forum__shown Показаны с 1 по 20]
+					.top-forum__pagination 
+						include components/pagination
+				.main__badges.badges
+					+badges(badges.forum)
+				.forums__sections.sections-forum.sections-forum--all
+					.sections-forum__box
+						.sections-forum__table.forum-table(style="--repeatColumns: 4")
+							.forum-table__row.forum-table__row-header
+								.forum-table__head Темы:
+								.forum-table__head Ответов:
+								.forum-table__head Первое сообщение:
+								.forum-table__head Просмотров:
+								.forum-table__head Последнее сообщение:
+							.forum-table__body
+								- var count = 0;
+									while count < 9
+										.forum-table__row 
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Темы:
+													.forum-table__theme
+														a(href="#").forum-table__name Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"
+														span.forum-table__pages.pages [ На страницу: #[a(href="#") 1,] #[a(href="#") 2,] #[a(href="#") 3,] #[a(href="#") 4,] #[a(href="#") 5]] 
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Ответов:
+													| 150
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Первое сообщение:
+													time(datetime="2011-06-03").forum-table__date 23.06.2011 16:22:02
+													.forum-table__author от Moderator
+													a(href="#").forum-table__link смотреть
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Просмотров:
+													| 1550
+											.forum-table__item 
+												.forum-table__info
+													.forum-table__label.forum-table__head Последнее сообщение:
+													time(datetime="2011-06-03").forum-table__date 23.06.2011 16:22:02
+													.forum-table__author от Moderator
+													a(href="#").forum-table__link смотреть
+											- count += 1;
+					.forums__pagination.pagination-forum 
+						include components/pagination
+				.forums__bottom 
+					include components/actions
+					.forums__labels
+						each item in forumLabels
+							a(href="#").forum-label 
+								span.forum-label__icon.icon-wrap(class=item.icon)
+								| #{item.title}
+					include components/tabs

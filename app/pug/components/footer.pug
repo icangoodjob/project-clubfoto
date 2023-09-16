@@ -1,0 +1,24 @@
+footer.footer
+	div.container
+		.footer__top 
+			nav.footer__menu.menu-footer 
+				ul.menu-footer__list 
+					each item, index in footerMenu
+						li.menu-footer__item(class={active: index === 3})
+							a(href=item.link).menu-footer__link= item.title
+		.footer__bottom 
+			a(href="#").footer__logo(data-da=".footer__top, 767.98, 0")
+				img(src="images/footer-logo_pc.svg", alt="логотип")
+			.footer__social.social-footer
+				ul.social-footer__list 
+					li.social-footer__item 
+						a(href="#" target="_blank").social-footer__link.social-footer__link--youtube 
+					li.social-footer__item 
+						a(href="#" target="_blank").social-footer__link.social-footer__link--mail 
+					li.social-footer__item 
+						a(href="#" target="_blank").social-footer__link.social-footer__link--vk 
+					li.social-footer__item 
+						a(href="#" target="_blank").social-footer__link.social-footer__link--twitter
+					li.social-footer__item 
+						a(href="#" target="_blank").social-footer__link.social-footer__link--telegram
+			.footer__copy Все права защищены ©  2023

@@ -1,0 +1,36 @@
+.breadcrumbs {
+	&__navigation {
+		padding: 15px 0 12px;
+		@media screen and (max-width: $md) {
+			padding: 20px 0 12px;
+		}
+	}
+	&__list {
+		@include reset-list;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		flex-wrap: wrap;
+	}
+	&__item {
+		& + & {
+			padding-left: 5px;
+			border-left: 1px solid #a4a4a4;
+		}
+		&.active {
+			color: $blueColor;
+		}
+	}
+	&__link {
+		color: #a4a4a4;
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 120%;
+		transition: color 0.15s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $blueColor;
+			}
+		}
+	}
+}

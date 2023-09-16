@@ -1,0 +1,338 @@
+.forums {
+	&__sections {
+	}
+	&__bottom {
+		margin-top: 31px;
+		& .tabs {
+			display: none;
+		}
+		@media screen and (max-width: $md) {
+			margin-top: 10px;
+			& .tabs {
+				display: block;
+				& .container {
+					padding: 0;
+				}
+			}
+			& .main__actions {
+				display: none;
+			}
+			& .forums__labels {
+				display: none;
+			}
+		}
+	}
+	&__labels {
+		padding: 20px 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		gap: 10px 63px;
+		flex-wrap: wrap;
+	}
+}
+.sections-forum {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+	&--all {
+		margin-top: 10px;
+		@media screen and (max-width: $md) {
+			margin-top: 0;
+		}
+		@media screen and (max-width: $xxl) {
+			& .forum-table__row {
+				grid-template-columns: 1fr repeat(var(--repeatColumns), 150px);
+			}
+		}
+		@media screen and (max-width: $lg) {
+			& .forum-table__row {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+	&__box {
+		&--favorites {
+			& .forum-table__date {
+				color: $mainColor;
+			}
+		}
+		@media screen and (max-width: $lg) {
+			& + & {
+				margin-top: 27px;
+			}
+		}
+	}
+	&__table {
+	}
+}
+.forum-table {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 13px;
+	&__row {
+		display: grid;
+		grid-template-columns: 1fr repeat(var(--repeatColumns), 200px);
+		@media screen and (max-width: $lg) {
+			grid-template-columns: 1fr;
+			border-radius: 10px;
+		}
+		&:not(&-header) {
+			min-height: 105px;
+			border-radius: 10px;
+			border: 1px solid #efefef;
+			background: $whiteColor;
+			box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+			overflow: hidden;
+			@media screen and (max-width: $lg) {
+				border: none;
+			}
+		}
+	}
+	&__row-header {
+		@media screen and (max-width: $lg) {
+			display: none;
+		}
+	}
+	&__head {
+		color: #a4a4a4;
+		font-family: "Rubik", sans-serif;
+		font-size: 14px;
+		line-height: 120%;
+		&:not(:first-child) {
+			text-align: center;
+		}
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		padding: 20px;
+		&:not(:first-child) {
+			text-align: center;
+			justify-content: center;
+			@media screen and (max-width: $lg) {
+				text-align: left;
+				justify-content: flex-start;
+				padding: 12px 19px 13px;
+			}
+		}
+		&:nth-child(even) {
+			background-color: #f0f4f9;
+			@media screen and (max-width: $lg) {
+				border-left: 1px solid transparent;
+				border-right: 1px solid transparent;
+			}
+		}
+		&:nth-child(odd) {
+			@media screen and (max-width: $lg) {
+				border: 1px solid rgba(#cfcfcf, 0.5);
+			}
+		}
+		& + & {
+			@media screen and (min-width: $lg) {
+				border-left: 1px solid rgba(#cfcfcf, 0.5);
+			}
+		}
+		@media screen and (max-width: $lg) {
+			padding: 17px 19px 18px;
+		}
+	}
+	&__body {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 14px;
+		@media screen and (max-width: $lg) {
+			gap: 16px 0px;
+		}
+	}
+	&__title {
+		color: #4b4b4b;
+		font-family: "Rubik", sans-serif;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 120%;
+		display: block;
+		&:not(:last-child) {
+			margin-bottom: 11px;
+			@media screen and (max-width: $lg) {
+				margin-bottom: 8px;
+			}
+		}
+	}
+	&__sub-title {
+		color: #a4a4a4;
+		font-family: "Rubik", sans-serif;
+		line-height: 120%;
+		& span {
+			color: $blueColor;
+		}
+	}
+	&__date {
+		display: block;
+		color: #a4a4a4;
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 120%;
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+	&__author {
+		font-size: 14px;
+		color: $blueColor;
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+	&__link {
+		color: #4b4b4b;
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 120%;
+	}
+	&__name {
+		display: block;
+		font-size: 16px;
+		line-height: 120%;
+		transition: color 0.15s ease 0s;
+		&:not(:last-child) {
+			margin-bottom: 13px;
+			@media screen and (max-width: $lg) {
+				margin-bottom: 6px;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $blueColor;
+			}
+		}
+	}
+	&__pages {
+		color: #a4a4a4;
+		font-family: "Rubik", sans-serif;
+		line-height: 120%;
+		& a {
+			transition: color 0.15s ease 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $blueColor;
+				}
+			}
+		}
+	}
+	&__theme {
+		padding-left: 40px;
+		background-image: url("../images/icons/icon-info.svg");
+		background-repeat: no-repeat;
+		background-size: 18px 18px;
+		background-position: left center;
+		@media screen and (max-width: $lg) {
+			padding-left: 20px;
+			background: none;
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -9px;
+				width: 24px;
+				height: 24px;
+				background-color: #789aff;
+				mask-image: url("../images/icons/icon-info.svg");
+				mask-repeat: no-repeat;
+				mask-position: center;
+			}
+		}
+	}
+	&__label {
+		display: none;
+		margin-bottom: 8px;
+		@media screen and (max-width: $lg) {
+			display: block;
+		}
+	}
+}
+a.forum-table__link {
+	text-decoration: underline;
+	transition: text-decoration 0.2s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	&:active {
+		text-decoration: none;
+	}
+}
+
+.top-forum {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 17px 0 6px;
+	@media screen and (max-width: $md) {
+		display: none;
+	}
+	&__info {
+	}
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 11px;
+		}
+	}
+	&__data {
+		color: #a4a4a4;
+		font-family: "Rubik", sans-serif;
+		font-size: 14px;
+		line-height: 110%;
+	}
+	&__total {
+	}
+
+	&__shown {
+	}
+	&__pagination {
+	}
+}
+
+.forum-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	&__icon {
+		&::before {
+			content: "";
+			display: block;
+			width: 24px;
+			height: 24px;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+}
+.icon-info-gradient {
+	&::before {
+		background-image: url("../images/icons/labels/icon-info-gradient.svg");
+	}
+}
+.icon-new-message {
+	&::before {
+		background-image: url("../images/icons/labels/icon-new-message.svg");
+	}
+}
+.icon-no-message {
+	&::before {
+		background-image: url("../images/icons/labels/icon-no-message.svg");
+	}
+}
+.icon-close-message {
+	&::before {
+		background-image: url("../images/icons/labels/icon-close-message.svg");
+	}
+}
+.icon-unopened-message {
+	&::before {
+		background-image: url("../images/icons/labels/icon-unopened-message.svg");
+	}
+}

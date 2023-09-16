@@ -1,0 +1,29 @@
+div.main__actions.actions-main
+	.actions-main__body
+		.actions-main__items
+			.actions-main__item
+				+btn("Создать новую тему", "actions-main__button")
+			.actions-main__item
+				.actions-main__label Форум:
+				select(name="forum").select-choices 
+					option(value="Обо всем, кроме фото" selected) Обо всем, кроме фото 
+					option(value="Обо всем, кроме конкурса") Обо всем, кроме конкурса
+					option(value="Обо всем, кроме архивных фото") Обо всем, кроме архивных фото
+			.actions-main__item
+				.actions-main__label Показать темы:
+				select(name="forum").select-choices 
+					option(value="За все время" selected) За все время
+					option(value="За неделю") За неделю
+					option(value="За месяц") За месяц
+					option(value="За год") За год
+			.actions-main__item
+				.actions-main__label Сообщества:
+				select(name="forum").select-choices 
+					option(value="Все сообщества" selected) Все сообщества
+					option(value="Все сообщества 2") Все сообщества 2
+					option(value="Все сообщества 3") Все сообщества 3
+			.actions-main__item
+				form(action="#").search-form.form
+					input(type="text" placeholder="Поиск Club.FOTO.RU").form__input.search-form__input
+					button(type="submit").search-form__button
+						span.search-form__icon

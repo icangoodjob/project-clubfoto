@@ -1,0 +1,109 @@
+mixin breadcrumbs(items, last)
+	div.breadcrumbs
+		ul.breadcrumbs__list
+			each item in items
+				li.breadcrumbs__item
+					a(href="/" title=item)= item
+			if last 
+				li.breadcrumbs__item.breadcrumbs__item--last= last
+mixin menu([...items])
+	ul.menu__list
+		each item, index in items
+			li.menu__item(class={active: item.title == pageTitle})
+				a.menu__link(href=item.link)= item.title
+				if item.submenu 
+					span.menu__arrow 
+					div.submenu
+						ul.submenu__list 
+							each submenuItem, submenuIndex in item.submenu 
+								li.submenu__item(class={active: submenuItem.title == pageTitle})
+									a.submenu__link(href=submenuItem.link)= submenuItem.title
+mixin svgsprite(name)
+	svg(class=`svg-svg-${name}-dims`)&attributes(attributes)
+		use(xlink:href=`./images/icons/icons.svg#svg-${name}`)
+mixin section(title, sectionClass, btnShow, adaptValue, iconClass)
+	section.sections-item.item-section(class=sectionClass data-da=adaptValue)
+		.item-section__body
+			header.item-section__header
+				span.item-section__icon.icon-wrap(class=iconClass)
+				h2.item-section__title
+					span!= title
+			if block 
+				block
+			if btnShow
+				footer.item-section__footer
+					a(href="#").btn-show= btnShow
+mixin badges([...items])
+	.badges__body
+		ul.badges__list
+			each item, index in items
+				li.badges__item(class={active: index === 2})
+					a(href="#")= item
+mixin galleryGrid(btnAdd, galleryName)
+	.gallery
+		.gallery__body.gallery-grid.swiper
+			.gallery__wrapper.swiper-wrapper
+				each item in galleries.photo
+					.gallery__item.item-gallery.swiper-slide
+						a(href=`images/sections/galleries/photo/${item.img}.jpg` data-fslightbox=`gallery-${galleryName}`)
+							.item-gallery__image.ibg
+								img(src=`images/sections/galleries/photo/${item.img}.jpg`, alt="изображение галереи")
+			.gallery__bottom
+				if btnAdd
+					button(type="button").gallery__btn.icon-wrap.btn-add
+				.gallery__controls.slider-controls 
+					button(type="button").slider-button.slider-button-prev
+					.slider-pagination
+					button(type="button").slider-button.slider-button-next
+				a(href="#").gallery__link.btn-show Ещё 
+mixin galleryList([...array], galleryBodyClass, pathImg, galleryName, isBadge, btnAdd)
+	.gallery
+		.gallery__body.swiper(class=galleryBodyClass)
+			.gallery__wrapper.swiper-wrapper
+				each item, index in array
+					.gallery__item.item-gallery.swiper-slide
+						if item.badge && isBadge
+							| !{item.badge} 
+						a(href=`images/sections/galleries/${pathImg}/${item.img}.jpg` data-fslightbox=`gallery-${galleryName}`)
+							.item-gallery__image.ibg
+								img(src=`images/sections/galleries/${pathImg}/${item.img}.jpg`, alt="изображение галереи")
+						if galleryBodyClass != "gallery-recent"
+							.item-gallery__body 
+								time(datetime="2011-06-03").item-gallery__date 23.06.2011 16:22:02
+								.item-gallery__name= item.name
+								.item-gallery__author= item.author
+			.gallery__bottom
+				if btnAdd
+					button(type="button").gallery__btn.icon-wrap.btn-add
+				.gallery__controls.slider-controls 
+					button(type="button").slider-button.slider-button-prev
+					.slider-pagination
+					button(type="button").slider-button.slider-button-next
+				a(href="#").gallery__link.btn-show Ещё 
+mixin bigNews([...array], imgPath)
+	ul.item-section__list.big-news-list
+		each item, index in array
+			li.item-section__list-item.big-news-item
+				a(href="#").item-section__link.big-news-link
+					.big-news-image
+						img(src=`images/sections/${imgPath}/${item.img}.jpg`, alt=item.title)
+					.big-news-content
+						.big-news-title= item.title
+						.big-news-text= item.text
+						time(datetime=item.date.split('.').reverse().join('-') class="big-news-date")= item.date
+mixin smallNews([...array], imgPath)
+	ul.item-section__list.small-news-list
+		each item, index in array
+			li.small-news-item
+				a(href="#").item-section__link.small-news-link
+					.small-news-image 
+						img(src=`images/sections/${imgPath}/${index+1}.jpg`, alt=item.text)
+					.small-news-content 	
+						span.item-section__link-text.small-news-text= item.text
+						if item.dateStart || item.dateEnd
+							.small-news-dates
+								time(datetime=item.dateStart.split('.').reverse().join('-') class="small-news-date")= item.dateStart
+								|  -
+								time(datetime=item.dateEnd.split('.').reverse().join('-') class="small-news-date")= item.dateEnd
+mixin btn(btnText, className)
+	button(type="button" class=className).btn= btnText

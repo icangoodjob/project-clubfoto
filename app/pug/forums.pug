@@ -1,0 +1,77 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Форумы";
+	- let mainTopTitle = pageTitle;
+	- description += pageTitle;
+block content
+	div.forums 
+		include components/main_top
+		.forums__wrapper
+			.container
+				include components/actions
+				.main__badges.badges
+					+badges(badges.forum)
+				.forums__sections.sections-forum
+					.sections-forum__box
+						.sections-forum__table.forum-table(style="--repeatColumns: 3")
+							.forum-table__row.forum-table__row-header
+								.forum-table__head Форум:
+								.forum-table__head Тем:
+								.forum-table__head Сообщений:
+								.forum-table__head Последнее сообщение:
+							.forum-table__body
+								- var count = 0;
+									while count < 6
+										.forum-table__row 
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Форум:
+													a(href="#").forum-table__title #[strong Помогите выбрать классный фотоаппарат!] 
+													.forum-table__sub-title Модераторы: #[span.color-blue User123]
+											.forum-table__item
+												.forum-table__info 
+													.forum-table__label.forum-table__head Тем:
+													| 15000
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Сообщений:
+													| 1550
+											.forum-table__item 
+												.forum-table__info
+													.forum-table__label.forum-table__head Последнее сообщение:
+													time(datetime="2011-06-03").forum-table__date 23.06.2011 16:22:02
+													.forum-table__author от Moderator
+													a(href="#").forum-table__link смотреть
+											- count += 1;
+					.sections-forum__box.sections-forum__box--favorites
+						.sections-forum__table.forum-table(style="--repeatColumns: 3")
+							.forum-table__row.forum-table__row-header
+								.forum-table__head Избранные материалы форумов:
+								.forum-table__head Автор:
+								.forum-table__head Дата создания:
+								.forum-table__head Последнее сообщение:
+							.forum-table__body
+								- var n = 0;
+									while n < 7
+										.forum-table__row 
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Избранные материалы форумов
+													a(href="#").forum-table__title #[strong Помогите выбрать классный фотоаппарат!] 
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Автор:
+													| #[span.color-blue User123]
+											.forum-table__item
+												.forum-table__info
+													.forum-table__label.forum-table__head Дата создания:
+													time(datetime="2011-06-03").forum-table__date 23.06.2011 16:22:02
+											.forum-table__item 
+												.forum-table__info
+													.forum-table__label.forum-table__head Последнее сообщение:
+													time(datetime="2011-06-03").forum-table__date 23.06.2011 16:22:02
+											- n += 1;
+					.forums__pagination.pagination-forum 
+						include components/pagination
+			include components/tabs

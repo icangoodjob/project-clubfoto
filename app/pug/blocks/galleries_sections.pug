@@ -1,0 +1,131 @@
+.sections.galleries__sections.sections-galleries
+	.sections-galleries__body
+		aside.sections__aside.aside-left
+			+section("Разделы галереи", "item-section--partion")
+				.item-section__content.partions 
+					ul.partions__list
+						each item, index in sections.partionGallery
+							li.partions__item.item-partion(class={active: index === 7})
+								a(href="#").item-partion__link= item.title
+								.item-partion__value= item.value
+			+section("Галереи кланов", "item-section--clan-gallery")
+				.item-section__content
+					+galleryGrid(false, "clan-gallery")
+			div.sections-item.item-section.item-section--banner
+				.item-section__content
+					a(href="#").banner.banner-small
+						.banner__image.ibg
+							img(src="images/sections/banner/banner-small.jpg", alt="Баннер")
+			+section("Победители миниконкурсов", "item-section--winners")
+				.item-section__content
+					.card-winner
+						.card-winner__image.ibg
+							img(src="images/sections/winner/img.jpg", alt="Победители миниконкурсов")
+						.card-winner__body
+							.card-winner__icon 
+							.card-winner__content 
+								time(datetime="2011-06-23").card-winner__date 23.06.2011 16:22:02
+								.card-winner__name “Мастер и Маргарита”
+								.card-winner__author Победитель:  #[span Moderator]
+			+section("Последние поступления", "item-section--recent-arrivals")
+				.item-section__content
+					+galleryGrid(false, "recent-gallery")
+			div.sections-item.item-section.item-section--banner.banner-left
+				.item-section__content
+					a(href="#").banner.banner-big
+						.banner__image.ibg
+							img(src="images/sections/banner/banner-big.jpg", alt="Баннер")
+		div.sections__center 
+			+section("Лучшие фото", "item-section--best-photo")
+				.item-section__content
+					+galleryList([...sections.bestPhoto], "gallery-list-best", "photo", "best-photo", true)
+			+section("Лучшие фото за неделю", "item-section--best-week")
+				.item-section__content
+					+galleryList([...sections.bestPhoto], "gallery-list-best", "photo", "best-week", true)
+			+section("Самые рекомендуемые за вчерашний день", "item-section--recomendation")
+				.item-section__content 
+					+galleryList([...sections.mainGallery], "gallery-list", "main", "recomendation", false)
+			+section("Самые популярные за вчерашний день", "item-section--popular")
+				.item-section__content 
+					+galleryList([...sections.mainGallery], "gallery-list", "main", "popular", false)
+			+section("Молодые дарования", "item-section--young")
+				.item-section__content
+					+galleryList([...sections.bestPhoto], "gallery-list-best", "photo", "young", false)
+			+section("Лучшие серии фотографий", "item-section--best-series")
+				.item-section__content 
+					+galleryList([...sections.mainGallery], "gallery-list", "main", "best-series", false)
+			+section("Лучшие серии фотографий", "item-section--best-series")
+				.item-section__content 
+					+galleryList([...sections.mainGallery], "gallery-list", "main", "best-series-second", true)
+			+section("Самые комментируемые за вчерашний день", "item-section--most-comment")
+				.item-section__content 
+					+galleryList([...sections.mainGallery], "gallery-list", "main", "most-comment", false)
+			div.sections-item.item-section.item-section--banner.banner-mobile
+				.item-section__content
+					a(href="#").banner.banner-small
+						.banner__image.ibg
+							img(src="images/sections/banner/banner-small.jpg", alt="Баннер")
+			+section("Прошедшие конкурсы", "item-section--contests", "Смотреть все новости", ".aside-right, 767.98, 0")
+				.item-section__content 
+					+bigNews([...sections.bigNews], "contests")
+			+section("Прошедшие выставки", "item-section--showing", "Смотреть все новости", ".aside-right, 767.98, 0")
+				.item-section__content 
+					+bigNews([...sections.bigNews], "showing")
+		aside.sections__aside.aside-right
+			+section("Зарегист&shy;рируйтесь", "item-section--registration")
+				.item-section__content
+					.registration-info
+						.description-block
+							.description-block__label Зарегистрируйтесь! Вы сможете:
+							ul.description-block__list 
+								li добавлять новые темы в форумах
+								li участвовать в их обсуждении
+								li вступать в сообщества
+						+btn("Зарегистрироваться", "registration-info__button")
+			div.sections-item.item-section.item-section--banner.banner-right
+				.item-section__content
+					a(href="#").banner.banner-big
+						.banner__image.ibg
+							img(src="images/sections/banner/banner-big.jpg", alt="Баннер")
+			+section("Банк фотомоделей", "item-section--photo-model")
+				.item-section__content
+					.gallery
+						.gallery__body.swiper(class="gallery-photomodel")
+							.gallery__wrapper.swiper-wrapper
+								each item, index in sections.photoModel
+									.gallery__item.item-gallery.swiper-slide
+										a(href=`images/sections/galleries/photomodel/${item.img}.jpg` data-fslightbox=`gallery-photomodel`)
+											.item-gallery__image.ibg
+												img(src=`images/sections/galleries/photomodel/${item.img}.jpg`, alt="изображение галереи")
+										.item-gallery__body 
+											.item-gallery__name= item.title
+											.item-gallery__descr= item.descr
+							.gallery__bottom
+								.gallery__controls.slider-controls 
+									button(type="button").slider-button.slider-button-prev
+									.slider-pagination
+									button(type="button").slider-button.slider-button-next
+								a(href="#").gallery__link.btn-show Ещё 
+			+section("Как это сделано", "item-section--how-isdone", "Смотреть все")
+				.item-section__content
+					+smallNews([...sections.howIsDone], "projects")
+			+section("Дополнительно", "item-section--additional")
+				.item-section__content
+					div.additional-items
+						each item in sections.additional
+							details.details
+								summary.details__summary= item.title
+								.details__content
+									form.details__form.form(action="#")
+										input(type="text" placeholder="Поиск").details__input.form__input
+			+section("Подписаться на рассылку", "item-section--subscribe")
+				.item-section__content
+					form(action="#").subscribe-form.form
+						input(type="email" placeholder="Ваш Email").subscribe-form__input.form__input
+						button(type="submit").subscribe-form__button.btn Подписаться
+			div.sections-item.item-section.item-section--banner.banner-mobile
+				.item-section__content
+					a(href="#").banner.banner-small
+						.banner__image.ibg
+							img(src="images/sections/banner/banner-small.jpg", alt="Баннер")
+

@@ -1,0 +1,15 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Главная";
+	- description += pageTitle;
+block content
+	.main-search
+		.container
+			.main-search__box.search
+				form(action="#").search-form.form
+					input(type="text" placeholder="Поиск Club.FOTO.RU").form__input.search-form__input
+					button(type="submit").search-form__button
+						span.search-form__icon
+	include blocks/sections
+	include components/tabs

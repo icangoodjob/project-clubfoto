@@ -1,0 +1,39 @@
+.tabs 
+	.container 
+		.tabs__body 
+			ul.tabs__list 
+				li.tabs__item(data-tab="one") Всего зарегистрировано
+				li.tabs__item(data-tab="two") Сейчас в клубе
+				li.tabs__item(data-tab="three") Сегодня день рождения
+				li.tabs__item(data-tab="four") Завтра день рождения
+				li.tabs__item(data-tab="five") Сегодня годовщина в клубе
+			.tabs__wrapper
+				.tabs__content(data-tab-content="one").content-tab
+					.content-tab__header(data-spoller) Всего зарегистрировано
+					.content-tab__body
+						.content-tab__info
+							p.content-tab__description В клубе зарегистрировано #[strong 687261]&nbsp;человек
+							form(action="#").search-form.form
+								input(type="text" placeholder="Поиск по имени").form__input.search-form__input
+								button(type="submit").search-form__button
+									span.search-form__icon
+				.tabs__content(data-tab-content="two").content-tab
+					.content-tab__header(data-spoller) Сейчас в клубе
+					.content-tab__body
+						.content-tab__info
+							p.content-tab__description Раздел находится в разработке
+				.tabs__content(data-tab-content="three").content-tab
+					.content-tab__header(data-spoller) Сегодня день рождения
+					.content-tab__body
+						.content-tab__info
+							p.content-tab__description Раздел находится в разработке
+				.tabs__content(data-tab-content="four").content-tab
+					.content-tab__header(data-spoller) Завтра день рождения
+					.content-tab__body
+						.content-tab__info
+							p.content-tab__description Раздел находится в разработке
+				.tabs__content(data-tab-content="five").content-tab
+					.content-tab__header(data-spoller) Сегодня годовщина в клубе
+					.content-tab__body
+						.content-tab__info
+							p.content-tab__description Раздел находится в разработке

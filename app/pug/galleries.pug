@@ -1,0 +1,47 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Галерея";
+	- description += pageTitle;
+block content
+	.galleries
+		.container 
+			.galleries__title.page-title #{pageTitle}
+			div.main__actions.actions-main
+				.actions-main__body
+					.actions-main__items
+						.actions-main__item
+							+btn("Добавить фотографию", "actions-main__button")
+						.actions-main__item
+							.actions-main__label За сегодня:
+							select(name="forum").select-choices 
+								option(value="По оценкам" selected) По оценкам 
+								option(value="По оценкам 2") По оценкам 2
+								option(value="По оценкам 3") По оценкам 3
+						.actions-main__item
+							.actions-main__label За три дня:
+							select(name="forum").select-choices 
+								option(value="По рекомендациям" selected) По рекомендациям
+								option(value="По рекомендациям 2") По рекомендациям 2
+								option(value="По рекомендациям 3") По рекомендациям 3
+						.actions-main__item
+							.actions-main__label За неделю:
+							select(name="forum").select-choices 
+								option(value="Все" selected) Все
+								option(value="Все 2") Все 2
+								option(value="Все 3") Все 3
+						.actions-main__item
+							.actions-main__label За месяц:
+							select(name="forum").select-choices 
+								option(value="За месяц" selected) За месяц
+								option(value="За месяц 2") За месяц 2
+								option(value="За месяц 3") За месяц 3
+						.actions-main__item
+							.actions-main__label За год:
+							select(name="forum").select-choices 
+								option(value="За год" selected) За год
+								option(value="За год 2") За год 2
+								option(value="За год 3") За год 3
+			.main__badges.badges
+				+badges(badges.galleries)
+			include blocks/galleries_sections

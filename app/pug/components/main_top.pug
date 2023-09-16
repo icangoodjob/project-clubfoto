@@ -1,0 +1,19 @@
+section.main__top.top-main
+	.container 
+		.top-main__wrapper
+			.top-main__info
+				h1.top-main__title.page-title #{mainTopTitle}
+				.top-main__description.description-block
+					.description-block__label Зарегистрируйтесь! Вы сможете:
+					ul.description-block__list 
+						li добавлять новые темы в форумах
+						li участвовать в их обсуждении
+						li вступать в сообщества
+					.description-block__text Форум для членов Клуба. Разрешен оффтоп (в&nbsp;разумных пределах)
+				.top-main__action
+					a(href="#").top-main__link.btn-show Пройти регистрацию
+			.top-main__image.ibg
+				picture
+					source(srcset="images/top-main-img.jpg" media="(min-width: 767.98px)")
+					source(srcset="images/top-main-img-mobile.jpg" media="(min-width: 320px)")
+					img(src="images/top-main-img.jpg", alt="Изображение")

@@ -1,0 +1,80 @@
+.sections.home-sections
+	.container
+		.sections__body
+			aside.sections__aside.aside 
+				+section("Галерея фотографий", "item-section--gallery", null, ".sections__body-mobile, 767.98, 0")
+					.item-section__content 
+						+galleryGrid(true, "photos")
+				+section("Форумы", "item-section--forum", "Смотреть все", ".sections__body-mobile, 767.98, 6")
+					.item-section__content 
+						ul.item-section__list.forum-list
+							each item in sections.forums
+								li.item-section__list-item 
+									a(href="#").item-section__link
+										span.item-section__link-text= item.text
+				+section("Отзывы о фототехнике", "item-section--reviews", "Смотреть все", ".sections__body-mobile, 767.98, 7")
+					.item-section__content 
+						ul.item-section__list.reviews-list
+							each item in sections.reviews
+								li.item-section__list-item 
+									a(href="#").item-section__link
+										span.item-section__link-text= item
+			.sections__main.main-sections
+				.main-sections__top
+					+section("Новости", "item-section--news", "Все новости", ".sections__body-mobile, 767.98, 1")
+						.item-section__content 
+							ul.item-section__list.news-list
+								each item in sections.news
+									li.item-section__list-item 
+										a(href="#").item-section__link
+											time(datetime=item.date.split('.').reverse().join('-') class="item-section__date")= item.date
+											span.item-section__link-text= item.text
+					+section("В фокусе", "item-section--focus", "Все новости", ".sections__body-mobile, 767.98, 2")
+						.item-section__content 
+							ul.item-section__list.focus-list
+								each item in sections.focus
+									li.item-section__list-item 
+										a(href="#").item-section__link
+											time(datetime=item.date.split('.').reverse().join('-') class="item-section__date")= item.date
+											span.item-section__link-text= item.text
+					+section("Барахолка", "item-section--flea-market", "Смотреть объявления", ".sections__body-mobile, 767.98, 3")
+						.item-section__content
+							ul.item-section__list.flea-market-list
+								li.item-section__list-item
+									each item in sections.flea.heading
+										span.flea-market-list__head= item.title
+								each item, index in sections.flea.list
+									li.item-section__list-item
+										span.flea-market-list__text(class=`${index == 0 ? 'flea-market-list__text--buy' : 'flea-market-list__text--sell'}`)= item.text
+										span.flea-market-list__number= item.number
+										span.flea-market-list__total= item.total
+				.main-sections__middle
+					+section("Последние поступления в Галерее", "item-section--recent", null, ".sections__body-mobile, 767.98, 4")
+						.item-section__content
+							+galleryList([...galleries.recent], "gallery-recent", "recent", "recent")
+					div.sections-item.item-section.item-section--banner(data-da=".sections__body-mobile, 767.98, 5")
+						.item-section__content
+							a(href="#").item-section__banner.banner-home
+								img(src="images/sections/banner/1.jpg", alt="Баннер")
+					+section("Выставки и проекты", "item-section--projects", "Смотреть все", ".sections__body-mobile, 767.98, 8")
+						.item-section__content 
+							+smallNews([...sections.projects], "projects")
+				.main-sections__bottom
+					+section("Новости фотоиндустрии", "item-section--industry-news", "Смотреть все новости", ".sections__body-mobile, 767.98, 9")
+						.item-section__content
+							+bigNews([...sections.bigNews], "industry-news")
+					+section("Класика фотоискусства", "item-section--classic", "Смотреть все", ".sections__body-mobile, 767.98, 10")
+							.item-section__content
+								ul.item-section__list.classic-list
+									each item, index in sections.classicPhoto.list
+										li.item-section__list-item.item-classic
+											a(href="#").item-section__link.item-classic__link
+												.item-classic__image 
+													img(src=`images/sections/classic/${index+1}.jpg`, alt=item.text)
+												.item-classic__content
+													span.item-section__link-text!= item.text
+													.item-classic__date= item.year
+								.classic-links
+									each item, index in sections.classicPhoto.links
+										a(href=item.link target="_blank")= item.name
+		.sections__body-mobile 

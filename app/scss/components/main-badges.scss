@@ -1,0 +1,52 @@
+.main {
+	&__badges {
+		padding: 14px 0 20px;
+		@media screen and (max-width: $md) {
+			padding: 17px 0 16px;
+		}
+	}
+}
+.galleries .badges__list {
+	@media screen and (max-width: $md) {
+		gap: 12px 12px;
+	}
+}
+.badges {
+	&__body {
+	}
+	&__list {
+		@include reset-list;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 12px;
+		@media screen and (max-width: $md) {
+			gap: 12px 5px;
+		}
+	}
+	&__item {
+		border-radius: 40px;
+		border: 1px solid #a4a4a4;
+		min-height: 29px;
+		padding: 5px 13.5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: #a4a4a4;
+		line-height: 100%;
+		transition:
+			color 0.2s ease 0s,
+			border-color 0.2s ease 0s;
+		&.active {
+			color: #4b4b4b;
+			border-color: #4b4b4b;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: #4b4b4b;
+				border-color: #4b4b4b;
+			}
+		}
+	}
+}
