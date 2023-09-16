@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Форум</title>
+	<meta name="description" content="Описание на странице - Форум">
+	<meta name="keywords" content="Перечень ключевых слов">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://example.com">
+	<meta property="og:title" content="Форум">
+	<meta property="og:description" content="Описание на странице - Форум">
+	<meta property="twitter:title" content="Форум">
+	<meta property="twitter:description" content="description">
+	<link rel="canonical" href="https://example.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap&_v=20230916133012" rel="stylesheet">
+	<link href="styles/main.min.css?_v=20230916133012" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" href="images/favicons/favicon.ico">
+	<meta name="msapplication-TileImage" content="images/favicons/msite-150х150.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="apple-mobile-web-app-title" content="Название">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="format-detection" content="date=no">
+</head>
+
+<body>
+	<div class="wrapper" id="wrapper">
+		<header class="header" id="header">
+			<div class="container">
+				<div class="header__body">
+					<div class="header__top top-header">
+						<div class="top-header__left">
+							<a class="top-header__logo" href="#">
+								<picture>
+									<source srcset="images/logo_pc.svg" media="(min-width: 1200px)">
+									<source srcset="images/logo_mobile.svg" media="(min-width: 300px)">
+									<img src="images/logo_pc.svg" alt="логотип">
+								</picture>
+							</a>
+							<nav class="top-header__menu header-menu" data-da=".menu-mobile__body, 991.98, 1">
+								<ul class="header-menu__list">
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Барахолка</a>
+									</li>
+									<li class="header-menu__item active">
+										<a class="header-menu__link" href="#">Фотолаборатории</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Фотостудии</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Словарь</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Вопросы-ответы</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="top-header__right">
+							<nav class="header__nav nav-header" data-da=".menu-mobile__body, 389.98, 0">
+								<ul class="nav-header__list">
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/fotogora.svg" alt="Фотогора">
+											</div>
+											<div class="nav-header__text">Фотогора</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/forum.svg" alt="Форум">
+											</div>
+											<div class="nav-header__text">Форум</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/blog.svg" alt="Блог">
+											</div>
+											<div class="nav-header__text">Блог</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/market.svg" alt="Магазин">
+											</div>
+											<div class="nav-header__text">Магазин</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link nav-header__link--signin" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/user.svg" alt="Вход">
+											</div>
+											<div class="nav-header__text">Вход</div>
+										</a>
+									</li>
+								</ul>
+							</nav>
+							<button class="nav-header__button" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+					</div>
+					<div class="header__search">
+						<form class="search-form form" action="#">
+							<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+							<button class="search-form__button" type="submit"></button>
+						</form>
+					</div>
+					<div class="header__categories categories-header" data-da=".menu-mobile__body, 767.98, 2">
+						<button class="categories-header__button" type="button">Категории</button>
+						<nav class="categories-header__menu menu-categories">
+							<ul class="menu-categories__list">
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="forums.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-forum.svg" alt="Форумы">
+										</span>
+										<span class="menu-categories__caption">Форумы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="gallery.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-gallery.svg" alt="Галерея фоторафий">
+										</span>
+										<span class="menu-categories__caption">Галерея фоторафий</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-personal_photo.svg" alt="Персональные фотоальбомы">
+										</span>
+										<span class="menu-categories__caption">Персональные фотоальбомы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-archived_photo.svg" alt="Архивные фото">
+										</span>
+										<span class="menu-categories__caption">Архивные фото</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-projects.svg" alt="Выставки и проекты">
+										</span>
+										<span class="menu-categories__caption">Выставки и проекты</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-discuss_photo.svg" alt="Обсуждение фототехники">
+										</span>
+										<span class="menu-categories__caption">Обсуждение фототехники</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-school_photo.svg" alt="Школа фотографии">
+										</span>
+										<span class="menu-categories__caption">Школа фотографии</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-classic_photo.svg" alt="Классики фотоискусства">
+										</span>
+										<span class="menu-categories__caption">Классики фотоискусства</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="menu-mobile">
+						<div class="menu-mobile__body"> </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="breadcrumbs">
+			<div class="container">
+				<nav class="breadcrumbs__navigation">
+					<ul class="breadcrumbs__list">
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Главная</a>
+						</li>
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Форум</a>
+						</li>
+						<li class="breadcrumbs__item active">Целевая</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="main">
+			<div class="forums">
+				<section class="main__top top-main">
+					<div class="container">
+						<div class="top-main__wrapper">
+							<div class="top-main__info">
+								<h1 class="top-main__title page-title">Обо всем, кроме фото</h1>
+								<div class="top-main__description description-block">
+									<div class="description-block__label">Зарегистрируйтесь! Вы сможете:</div>
+									<ul class="description-block__list">
+										<li>добавлять новые темы в форумах</li>
+										<li>участвовать в их обсуждении</li>
+										<li>вступать в сообщества</li>
+									</ul>
+									<div class="description-block__text">Форум для членов Клуба. Разрешен оффтоп (в&nbsp;разумных пределах)</div>
+								</div>
+								<div class="top-main__action">
+									<a class="top-main__link btn-show" href="#">Пройти регистрацию</a>
+								</div>
+							</div>
+							<div class="top-main__image ibg">
+								<picture>
+									<source srcset="images/top-main-img.jpg" media="(min-width: 767.98px)">
+									<source srcset="images/top-main-img-mobile.jpg" media="(min-width: 320px)">
+									<img src="images/top-main-img.jpg" alt="Изображение">
+								</picture>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="forums__wrapper">
+					<div class="container">
+						<div class="main__actions actions-main">
+							<div class="actions-main__body">
+								<div class="actions-main__items">
+									<div class="actions-main__item">
+										<button class="actions-main__button btn" type="button">Создать новую тему</button>
+									</div>
+									<div class="actions-main__item">
+										<div class="actions-main__label">Форум:</div>
+										<select class="select-choices" name="forum">
+											<option value="Обо всем, кроме фото" selected>Обо всем, кроме фото </option>
+											<option value="Обо всем, кроме конкурса">Обо всем, кроме конкурса</option>
+											<option value="Обо всем, кроме архивных фото">Обо всем, кроме архивных фото</option>
+										</select>
+									</div>
+									<div class="actions-main__item">
+										<div class="actions-main__label">Показать темы:</div>
+										<select class="select-choices" name="forum">
+											<option value="За все время" selected>За все время</option>
+											<option value="За неделю">За неделю</option>
+											<option value="За месяц">За месяц</option>
+											<option value="За год">За год</option>
+										</select>
+									</div>
+									<div class="actions-main__item">
+										<div class="actions-main__label">Сообщества:</div>
+										<select class="select-choices" name="forum">
+											<option value="Все сообщества" selected>Все сообщества</option>
+											<option value="Все сообщества 2">Все сообщества 2</option>
+											<option value="Все сообщества 3">Все сообщества 3</option>
+										</select>
+									</div>
+									<div class="actions-main__item">
+										<form class="search-form form" action="#">
+											<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+											<button class="search-form__button" type="submit">
+												<span class="search-form__icon"></span>
+											</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="forums__top top-forum">
+							<div class="top-forum__info">
+								<h2 class="top-forum__title page-title">Обо всем, кроме фото</h2>
+								<div class="top-forum__data">
+									<span class="top-forum__total">Всего 12345 тем </span>
+									|
+									<span class="top-forum__shown">Показаны с 1 по 20</span>
+								</div>
+							</div>
+							<div class="top-forum__pagination">
+								<div class="pagination">
+									<ul class="pagination__list">
+										<li class="pagination__item">
+											<a class="pagination__link pagination__link--prev" href="#"></a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">1</a>
+										</li>
+										<li class="pagination__item active">
+											<a class="pagination__link" href="#">2</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">3</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">4</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">5</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link pagination__link--next" href="#"></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="main__badges badges">
+							<div class="badges__body">
+								<ul class="badges__list">
+									<li class="badges__item">
+										<a href="#">Фотоаппараты</a>
+									</li>
+									<li class="badges__item">
+										<a href="#">Фототехника</a>
+									</li>
+									<li class="badges__item active">
+										<a href="#">Только свет</a>
+									</li>
+									<li class="badges__item">
+										<a href="#">Конкурсы</a>
+									</li>
+									<li class="badges__item">
+										<a href="#">Архив</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="forums__sections sections-forum sections-forum--all">
+							<div class="sections-forum__box">
+								<div class="sections-forum__table forum-table" style="--repeatColumns: 4">
+									<div class="forum-table__row forum-table__row-header">
+										<div class="forum-table__head">Темы:</div>
+										<div class="forum-table__head">Ответов:</div>
+										<div class="forum-table__head">Первое сообщение:</div>
+										<div class="forum-table__head">Просмотров:</div>
+										<div class="forum-table__head">Последнее сообщение:</div>
+									</div>
+									<div class="forum-table__body">
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+										<div class="forum-table__row">
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Темы:</div>
+													<div class="forum-table__theme">
+														<a class="forum-table__name" href="#">Капитана "Трактора" освистали в Челябинске за агитацию в пользу "Единой России"</a>
+														<span class="forum-table__pages pages">[ На страницу: <a href="#">1,</a>
+															<a href="#">2,</a>
+															<a href="#">3,</a>
+															<a href="#">4,</a>
+															<a href="#">5</a>]
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Ответов:</div>150
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Первое сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Просмотров:</div>1550
+												</div>
+											</div>
+											<div class="forum-table__item">
+												<div class="forum-table__info">
+													<div class="forum-table__label forum-table__head">Последнее сообщение:</div>
+													<time class="forum-table__date" datetime="2011-06-03">23.06.2011 16:22:02</time>
+													<div class="forum-table__author">от Moderator</div>
+													<a class="forum-table__link" href="#">смотреть</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="forums__pagination pagination-forum">
+								<div class="pagination">
+									<ul class="pagination__list">
+										<li class="pagination__item">
+											<a class="pagination__link pagination__link--prev" href="#"></a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">1</a>
+										</li>
+										<li class="pagination__item active">
+											<a class="pagination__link" href="#">2</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">3</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">4</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">5</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link pagination__link--next" href="#"></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="forums__bottom">
+							<div class="main__actions actions-main">
+								<div class="actions-main__body">
+									<div class="actions-main__items">
+										<div class="actions-main__item">
+											<button class="actions-main__button btn" type="button">Создать новую тему</button>
+										</div>
+										<div class="actions-main__item">
+											<div class="actions-main__label">Форум:</div>
+											<select class="select-choices" name="forum">
+												<option value="Обо всем, кроме фото" selected>Обо всем, кроме фото </option>
+												<option value="Обо всем, кроме конкурса">Обо всем, кроме конкурса</option>
+												<option value="Обо всем, кроме архивных фото">Обо всем, кроме архивных фото</option>
+											</select>
+										</div>
+										<div class="actions-main__item">
+											<div class="actions-main__label">Показать темы:</div>
+											<select class="select-choices" name="forum">
+												<option value="За все время" selected>За все время</option>
+												<option value="За неделю">За неделю</option>
+												<option value="За месяц">За месяц</option>
+												<option value="За год">За год</option>
+											</select>
+										</div>
+										<div class="actions-main__item">
+											<div class="actions-main__label">Сообщества:</div>
+											<select class="select-choices" name="forum">
+												<option value="Все сообщества" selected>Все сообщества</option>
+												<option value="Все сообщества 2">Все сообщества 2</option>
+												<option value="Все сообщества 3">Все сообщества 3</option>
+											</select>
+										</div>
+										<div class="actions-main__item">
+											<form class="search-form form" action="#">
+												<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+												<button class="search-form__button" type="submit">
+													<span class="search-form__icon"></span>
+												</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="forums__labels">
+								<a class="forum-label" href="#">
+									<span class="forum-label__icon icon-wrap icon-info-gradient"></span>Прикрепленная тема
+								</a>
+								<a class="forum-label" href="#">
+									<span class="forum-label__icon icon-wrap icon-new-message"></span>Есть новые сообщения
+								</a>
+								<a class="forum-label" href="#">
+									<span class="forum-label__icon icon-wrap icon-no-message"></span>Нет новых сообщений
+								</a>
+								<a class="forum-label" href="#">
+									<span class="forum-label__icon icon-wrap icon-close-message"></span>Есть новые сообщения, тема закрыта
+								</a>
+								<a class="forum-label" href="#">
+									<span class="forum-label__icon icon-wrap icon-unopened-message"></span>Нет новых сообщений, тема закрыта
+								</a>
+							</div>
+							<div class="tabs">
+								<div class="container">
+									<div class="tabs__body">
+										<ul class="tabs__list">
+											<li class="tabs__item" data-tab="one">Всего зарегистрировано</li>
+											<li class="tabs__item" data-tab="two">Сейчас в клубе</li>
+											<li class="tabs__item" data-tab="three">Сегодня день рождения</li>
+											<li class="tabs__item" data-tab="four">Завтра день рождения</li>
+											<li class="tabs__item" data-tab="five">Сегодня годовщина в клубе</li>
+										</ul>
+										<div class="tabs__wrapper">
+											<div class="tabs__content content-tab" data-tab-content="one">
+												<div class="content-tab__header" data-spoller>Всего зарегистрировано</div>
+												<div class="content-tab__body">
+													<div class="content-tab__info">
+														<p class="content-tab__description">В клубе зарегистрировано <strong>687261</strong>&nbsp;человек</p>
+														<form class="search-form form" action="#">
+															<input class="form__input search-form__input" type="text" placeholder="Поиск по имени">
+															<button class="search-form__button" type="submit">
+																<span class="search-form__icon"></span>
+															</button>
+														</form>
+													</div>
+												</div>
+											</div>
+											<div class="tabs__content content-tab" data-tab-content="two">
+												<div class="content-tab__header" data-spoller>Сейчас в клубе</div>
+												<div class="content-tab__body">
+													<div class="content-tab__info">
+														<p class="content-tab__description">Раздел находится в разработке</p>
+													</div>
+												</div>
+											</div>
+											<div class="tabs__content content-tab" data-tab-content="three">
+												<div class="content-tab__header" data-spoller>Сегодня день рождения</div>
+												<div class="content-tab__body">
+													<div class="content-tab__info">
+														<p class="content-tab__description">Раздел находится в разработке</p>
+													</div>
+												</div>
+											</div>
+											<div class="tabs__content content-tab" data-tab-content="four">
+												<div class="content-tab__header" data-spoller>Завтра день рождения</div>
+												<div class="content-tab__body">
+													<div class="content-tab__info">
+														<p class="content-tab__description">Раздел находится в разработке</p>
+													</div>
+												</div>
+											</div>
+											<div class="tabs__content content-tab" data-tab-content="five">
+												<div class="content-tab__header" data-spoller>Сегодня годовщина в клубе</div>
+												<div class="content-tab__body">
+													<div class="content-tab__info">
+														<p class="content-tab__description">Раздел находится в разработке</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__top">
+					<nav class="footer__menu menu-footer">
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Правила Клуба</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">О Клубе</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Вход / Регистрация</a>
+							</li>
+							<li class="menu-footer__item active">
+								<a class="menu-footer__link" href="#">Поиск авторов</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">ХудСовет</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Как связаться</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Статистика</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Реклама на сайте</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">FAQ</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив галереи</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив форумов</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__bottom">
+					<a class="footer__logo" href="#" data-da=".footer__top, 767.98, 0">
+						<img src="images/footer-logo_pc.svg" alt="логотип">
+					</a>
+					<div class="footer__social social-footer">
+						<ul class="social-footer__list">
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--youtube" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--mail" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--vk" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--twitter" href="#" target="_blank"></a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--telegram" href="#" target="_blank"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer__copy">Все права защищены © 2023</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="scripts/main.min.js?_v=20230916133012" defer></script>
+</body>
+
+</html>

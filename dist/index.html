@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Главная</title>
+	<meta name="description" content="Описание на странице - Главная">
+	<meta name="keywords" content="Перечень ключевых слов">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://example.com">
+	<meta property="og:title" content="Главная">
+	<meta property="og:description" content="Описание на странице - Главная">
+	<meta property="twitter:title" content="Главная">
+	<meta property="twitter:description" content="description">
+	<link rel="canonical" href="https://example.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap&_v=20230916133012" rel="stylesheet">
+	<link href="styles/main.min.css?_v=20230916133012" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" href="images/favicons/favicon.ico">
+	<meta name="msapplication-TileImage" content="images/favicons/msite-150х150.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="apple-mobile-web-app-title" content="Название">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="format-detection" content="date=no">
+</head>
+
+<body>
+	<div class="wrapper" id="wrapper">
+		<header class="header" id="header">
+			<div class="container">
+				<div class="header__body">
+					<div class="header__top top-header">
+						<div class="top-header__left">
+							<a class="top-header__logo" href="#">
+								<picture>
+									<source srcset="images/logo_pc.svg" media="(min-width: 1200px)">
+									<source srcset="images/logo_mobile.svg" media="(min-width: 300px)">
+									<img src="images/logo_pc.svg" alt="логотип">
+								</picture>
+							</a>
+							<nav class="top-header__menu header-menu" data-da=".menu-mobile__body, 991.98, 1">
+								<ul class="header-menu__list">
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Барахолка</a>
+									</li>
+									<li class="header-menu__item active">
+										<a class="header-menu__link" href="#">Фотолаборатории</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Фотостудии</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Словарь</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Вопросы-ответы</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="top-header__right">
+							<nav class="header__nav nav-header" data-da=".menu-mobile__body, 389.98, 0">
+								<ul class="nav-header__list">
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/fotogora.svg" alt="Фотогора">
+											</div>
+											<div class="nav-header__text">Фотогора</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/forum.svg" alt="Форум">
+											</div>
+											<div class="nav-header__text">Форум</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/blog.svg" alt="Блог">
+											</div>
+											<div class="nav-header__text">Блог</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/market.svg" alt="Магазин">
+											</div>
+											<div class="nav-header__text">Магазин</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link nav-header__link--signin" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/user.svg" alt="Вход">
+											</div>
+											<div class="nav-header__text">Вход</div>
+										</a>
+									</li>
+								</ul>
+							</nav>
+							<button class="nav-header__button" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+					</div>
+					<div class="header__search">
+						<form class="search-form form" action="#">
+							<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+							<button class="search-form__button" type="submit"></button>
+						</form>
+					</div>
+					<div class="header__categories categories-header" data-da=".menu-mobile__body, 767.98, 2">
+						<button class="categories-header__button" type="button">Категории</button>
+						<nav class="categories-header__menu menu-categories">
+							<ul class="menu-categories__list">
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="forums.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-forum.svg" alt="Форумы">
+										</span>
+										<span class="menu-categories__caption">Форумы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="gallery.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-gallery.svg" alt="Галерея фоторафий">
+										</span>
+										<span class="menu-categories__caption">Галерея фоторафий</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-personal_photo.svg" alt="Персональные фотоальбомы">
+										</span>
+										<span class="menu-categories__caption">Персональные фотоальбомы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-archived_photo.svg" alt="Архивные фото">
+										</span>
+										<span class="menu-categories__caption">Архивные фото</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-projects.svg" alt="Выставки и проекты">
+										</span>
+										<span class="menu-categories__caption">Выставки и проекты</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-discuss_photo.svg" alt="Обсуждение фототехники">
+										</span>
+										<span class="menu-categories__caption">Обсуждение фототехники</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-school_photo.svg" alt="Школа фотографии">
+										</span>
+										<span class="menu-categories__caption">Школа фотографии</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-classic_photo.svg" alt="Классики фотоискусства">
+										</span>
+										<span class="menu-categories__caption">Классики фотоискусства</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="menu-mobile">
+						<div class="menu-mobile__body"> </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main">
+			<div class="main-search">
+				<div class="container">
+					<div class="main-search__box search">
+						<form class="search-form form" action="#">
+							<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+							<button class="search-form__button" type="submit">
+								<span class="search-form__icon"></span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="sections home-sections">
+				<div class="container">
+					<div class="sections__body">
+						<aside class="sections__aside aside">
+							<section class="sections-item item-section item-section--gallery" data-da=".sections__body-mobile, 767.98, 0">
+								<div class="item-section__body">
+									<header class="item-section__header">
+										<span class="item-section__icon icon-wrap"></span>
+										<h2 class="item-section__title">
+											<span>Галерея фотографий</span>
+										</h2>
+									</header>
+									<div class="item-section__content">
+										<div class="gallery">
+											<div class="gallery__body gallery-grid swiper">
+												<div class="gallery__wrapper swiper-wrapper">
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/4.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/4.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+													<div class="gallery__item item-gallery swiper-slide">
+														<a href="images/sections/galleries/photo/4.jpg" data-fslightbox="gallery-photos">
+															<div class="item-gallery__image ibg">
+																<picture>
+																	<source srcset="images/sections/galleries/photo/4.webp" type="image/webp">
+																	<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи">
+																</picture>
+															</div>
+														</a>
+													</div>
+												</div>
+												<div class="gallery__bottom">
+													<button class="gallery__btn icon-wrap btn-add" type="button"></button>
+													<div class="gallery__controls slider-controls">
+														<button class="slider-button slider-button-prev" type="button"></button>
+														<div class="slider-pagination"></div>
+														<button class="slider-button slider-button-next" type="button"></button>
+													</div>
+													<a class="gallery__link btn-show" href="#">Ещё </a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="sections-item item-section item-section--forum" data-da=".sections__body-mobile, 767.98, 6">
+								<div class="item-section__body">
+									<header class="item-section__header">
+										<span class="item-section__icon icon-wrap"></span>
+										<h2 class="item-section__title">
+											<span>Форумы</span>
+										</h2>
+									</header>
+									<div class="item-section__content">
+										<ul class="item-section__list forum-list">
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Помогите выбрать! (+1)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Цифровые компактные фотоаппараты</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Цифровые беззеркальные камеры со сменной оптикой</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Цифровые зеркальные фотоаппараты</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Общие вопросы фотографии (+1)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Фототехника среднего и большого форматов</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<footer class="item-section__footer">
+										<a class="btn-show" href="#">Смотреть все</a>
+									</footer>
+								</div>
+							</section>
+							<section class="sections-item item-section item-section--reviews" data-da=".sections__body-mobile, 767.98, 7">
+								<div class="item-section__body">
+									<header class="item-section__header">
+										<span class="item-section__icon icon-wrap"></span>
+										<h2 class="item-section__title">
+											<span>Отзывы о фототехнике</span>
+										</h2>
+									</header>
+									<div class="item-section__content">
+										<ul class="item-section__list reviews-list">
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Цифровые зеркальные фотокамеры (7423)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Цифровые компактные фотокамеры (12677)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Пленочные зеркальные фотокамеры (1375)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Пленочные компактные фотокамеры (188)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Фототехника среднего формата (124)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Объективы с переменным фокусным расстоянием (8718)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Объективы с постоянным фокусным расстоянием (5814)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Цифровые компактные фотокамеры (12677)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Пленочные зеркальные фотокамеры (1375)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Пленочные компактные фотокамеры (188)</span>
+												</a>
+											</li>
+											<li class="item-section__list-item">
+												<a class="item-section__link" href="#">
+													<span class="item-section__link-text">Пленочные компактные фотокамеры (188)</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<footer class="item-section__footer">
+										<a class="btn-show" href="#">Смотреть все</a>
+									</footer>
+								</div>
+							</section>
+						</aside>
+						<div class="sections__main main-sections">
+							<div class="main-sections__top">
+								<section class="sections-item item-section item-section--news" data-da=".sections__body-mobile, 767.98, 1">
+									<div class="item-section__body">
+										<header class="item-section__header">
+											<span class="item-section__icon icon-wrap"></span>
+											<h2 class="item-section__title">
+												<span>Новости</span>
+											</h2>
+										</header>
+										<div class="item-section__content">
+											<ul class="item-section__list news-list">
+												<li class="item-section__list-item">
+													<a class="item-section__link" href="#">
+														<time class="item-section__date" datetime="2022-03-29">29.03.2022</time>
+														<span class="item-section__link-text">Вавилонская башня в огне: как сожгли самую большую Масленицу</span>
+													</a>
+												</li>
+												<li class="item-section__list-item">
+													<a class="item-section__link" href="#">
+														<time class="item-section__date" datetime="2022-03-19">19.03.2022</time>
+														<span class="item-section__link-text">Кроссфит-турнир: физ. нагрузки превращаются в красивое тело</span>
+													</a>
+												</li>
+												<li class="item-section__list-item">
+													<a class="item-section__link" href="#">
+														<time class="item-section__date" datetime="2022-02-12">12.02.2022</time>
+														<span class="item-section__link-text">Зимнее плавание, Чемпионат Москвы: эти фото охлаждают и расслабляют</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<footer class="item-section__footer">
+											<a class="btn-show" href="#">Все новости</a>
+										</footer>
+									</div>
+								</section>
+								<section class="sections-item item-section item-section--focus" data-da=".sections__body-mobile, 767.98, 2">
+									<div class="item-section__body">
+										<header class="item-section__header">
+											<span class="item-section__icon icon-wrap"></span>
+											<h2 class="item-section__title">
+												<span>В фокусе</span>
+											</h2>
+										</header>
+										<div class="item-section__content">
+											<ul class="item-section__list focus-list">
+												<li class="item-section__list-item">
+													<a class="item-section__link" href="#">
+														<time class="item-section__date" datetime="2022-03-19">19.03.2022</time>
+														<span class="item-section__link-text">Кроссфит-турнир: физ. нагрузки превращаются в красивое тело</span>
+													</a>
+												</li>
+												<li class="item-section__list-item">
+													<a class="item-section__link" href="#">
+														<time class="item-section__date" datetime="2022-02-12">12.02.2022</time>
+														<span class="item-section__link-text">Зимнее плавание, Чемпионат Москвы: эти фото охлаждают и расслабляют</span>
+													</a>
+												</li>
+												<li class="item-section__list-item">
+													<a class="item-section__link" href="#">
+														<time class="item-section__date" datetime="2022-03-29">29.03.2022</time>
+														<span class="item-section__link-text">Вавилонская башня в огне: как сожгли самую большую Масленицу</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<footer class="item-section__footer">
+											<a class="btn-show" href="#">Все новости</a>
+										</footer>
+									</div>
+								</section>
+								<section class="sections-item item-section item-section--flea-market" data-da=".sections__body-mobile, 767.98, 3">
+									<div class="item-section__body">
+										<header class="item-section__header">
+											<span class="item-section__icon icon-wrap"></span>
+											<h2 class="item-section__title">
+												<span>Барахолка</span>
+											</h2>
+										</header>
+										<div class="item-section__content">
+											<ul class="item-section__list flea-market-list">
+												<li class="item-section__list-item">
+													<span class="flea-market-list__head">Объявлений</span>
+													<span class="flea-market-list__head">Сегодня</span>
+													<span class="flea-market-list__head">Всего</span>
+												</li>
+												<li class="item-section__list-item">
+													<span class="flea-market-list__text flea-market-list__text--buy">Куплю</span>
+													<span class="flea-market-list__number">+12</span>
+													<span class="flea-market-list__total">4526</span>
+												</li>
+												<li class="item-section__list-item">
+													<span class="flea-market-list__text flea-market-list__text--sell">Продам</span>
+													<span class="flea-market-list__number">+52</span>
+													<span class="flea-market-list__total">3165</span>
+												</li>
+											</ul>
+										</div>
+										<footer class="item-section__footer">
+											<a class="btn-show" href="#">Смотреть объявления</a>
+										</footer>
+									</div>
+								</section>
+							</div>
+							<div class="main-sections__middle">
+								<section class="sections-item item-section item-section--recent" data-da=".sections__body-mobile, 767.98, 4">
+									<div class="item-section__body">
+										<header class="item-section__header">
+											<span class="item-section__icon icon-wrap"></span>
+											<h2 class="item-section__title">
+												<span>Последние поступления в Галерее</span>
+											</h2>
+										</header>
+										<div class="item-section__content">
+											<div class="gallery">
+												<div class="gallery__body swiper gallery-recent">
+													<div class="gallery__wrapper swiper-wrapper">
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/1.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/1.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/2.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/2.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/3.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/3.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/4.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/4.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/1.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/1.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/2.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/2.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/3.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/3.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+														<div class="gallery__item item-gallery swiper-slide">
+															<a href="images/sections/galleries/recent/4.jpg" data-fslightbox="gallery-recent">
+																<div class="item-gallery__image ibg">
+																	<picture>
+																		<source srcset="images/sections/galleries/recent/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/recent/4.jpg" alt="изображение галереи">
+																	</picture>
+																</div>
+															</a>
+														</div>
+													</div>
+													<div class="gallery__bottom">
+														<div class="gallery__controls slider-controls">
+															<button class="slider-button slider-button-prev" type="button"></button>
+															<div class="slider-pagination"></div>
+															<button class="slider-button slider-button-next" type="button"></button>
+														</div>
+														<a class="gallery__link btn-show" href="#">Ещё </a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<div class="sections-item item-section item-section--banner" data-da=".sections__body-mobile, 767.98, 5">
+									<div class="item-section__content">
+										<a class="item-section__banner banner-home" href="#">
+											<picture>
+												<source srcset="images/sections/banner/1.webp" type="image/webp">
+												<img src="images/sections/banner/1.jpg" alt="Баннер">
+											</picture>
+										</a>
+									</div>
+								</div>
+								<section class="sections-item item-section item-section--projects" data-da=".sections__body-mobile, 767.98, 8">
+									<div class="item-section__body">
+										<header class="item-section__header">
+											<span class="item-section__icon icon-wrap"></span>
+											<h2 class="item-section__title">
+												<span>Выставки и проекты</span>
+											</h2>
+										</header>
+										<div class="item-section__content">
+											<ul class="item-section__list small-news-list">
+												<li class="small-news-item">
+													<a class="item-section__link small-news-link" href="#">
+														<div class="small-news-image">
+															<picture>
+																<source srcset="images/sections/projects/1.webp" type="image/webp">
+																<img src="images/sections/projects/1.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе">
+															</picture>
+														</div>
+														<div class="small-news-content">
+															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
+															<div class="small-news-dates">
+																<time class="small-news-date" datetime="2022-03-18">18.03.2022</time> -
+																<time class="small-news-date" datetime="2022-05-22">22.05.2022</time>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="small-news-item">
+													<a class="item-section__link small-news-link" href="#">
+														<div class="small-news-image">
+															<picture>
+																<source srcset="images/sections/projects/2.webp" type="image/webp">
+																<img src="images/sections/projects/2.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе">
+															</picture>
+														</div>
+														<div class="small-news-content">
+															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
+															<div class="small-news-dates">
+																<time class="small-news-date" datetime="2022-03-18">18.03.2022</time> -
+																<time class="small-news-date" datetime="2022-05-22">22.05.2022</time>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="small-news-item">
+													<a class="item-section__link small-news-link" href="#">
+														<div class="small-news-image">
+															<picture>
+																<source srcset="images/sections/projects/3.webp" type="image/webp">
+																<img src="images/sections/projects/3.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе">
+															</picture>
+														</div>
+														<div class="small-news-content">
+															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
+															<div class="small-news-dates">
+																<time class="small-news-date" datetime="2022-03-18">18.03.2022</time> -
+																<time class="small-news-date" datetime="2022-05-22">22.05.2022</time>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="small-news-item">
+													<a class="item-section__link small-news-link" href="#">
+														<div class="small-news-image">
+															<picture>
+																<source srcset="images/sections/projects/4.webp" type="image/webp">
+																<img src="images/sections/projects/4.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе">
+															</picture>
+														</div>
+														<div class="small-news-content">
+															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
+															<div class="small-news-dates">
+																<time class="small-news-date" datetime="2022-03-18">18.03.2022</time> -
+																<time class="small-news-date" datetime="2022-05-22">22.05.2022</time>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="small-news-item">
+													<a class="item-section__link small-news-link" href="#">
+														<div class="small-news-image">
+															<picture>
+																<source srcset="images/sections/projects/5.webp" type="image/webp">
+																<img src="images/sections/projects/5.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе">
+															</picture>
+														</div>
+														<div class="small-news-content">
+															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
+															<div class="small-news-dates">
+																<time class="small-news-date" datetime="2022-03-18">18.03.2022</time> -
+																<time class="small-news-date" datetime="2022-05-22">22.05.2022</time>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="small-news-item">
+													<a class="item-section__link small-news-link" href="#">
+														<div class="small-news-image">
+															<picture>
+																<source srcset="images/sections/projects/6.webp" type="image/webp">
+																<img src="images/sections/projects/6.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе">
+															</picture>
+														</div>
+														<div class="small-news-content">
+															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
+															<div class="small-news-dates">
+																<time class="small-news-date" datetime="2022-03-18">18.03.2022</time> -
+																<time class="small-news-date" datetime="2022-05-22">22.05.2022</time>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="small-news-item">
+													<a class="item-section__link small-news-link" href="#">
+														<div class="small-news-image">
+															<picture>
+																<source srcset="images/sections/projects/7.webp" type="image/webp">
+																<img src="images/sections/projects/7.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе">
+															</picture>
+														</div>
+														<div class="small-news-content">
+															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
+															<div class="small-news-dates">
+																<time class="small-news-date" datetime="2022-03-18">18.03.2022</time> -
+																<time class="small-news-date" datetime="2022-05-22">22.05.2022</time>
+															</div>
+														</div>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<footer class="item-section__footer">
+											<a class="btn-show" href="#">Смотреть все</a>
+										</footer>
+									</div>
+								</section>
+							</div>
+							<div class="main-sections__bottom">
+								<section class="sections-item item-section item-section--industry-news" data-da=".sections__body-mobile, 767.98, 9">
+									<div class="item-section__body">
+										<header class="item-section__header">
+											<span class="item-section__icon icon-wrap"></span>
+											<h2 class="item-section__title">
+												<span>Новости фотоиндустрии</span>
+											</h2>
+										</header>
+										<div class="item-section__content">
+											<ul class="item-section__list big-news-list">
+												<li class="item-section__list-item big-news-item">
+													<a class="item-section__link big-news-link" href="#">
+														<div class="big-news-image">
+															<picture>
+																<source srcset="images/sections/industry-news/1.webp" type="image/webp">
+																<img src="images/sections/industry-news/1.jpg" alt="20 редких и нежных фото о любви детей и собак.">
+															</picture>
+														</div>
+														<div class="big-news-content">
+															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
+															<div class="big-news-text">Собака в современном мире давно перестала быть другом, став полноценным членом семьи. Она и за детьми присмотрит, и хозяину настроение поднимет и чужих от дома отгонит.</div>
+															<time class="big-news-date" datetime="2022-01-17">17.01.2022</time>
+														</div>
+													</a>
+												</li>
+												<li class="item-section__list-item big-news-item">
+													<a class="item-section__link big-news-link" href="#">
+														<div class="big-news-image">
+															<picture>
+																<source srcset="images/sections/industry-news/2.webp" type="image/webp">
+																<img src="images/sections/industry-news/2.jpg" alt="20 редких и нежных фото о любви детей и собак.">
+															</picture>
+														</div>
+														<div class="big-news-content">
+															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
+															<div class="big-news-text">Собака в современном мире давно перестала быть другом, став полноценным членом семьи. Она и за детьми присмотрит, и хозяину настроение поднимет и чужих от дома отгонит.</div>
+															<time class="big-news-date" datetime="2022-01-17">17.01.2022</time>
+														</div>
+													</a>
+												</li>
+												<li class="item-section__list-item big-news-item">
+													<a class="item-section__link big-news-link" href="#">
+														<div class="big-news-image">
+															<picture>
+																<source srcset="images/sections/industry-news/3.webp" type="image/webp">
+																<img src="images/sections/industry-news/3.jpg" alt="20 редких и нежных фото о любви детей и собак.">
+															</picture>
+														</div>
+														<div class="big-news-content">
+															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
+															<div class="big-news-text">Собака в современном мире давно перестала быть другом, став полноценным членом семьи. Она и за детьми присмотрит, и хозяину настроение поднимет и чужих от дома отгонит.</div>
+															<time class="big-news-date" datetime="2022-01-17">17.01.2022</time>
+														</div>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<footer class="item-section__footer">
+											<a class="btn-show" href="#">Смотреть все новости</a>
+										</footer>
+									</div>
+								</section>
+								<section class="sections-item item-section item-section--classic" data-da=".sections__body-mobile, 767.98, 10">
+									<div class="item-section__body">
+										<header class="item-section__header">
+											<span class="item-section__icon icon-wrap"></span>
+											<h2 class="item-section__title">
+												<span>Класика фотоискусства</span>
+											</h2>
+										</header>
+										<div class="item-section__content">
+											<ul class="item-section__list classic-list">
+												<li class="item-section__list-item item-classic">
+													<a class="item-section__link item-classic__link" href="#">
+														<div class="item-classic__image">
+															<picture>
+																<source srcset="images/sections/classic/1.webp" type="image/webp">
+																<img src="images/sections/classic/1.jpg" alt="Александр Родченко &lt;br&gt; “Конституция”">
+															</picture>
+														</div>
+														<div class="item-classic__content">
+															<span class="item-section__link-text">Александр Родченко
+																<br> “Конституция”
+															</span>
+															<div class="item-classic__date">1937 г.</div>
+														</div>
+													</a>
+												</li>
+												<li class="item-section__list-item item-classic">
+													<a class="item-section__link item-classic__link" href="#">
+														<div class="item-classic__image">
+															<picture>
+																<source srcset="images/sections/classic/2.webp" type="image/webp">
+																<img src="images/sections/classic/2.jpg" alt="Ричард Авендон &lt;br&gt; “Композитор Игорь Стравинский”">
+															</picture>
+														</div>
+														<div class="item-classic__content">
+															<span class="item-section__link-text">Ричард Авендон
+																<br> “Композитор Игорь Стравинский”
+															</span>
+															<div class="item-classic__date">1937 г.</div>
+														</div>
+													</a>
+												</li>
+												<li class="item-section__list-item item-classic">
+													<a class="item-section__link item-classic__link" href="#">
+														<div class="item-classic__image">
+															<picture>
+																<source srcset="images/sections/classic/3.webp" type="image/webp">
+																<img src="images/sections/classic/3.jpg" alt="Александр Родченко &lt;br&gt; “Конституция”">
+															</picture>
+														</div>
+														<div class="item-classic__content">
+															<span class="item-section__link-text">Александр Родченко
+																<br> “Конституция”
+															</span>
+															<div class="item-classic__date">1937 г.</div>
+														</div>
+													</a>
+												</li>
+												<li class="item-section__list-item item-classic">
+													<a class="item-section__link item-classic__link" href="#">
+														<div class="item-classic__image">
+															<picture>
+																<source srcset="images/sections/classic/4.webp" type="image/webp">
+																<img src="images/sections/classic/4.jpg" alt="Александр Родченко &lt;br&gt; “Конституция”">
+															</picture>
+														</div>
+														<div class="item-classic__content">
+															<span class="item-section__link-text">Александр Родченко
+																<br> “Конституция”
+															</span>
+															<div class="item-classic__date">1937 г.</div>
+														</div>
+													</a>
+												</li>
+												<li class="item-section__list-item item-classic">
+													<a class="item-section__link item-classic__link" href="#">
+														<div class="item-classic__image">
+															<picture>
+																<source srcset="images/sections/classic/5.webp" type="image/webp">
+																<img src="images/sections/classic/5.jpg" alt="Ричард Авендон &lt;br&gt; “Композитор Игорь Стравинский”">
+															</picture>
+														</div>
+														<div class="item-classic__content">
+															<span class="item-section__link-text">Ричард Авендон
+																<br> “Композитор Игорь Стравинский”
+															</span>
+															<div class="item-classic__date">1937 г.</div>
+														</div>
+													</a>
+												</li>
+											</ul>
+											<div class="classic-links">
+												<a href="https://web.archive.org/web/20220322172447/https://club.foto.ru/classics/49" target="_blank">Август Зандер,</a>
+												<a href="https://web.archive.org/web/20220322172436/https://club.foto.ru/classics/25" target="_blank">Александр Родченко,</a>
+												<a href="https://web.archive.org/web/20220322172439/https://club.foto.ru/classics/52" target="_blank">Альфред Стиглиц,</a>
+												<a href="https://web.archive.org/web/20220322172427/https://club.foto.ru/classics/51" target="_blank">Андре Кертеш,</a>
+												<a href="https://web.archive.org/web/20220322172425/https://club.foto.ru/classics/29" target="_blank">Анри Картье-Брессон,</a>
+												<a href="https://web.archive.org/web/20220322172439/https://club.foto.ru/classics/44" target="_blank">Ансел Адамс,</a>
+												<a href="https://web.archive.org/web/20220322172448/https://club.foto.ru/classics/46" target="_blank">Аркадий Шайхет,</a>
+												<a href="https://web.archive.org/web/20220322172415/https://club.foto.ru/classics/5" target="_blank">Борис Игнатович,</a>
+												<a href="https://web.archive.org/web/20220322172420/https://club.foto.ru/classics/26" target="_blank">Василий Сокорнов,</a>
+												<a href="https://web.archive.org/web/20220322172503/https://club.foto.ru/classics/36" target="_blank">Дмитрий Бальтерманц,</a>
+												<a href="https://web.archive.org/web/20220322172457/https://club.foto.ru/classics/43" target="_blank">Евгений Халдей,</a>
+												<a href="https://web.archive.org/web/20220322172444/https://club.foto.ru/classics/45" target="_blank">Иван Шагин,</a>
+												<a href="https://web.archive.org/web/20220322172441/https://club.foto.ru/classics/2" target="_blank">Карл Булла,</a>
+												<a href="https://web.archive.org/web/20220322172425/https://club.foto.ru/classics/1" target="_blank">Максим Дмитриев,</a>
+												<a href="https://web.archive.org/web/20220322172430/https://club.foto.ru/classics/47" target="_blank">Ричард Аведон,</a>
+												<a href="https://web.archive.org/web/20220322172420/https://club.foto.ru/classics/48" target="_blank">Роберт Капа</a>
+											</div>
+										</div>
+										<footer class="item-section__footer">
+											<a class="btn-show" href="#">Смотреть все</a>
+										</footer>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div class="sections__body-mobile"> </div>
+				</div>
+			</div>
+			<div class="tabs">
+				<div class="container">
+					<div class="tabs__body">
+						<ul class="tabs__list">
+							<li class="tabs__item" data-tab="one">Всего зарегистрировано</li>
+							<li class="tabs__item" data-tab="two">Сейчас в клубе</li>
+							<li class="tabs__item" data-tab="three">Сегодня день рождения</li>
+							<li class="tabs__item" data-tab="four">Завтра день рождения</li>
+							<li class="tabs__item" data-tab="five">Сегодня годовщина в клубе</li>
+						</ul>
+						<div class="tabs__wrapper">
+							<div class="tabs__content content-tab" data-tab-content="one">
+								<div class="content-tab__header" data-spoller>Всего зарегистрировано</div>
+								<div class="content-tab__body">
+									<div class="content-tab__info">
+										<p class="content-tab__description">В клубе зарегистрировано <strong>687261</strong>&nbsp;человек</p>
+										<form class="search-form form" action="#">
+											<input class="form__input search-form__input" type="text" placeholder="Поиск по имени">
+											<button class="search-form__button" type="submit">
+												<span class="search-form__icon"></span>
+											</button>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="tabs__content content-tab" data-tab-content="two">
+								<div class="content-tab__header" data-spoller>Сейчас в клубе</div>
+								<div class="content-tab__body">
+									<div class="content-tab__info">
+										<p class="content-tab__description">Раздел находится в разработке</p>
+									</div>
+								</div>
+							</div>
+							<div class="tabs__content content-tab" data-tab-content="three">
+								<div class="content-tab__header" data-spoller>Сегодня день рождения</div>
+								<div class="content-tab__body">
+									<div class="content-tab__info">
+										<p class="content-tab__description">Раздел находится в разработке</p>
+									</div>
+								</div>
+							</div>
+							<div class="tabs__content content-tab" data-tab-content="four">
+								<div class="content-tab__header" data-spoller>Завтра день рождения</div>
+								<div class="content-tab__body">
+									<div class="content-tab__info">
+										<p class="content-tab__description">Раздел находится в разработке</p>
+									</div>
+								</div>
+							</div>
+							<div class="tabs__content content-tab" data-tab-content="five">
+								<div class="content-tab__header" data-spoller>Сегодня годовщина в клубе</div>
+								<div class="content-tab__body">
+									<div class="content-tab__info">
+										<p class="content-tab__description">Раздел находится в разработке</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__top">
+					<nav class="footer__menu menu-footer">
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Правила Клуба</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">О Клубе</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Вход / Регистрация</a>
+							</li>
+							<li class="menu-footer__item active">
+								<a class="menu-footer__link" href="#">Поиск авторов</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">ХудСовет</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Как связаться</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Статистика</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Реклама на сайте</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">FAQ</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив галереи</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив форумов</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__bottom">
+					<a class="footer__logo" href="#" data-da=".footer__top, 767.98, 0">
+						<img src="images/footer-logo_pc.svg" alt="логотип">
+					</a>
+					<div class="footer__social social-footer">
+						<ul class="social-footer__list">
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--youtube" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--mail" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--vk" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--twitter" href="#" target="_blank"></a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--telegram" href="#" target="_blank"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer__copy">Все права защищены © 2023</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="scripts/main.min.js?_v=20230916133012" defer></script>
+</body>
+
+</html>
