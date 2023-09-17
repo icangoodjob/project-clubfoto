@@ -15,7 +15,7 @@
 				.item-section__content
 					a(href="#").banner.banner-small
 						.banner__image.ibg
-							img(src="images/sections/banner/banner-small.jpg", alt="Баннер")
+							img(src="images/sections/banner/banner-small.jpg", alt="Баннер" loading="lazy")
 			+section("Победители миниконкурсов", "item-section--winners")
 				.item-section__content
 					.card-winner
@@ -34,7 +34,7 @@
 				.item-section__content
 					a(href="#").banner.banner-big
 						.banner__image.ibg
-							img(src="images/sections/banner/banner-big.jpg", alt="Баннер")
+							img(src="images/sections/banner/banner-big.jpg", alt="Баннер" loading="lazy")
 		div.sections__center 
 			+section("Лучшие фото", "item-section--best-photo")
 				.item-section__content
@@ -64,7 +64,7 @@
 				.item-section__content
 					a(href="#").banner.banner-small
 						.banner__image.ibg
-							img(src="images/sections/banner/banner-small.jpg", alt="Баннер")
+							img(src="images/sections/banner/banner-small.jpg", alt="Баннер" loading="lazy")
 			+section("Прошедшие конкурсы", "item-section--contests", "Смотреть все новости", ".aside-right, 767.98, 0")
 				.item-section__content 
 					+bigNews([...sections.bigNews], "contests")
@@ -86,7 +86,7 @@
 				.item-section__content
 					a(href="#").banner.banner-big
 						.banner__image.ibg
-							img(src="images/sections/banner/banner-big.jpg", alt="Баннер")
+							img(src="images/sections/banner/banner-big.jpg", alt="Баннер" loading="lazy")
 			+section("Банк фотомоделей", "item-section--photo-model")
 				.item-section__content
 					.gallery
@@ -96,7 +96,7 @@
 									.gallery__item.item-gallery.swiper-slide
 										a(href=`images/sections/galleries/photomodel/${item.img}.jpg` data-fslightbox=`gallery-photomodel`)
 											.item-gallery__image.ibg
-												img(src=`images/sections/galleries/photomodel/${item.img}.jpg`, alt="изображение галереи")
+												img(src=`images/sections/galleries/photomodel/${item.img}.jpg`, alt="изображение галереи" loading="lazy")
 										.item-gallery__body 
 											.item-gallery__name= item.title
 											.item-gallery__descr= item.descr
@@ -127,5 +127,5 @@
 				.item-section__content
 					a(href="#").banner.banner-small
 						.banner__image.ibg
-							img(src="images/sections/banner/banner-small.jpg", alt="Баннер")
+							img(src="images/sections/banner/banner-small.jpg", alt="Баннер" loading="lazy")
 

@@ -47,7 +47,7 @@ mixin galleryGrid(btnAdd, galleryName)
 					.gallery__item.item-gallery.swiper-slide
 						a(href=`images/sections/galleries/photo/${item.img}.jpg` data-fslightbox=`gallery-${galleryName}`)
 							.item-gallery__image.ibg
-								img(src=`images/sections/galleries/photo/${item.img}.jpg`, alt="изображение галереи")
+								img(src=`images/sections/galleries/photo/${item.img}.jpg`, alt="изображение галереи" loading="lazy")
 			.gallery__bottom
 				if btnAdd
 					button(type="button").gallery__btn.icon-wrap.btn-add
@@ -66,7 +66,7 @@ mixin galleryList([...array], galleryBodyClass, pathImg, galleryName, isBadge, b
 							| !{item.badge} 
 						a(href=`images/sections/galleries/${pathImg}/${item.img}.jpg` data-fslightbox=`gallery-${galleryName}`)
 							.item-gallery__image.ibg
-								img(src=`images/sections/galleries/${pathImg}/${item.img}.jpg`, alt="изображение галереи")
+								img(src=`images/sections/galleries/${pathImg}/${item.img}.jpg`, alt="изображение галереи" loading="lazy")
 						if galleryBodyClass != "gallery-recent"
 							.item-gallery__body 
 								time(datetime="2011-06-03").item-gallery__date 23.06.2011 16:22:02
@@ -86,7 +86,7 @@ mixin bigNews([...array], imgPath)
 			li.item-section__list-item.big-news-item
 				a(href="#").item-section__link.big-news-link
 					.big-news-image
-						img(src=`images/sections/${imgPath}/${item.img}.jpg`, alt=item.title)
+						img(src=`images/sections/${imgPath}/${item.img}.jpg`, alt=item.title loading="lazy")
 					.big-news-content
 						.big-news-title= item.title
 						.big-news-text= item.text
@@ -97,7 +97,7 @@ mixin smallNews([...array], imgPath)
 			li.small-news-item
 				a(href="#").item-section__link.small-news-link
 					.small-news-image 
-						img(src=`images/sections/${imgPath}/${index+1}.jpg`, alt=item.text)
+						img(src=`images/sections/${imgPath}/${index+1}.jpg`, alt=item.text loading="lazy")
 					.small-news-content 	
 						span.item-section__link-text.small-news-text= item.text
 						if item.dateStart || item.dateEnd
