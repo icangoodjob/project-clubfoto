@@ -227,6 +227,30 @@ function scripts() {
   return src(path.src.js)
     .pipe(plumber(plumberNotify("JS")))
     .pipe(named())
+    .pipe(app.plugins.if(
+      app.isBuild,
+      webpackStream({
+        mode: 'production',
+        performance: { hints: false },
+        optimization: {
+          minimize: false,
+          minimizer: [
+            new TerserPlugin({
+              terserOptions: { format: { comments: false } },
+              extractComments: false,
+              // include: /\.min\.js$/,
+            })
+          ],
+        },
+        output: {
+          filename: '[name].js',
+        },
+      }, webpack)).on('error', (err) => {
+        this.emit('end')
+      }))
+    .pipe(app.plugins.if(
+      app.isBuild,
+      dest(path.build.js)))
     .pipe(webpackStream({
       mode: app.isBuild ? 'production' : 'development',
       performance: { hints: false },
