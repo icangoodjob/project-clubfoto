@@ -1,0 +1,61 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Canon EOS RP";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.topic 
+		.container
+			h1.topic__title.page-title #{pageTitle}
+			.topic__top 
+				+btn("Добавить сообщение", "topic__button")
+				.topic__result.result-topic
+					.result-topic__item Найдено: 16686 сообщений
+					.result-topic__item Показаны: с 1 по 20
+			.topic__cards
+				each item, index in topicCards
+					section.topic-card
+						.topic-card__data 
+							.topic-card__image.ibg
+								img(src=`images/topic/${item.userImg}.jpg`, alt=`${item.userName}`)
+							.topic-card__info
+								time(datetime="2019-02-14").topic-card__time 14.02.2019 07:16:01
+								.topic-card__messages 
+									.topic-card__message.topic-card__message--1 #{item.message_1}
+									.topic-card__message.topic-card__message--2 #{item.message_2}
+								.topic-card__author-label Автор темы:
+								.topic-card__author-name #{item.userName}
+								.topic-card__city #{item.city}
+						.topic-card__main.main-topic
+							.main-topic__header
+								.main-topic__date 
+									time(datetime="2019-02-14").main-topic__time 14.02.2019 07:16:01
+									if item.userNameTop
+										.main-topic__user #{item.userNameTop}
+								if item.title
+									h2.main-topic__title #{item.title}
+								if item.subTitle
+									div.main-topic__sub-title #{item.subTitle}
+							.main-topic__body
+								if item.images.length > 0
+									.main-topic__images
+										each image in item.images
+											.main-topic__image.ibg
+												img(src=`images/topic/img-${image}.jpg`, alt="изображение")
+								if item.description
+									.main-topic__description 
+										p= item.description
+							.main-topic__footer.footer-topic
+								.footer-topic__item
+									button(type="button" title="Ответить").reaction-button.reaction-button--answer Ответить
+									button(type="button" title="Цитировать").reaction-button.reaction-button--quote Цитировать
+									button(type="button" title="Поделиться").reaction-button.reaction-button--share Поделиться
+								.footer-topic__item
+									button(type="button").reaction-button.reaction-button--like
+									button(type="button").reaction-button.reaction-button--dislike
+									button(type="button").reaction-button.reaction-button--favorites
+			.topic__text-editor.text-editor
+				form(action="#", method="get").text-editor__form
+					.text-editor__wrapper
+						include components/text_editor

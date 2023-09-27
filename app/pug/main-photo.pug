@@ -1,0 +1,77 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "И немедленно выпил";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.main-photo 
+		.container 
+			h1.main-photo__title.page-title #{pageTitle}
+			.main-photo__body
+				.main-photo__gallery
+					+galleryBig([...mainPhoto.gallery], "gallery-big", "main-photo", "main")
+				.main-photo__actions
+					.main-photo__actions-left
+						.rating 
+							.rating__value Оценка: 5
+							ul.rating__list.r-3
+								li.rating__item
+								li.rating__item
+								li.rating__item
+								li.rating__item
+								li.rating__item
+						button(type="button" title="Поделиться").reaction-button.reaction-button--share Поделиться
+					.main-photo__actions-right
+						button(type="button").reaction-button.reaction-button--like
+						button(type="button").reaction-button.reaction-button--dislike
+						button(type="button").reaction-button.reaction-button--favorites
+				.main-photo__small-gallery.small-gallery
+					.small-gallery__body 
+						.small-gallery__wrapper
+							each item in mainPhoto.smallGallery
+								a(href=`images/sections/galleries/small-gallery/${item}.jpg` data-fslightbox='gallery-small').small-gallery__item 
+									.small-gallery__image.ibg
+										img(src=`images/sections/galleries/small-gallery/${item}.jpg`, alt="изображение")
+				.main-photo__info 
+					.main-photo__info-box
+						ul.main-photo__list
+							each item in mainPhoto.list
+								li.main-photo__list-item 
+									div.main-photo__label= item.name
+									div.main-photo__value!= item.value
+					.main-photo__info-box.main-photo__info-box--comment
+						.main-photo__comment 
+							.main-photo__label Комментарий автора:
+							.main-photo__comment-text= mainPhoto.comment
+						.main-photo__social.social
+							.main-photo__label Рекомендовать:
+							ul.social__list 
+								li.social__item 
+									a(href="#" target="_blank").social__link.social__link--youtube 
+								li.social__item 
+									a(href="#" target="_blank").social__link.social__link--mail 
+								li.social__item 
+									a(href="#" target="_blank").social__link.social__link--vk 
+								li.social__item
+									a(href="#" target="_blank").social__link.social__link--twitter
+								li.social__item
+									a(href="#" target="_blank").social__link.social__link--telegram
+			section.main-photo__comments.comments
+				h2.comments__title.page-title Комментарии
+				.comments__body 
+					each item in mainPhoto.comments
+						.comments__item.item-comment
+							.item-comment__name= item.name
+							time(datetime="2021-10-14").item-comment__date 14.10.2021 00:06:08
+							if item.text
+								.item-comment__text= item.text
+							else 
+								.item-comment__text 
+									img(src="images/comments/smile.png", alt="smile")
+			.main-photo__text-editor.text-editor
+				.text-editor__columns
+					include components/text_editor
+					.text-editor__column 
+						.text-editor__image.ibg 
+							img(src="images/text-editor/img.jpg", alt="изображение")

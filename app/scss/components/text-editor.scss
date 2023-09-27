@@ -1,0 +1,150 @@
+.topic {
+	&__text-editor {
+	}
+}
+.text-editor {
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 0.494fr 1fr;
+		gap: 20px;
+		@media screen and (max-width: $md) {
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+	}
+	&__form {
+	}
+	&__column {
+	}
+	&__label {
+		color: #4b4b4b;
+		font-size: 20px;
+		line-height: 120%;
+		&:not(:last-child) {
+			margin-bottom: 7px;
+		}
+	}
+	&__description {
+		color: #a4a4a4;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 120%;
+	}
+	&__actions {
+		padding: 16px 7px;
+		border-radius: 8px;
+		background: #fff;
+		align-items: start;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		justify-items: flex-start;
+		gap: 40px;
+		margin-bottom: 15px;
+		@media screen and (max-width: $md) {
+			grid-template-columns: 1fr auto;
+		}
+	}
+	&__group {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px 18px;
+		@media screen and (max-width: $md) {
+			& + & {
+				display: none;
+			}
+			gap: 10px 20px;
+		}
+	}
+	&__arrow {
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 0 4px 5px 4px;
+		border-color: transparent transparent #4b4b4b transparent;
+		transform: rotate(180deg);
+	}
+	&__button {
+		display: flex;
+		align-items: center;
+		&--mobile {
+			display: none;
+			width: 24px;
+			height: 24px;
+			justify-content: center;
+			align-items: center;
+			@media screen and (max-width: $md) {
+				display: flex;
+			}
+		}
+	}
+	&__area {
+		display: flex;
+		overflow: hidden;
+		margin-bottom: 13px;
+		& textarea {
+			border-radius: 10px;
+			border: 1px solid #dedede;
+			background: #fff;
+			width: 100%;
+			height: 100%;
+			min-height: 274px;
+			padding: 18px 15px;
+			resize: none;
+			color: $mainColor;
+			font-family: "Rubik", sans-serif;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 110%;
+			transition: border-color 0.2s ease 0s;
+			&:focus {
+				border-color: $mainColor;
+			}
+		}
+		@media screen and (max-width: $md) {
+			margin-bottom: 24px;
+		}
+	}
+	&__emodji {
+	}
+	&__btn {
+		color: $whiteColor;
+		background-color: $blueColor;
+		margin-top: 30px;
+		width: 240px;
+		transition:
+			background-color 0.2s ease 0s,
+			border-color 0.2s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #0142a3;
+				border-color: #0142a3;
+			}
+		}
+		@media screen and (max-width: $md) {
+			width: 100%;
+			margin-top: 22px;
+		}
+	}
+	&__image {
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+		padding-bottom: math.div(576, 450) * 100%;
+		@media screen and (max-width: $md) {
+			padding-bottom: math.div(471, 368) * 100%;
+		}
+	}
+}
+.emodji-list {
+	@include reset-list;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px 21px;
+}
+.emodji-item {
+	cursor: pointer;
+}
+.btn {
+}

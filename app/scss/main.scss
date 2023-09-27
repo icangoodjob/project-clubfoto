@@ -99,11 +99,17 @@ body {
 @import "components/main-actions";
 @import "components/main-badges";
 @import "components/pagination";
+@import "components/text-editor";
 
 // Подключение стилей для отдельных блоков
 @import "blocks/home";
 @import "blocks/forums";
 @import "blocks/galleries";
+@import "blocks/topic";
+@import "blocks/add-photo";
+@import "blocks/auth";
+@import "blocks/text-page";
+@import "blocks/main-photo";
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>==============================================================================
 

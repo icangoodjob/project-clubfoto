@@ -1,0 +1,106 @@
+.auth {
+	&__body {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+	&__title {
+		margin: 0;
+		@media screen and (max-width: $md) {
+			margin: 0;
+		}
+	}
+	&__form {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+	&-login {
+		padding: 167px 0;
+		& .auth__body {
+			max-width: 450px;
+			margin: 0 auto;
+			@media screen and (max-width: $md) {
+				max-width: 100%;
+				padding: 0 29px;
+			}
+			@media screen and (max-width: 389.98px) {
+				padding: 0;
+			}
+		}
+		@media screen and (max-width: $md) {
+			padding: 44px 0 61px;
+		}
+	}
+	&-register {
+		padding: 153px 0 53px;
+		@media screen and (max-width: $md) {
+			padding: 44px 0 42px;
+		}
+		& .auth__body {
+			max-width: 930px;
+			margin: 0 auto;
+			@media screen and (max-width: $md) {
+				padding: 0 29px;
+			}
+			@media screen and (max-width: 389.98px) {
+				padding: 0;
+			}
+		}
+		& .auth__button {
+			width: 240px;
+			@media screen and (max-width: $md) {
+				width: 100%;
+			}
+		}
+		& .auth__title {
+			margin-bottom: 36px;
+			@media screen and (max-width: $md) {
+				margin: 0;
+			}
+		}
+		& .auth__bottom {
+			margin-top: 9px;
+			@media screen and (max-width: $md) {
+				margin: 0;
+			}
+		}
+	}
+	&__button {
+		width: 309px;
+		margin: 0 auto;
+		@media screen and (max-width: $md) {
+			width: 100%;
+		}
+	}
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px 24px;
+		flex-wrap: wrap;
+	}
+	&__link {
+		color: $blueColor;
+		font-family: "Rubik", sans-serif;
+		font-size: 16px;
+		line-height: 110%;
+		transition: text-decoration 0.2s ease 0s;
+	}
+	&__group {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 32px 30px;
+		@media screen and (max-width: $md) {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+a.auth__link {
+	text-decoration: underline;
+	@media (any-hover: hover) {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

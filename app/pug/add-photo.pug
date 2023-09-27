@@ -1,0 +1,86 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Добавить фотографию";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.add-photo 
+		.container 
+			.add-photo__title.page-title #{pageTitle}
+			.add-photo__info 
+				p.add-photo__text.color-red.
+					Публикация работ сгенерированных нейросетями запрещена. 
+					#[br]
+					В случае публикации таких работ аккаунт может быть заблокирован.
+				p.add-photo__text Для того чтобы стать полноправным участником сайта (иметь возможность выставлять фотографии), претендент должен загрузить 10 работ из своего портфолио. Старайтесь показывать реальные работы, однотипные работы не дают возможности оценить уровень автора. Загрузите свои лучшие работы, даже из-за одной некачественноьй фотографии портфолио может не пройти целиком.
+				ul.add-photo__list 
+					li #[strong Шаг 1:] Загрузите 10 фотографий из вашего портфолио.
+					li #[strong Шаг 2:] Ваше портфолио будет рассмотрено участниками сайта. Срок рассмотрения зависит только от присутствия фотографов на сайте. 
+						| #[br] В случае одобрения вам будет выслано письмо.
+					li #[strong Шаг 3:] Пока ваши работы проходят премодерацию, вы можете принять участие в Фотопремии #[a(href="#").add-photo__link 35 AWARDS]
+			form(action="#").add-photo__form
+				.add-photo__body 
+					.add-photo__item
+						.add-photo__column
+							.add-photo__label Название работы
+						.add-photo__column
+							input(type="text" name="work-name").add-photo__input.form-input
+					.add-photo__item 
+						.add-photo__column
+							.add-photo__label Выберите фон
+						.add-photo__column
+							.add-photo__radiobuttons 
+								.radiobutton-group
+									each item, index in radioColorList
+										.radio 
+											label.radio__label
+												if index === 0
+													input(type="radio" checked name="color[]").real-radio
+												else 
+													input(type="radio" name="color[]").real-radio
+												span.custom-radio
+												span.radio__color(class=`radio__color--${item}`)
+					.add-photo__item.add-photo__item--dropzone
+						.add-photo__column
+							.add-photo__recomendation 
+								p Рекомендации к загружаемым фотографиям:
+								ul
+									li JPG файлы
+									li разрешение от 1000px до 2000px по большей стороне 
+									li размер каждого файла от 1МВ-2МВ
+									li без авторских знаков (копирайт), надписей, рамок и т.д.
+						.add-photo__column
+							.dropzone
+								.dropzone__text Перетащите файлы сюда или нажмите чтобы загрузить
+					.add-photo__item.add-photo__item--equipment
+						.add-photo__column
+							.add-photo__label Оборудование
+						.add-photo__column
+							.add-photo__selects.select-group 
+								select(name="equipment_camera").select-choices
+									option(value="Камера" selected) Камера 
+									option(value="Камера 2") Камера 2
+									option(value="Камера 3") Камера 3
+								select(name="equipment_objective").select-choices
+									option(value="Объектив" selected) Объектив 
+									option(value="Объектив 2") Объектив 2
+									option(value="Объектив 3") Объектив 3
+								select(name="equipment_filter").select-choices
+									option(value="Фильтры" selected) Фильтры 
+									option(value="Фильтры 2") Фильтры 2
+									option(value="Фильтры 3") Фильтры 3
+								select(name="equipment_studio").select-choices
+									option(value="Студийное оборудование" selected) Студийное оборудование 
+									option(value="Студийное оборудование 2") Студийное оборудование 2
+									option(value="ФиСтудийное оборудованиельтры 3") Студийное оборудование 3
+					.add-photo__item.add-photo__item--ready
+						.add-photo__column
+						.add-photo__column 
+							.checkbox 
+								label.checkbox__label
+									input(type="checkbox" name="ready" checked).real-checkbox
+									span.custom-checkbox 
+									| Готов продать свою работу
+					.add-photo__item.text-editor.add-photo__item--text-editor
+						include components/text_editor

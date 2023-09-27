@@ -1,0 +1,21 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Вход в аккаунт";
+	- description += pageTitle;
+	- breadcrumbs = false;
+block content
+	.auth.auth-login
+		.container 
+			.auth__body 
+				form(action="#").auth__form.login-form
+					.auth__title.page-title Вход в аккаунт
+					.auth__item 
+						input(type="email" placeholder="Email" name="email").auth__input.form-input
+					.auth__item 
+						input(type="password" placeholder="Пароль" name="password").auth__input.form-input
+					.auth__item 
+						button(type="submit").auth__button.btn Войти
+					.auth__bottom
+						a(href="#").auth__link Забыли пароль?
+						a(href="#").auth__link Зарегистрироваться

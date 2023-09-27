@@ -80,6 +80,23 @@ mixin galleryList([...array], galleryBodyClass, pathImg, galleryName, isBadge, b
 					.slider-pagination
 					button(type="button").slider-button.slider-button-next
 				a(href="#").gallery__link.btn-show Ещё 
+mixin galleryBig([...array], galleryBodyClass, pathImg, galleryName)
+	.gallery
+		.gallery__body.swiper(class=galleryBodyClass)
+			.gallery__wrapper.swiper-wrapper
+				each item, index in array
+					.gallery__item.item-gallery.swiper-slide
+						a(href=`images/sections/galleries/${pathImg}/${item.img}.jpg` data-fslightbox=`gallery-${galleryName}`)
+							.item-gallery__image.ibg
+								img(src=`images/sections/galleries/${pathImg}/${item.img}.jpg`, alt="изображение галереи" loading="lazy")
+						if block 
+							block
+		.gallery__bottom
+			.gallery__controls.slider-controls 
+				button(type="button").slider-button.slider-button-prev
+				.slider-pagination
+				button(type="button").slider-button.slider-button-next
+			a(href="#").gallery__link.btn-show Ещё 
 mixin bigNews([...array], imgPath)
 	ul.item-section__list.big-news-list
 		each item, index in array

@@ -186,6 +186,34 @@ if (listGalleriesBest) {
 		})
 	})
 }
+const galleryBig = document.querySelectorAll('.gallery-big');
+if (galleryBig) {
+	[...galleryBig].forEach(gallery => {
+		let galleryBigSwiper = new Swiper(gallery, {
+			modules: [Pagination, Navigation],
+			wrapperClass: 'gallery__wrapper',
+			slideClass: 'gallery__item',
+			lockClass: "swiper-lock",
+			pagination: {
+				el: ".main-photo__gallery .slider-pagination",
+				type: 'bullets',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: ".main-photo__gallery .gallery__controls .slider-button-next",
+				prevEl: ".main-photo__gallery .gallery__controls .slider-button-prev",
+			},
+			speed: 800,
+			breakpoints: {
+				300: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+					slidesPerGroup: 1,
+				},
+			}
+		})
+	})
+}
 
 let root = document.querySelectorAll('.gallery__body')
 // Создаем новый observer (наблюдатель)

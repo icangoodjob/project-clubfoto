@@ -1,0 +1,21 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Правила Клуба Foto.ru";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.text-page 
+		.container
+			.text-page__title.page-title #{pageTitle}
+			.text-page__body 
+				ul 
+					each item in textPage.list
+						li= item
+				each item in textPage.text
+					p= item
+				.text-page__links
+					ul
+						each item in textPage.links
+							li 
+								a(href="#")= item

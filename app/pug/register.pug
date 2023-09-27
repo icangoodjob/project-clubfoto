@@ -1,0 +1,29 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Регистрация";
+	- description += pageTitle;
+	- breadcrumbs = false;
+block content
+	.auth.auth-register
+		.container 
+			.auth__body 
+				form(action="#").auth__form.login-form
+					.auth__title.page-title Регистрация
+					.auth__group
+						.auth__item 
+							input(type="text" placeholder="Никнейм" name="nickname").auth__input.form-input
+						.auth__item 
+							input(type="email" placeholder="Email" name="email").auth__input.form-input
+						.auth__item 
+							input(type="text" placeholder="ФИО" name="fio").auth__input.form-input
+						.auth__item 
+							input(type="text" placeholder="Телефон" name="phone").auth__input.form-input
+						.auth__item 
+							input(type="password" placeholder="Пароль" name="password").auth__input.form-input
+						.auth__item 
+							input(type="password" placeholder="Повторите пароль" name="confirm-password").auth__input.form-input
+					.auth__item 
+						button(type="submit").auth__button.btn Зарегистрироваться
+					.auth__bottom
+						a(href="#").auth__link Есть аккаунт?
