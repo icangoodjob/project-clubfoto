@@ -15,8 +15,8 @@
 	<meta property="twitter:title" content="Canon EOS RP">
 	<meta property="twitter:description" content="description">
 	<link rel="canonical" href="https://example.com">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
-	<link href="styles/main.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap&_v=20230929195355" rel="stylesheet">
+	<link href="styles/main.min.css?_v=20230929195355" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
 	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
@@ -233,7 +233,10 @@
 						<div class="topic-card">
 							<div class="topic-card__data">
 								<div class="topic-card__image ibg">
-									<img src="images/topic/user-1.jpg" alt="User 123">
+									<picture>
+										<source srcset="images/topic/user-1.webp" type="image/webp">
+										<img src="images/topic/user-1.jpg" alt="User 123">
+									</picture>
 								</div>
 								<div class="topic-card__info">
 									<time class="topic-card__time" datetime="2019-02-14">14.02.2019 07:16:01</time>
@@ -257,13 +260,22 @@
 								<div class="main-topic__body">
 									<div class="main-topic__images">
 										<div class="main-topic__image ibg">
-											<img src="images/topic/img-1.jpg" alt="изображение">
+											<picture>
+												<source srcset="images/topic/img-1.webp" type="image/webp">
+												<img src="images/topic/img-1.jpg" alt="изображение">
+											</picture>
 										</div>
 										<div class="main-topic__image ibg">
-											<img src="images/topic/img-2.jpg" alt="изображение">
+											<picture>
+												<source srcset="images/topic/img-2.webp" type="image/webp">
+												<img src="images/topic/img-2.jpg" alt="изображение">
+											</picture>
 										</div>
 										<div class="main-topic__image ibg">
-											<img src="images/topic/img-3.jpg" alt="изображение">
+											<picture>
+												<source srcset="images/topic/img-3.webp" type="image/webp">
+												<img src="images/topic/img-3.jpg" alt="изображение">
+											</picture>
 										</div>
 									</div>
 									<div class="main-topic__description">
@@ -287,7 +299,10 @@
 						<div class="topic-card">
 							<div class="topic-card__data">
 								<div class="topic-card__image ibg">
-									<img src="images/topic/user-2.jpg" alt="User 123">
+									<picture>
+										<source srcset="images/topic/user-2.webp" type="image/webp">
+										<img src="images/topic/user-2.jpg" alt="User 123">
+									</picture>
 								</div>
 								<div class="topic-card__info">
 									<time class="topic-card__time" datetime="2019-02-14">14.02.2019 07:16:01</time>
@@ -329,7 +344,10 @@
 						<div class="topic-card">
 							<div class="topic-card__data">
 								<div class="topic-card__image ibg">
-									<img src="images/topic/user-3.jpg" alt="User 123">
+									<picture>
+										<source srcset="images/topic/user-3.webp" type="image/webp">
+										<img src="images/topic/user-3.jpg" alt="User 123">
+									</picture>
 								</div>
 								<div class="topic-card__info">
 									<time class="topic-card__time" datetime="2019-02-14">14.02.2019 07:16:01</time>
@@ -607,7 +625,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="scripts/main.min.js" defer></script>
+	<script src="scripts/main.min.js?_v=20230929195355" defer></script>
 </body>
 
 </html>
