@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Автор</title>
+	<meta name="description" content="Описание на странице - Автор">
+	<meta name="keywords" content="Перечень ключевых слов">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://example.com">
+	<meta property="og:title" content="Автор">
+	<meta property="og:description" content="Описание на странице - Автор">
+	<meta property="twitter:title" content="Автор">
+	<meta property="twitter:description" content="description">
+	<link rel="canonical" href="https://example.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
+	<link href="styles/main.min.css" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" href="images/favicons/favicon.ico">
+	<meta name="msapplication-TileImage" content="images/favicons/msite-150х150.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="apple-mobile-web-app-title" content="Название">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="format-detection" content="date=no">
+</head>
+
+<body>
+	<div class="wrapper" id="wrapper">
+		<header class="header" id="header">
+			<div class="container">
+				<div class="header__body">
+					<div class="header__top top-header">
+						<div class="top-header__left">
+							<a class="top-header__logo" href="#">
+								<picture>
+									<source srcset="images/logo_pc.svg" media="(min-width: 1200px)">
+									<source srcset="images/logo_mobile.svg" media="(min-width: 300px)">
+									<img src="images/logo_pc.svg" alt="логотип">
+								</picture>
+							</a>
+							<nav class="top-header__menu header-menu" data-da=".menu-mobile__body, 991.98, 1">
+								<ul class="header-menu__list">
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Барахолка</a>
+									</li>
+									<li class="header-menu__item active">
+										<a class="header-menu__link" href="#">Фотолаборатории</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Фотостудии</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Словарь</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Вопросы-ответы</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="top-header__right">
+							<nav class="header__nav nav-header" data-da=".menu-mobile__body, 389.98, 0">
+								<ul class="nav-header__list">
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/fotogora.svg" alt="Фотогора">
+											</div>
+											<div class="nav-header__text">Фотогора</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/forum.svg" alt="Форум">
+											</div>
+											<div class="nav-header__text">Форум</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/blog.svg" alt="Блог">
+											</div>
+											<div class="nav-header__text">Блог</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/market.svg" alt="Магазин">
+											</div>
+											<div class="nav-header__text">Магазин</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link nav-header__link--signin" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/user.svg" alt="Вход">
+											</div>
+											<div class="nav-header__text">Вход</div>
+										</a>
+									</li>
+								</ul>
+							</nav>
+							<button class="nav-header__button" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+					</div>
+					<div class="header__search">
+						<form class="search-form form" action="#">
+							<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+							<button class="search-form__button" type="submit"></button>
+						</form>
+					</div>
+					<div class="header__categories categories-header" data-da=".menu-mobile__body, 767.98, 2">
+						<button class="categories-header__button" type="button">Категории</button>
+						<nav class="categories-header__menu menu-categories">
+							<ul class="menu-categories__list">
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="forums.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-forum.svg" alt="Форумы">
+										</span>
+										<span class="menu-categories__caption">Форумы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="gallery.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-gallery.svg" alt="Галерея фоторафий">
+										</span>
+										<span class="menu-categories__caption">Галерея фоторафий</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-personal_photo.svg" alt="Персональные фотоальбомы">
+										</span>
+										<span class="menu-categories__caption">Персональные фотоальбомы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-archived_photo.svg" alt="Архивные фото">
+										</span>
+										<span class="menu-categories__caption">Архивные фото</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-projects.svg" alt="Выставки и проекты">
+										</span>
+										<span class="menu-categories__caption">Выставки и проекты</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-discuss_photo.svg" alt="Обсуждение фототехники">
+										</span>
+										<span class="menu-categories__caption">Обсуждение фототехники</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-school_photo.svg" alt="Школа фотографии">
+										</span>
+										<span class="menu-categories__caption">Школа фотографии</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-classic_photo.svg" alt="Классики фотоискусства">
+										</span>
+										<span class="menu-categories__caption">Классики фотоискусства</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="menu-mobile">
+						<div class="menu-mobile__body"> </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="breadcrumbs">
+			<div class="container">
+				<nav class="breadcrumbs__navigation">
+					<ul class="breadcrumbs__list">
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Главная</a>
+						</li>
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Форум</a>
+						</li>
+						<li class="breadcrumbs__item active">Целевая</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="main">
+			<div class="author">
+				<div class="container">
+					<div class="author__wrapper">
+						<section class="author__about about-author">
+							<h2 class="about-author__title page-title">Айдимир</h2>
+							<div class="about-author__body">
+								<div class="about-author__image ibg">
+									<img src="images/author/photo.jpg" alt="Айдимир">
+								</div>
+								<div class="about-author__features features-author">
+									<ul class="features-author__list">
+										<li class="features-author__list-item">
+											<div class="features-author__label">Имя:</div>
+											<div class="features-author__value">Айдимир</div>
+										</li>
+										<li class="features-author__list-item">
+											<div class="features-author__label">Возраст:</div>
+											<div class="features-author__value">53 года</div>
+										</li>
+										<li class="features-author__list-item">
+											<div class="features-author__label">Стаж занятия фотографией:</div>
+											<div class="features-author__value">25+ лет</div>
+										</li>
+										<li class="features-author__list-item">
+											<div class="features-author__label">Профессиональный уровень:</div>
+											<div class="features-author__value">Начинающий фотограф</div>
+										</li>
+										<li class="features-author__list-item">
+											<div class="features-author__label">Род занятий:</div>
+											<div class="features-author__value">Авиаинженер</div>
+										</li>
+										<li class="features-author__list-item">
+											<div class="features-author__label">Откуда:</div>
+											<div class="features-author__value">Киев</div>
+										</li>
+										<li class="features-author__list-item">
+											<div class="features-author__label">Дата вступления в Клуб:</div>
+											<div class="features-author__value">10.08.2011 21:12:19</div>
+										</li>
+										<li class="features-author__list-item">
+											<div class="features-author__label">Последний визит:</div>
+											<div class="features-author__value">19.10.2021 14:58:35</div>
+										</li>
+									</ul>
+									<div class="features-author__description">
+										<div class="features-author__label">О себе:</div>
+										<p class="features-author__text">Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей.</p>
+									</div>
+								</div>
+								<div class="actions-author-mobile">
+									<p class="actions-author__text">Входит в 100 лучших авторов Галереи Foto.ru
+										<img class="actions-author__icon" src="images/author/about-status.png" alt="статус">
+									</p>
+									<p class="actions-author__text">Входит в <a class="actions-author__link" href="#">ХудСовет</a> Клуба Foto.ru</p>
+								</div>
+								<div class="about-author__actions actions-author">
+									<div class="actions-author__item">
+										<p class="actions-author__text">Входит в 100 лучших авторов Галереи Foto.ru
+											<img class="actions-author__icon" src="images/author/about-status.png" alt="статус">
+										</p>
+										<p class="actions-author__text">Входит в <a class="actions-author__link" href="#">ХудСовет</a> Клуба Foto.ru</p>
+									</div>
+									<div class="actions-author__item">
+										<a class="actions-author__button actions-author__button--share" href="http://club.foto.ru/author/dzhf">http://club.foto.ru/&shy;author/dzhf</a>
+									</div>
+									<div class="actions-author__item">
+										<button class="actions-author__button actions-author__button--letter" type="button">Написать письмо</button>
+									</div>
+									<div class="actions-author__item">
+										<button class="actions-author__button actions-author__button--message" type="button">Личное сообщение</button>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section class="author-box author-box--awards open">
+							<header class="author-box__header">
+								<h2 class="author-box__title">Награды автора</h2>
+								<button class="author-box__button" type="button">
+									<span class="author-box__button-text">Свернуть</span>
+									<span class="author-box__arrow"></span>
+								</button>
+							</header>
+							<div class="author-box__body">
+								<div class="author-box__result">Всего наград: <strong>20</strong>
+								</div>
+								<div class="gallery">
+									<div class="gallery__body swiper gallery-awards">
+										<div class="gallery__wrapper swiper-wrapper">
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/1.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/1.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--gold">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/2.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/2.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--silver">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/3.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/3.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--bronze">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/4.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/4.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--gold">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/1.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/1.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--silver">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/2.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/2.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--bronze">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/3.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/3.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--gold">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/awards/4.jpg" data-fslightbox="gallery-awards">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/4.jpg" alt="Первое место за день по рекомендациям 29&amp;nbsp;августа 2023" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__trophy item-gallery__trophy--silver">
+													<div class="item-gallery__trophy-text">Первое место за день по рекомендациям 29&nbsp;августа 2023</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="gallery__bottom">
+										<div class="gallery__controls slider-controls">
+											<button class="slider-button slider-button-prev" type="button"></button>
+											<div class="slider-pagination"></div>
+											<button class="slider-button slider-button-next" type="button"></button>
+										</div>
+										<a class="gallery__link btn-show" href="#">Ещё </a>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section class="author-box author-box--photos open">
+							<header class="author-box__header">
+								<h2 class="author-box__title">Фотографии автора</h2>
+								<button class="author-box__button" type="button">
+									<span class="author-box__button-text">Свернуть</span>
+									<span class="author-box__arrow"></span>
+								</button>
+							</header>
+							<div class="author-box__body">
+								<div class="author-box__result">Всего фотографий: <strong>245</strong>
+								</div>
+								<div class="gallery">
+									<div class="gallery__body swiper gallery-photos">
+										<div class="gallery__wrapper swiper-wrapper">
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/1.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/1.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/2.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/2.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/3.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/3.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/4.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/4.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/1.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/1.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/2.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/2.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/3.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/3.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/photos/4.jpg" data-fslightbox="gallery-photos">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/awards/4.jpg" alt="Фотография автора" loading="lazy">
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="gallery__bottom">
+										<div class="gallery__controls slider-controls">
+											<button class="slider-button slider-button-prev" type="button"></button>
+											<div class="slider-pagination"></div>
+											<button class="slider-button slider-button-next" type="button"></button>
+										</div>
+										<a class="gallery__link btn-show" href="#">Ещё </a>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section class="author-box author-box--series open">
+							<header class="author-box__header">
+								<h2 class="author-box__title">Серии автора</h2>
+								<button class="author-box__button" type="button">
+									<span class="author-box__button-text">Свернуть</span>
+									<span class="author-box__arrow"></span>
+								</button>
+							</header>
+							<div class="author-box__body">
+								<div class="author-box__result">Всего серий: <strong>24</strong>
+								</div>
+								<div class="author-series">
+									<div class="author-series__column">
+										<ul class="author-series__list">
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Венгерский альбом</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Italia_2017</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Чивский гамбит / Дагестан 2016</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Revolution#2</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Дагестан 2019</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Бакинский альбом</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Симона</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Дагестан 2018</a>
+											</li>
+										</ul>
+									</div>
+									<div class="author-series__column">
+										<ul class="author-series__list">
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Очень южная Италия</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Мay 12-13 Minsk 2018</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Плёночная фотография</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Мобильная фотография</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Один день в Лавре | прощание с Владимиром</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Цифровое внутрикамерное наложение</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Друг</a>
+											</li>
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Хорватские хроники</a>
+											</li>
+										</ul>
+									</div>
+									<div class="author-series__column">
+										<ul class="author-series__list">
+											<li class="author-series__item">
+												<a class="author-series__link" href="#">Дагестан 2017</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section class="author-box author-box--personal open">
+							<header class="author-box__header">
+								<h2 class="author-box__title">Персональные альбомы автора</h2>
+								<button class="author-box__button" type="button">
+									<span class="author-box__button-text">Свернуть</span>
+									<span class="author-box__arrow"></span>
+								</button>
+							</header>
+							<div class="author-box__body">
+								<div class="author-box__result">Всего альбомов:: <strong>24</strong>
+								</div>
+								<div class="gallery">
+									<div class="gallery__body swiper gallery-personal">
+										<div class="gallery__wrapper swiper-wrapper">
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/1.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/1.jpg" alt="Венгерский альбом" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Венгерский альбом</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/2.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/2.jpg" alt="Хорватские хроники" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Хорватские хроники</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/3.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/3.jpg" alt="Цифровое внутрикамерное наложение" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Цифровое внутрикамерное наложение</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/4.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/4.jpg" alt="Один день в Лавре | прощание с Владимиром" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Один день в Лавре | прощание с Владимиром</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/5.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/5.jpg" alt="Венгерский альбом" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Венгерский альбом</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/6.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/6.jpg" alt="Дагестан 2019" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Дагестан 2019</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/1.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/1.jpg" alt="Венгерский альбом" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Венгерский альбом</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/2.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/2.jpg" alt="Хорватские хроники" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Хорватские хроники</a>
+												</div>
+											</div>
+											<div class="gallery__item item-gallery swiper-slide">
+												<a href="images/author/sliders/personal/3.jpg" data-fslightbox="gallery-personal">
+													<div class="item-gallery__image ibg">
+														<img src="images/author/sliders/personal/3.jpg" alt="Цифровое внутрикамерное наложение" loading="lazy">
+													</div>
+												</a>
+												<div class="item-gallery__body">
+													<a class="item-gallery__link" href="#">Цифровое внутрикамерное наложение</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="gallery__bottom">
+										<div class="gallery__controls slider-controls">
+											<button class="slider-button slider-button-prev" type="button"></button>
+											<div class="slider-pagination"></div>
+											<button class="slider-button slider-button-next" type="button"></button>
+										</div>
+										<a class="gallery__link btn-show" href="#">Ещё </a>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section class="author-box author-box--stats open">
+							<header class="author-box__header">
+								<h2 class="author-box__title">Статистика автора</h2>
+								<button class="author-box__button" type="button">
+									<span class="author-box__button-text">Свернуть</span>
+									<span class="author-box__arrow"></span>
+								</button>
+							</header>
+							<div class="author-box__body">
+								<div class="author-stats">
+									<div class="author-stats__column">
+										<div class="author-stats__item">
+											<h2 class="author-stats__title">ФОРУМЫ:</h2>
+											<ul class="author-stats__list">
+												<li class="author-stats__list-item">Всего 708 <a href="#">сообщений</a> в форумах</li>
+												<li class="author-stats__list-item">
+													<a href="#">Статистика по отдельным форумам</a>
+												</li>
+												<li class="author-stats__list-item">
+													<a href="#">Темы созданные автором</a>
+												</li>
+											</ul>
+										</div>
+										<div class="author-stats__item">
+											<h2 class="author-stats__title">БАРАХОЛКА:</h2>
+											<ul class="author-stats__list">
+												<li class="author-stats__list-item">Автором написано <strong>8247</strong>
+													<a href="#">комментариев</a>
+												</li>
+												<li class="author-stats__list-item">Под работами автора оставили <strong>8131</strong>
+													<a href="#">комментарий</a>
+												</li>
+												<li class="author-stats__list-item">1469 фотографий в галерее.</li>
+												<li class="author-stats__list-item">В среднем за неделю: фотографий - <strong>2.76</strong>, комментариев - <strong>15.50</strong>
+												</li>
+												<li class="author-stats__list-item">Работы автора ожидают <strong>63</strong> пользователя <a href="#">(Кто они?)</a>
+												</li>
+												<li class="author-stats__list-item">Комментарии автора ожидают <strong>3</strong> пользователя <a href="#">(Кто они?)</a>
+												</li>
+												<li class="author-stats__list-item">Автор еще ни на чьи работы не подписан</li>
+												<li class="author-stats__list-item">Автор еще ни на чьи комментарии не подписан</li>
+												<li class="author-stats__list-item">
+													<a href="#">Автор рекомендовал(а) 23658 работ</a>
+												</li>
+												<li class="author-stats__list-item">Оценки, поставленные автором другим (не своим) работам:</li>
+												<li class="author-stats__list-item">двойки - <strong>178</strong>; тройки - <strong>409</strong>; четверки - <strong>6717</strong>; пятерки - <strong>9767</strong>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="author-stats__column">
+										<div class="author-stats__item">
+											<h2 class="author-stats__title">БЛОГИ:</h2>
+											<ul class="author-stats__list">
+												<li class="author-stats__list-item">Всего <a href="#">1 запись</a> в блогах</li>
+											</ul>
+										</div>
+										<div class="author-stats__item author-stats__item--names">
+											<div class="author-stats__item"></div>
+											<h2 class="author-stats__title">БЫВШИЕ ИМЕНА АВТОРА:</h2>
+											<ul class="author-stats__list">
+												<li class="author-stats__list-item">
+													<div class="author-stats__label">Форумы:</div>
+													<div class="author-stats__value">Айдимир, Айдимир Джафаров</div>
+												</li>
+												<li class="author-stats__list-item">
+													<div class="author-stats__label">Галерея:</div>
+													<div class="author-stats__value">Айдимир, Айдимир Джафаров</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section class="author-box author-box--blog open">
+							<header class="author-box__header">
+								<h2 class="author-box__title">Блог автора</h2>
+								<button class="author-box__button" type="button">
+									<span class="author-box__button-text">Свернуть</span>
+									<span class="author-box__arrow"></span>
+								</button>
+							</header>
+							<div class="author-box__body">
+								<div class="author-blog">
+									<a class="author-blog__link" href="blog.foto.ru/user/?user_id=399512">blog.foto.ru/user/?user_id=399512</a>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__top">
+					<nav class="footer__menu menu-footer">
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Правила Клуба</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">О Клубе</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Вход / Регистрация</a>
+							</li>
+							<li class="menu-footer__item active">
+								<a class="menu-footer__link" href="#">Поиск авторов</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">ХудСовет</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Как связаться</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Статистика</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Реклама на сайте</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">FAQ</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив галереи</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив форумов</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__bottom">
+					<a class="footer__logo" href="#" data-da=".footer__top, 767.98, 0">
+						<img src="images/footer-logo_pc.svg" alt="логотип" loading="lazy">
+					</a>
+					<div class="footer__social social-footer">
+						<ul class="social-footer__list">
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--youtube" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--mail" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--vk" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--twitter" href="#" target="_blank"></a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--telegram" href="#" target="_blank"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer__copy">Все права защищены © 2023</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="scripts/main.min.js" defer></script>
+</body>
+
+</html>

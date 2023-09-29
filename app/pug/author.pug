@@ -1,0 +1,144 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Автор";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.author
+		.container
+			.author__wrapper 
+				section.author__about.about-author
+					h2.about-author__title.page-title Айдимир
+					.about-author__body 
+						.about-author__image.ibg
+							img(src="images/author/photo.jpg", alt="Айдимир")
+						.about-author__features.features-author
+							ul.features-author__list
+								each item in authorPage.list
+									li.features-author__list-item 
+										div.features-author__label= item.name
+										div.features-author__value= item.value
+							.features-author__description
+								.features-author__label О себе:
+								p.features-author__text= authorPage.aboutText
+						.actions-author-mobile
+							p.actions-author__text Входит в 100 лучших авторов Галереи Foto.ru #[img(src="images/author/about-status.png", alt="статус").actions-author__icon]
+							p.actions-author__text Входит в #[a(href="#").actions-author__link ХудСовет] Клуба Foto.ru
+						.about-author__actions.actions-author
+							.actions-author__item
+								p.actions-author__text Входит в 100 лучших авторов Галереи Foto.ru #[img(src="images/author/about-status.png", alt="статус").actions-author__icon]
+								p.actions-author__text Входит в #[a(href="#").actions-author__link ХудСовет] Клуба Foto.ru
+							.actions-author__item
+								a(href="http://club.foto.ru/author/dzhf").actions-author__button.actions-author__button--share http://club.foto.ru/&shy;author/dzhf
+							.actions-author__item
+								button(type="button").actions-author__button.actions-author__button--letter Написать письмо
+							.actions-author__item
+								button(type="button").actions-author__button.actions-author__button--message Личное сообщение
+				+authorBox("author-box--awards open", "Награды автора", "наград", "20")
+					.gallery
+						.gallery__body.swiper(class="gallery-awards")
+							.gallery__wrapper.swiper-wrapper
+								each item, index in authorPage.sliders.awards
+									.gallery__item.item-gallery.swiper-slide
+										a(href=`images/author/sliders/awards/${item.img}.jpg` data-fslightbox=`gallery-awards`)
+											.item-gallery__image.ibg
+												img(src=`images/author/sliders/awards/${item.img}.jpg`, alt=`${item.text}` loading="lazy")
+										.item-gallery__trophy(class=`item-gallery__trophy--${item.place}`)
+											.item-gallery__trophy-text!= item.text
+						.gallery__bottom
+							.gallery__controls.slider-controls 
+								button(type="button").slider-button.slider-button-prev
+								.slider-pagination
+								button(type="button").slider-button.slider-button-next
+							a(href="#").gallery__link.btn-show Ещё 
+				+authorBox("author-box--photos open", "Фотографии автора", "фотографий", "245")
+					.gallery
+						.gallery__body.swiper(class="gallery-photos")
+							.gallery__wrapper.swiper-wrapper
+								each item, index in authorPage.sliders.photos
+									.gallery__item.item-gallery.swiper-slide
+										a(href=`images/author/sliders/photos/${item}.jpg` data-fslightbox=`gallery-photos`)
+											.item-gallery__image.ibg
+												img(src=`images/author/sliders/awards/${item}.jpg`, alt=`Фотография автора` loading="lazy")
+						.gallery__bottom
+							.gallery__controls.slider-controls 
+								button(type="button").slider-button.slider-button-prev
+								.slider-pagination
+								button(type="button").slider-button.slider-button-next
+							a(href="#").gallery__link.btn-show Ещё 
+				+authorBox("author-box--series open", "Серии автора", "серий", "24")
+					.author-series
+						.author-series__column
+							ul.author-series__list 
+								each item in authorPage.series.col_one
+									li.author-series__item 
+										a(href="#").author-series__link= item
+						.author-series__column
+							ul.author-series__list 
+								each item in authorPage.series.col_two
+									li.author-series__item 
+										a(href="#").author-series__link= item
+						.author-series__column
+							ul.author-series__list 
+								each item in authorPage.series.col_three
+									li.author-series__item 
+										a(href="#").author-series__link= item
+				+authorBox("author-box--personal open", "Персональные альбомы автора", "альбомов:", "24")
+					.gallery
+						.gallery__body.swiper(class="gallery-personal")
+							.gallery__wrapper.swiper-wrapper
+								each item, index in authorPage.sliders.personal
+									.gallery__item.item-gallery.swiper-slide
+										a(href=`images/author/sliders/personal/${item.img}.jpg` data-fslightbox=`gallery-personal`)
+											.item-gallery__image.ibg
+												img(src=`images/author/sliders/personal/${item.img}.jpg`, alt=`${item.text}` loading="lazy")
+										.item-gallery__body 
+											a(href="#").item-gallery__link= item.text
+						.gallery__bottom
+							.gallery__controls.slider-controls 
+								button(type="button").slider-button.slider-button-prev
+								.slider-pagination
+								button(type="button").slider-button.slider-button-next
+							a(href="#").gallery__link.btn-show Ещё 
+				+authorBox("author-box--stats open", "Статистика автора")
+					.author-stats
+						.author-stats__column
+							.author-stats__item
+								h2.author-stats__title ФОРУМЫ:
+								ul.author-stats__list 
+									li.author-stats__list-item Всего 708 #[a(href="#") сообщений] в форумах
+									li.author-stats__list-item #[a(href="#") Статистика по отдельным форумам]
+									li.author-stats__list-item #[a(href="#") Темы созданные автором]
+							.author-stats__item
+								h2.author-stats__title БАРАХОЛКА:
+								ul.author-stats__list 
+									li.author-stats__list-item Автором написано #[strong 8247] #[a(href="#") комментариев]
+									li.author-stats__list-item Под работами автора оставили #[strong 8131] #[a(href="#") комментарий]
+									li.author-stats__list-item 1469 фотографий в галерее.
+									li.author-stats__list-item В среднем за неделю: фотографий - #[strong 2.76], комментариев - #[strong 15.50]
+									li.author-stats__list-item Работы автора ожидают #[strong 63] пользователя #[a(href="#") (Кто они?)]
+									li.author-stats__list-item Комментарии автора ожидают #[strong 3] пользователя #[a(href="#") (Кто они?)]
+									li.author-stats__list-item Автор еще ни на чьи работы не подписан
+									li.author-stats__list-item Автор еще ни на чьи комментарии не подписан
+									li.author-stats__list-item #[a(href="#") Автор рекомендовал(а) 23658 работ]
+									li.author-stats__list-item Оценки, поставленные автором другим (не своим) работам:
+									li.author-stats__list-item двойки - #[strong 178]; тройки - #[strong 409]; четверки - #[strong 6717]; пятерки - #[strong 9767]
+						.author-stats__column
+							.author-stats__item
+								h2.author-stats__title БЛОГИ:
+								ul.author-stats__list 
+									li.author-stats__list-item Всего #[a(href="#") 1 запись] в блогах
+							.author-stats__item.author-stats__item--names
+								.author-stats__item
+								h2.author-stats__title БЫВШИЕ ИМЕНА АВТОРА:
+								ul.author-stats__list 
+									li.author-stats__list-item
+										.author-stats__label Форумы:
+										.author-stats__value Айдимир, Айдимир Джафаров
+									li.author-stats__list-item
+										.author-stats__label Галерея:
+										.author-stats__value Айдимир, Айдимир Джафаров
+				+authorBox("author-box--blog open", "Блог автора")
+					.author-blog
+						a(href=`${authorPage.blog.link}`).author-blog__link= authorPage.blog.link  

@@ -214,6 +214,132 @@ if (galleryBig) {
 		})
 	})
 }
+const galleryAwards = document.querySelector('.gallery-awards');
+if (galleryAwards) {
+	let galleryAwardsSwiper = new Swiper(galleryAwards, {
+		modules: [Pagination, Navigation],
+		wrapperClass: 'gallery__wrapper',
+		slideClass: 'gallery__item',
+		lockClass: "swiper-lock",
+		pagination: {
+			el: galleryAwards.nextElementSibling.querySelector(".slider-pagination"),
+			type: 'bullets',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: galleryAwards.nextElementSibling.querySelector(".gallery__controls .slider-button-next"),
+			prevEl: galleryAwards.nextElementSibling.querySelector(".gallery__controls .slider-button-prev"),
+		},
+		speed: 800,
+		breakpoints: {
+			300: {
+				slidesPerView: 1.3,
+				centeredSlides: true,
+				spaceBetween: 17,
+				slidesPerGroup: 1,
+				initialSlide: 1,
+			},
+			390: {
+				slidesPerView: 1.4,
+				spaceBetween: 17,
+				slidesPerGroup: 1,
+				centeredSlides: true,
+				initialSlide: 1,
+			},
+			576: {
+				slidesPerView: 2,
+				spaceBetween: 17,
+				slidesPerGroup: 1,
+				centeredSlides: true,
+				initialSlide: 1,
+			},
+			991.98: {
+				slidesPerView: 4,
+				spaceBetween: 24,
+				slidesPerGroup: 2,
+				centeredSlides: false,
+				initialSlide: 0,
+			},
+		}
+	})
+}
+const galleryPhotos = document.querySelector('.gallery-photos');
+if (galleryPhotos) {
+	let galleryPhotosSwiper = new Swiper(galleryPhotos, {
+		modules: [Pagination, Navigation],
+		wrapperClass: 'gallery__wrapper',
+		slideClass: 'gallery__item',
+		lockClass: "swiper-lock",
+		pagination: {
+			el: galleryPhotos.nextElementSibling.querySelector(".slider-pagination"),
+			type: 'bullets',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: galleryPhotos.nextElementSibling.querySelector(".gallery__controls .slider-button-next"),
+			prevEl: galleryPhotos.nextElementSibling.querySelector(".gallery__controls .slider-button-prev"),
+		},
+		speed: 800,
+		breakpoints: {
+			300: {
+				slidesPerView: 1.4,
+				spaceBetween: 17,
+				slidesPerGroup: 1,
+				centeredSlides: true,
+				initialSlide: 1,
+			},
+			576: {
+				slidesPerView: 2,
+				spaceBetween: 17,
+				slidesPerGroup: 1,
+				centeredSlides: true,
+				initialSlide: 1,
+			},
+			991.98: {
+				slidesPerView: 4,
+				spaceBetween: 24,
+				slidesPerGroup: 2,
+				centeredSlides: false,
+				initialSlide: 0,
+			},
+		}
+	})
+}
+const galleryPersonal = document.querySelector('.gallery-personal');
+if (galleryPersonal) {
+	let galleryPersonalSwiper = new Swiper(galleryPersonal, {
+		modules: [Pagination, Navigation],
+		wrapperClass: 'gallery__wrapper',
+		slideClass: 'gallery__item',
+		lockClass: "swiper-lock",
+		pagination: {
+			el: galleryPersonal.nextElementSibling.querySelector(".slider-pagination"),
+			type: 'bullets',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: galleryPersonal.nextElementSibling.querySelector(".gallery__controls .slider-button-next"),
+			prevEl: galleryPersonal.nextElementSibling.querySelector(".gallery__controls .slider-button-prev"),
+		},
+		speed: 800,
+		breakpoints: {
+			300: {
+				slidesPerView: "auto",
+				spaceBetween: 28,
+				slidesPerGroup: 1,
+				centeredSlides: true,
+				initialSlide: 1,
+			},
+			767.98: {
+				slidesPerView: "auto",
+				spaceBetween: 66,
+				slidesPerGroup: 3,
+				centeredSlides: false,
+				initialSlide: 0,
+			},
+		}
+	})
+}
 
 let root = document.querySelectorAll('.gallery__body')
 // Создаем новый observer (наблюдатель)

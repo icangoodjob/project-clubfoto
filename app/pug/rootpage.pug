@@ -1,3 +1,4 @@
+include ./includes/variables
 doctype html
 html(lang="ru")
 	head
@@ -13,26 +14,10 @@ html(lang="ru")
 			.rootpage__text Ниже вы найдете ссылки на все страницы. Для просмотра кликайте на нужную страничку (откроется в новом окне)
 			h2 Страницы:
 			ol.rootpage__list
-				li 
-					a(target="_blank" href="index.html") Главная
-				li 
-					a(target="_blank" href="forums.html") Форумы
-				li 
-					a(target="_blank" href="forum.html") Форум
-				li 
-					a(target="_blank" href="galleries.html") Галереи
-				li 
-					a(target="_blank" href="topic.html") Топик
-				li 
-					a(target="_blank" href="add-photo.html") Добавление
-				li 
-					a(target="_blank" href="login.html") Вход в систему
-				li 
-					a(target="_blank" href="register.html") Регистрация
-				li 
-					a(target="_blank" href="text-page.html") Правила Клуба Foto.ru
-				li 
-					a(target="_blank" href="main-photo.html") Фотография
+				each item in pages
+					li
+						a(target="_blank" href=item.link)= item.title
+				
 		style.
 			@charset "UTF-8";
 			@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,500,700&display=swap");

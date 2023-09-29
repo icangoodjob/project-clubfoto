@@ -276,6 +276,8 @@
 		align-items: center;
 		max-height: 294px;
 		padding-bottom: math.div(294, 294) * 100%;
+		border-radius: 5px;
+		overflow: hidden;
 	}
 	&__icon {
 		width: 56px;

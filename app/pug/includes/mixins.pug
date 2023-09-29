@@ -124,3 +124,15 @@ mixin smallNews([...array], imgPath)
 								time(datetime=item.dateEnd.split('.').reverse().join('-') class="small-news-date")= item.dateEnd
 mixin btn(btnText, className)
 	button(type="button" class=className).btn= btnText
+mixin authorBox(className, sectionTitle, textResult, countResult)
+	section.author-box(class=className)
+		header.author-box__header 
+			h2.author-box__title #{sectionTitle}
+			button(type="button").author-box__button 
+				span.author-box__button-text Свернуть
+				span.author-box__arrow
+		.author-box__body
+			if textResult
+				.author-box__result Всего #{textResult}: #[strong #{countResult}]
+			if block 
+				block

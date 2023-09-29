@@ -4,11 +4,13 @@ import "./modules/sliders.js";
 
 import "./modules/spollers.js";
 
+import "./modules/dynamic_adapt.js";
+
 import "./modules/choices.js";
 
 import "./modules/tabs.js";
 
-import "./modules/dynamic_adapt.js";
+import "./modules/accordeon.js";
 
 document.addEventListener('click', documentActions);
 const menuBody = document.querySelector('.menu-mobile');
