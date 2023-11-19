@@ -19,8 +19,8 @@
   - "./dist/files/" - папка с другими файлами
 */
 
-import pkg from 'gulp'
-const { gulp, src, dest, parallel, series, watch: gulpWatch } = pkg
+import pkg from 'gulp';
+const { src, dest, parallel, series, watch: gulpWatch } = pkg;
 
 import browserSync from 'browser-sync'
 import bssi from 'browsersync-ssi'
@@ -50,6 +50,8 @@ import vinylFTP from 'vinyl-ftp'; // Подключение по ftp
 import util from 'gulp-util';
 import formatHTML from 'gulp-format-html'; // Форматирование резалютирующего html кода
 import { deleteAsync } from 'del';
+import concat from 'gulp-concat';
+import cleanJs from 'gulp-minify';
 
 import webp from 'gulp-webp';
 import webpHtmlNoSvg from 'gulp-webp-html-nosvg';
@@ -87,17 +89,21 @@ const path = {
     html: `${srcFolder}/*.html`,
     pug: `${srcFolder}/pug/*.pug`,
     js: `${srcFolder}/scripts/main.js`,
+    jsLibs: `${srcFolder}/scripts/libs/**/*.js`,
     scss: `${srcFolder}/scss/**/main.scss`,
     images: `${srcFolder}/images/**/*.{jpg,jpeg,png,gif,webp,ico,json}`,
     svg: `${srcFolder}/images/**/*.svg`,
     fonts: `${srcFolder}/fonts/*.*`,
     files: `${srcFolder}/files/**/*.*`,
     svgicons: `${srcFolder}/svgicons/*.svg`,
+    styleLibs: `${srcFolder}/style/libs/**/*.css`,
   },
   watch: {
     pug: `${srcFolder}/pug/**/*.pug`,
     scss: `${srcFolder}/scss/**/*.scss`,
+    styleLibs: `${srcFolder}/style/libs/**/*.css`,
     js: `${srcFolder}/scripts/**/*.js`,
+    jsLibs: `${srcFolder}/scripts/libs/**/*.js`,
     images: `${srcFolder}/images/**/*.{jpg,jpeg,png,svg,gif,ico,webp,json}`,
     fonts: `${srcFolder}/fonts/**/*`,
     svgicons: `${srcFolder}/svgicons/*.svg`,
@@ -107,15 +113,15 @@ const path = {
   buildFolder: buildFolder,
   rootFolder: rootFolder,
   srcFolder: srcFolder,
-  ftp: `` // Путь к нужной папке на удаленном сервере. gulp добавит имя папки проекта автоматически
+  ftp: `public_html` // Путь к нужной папке на удаленном сервере. gulp добавит имя папки проекта автоматически
 }
 
 // Настройка FTP соединения
 const configFTP = {
-  host: "", // Адрес FTP сервера
-  user: "", // Имя пользователя
-  password: "", // Пароль
-  parallel: 5 // Кол-во одновременных потоков
+  host: '', // Адрес FTP сервера
+  user: '', // Имя пользователя
+  password: '', // Пароль
+  parallel: 5 // Количество одновременных потоков
 }
 
 // Раскомментировать, если нужна верстка под MODX
@@ -219,80 +225,90 @@ function styles() {
     ]))
     .pipe(rename({ suffix: ".min" }))
     .pipe(dest(path.build.css))
-    // Раскомментировать, если нужно добавлять в папку assets/template
-    // .pipe(dest(`${pathModxTemplate}styles/`))
     .pipe(browserSync.stream())
 }
-function scripts() {
+function stylesLibs() {
+	return src(path.src.styleLibs)
+    .pipe(plumber(plumberNotify("STYLE LIBS")))
+		.pipe(concat('libs.css'))
+    // Раскомментировать, если нужен неминифицированный файл стилей
+		// .pipe(dest(path.build.css))
+    .pipe(postCss([
+      cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
+    ]))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest(path.build.css))
+};
+// function scripts() {
+//   return src(path.src.js)
+//     .pipe(plumber(plumberNotify("JS")))
+//     .pipe(named())
+//     .pipe(webpackStream({
+//       mode: app.isBuild ? 'production' : 'development',
+//       performance: { hints: false },
+//       module: {
+//         rules: [
+//           {
+//             test: /\.m?js$/,
+//             exclude: /(node_modules)/,
+//             use: {
+//               loader: 'babel-loader',
+//               options: {
+//                 presets: ['@babel/preset-env'],
+//                 plugins: ['babel-plugin-root-import']
+//               }
+//             }
+//           }
+//         ]
+//       },
+//       optimization: {
+//         minimize: true,
+//         minimizer: [
+//           new TerserPlugin({
+//             terserOptions: { format: { comments: false } },
+//             extractComments: false,
+//           })
+//         ],
+//       },
+//       output: {
+//         filename: '[name].min.js',
+//       },
+//     }, webpack)).on('error', (err) => {
+//       this.emit('end')
+//     })
+//     .pipe(dest(path.build.js))
+//     .pipe(browserSync.stream())
+// }
+
+function jsDist() {
   return src(path.src.js)
     .pipe(plumber(plumberNotify("JS")))
-    .pipe(named())
-    .pipe(app.plugins.if(
-      app.isBuild,
-      webpackStream({
-        mode: 'production',
-        performance: { hints: false },
-        optimization: {
-          minimize: false,
-          minimizer: [
-            new TerserPlugin({
-              terserOptions: { format: { comments: false } },
-              extractComments: false,
-              // include: /\.min\.js$/,
-            })
-          ],
-        },
-        output: {
-          filename: '[name].js',
-        },
-      }, webpack)).on('error', (err) => {
-        this.emit('end')
-      }))
-    .pipe(app.plugins.if(
-      app.isBuild,
-      dest(path.build.js)))
-    .pipe(webpackStream({
-      mode: app.isBuild ? 'production' : 'development',
-      performance: { hints: false },
-      // plugins: [
-      //   new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery' }), // jQuery (npm i jquery)
-      // ],
-      module: {
-        rules: [
-          {
-            test: /\.m?js$/,
-            exclude: /(node_modules)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env'],
-                plugins: ['babel-plugin-root-import']
-              }
-            }
-          }
-        ]
-      },
-      optimization: {
-        minimize: true,
-        minimizer: [
-          new TerserPlugin({
-            terserOptions: { format: { comments: false } },
-            extractComments: false,
-            // include: /\.min\.js$/,
-          })
-        ],
-      },
-      output: {
-        filename: '[name].min.js',
-      },
-    }, webpack)).on('error', (err) => {
-      this.emit('end')
-    })
+
     .pipe(dest(path.build.js))
-    // Раскомментировать, если нужно добавлять в папку assets/template
-    // .pipe(dest(`${pathModxTemplate}scripts/`))
-    .pipe(browserSync.stream())
-}
+};
+function jsLibs() {
+  return src(path.src.jsLibs)
+    .pipe(plumber(plumberNotify("JS")))
+    .pipe(concat('libs.js'))
+    .pipe(cleanJs({
+      noSource: true,
+      ext: {
+        min: '.js',
+      },
+    }))
+    .pipe(dest(path.build.js))
+};
+function jsMin() {
+  return src(path.build.js + "/*.js")
+    .pipe(cleanJs({
+      noSource: true,
+      ext: {
+        min: '.js',
+      },
+    }))
+    .pipe(dest(path.build.js))
+};
+
 function images() {
   return src([path.src.images, `!${path.srcFolder}/images/favicons/**/*.*`])
     .pipe(plumber(plumberNotify("IMAGES")))
@@ -332,24 +348,18 @@ function images() {
 
     .pipe(src(path.src.svg))
     .pipe(dest(path.build.images))
-    // Раскомментировать, если нужно добавлять в папку assets/template
-    // .pipe(dest(`${pathModxTemplate}images/`))
     .pipe(browserSync.stream())
 }
 function fonts() {
   return src(path.src.fonts)
     .pipe(plumber(plumberNotify("FONTS")))
     .pipe(dest(path.build.fonts))
-    // Раскомментировать, если нужно добавлять в папку assets/template
-    // .pipe(dest(`${pathModxTemplate}fonts/`))
     .pipe(browserSync.stream())
 }
 function files() {
   return src(path.src.files)
     .pipe(plumber(plumberNotify("FILES")))
     .pipe(dest(path.build.files))
-  // Раскомментировать, если нужно добавлять в папку assets/template
-  // .pipe(dest(`${pathModxTemplate}files/`))
 }
 function sprite() {
   return src(path.src.svgicons)
@@ -394,8 +404,6 @@ function sprite() {
       }
     }))
     .pipe(dest(path.build.images))
-    // Раскомментировать, если нужно добавлять в папку assets/template
-    // .pipe(dest(`${pathModxTemplate}images/`))
     .pipe(browserSync.stream())
 }
 const cleandist = () => {
@@ -405,13 +413,17 @@ const cleandist = () => {
 function startwatch() {
   gulpWatch([path.watch.pug], { usePolling: true }, buildPug)
   gulpWatch([path.watch.scss], { usePolling: true }, styles)
-  gulpWatch([path.watch.js], { usePolling: true }, scripts)
+  gulpWatch([path.watch.styleLibs], { usePolling: true }, stylesLibs)
+  // gulpWatch([path.watch.js], { usePolling: true }, scripts)
+  gulpWatch([path.watch.js], { usePolling: true }, jsDist)
+  gulpWatch([path.watch.jsLibs], { usePolling: true }, jsLibs)
   gulpWatch([path.watch.images], { usePolling: true }, images)
   gulpWatch([path.watch.fonts], { usePolling: true }, fonts)
   gulpWatch([path.watch.svgicons], { usePolling: true }, sprite)
   gulpWatch([path.watch.files], { usePolling: true }, files)
   gulpWatch([`${buildFolder}/**/*.*`], { usePolling: true }).on('change', browserSync.reload)
 }
+// ZIP
 function zip() {
   deleteAsync(`./${path.rootFolder}.zip`);
   return src(`${path.buildFolder}/**/*.*`, {})
@@ -419,15 +431,16 @@ function zip() {
     .pipe(zipPlugin(`${path.rootFolder}.zip`))
     .pipe(dest('./'));
 }
+// FTP
 function ftp() {
   configFTP.log = util.log;
   const ftpConnect = vinylFTP.create(configFTP);
   return src(`${path.buildFolder}/**/*.*`, {})
     .pipe(plumber(plumberNotify("FTP")))
-    .pipe(ftpConnect.dest(`/${path.ftp}/${path.rootFolder}`));
+    .pipe(ftpConnect.dest(`/${path.ftp}/${rootFolder}`));
 }
 
-const mainTasks = parallel(images, scripts, buildPug, styles, sprite, fonts, files);
+const mainTasks = parallel(images, jsDist, jsLibs, jsMin, buildPug, styles, stylesLibs, sprite, fonts, files);
 // Добавлена задача cleandist в watch
 const watch = series(cleandist, mainTasks, parallel(browsersync, startwatch))
 const build = series(cleandist, mainTasks)
@@ -438,6 +451,7 @@ const deployZIP = series(build, zip);
 export { build, watch, zip, ftp, cleandist }
 
 export { deployFTP }
+
 export { deployZIP }
 
 export default watch;

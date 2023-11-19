@@ -1,5 +1,5 @@
 .static-page {
-  & .page-title {
+  &__title {
     display: none;
     margin-bottom: 16px;
     @media screen and (max-width: $md) {

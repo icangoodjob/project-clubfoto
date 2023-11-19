@@ -25,6 +25,7 @@ html(lang="ru")
 			link(rel="canonical" href="https://example.com")
 			link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet")
 			block styles
+				link(href="styles/libs.min.css" rel="stylesheet")
 				link(href="styles/main.min.css" rel="stylesheet")
 			include ../components/favicons
 			meta(name="apple-mobile-web-app-title" content="Название")
@@ -41,4 +42,5 @@ html(lang="ru")
 				block content
 			include ../components/footer
 		block scripts
-			script(src="scripts/main.min.js" defer)
+			script(src="scripts/libs.js" defer)
+			script(src="scripts/main.js" defer)
