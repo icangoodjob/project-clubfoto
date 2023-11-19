@@ -35,6 +35,32 @@ block content
 								button(type="button").actions-author__button.actions-author__button--letter Написать письмо
 							.actions-author__item
 								button(type="button").actions-author__button.actions-author__button--message Личное сообщение
+				section.author-favorites
+					.author-favorites__cards 
+						each el, index in authorPage.favorites
+							.author-favorites__card(class=`${index === 1 ? 'author-favorites__card--message' : ''}`)
+								h2.author-favorites__title= el.title
+								.author-favorites__items 
+									each item in el.items
+										.author-favorites__item 	
+											if item.img
+												.author-favorites__image 
+													img(src="images/author/photo.jpg", alt="")
+											.author-favorites__info
+												.author-favorites__content
+													if item.caption 
+														a(href="#").author-favorites__caption= item.caption
+														.author-favorites__pages 
+															| [ На страницу: #[a(href="#") 1] #[a(href="#") 2] #[a(href="#") 3] ... #[a(href="#") 12] #[a(href="#") 13] ]
+													if item.name || item.descr
+														.author-favorites__name= item.name
+														.author-favorites__descr= item.descr
+												if item.label
+													.author-favorites__label= item.label 
+												if item.link
+													a(href="#").author-favorites__link= item.link 
+								.author-favorites__bottom
+									a(href="#").author-favorites__link.author-favorites__link--bottom Посмотреть все
 				+authorBox("author-box--awards open", "Награды автора", "наград", "20")
 					.gallery
 						.gallery__body.swiper(class="gallery-awards")

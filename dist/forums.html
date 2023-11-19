@@ -15,8 +15,8 @@
 	<meta property="twitter:title" content="Форумы">
 	<meta property="twitter:description" content="description">
 	<link rel="canonical" href="https://example.com">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap&_v=20230929195510" rel="stylesheet">
-	<link href="styles/main.min.css?_v=20230929195510" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
+	<link href="styles/main.min.css" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
 	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
@@ -238,13 +238,15 @@
 									<a class="top-main__link btn-show" href="#">Пройти регистрацию</a>
 								</div>
 							</div>
-							<div class="top-main__image ibg">
-								<picture>
-									<source srcset="images/top-main-img.jpg" media="(min-width: 767.98px)">
-									<source srcset="images/top-main-img-mobile.jpg" media="(min-width: 320px)">
-									<img src="images/top-main-img.jpg" alt="Изображение" loading="lazy">
-								</picture>
-							</div>
+							<a class="top-main__banner" href="#">
+								<div class="top-main__image ibg">
+									<picture>
+										<source srcset="images/top-main-img.jpg" media="(min-width: 767.98px)">
+										<source srcset="images/top-main-img-mobile.jpg" media="(min-width: 320px)">
+										<img src="images/top-main-img.jpg" alt="Изображение" loading="lazy">
+									</picture>
+								</div>
+							</a>
 						</div>
 					</div>
 				</section>
@@ -876,7 +878,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="scripts/main.min.js?_v=20230929195510" defer></script>
+	<script src="scripts/main.min.js" defer></script>
 </body>
 
 </html>

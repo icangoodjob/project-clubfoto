@@ -31,56 +31,60 @@
 // @import "../../node_modules/swiper/swiper.min.css"; // Slider: npm install swiper, site: https://swiperjs.com/get-started
 // @import "../../node_modules/air-datepicker/air-datepicker.css"; // Datepicker: npm i air-datepicker -S, site: https://air-datepicker.com/ru
 
+:root {
+  --line-width: 100%;
+}
+
 body {
-	// Скролл заблокирован
-	background-color: #f3f3f3;
-	background-image: url("../images/main-bg.svg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 0 0;
-	@media screen and (max-width: $md) {
-		background-image: url("../images/main-bg-mobile.svg");
-	}
-	@media screen and (max-width: $md) {
-		&.lock {
-			overflow: hidden;
-			touch-action: none;
-		}
-	}
-	// Сайт загружен
-	.loaded & {
-	}
+  // Скролл заблокирован
+  background-color: #f3f3f3;
+  background-image: url("../images/main-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  @media screen and (max-width: $md) {
+    background-image: url("../images/main-bg-mobile.svg");
+  }
+  @media screen and (max-width: $md) {
+    &.lock {
+      overflow: hidden;
+      touch-action: none;
+    }
+  }
+  // Сайт загружен
+  .loaded & {
+  }
 }
 
 .workemail {
-	display: none;
+  display: none;
 }
 .wrapper {
-	width: 100%;
-	min-height: 100vh;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	// Прижимаем footer
-	> main {
-		flex: 1 1 auto;
-	}
-	// Фикс для слайдеров
-	> * {
-		min-width: 0;
-	}
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  // Прижимаем footer
+  > main {
+    flex: 1 1 auto;
+  }
+  // Фикс для слайдеров
+  > * {
+    min-width: 0;
+  }
 }
 .header {
-	flex-shrink: 0;
+  flex-shrink: 0;
 }
 .footer {
-	flex-shrink: 0;
+  flex-shrink: 0;
 }
 //<ОСНОВНАЯ СЕТКА>===========================================================================================================
 .container {
-	max-width: $maxWidthContainer + px;
-	margin: 0 auto;
-	padding: 0 math.div($containerPadding, 2) + px;
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  padding: 0 math.div($containerPadding, 2) + px;
 }
 //<ОСНОВНАЯ СЕТКА>===========================================================================================================
 
@@ -88,6 +92,7 @@ body {
 // Подключение общих стилей для элементов
 @import "swiper-bundle.min.scss";
 @import "choices";
+@import "simplebar";
 @import "common";
 
 // Подключение общих стилей для страниц
@@ -111,6 +116,10 @@ body {
 @import "blocks/text-page";
 @import "blocks/main-photo";
 @import "blocks/author";
+@import "blocks/static-page";
+@import "blocks/advice";
+@import "blocks/faq";
+@import "blocks/private";
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>==============================================================================
 

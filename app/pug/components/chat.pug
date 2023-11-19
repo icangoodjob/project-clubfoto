@@ -1,0 +1,69 @@
+.private-message__body 
+    aside.private-message__aside 
+        .private-message__top
+            .private-message__top-info
+                .private-message__image-wrap
+                    .private-message__image.private-image
+                        img(src="images/private/user-1.png", alt="User123")
+                .private-message__user.private-user User123
+                .private-message__count 12 новых сообщений
+            .private-message__buttons 
+                button(type="button").private-message__button.button-dots
+        .private-message__search
+            form(action="#").search-form.form
+                input(type="text" placeholder="Поиск").form__input.search-form__input
+                button(type="submit").search-form__button
+                    span.search-form__icon
+        .private-message__dialogs.dialogs(data-simplebar)
+            each dialog, index in privatePage.dialogs
+                .dialogs-item(class={active: index === 0})
+                    .dialogs-item__image-wrap 	
+                        .dialogs-item__image.private-image
+                            img(src=`images/private/dialog-${dialog.img}.png`, alt=dialog.user)
+                        if dialog.online
+                            .dialogs-item__status.private-status
+                    .dialogs-item__body 
+                        .dialogs-item__name= dialog.user
+                        .dialogs-item__date.private-label= dialog.date
+                        .dialogs-item__text(class=`${dialog.read}`)= dialog.text
+    .private-message__chat.private-chat
+        .private-message__top
+            .private-message__top-info
+                .private-message__image-wrap
+                    .private-message__image.private-image
+                        img(src="images/private/user-2.png", alt="User123")
+                    .private-status
+                .private-message__user User123
+                .private-message__count 12 новых сообщений
+            .private-message__buttons 
+                button(type="button").private-message__button.button-search 
+                button(type="button").private-message__button.button-dots
+        .private-chat__body(data-simplebar)
+            button(type="button").arrow-up
+            each chatItem, index in privatePage.chat
+                .private-chat__message.chat-message.message-remote(class=`${chatItem.img ? 'message-pic': ''}`)
+                    .chat-message__body
+                        if chatItem.text
+                            .chat-message__text= chatItem.text
+                        if chatItem.img 
+                            .chat-message__image.ibg
+                                img(src=`images/private/${chatItem.img}.png`, alt="изображение")
+                        .chat-message__date 
+                            | #{chatItem.time}
+                            if chatItem.status
+                                .chat-message__read
+            .private-chat__label Среда
+            .private-chat__message.chat-message.message-self
+                .chat-message__body
+                    .chat-message__text Привет, как дела?
+                    .chat-message__date 
+                        | 14:07
+                .chat-message__read
+        .private-chat__footer
+            .private-chat__actions 
+                button(type="button").private-chat__button.button-add 
+                button(type="button").private-chat__button.button-emodji
+                .private-chat__field
+                    textarea(placeholder="Введите сообщение").private-chat__textarea 
+                    button(type="button").private-chat__button.button-send 
+                button(type="button").private-chat__button.button-voice

@@ -1,4 +1,5 @@
 import fslightbox from 'fslightbox';
+import SimpleBar from 'simplebar';
 
 import "./modules/sliders.js";
 
@@ -41,4 +42,58 @@ function documentActions(event) {
 }
 document.querySelector('.content-tab__header')?.click();
 
+const accordeon = document.querySelectorAll('.accordeon');
+[...accordeon].forEach(el => {
+	const accordionContent = el.querySelectorAll(".accordeon__item");
+	accordionContent.forEach((item, index) => {
+		let header = item.querySelector(".accordeon-title");
+		let description = item.querySelector(".accordeon-content");
+		header.addEventListener("click", () =>{
+			item.classList.toggle("open");
+			if(item.classList.contains("open")){
+				description.style.height = `${description.scrollHeight}px`; //scrollHeight property returns the height of an element including padding , but excluding borders, scrollbar or margin
+			}else{
+				description.style.height = "0px";
+			}
+			// removeOpenAccordeon(index);
+		})
+		document.addEventListener('DOMContentLoaded', () => {
+			if(item.classList.contains("open")){
+				description.style.height = `${description.scrollHeight}px`
+			}
+		})
+		function removeOpenAccordeon(index1){
+			accordionContent.forEach((item2, index2) => {
+				if(index1 != index2){
+					item2.classList.remove("open");
+					let des = item2.querySelector(".accordeon-content");
+					des.style.height = "0px";
+				}
+			})
+		}
+	})
+})
 
+function setLineWidth() {
+	const itemSections = document.querySelectorAll('.item-section');
+	if (itemSections.length) {
+		[...itemSections].forEach(section => {
+			let element = section.querySelector('.item-section__title span');
+			if (element) {
+				let currentWidth = element.getBoundingClientRect().width;
+				element.style.setProperty('--line-width', `${currentWidth}px`);
+			}
+		})
+	}
+}
+setLineWidth();
+window.addEventListener('resize', () => {
+	setLineWidth();
+})
+function initSimpleBar() {
+	Array.prototype.forEach.call(
+		document.querySelectorAll('[data-simplebar]'),
+		(el) => new SimpleBar(el)
+	  );
+}
+initSimpleBar();

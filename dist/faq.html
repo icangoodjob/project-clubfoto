@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Вопросы и ответы</title>
+	<meta name="description" content="Описание на странице - Вопросы и ответы">
+	<meta name="keywords" content="Перечень ключевых слов">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://example.com">
+	<meta property="og:title" content="Вопросы и ответы">
+	<meta property="og:description" content="Описание на странице - Вопросы и ответы">
+	<meta property="twitter:title" content="Вопросы и ответы">
+	<meta property="twitter:description" content="description">
+	<link rel="canonical" href="https://example.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
+	<link href="styles/main.min.css" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" href="images/favicons/favicon.ico">
+	<meta name="msapplication-TileImage" content="images/favicons/msite-150х150.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="apple-mobile-web-app-title" content="Название">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="format-detection" content="date=no">
+</head>
+
+<body>
+	<div class="wrapper" id="wrapper">
+		<header class="header" id="header">
+			<div class="container">
+				<div class="header__body">
+					<div class="header__top top-header">
+						<div class="top-header__left">
+							<a class="top-header__logo" href="#">
+								<picture>
+									<source srcset="images/logo_pc.svg" media="(min-width: 1200px)">
+									<source srcset="images/logo_mobile.svg" media="(min-width: 300px)">
+									<img src="images/logo_pc.svg" alt="логотип">
+								</picture>
+							</a>
+							<nav class="top-header__menu header-menu" data-da=".menu-mobile__body, 991.98, 1">
+								<ul class="header-menu__list">
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Барахолка</a>
+									</li>
+									<li class="header-menu__item active">
+										<a class="header-menu__link" href="#">Фотолаборатории</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Фотостудии</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Словарь</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Вопросы-ответы</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="top-header__right">
+							<nav class="header__nav nav-header" data-da=".menu-mobile__body, 389.98, 0">
+								<ul class="nav-header__list">
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/fotogora.svg" alt="Фотогора">
+											</div>
+											<div class="nav-header__text">Фотогора</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/forum.svg" alt="Форум">
+											</div>
+											<div class="nav-header__text">Форум</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/blog.svg" alt="Блог">
+											</div>
+											<div class="nav-header__text">Блог</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/market.svg" alt="Магазин">
+											</div>
+											<div class="nav-header__text">Магазин</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link nav-header__link--signin" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/user.svg" alt="Вход">
+											</div>
+											<div class="nav-header__text">Вход</div>
+										</a>
+									</li>
+								</ul>
+							</nav>
+							<button class="nav-header__button" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+					</div>
+					<div class="header__search">
+						<form class="search-form form" action="#">
+							<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+							<button class="search-form__button" type="submit"></button>
+						</form>
+					</div>
+					<div class="header__categories categories-header" data-da=".menu-mobile__body, 767.98, 2">
+						<button class="categories-header__button" type="button">Категории</button>
+						<nav class="categories-header__menu menu-categories">
+							<ul class="menu-categories__list">
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="forums.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-forum.svg" alt="Форумы">
+										</span>
+										<span class="menu-categories__caption">Форумы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="gallery.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-gallery.svg" alt="Галерея фоторафий">
+										</span>
+										<span class="menu-categories__caption">Галерея фоторафий</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-personal_photo.svg" alt="Персональные фотоальбомы">
+										</span>
+										<span class="menu-categories__caption">Персональные фотоальбомы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-archived_photo.svg" alt="Архивные фото">
+										</span>
+										<span class="menu-categories__caption">Архивные фото</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-projects.svg" alt="Выставки и проекты">
+										</span>
+										<span class="menu-categories__caption">Выставки и проекты</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-discuss_photo.svg" alt="Обсуждение фототехники">
+										</span>
+										<span class="menu-categories__caption">Обсуждение фототехники</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-school_photo.svg" alt="Школа фотографии">
+										</span>
+										<span class="menu-categories__caption">Школа фотографии</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-classic_photo.svg" alt="Классики фотоискусства">
+										</span>
+										<span class="menu-categories__caption">Классики фотоискусства</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="menu-mobile">
+						<div class="menu-mobile__body"> </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="breadcrumbs">
+			<div class="container">
+				<nav class="breadcrumbs__navigation">
+					<ul class="breadcrumbs__list">
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Главная</a>
+						</li>
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Форум</a>
+						</li>
+						<li class="breadcrumbs__item active">Целевая</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="main">
+			<div class="faq">
+				<div class="container">
+					<h1 class="faq__title page-title">Вопросы и ответы</h1>
+					<div class="faq__wrapper">
+						<aside class="faq__aside">
+							<nav class="faq__menu menu-faq accordeon">
+								<div class="menu-faq__group accordeon__item open">
+									<button class="menu-faq__button accordeon-title" type="button">Разделы справочника</button>
+									<div class="menu-faq__content accordeon-content">
+										<ul class="menu-faq__list">
+											<li>
+												<a href="#">Вопросы и ответы</a>
+											</li>
+											<li>
+												<a href="#">Статьи</a>
+											</li>
+											<li class="active">
+												<a href="#">Словарь</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="menu-faq__group accordeon__item open">
+									<button class="menu-faq__button accordeon-title" type="button">Категории FAQ</button>
+									<div class="menu-faq__content accordeon-content">
+										<ul class="menu-faq__list">
+											<li>
+												<a href="#">О сайте Клуба Фото.Ру</a>
+											</li>
+											<li>
+												<a href="#">Галерея Клуба Foto.ru</a>
+											</li>
+											<li class="active">
+												<a href="#">О Форуме Клуба</a>
+												<ul class="menu-faq__sub-list">
+													<li>
+														<a href="#">О сайте Клуба Фото.Ру</a>
+													</li>
+													<li>
+														<a href="#">Галерея Клуба Foto.ru</a>
+													</li>
+													<li>
+														<a href="#">О Форуме Клуба</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="#">О школе Foto.ru</a>
+											</li>
+											<li>
+												<a href="#">Практика съемки</a>
+											</li>
+											<li>
+												<a href="#">Фотоаппараты</a>
+											</li>
+											<li>
+												<a href="#">Оптика</a>
+											</li>
+											<li>
+												<a href="#">Светофильтры</a>
+											</li>
+											<li>
+												<a href="#">Студийное оборудование</a>
+											</li>
+											<li>
+												<a href="#">Вспышки</a>
+											</li>
+											<li>
+												<a href="#">История фотографии</a>
+											</li>
+											<li>
+												<a href="#">Фотопленка</a>
+											</li>
+											<li>
+												<a href="#">Зенит</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</nav>
+						</aside>
+						<div class="faq__body">
+							<div class="faq__search">
+								<form class="search-form form" action="#">
+									<input class="form__input search-form__input" type="text" placeholder="Поиск">
+									<button class="search-form__button" type="submit">
+										<span class="search-form__icon"></span>
+									</button>
+								</form>
+							</div>
+							<div class="faq__about about-faq">
+								<div class="about-faq__title page-title">О форуме клуба</div>
+								<div class="about-faq__accordeon accordeon">
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Если забыл пароль, логин, имя, адрес электронной почты.</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Как отписаться от всех писем?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Как удалить свой аккаунт с сайта?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Кто-то уже зарегистрировался под моим именем! (логином, емэйлом)</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: 'Не могу авторизоваться. Что делать?'</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Почему иногда перебрасывает на магазин ФотоРу?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Почему ко мне перестали приходить письма с уведомлениями?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Почему меня не пускают на сайт?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Почему мне не прислали пароль/логин при регистрации?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Авторизация: Что делать, если забыл пароль, а почтовый ящик недоступен?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Общее: Portscan detected</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Общее: У меня есть претензия к магазину Фото.ру по качеству обслуживания - куда писать?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Общее: Чем отличаются Галерея Клуба и Персональные альбомы?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Общее: Что такое IMHO / ИМХО?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Общее: Что такое ЧКФР?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Что такое игнор-лист?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Я не нашел ответа на свой вопрос...</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Я получил Желтую карточку - что это такое?</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+									<div class="accordeon__item about-faq__item">
+										<button class="accordeon-title about-faq__header" type="button">Я хочу поставить аватару. Размер допустимый. Пишет что аватара добавлена, но не появляется.</button>
+										<div class="accordeon-content about-faq__content">
+											<p>Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.</p>
+										</div>
+									</div>
+								</div>
+								<a class="about-faq__button btn" href="#">Написать в службу поддержки </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__top">
+					<nav class="footer__menu menu-footer">
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Правила Клуба</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">О Клубе</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Вход / Регистрация</a>
+							</li>
+							<li class="menu-footer__item active">
+								<a class="menu-footer__link" href="#">Поиск авторов</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">ХудСовет</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Как связаться</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Статистика</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Реклама на сайте</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">FAQ</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив галереи</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив форумов</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__bottom">
+					<a class="footer__logo" href="#" data-da=".footer__top, 767.98, 0">
+						<img src="images/footer-logo_pc.svg" alt="логотип" loading="lazy">
+					</a>
+					<div class="footer__social social-footer">
+						<ul class="social-footer__list">
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--youtube" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--mail" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--vk" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--twitter" href="#" target="_blank"></a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--telegram" href="#" target="_blank"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer__copy">Все права защищены © 2023</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="scripts/main.min.js" defer></script>
+</body>
+
+</html>

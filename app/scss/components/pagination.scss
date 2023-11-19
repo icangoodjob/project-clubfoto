@@ -1,89 +1,106 @@
 .forums {
-	&__pagination {
-	}
+  &__pagination {
+  }
 }
 
 .pagination {
-	&__list {
-		@include reset-list;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 15px;
-		@media screen and (max-width: 389.98px) {
-			gap: 7px;
-		}
-	}
-	&__item {
-		&.active {
-			& .pagination__link {
-				border: 1px solid $blueColor;
-			}
-		}
-	}
-	&__item--prev {
-	}
-	&__link {
-		width: 40px;
-		height: 40px;
-		flex: 0 0 40px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 50%;
-		color: #4b4b4b;
-		text-align: center;
-		font-family: "Rubik", sans-serif;
-		font-size: 20px;
-		font-weight: 500;
-		line-height: 110%;
-		border: 1px solid transparent;
-		&--prev,
-		&--next {
-			background-color: rgba(#4b4b4b, 0.2);
-			transition: background-color 0.2s ease 0s;
-			&::before {
-				content: "";
-				display: block;
-				background-color: $whiteColor;
-				width: 23px;
-				height: 23px;
-				mask-repeat: no-repeat;
-				mask-position: center;
-				mask-size: 12px 21px;
-			}
-			@media (any-hover: hover) {
-				&:hover {
-					background-color: rgba(#4b4b4b, 0.8);
-				}
-			}
-			@media screen and (max-width: 389.98px) {
-				&::before {
-					width: 20px;
-					height: 20px;
-					mask-size: 15px 18px;
-				}
-			}
-		}
-		&--prev {
-			&::before {
-				mask-image: url("../images/icons/chevron-left.svg");
-			}
-		}
-		&--next {
-			&::before {
-				mask-image: url("../images/icons/chevron-right.svg");
-			}
-		}
-		@media screen and (max-width: 389.98px) {
-			width: 30px;
-			height: 30px;
-			flex: 0 0 30px;
-			font-size: 16px;
-		}
-	}
-	&__item--next {
-	}
+  &__list {
+    @include reset-list;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    @media screen and (max-width: 389.98px) {
+      gap: 7px;
+    }
+  }
+  &__item {
+    &.active {
+      & .pagination__link {
+        border: 1px solid $blueColor;
+      }
+    }
+  }
+  &__item--prev {
+  }
+  &__link {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #4b4b4b;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 110%;
+    border: 1px solid transparent;
+    &--prev,
+    &--next {
+      background-color: rgba(#4b4b4b, 0.2);
+      transition: background-color 0.2s ease 0s;
+      &::before {
+        content: "";
+        display: block;
+        background-color: $whiteColor;
+        width: 23px;
+        height: 23px;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: 12px 21px;
+      }
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: rgba(#4b4b4b, 0.8);
+        }
+      }
+      @media screen and (max-width: 389.98px) {
+        &::before {
+          width: 20px;
+          height: 20px;
+          mask-size: 15px 18px;
+        }
+      }
+    }
+    &--prev {
+      &::before {
+        mask-image: url("../images/icons/chevron-left.svg");
+      }
+    }
+    &--next {
+      &::before {
+        mask-image: url("../images/icons/chevron-right.svg");
+      }
+    }
+    @media screen and (max-width: 389.98px) {
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      font-size: 16px;
+    }
+  }
+  &__item--next {
+  }
+  &__item-first,
+  &__item-last {
+    color: #4b4b4b;
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+  }
+  &__item-first {
+    margin-right: 23px;
+  }
+  &__item-last {
+    margin-left: 23px;
+  }
 }
 .active {
 }

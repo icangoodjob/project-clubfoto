@@ -8,7 +8,6 @@ if (boxes) {
 		button.addEventListener("click", (event) => {
 			item.classList.toggle("open");
 			boxOpen(item)
-			// removeOpen(index);
 		})
 	})
 }

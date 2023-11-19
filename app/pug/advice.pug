@@ -1,0 +1,63 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Художественный Совет Клуба Foto.ru";
+	- description += pageTitle;
+	- breadcrumbs = true;
+	- paginationList = ['1', '2', '3', '4', '5'];
+block content
+	.advice
+		.container 
+			h1.advice__title.page-title #{pageTitle}
+			.advice__links
+				a(href="#").advice__link.active Что такое ХудСовет?
+				a(href="#").advice__link Подробная статистика
+			.advice__wrapper
+				ul.advice__list 
+					li.advice__row.advice-head
+						.advice__number №
+						.advice__person Член ХудСовета
+						.advice__count Кол-во оценённых работ
+						.advice__estimate.estimate-advice
+							.estimate-advice__first Последние оценённые работы на
+							.estimate-advice__item 5-ку
+							.estimate-advice__item 4-ку
+							.estimate-advice__item 3-ку
+							.estimate-advice__item 2-ку
+					each item, index in advice
+						li.advice__row.advice-body(class={active: index === 2})
+							.advice__number
+								.advice__label №
+								| #{item.number}
+							.advice__person
+								.advice__label Член ХудСовета
+								| #{item.person}
+							.advice__count
+								.advice__label Кол-во оценённых работ
+								| #{item.count}
+							.advice__estimate-mobile
+								.estimate-advice__first Последние оценённые работы на
+								.estimate-advice__item 5-ку
+								.estimate-advice__item 4-ку
+								.estimate-advice__item 3-ку
+								.estimate-advice__item 2-ку
+							.advice__estimate
+								if item.images.length 
+									each image in item.images
+										.advice__estimate-image
+											.advice__picture
+												img(src=`images/advice/${image}.jpg`, alt=item.person loading="lazy")
+			.advice__pagination
+				div.pagination
+					ul.pagination__list
+						li.pagination__item-first
+							a(href="#") В начало
+						li.pagination__item
+							a(href="#").pagination__link.pagination__link--prev
+						each item, index in paginationList
+							li.pagination__item(class={active: index === 1})
+								a(href="#").pagination__link= item
+						li.pagination__item
+							a(href="#").pagination__link.pagination__link--next
+						li.pagination__item-last
+							a(href="#") Последняя

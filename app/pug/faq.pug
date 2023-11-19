@@ -1,0 +1,41 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Вопросы и ответы";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.faq
+		.container 
+			h1.faq__title.page-title #{pageTitle}
+			.faq__wrapper
+				aside.faq__aside 
+					nav.faq__menu.menu-faq.accordeon
+						each section in faq.sections
+							.menu-faq__group.accordeon__item.open
+								button(type="button").menu-faq__button.accordeon-title= section.title
+								.menu-faq__content.accordeon-content
+									ul.menu-faq__list 
+										each item, index in section.list
+											li(class={active: index == 2})
+												a(href="#")= item.link
+												if item.subList 
+													ul.menu-faq__sub-list
+														each subItem in item.subList
+															li 
+																a(href="#")= subItem
+				.faq__body 
+					.faq__search 
+						form(action="#").search-form.form
+							input(type="text" placeholder="Поиск").form__input.search-form__input
+							button(type="submit").search-form__button
+								span.search-form__icon
+					.faq__about.about-faq
+						.about-faq__title.page-title О форуме клуба
+						.about-faq__accordeon.accordeon
+							each item in faq.about
+								.accordeon__item.about-faq__item
+									button(type="button").accordeon-title.about-faq__header= item
+									.accordeon-content.about-faq__content
+										p Если Вы ничего не помните, но уверены, что регистрировались именно на этом сайте, пришлите все возможные адреса, варианты написания логинов, имени и прочее на JPG[@]FOTO.RU. Администратор, скорее всего, пришлет список возможных вариантов ссылок на страницы с фотографиями, из которых можно будет определить свою.
+						a(href="#").about-faq__button.btn Написать в службу поддержки 

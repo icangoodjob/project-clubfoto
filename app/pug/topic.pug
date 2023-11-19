@@ -4,58 +4,120 @@ append variables
 	- let pageTitle = "Canon EOS RP";
 	- description += pageTitle;
 	- breadcrumbs = true;
+	- paginationList = ['1', '2', '3', '4', '5'];
 block content
 	.topic 
-		.container
-			h1.topic__title.page-title #{pageTitle}
-			.topic__top 
-				+btn("Добавить сообщение", "topic__button")
-				.topic__result.result-topic
-					.result-topic__item Найдено: 16686 сообщений
-					.result-topic__item Показаны: с 1 по 20
-			.topic__cards
-				each item, index in topicCards
-					.topic-card
-						.topic-card__data 
-							.topic-card__image.ibg
-								img(src=`images/topic/${item.userImg}.jpg`, alt=`${item.userName}`)
-							.topic-card__info
+		.main__top.top-main
+			.container 
+				.top-main__wrapper
+					.top-main__info
+						h1.top-main__title.page-title #{pageTitle}
+					a(href="#").top-main__banner
+						.top-main__image.ibg
+							picture
+								source(srcset="images/topic/banner.jpg" media="(min-width: 767.98px)")
+								source(srcset="images/topic/banner.jpg" media="(min-width: 320px)")
+								img(src="images/topic/banner.jpg", alt="Изображение" loading="lazy")
+						.top-main__banner-text
+							| Вакансии в магазинах Москвы и Санкт-Петербурга
+		.topic__wrapper
+			.container
+				.topic__top 
+					+btn("Добавить сообщение", "topic__button")
+					.topic__result.result-topic
+						.result-topic__item Найдено: 16686 сообщений
+						.result-topic__item Показаны: с 1 по 20
+				.topic__badges.badges 
+					.badges__body
+						ul.badges__list
+							li
+								a(href="#").badges__item Canon
+							li
+								a(href="#").badges__item Аппаратура
+							li
+								a(href="#").badges__item.active Объектив
+							li
+								a(href="#").badges__item За месяц
+							li
+								a(href="#").badges__item За год
+							li.badges__item.badges__item-show
+								button(type="button").badges__btn Развернуть
+				.topic__pagination.pagination-top
+					div.pagination
+						ul.pagination__list
+							li.pagination__item-first
+								a(href="#") В начало
+							li.pagination__item
+								a(href="#").pagination__link.pagination__link--prev
+							each item, index in paginationList
+								li.pagination__item(class={active: index === 1})
+									a(href="#").pagination__link= item
+							li.pagination__item
+								a(href="#").pagination__link.pagination__link--next
+							li.pagination__item-last
+								a(href="#") Последняя
+				.topic__cards
+					each item, index in topicCards
+						.topic-card
+							.topic-card__date-mobile
 								time(datetime="2019-02-14").topic-card__time 14.02.2019 07:16:01
-								.topic-card__messages 
-									.topic-card__message.topic-card__message--1 #{item.message_1}
-									.topic-card__message.topic-card__message--2 #{item.message_2}
-								.topic-card__author-label Автор темы:
-								.topic-card__author-name #{item.userName}
-								.topic-card__city #{item.city}
-						.topic-card__main.main-topic
-							.main-topic__header
-								.main-topic__date 
-									time(datetime="2019-02-14").main-topic__time 14.02.2019 07:16:01
+								if item.userNameTop
+									.topic-card__user #{item.userNameTop}
+							.topic-card__data 
+								.topic-card__img.ibg
+									img(src=`images/topic/${item.userImg}.jpg`, alt=`${item.userName}`)
+								.topic-card__info
+									.topic-card__messages 
+										.topic-card__message.topic-card__message--1 #{item.message_1}
+										.topic-card__message.topic-card__message--2 #{item.message_2}
+									.topic-card__author-label Автор темы:
+									.topic-card__author-name #{item.userName}
+									.topic-card__city #{item.city}
+							.topic-card__content
+								.topic-card__date
+									time(datetime="2019-02-14").topic-card__time 14.02.2019 07:16:01
 									if item.userNameTop
-										.main-topic__user #{item.userNameTop}
-								if item.title
-									h2.main-topic__title #{item.title}
-								if item.subTitle
-									div.main-topic__sub-title #{item.subTitle}
-							.main-topic__body
-								if item.images.length > 0
-									.main-topic__images
-										each image in item.images
-											.main-topic__image.ibg
-												img(src=`images/topic/img-${image}.jpg`, alt="изображение")
-								if item.description
-									.main-topic__description 
-										p= item.description
-							.main-topic__footer.footer-topic
-								.footer-topic__item
-									button(type="button" title="Ответить").reaction-button.reaction-button--answer Ответить
-									button(type="button" title="Цитировать").reaction-button.reaction-button--quote Цитировать
-									button(type="button" title="Поделиться").reaction-button.reaction-button--share Поделиться
-								.footer-topic__item
-									button(type="button").reaction-button.reaction-button--like
-									button(type="button").reaction-button.reaction-button--dislike
-									button(type="button").reaction-button.reaction-button--favorites
-			.topic__text-editor.text-editor
-				form(action="#", method="get").text-editor__form
-					.text-editor__wrapper
-						include components/text_editor
+										.topic-card__user #{item.userNameTop}
+								.topic-card__main.main-topic
+									if item.title || item.subTitle
+										.main-topic__header
+											if item.title
+												h2.main-topic__title #{item.title}
+											if item.subTitle
+												div.main-topic__sub-title #{item.subTitle}
+									.main-topic__body
+										if item.images.length > 0
+											.main-topic__images
+												each image in item.images
+													.main-topic__image.ibg
+														img(src=`images/topic/img-${image}.jpg`, alt="изображение")
+										if item.description
+											.main-topic__description 
+												p= item.description
+								.topic-card__footer.footer-topic
+									.footer-topic__item
+										button(type="button" title="Ответить").reaction-button.reaction-button--answer Ответить
+										button(type="button" title="Цитировать").reaction-button.reaction-button--quote Цитировать
+										button(type="button" title="Поделиться").reaction-button.reaction-button--share Поделиться
+									.footer-topic__item
+										button(type="button").reaction-button.reaction-button--like
+										button(type="button").reaction-button.reaction-button--dislike
+										button(type="button").reaction-button.reaction-button--favorites
+				.topic__pagination.pagination-bottom
+					div.pagination
+						ul.pagination__list
+							li.pagination__item-first
+								a(href="#") В начало
+							li.pagination__item
+								a(href="#").pagination__link.pagination__link--prev
+							each item, index in paginationList
+								li.pagination__item(class={active: index === 1})
+									a(href="#").pagination__link= item
+							li.pagination__item
+								a(href="#").pagination__link.pagination__link--next
+							li.pagination__item-last
+								a(href="#") Последняя
+				.topic__text-editor.text-editor
+					form(action="#", method="get").text-editor__form
+						.text-editor__wrapper
+							include components/text_editor
