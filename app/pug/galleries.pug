@@ -3,7 +3,8 @@ extends includes/layout.pug
 append variables
 	- let pageTitle = "Галерея";
 	- description += pageTitle;
-	- breadcrumbs = true
+	- breadcrumbs = true;
+	- bodyClass = "show-bg";
 block content
 	.galleries
 		.container 

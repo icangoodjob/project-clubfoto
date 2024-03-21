@@ -1,0 +1,50 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Обсуждение оборудования";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.discussion 
+		.container 
+			.discussion__title.page-title #{pageTitle}
+			.discussion__body 
+				.discussion__caption Разделы обсуждения
+				.discussion__group
+					each item in discussionPage.groupOne
+						a(href="#").discussion-card
+							.discussion-card__image 
+								img(src=`images/discussion/group-one/${item.img}.jpg`, alt=item.title)
+							.discussion-card__content 
+								.discussion-card__title #{item.title}
+								.discussion-card__subtitle
+									| Последний отзыв от #[span Константин Константинов] на #[span(class='blue') Carl Zeiss 100 mm f/2 Macro Planar]
+								.discussion-card__reviews.reviews-block
+									.reviews-block__esstimate 5.0
+									ul.reviews-block__list 
+										li 
+										li 
+										li 
+										li 
+										li.star-t
+									.reviews-block__total 60 отзывов
+									.reviews-block__date (01,12,2024)
+				.discussion__group
+					each item in discussionPage.groupTwo
+						a(href="#").discussion-card
+								.discussion-card__image 
+									img(src=`images/discussion/group-one/${item.img}.jpg`, alt=item.title)
+								.discussion-card__content 
+									.discussion-card__title #{item.title}
+									.discussion-card__subtitle
+										| Последний отзыв от #[span Константин Константинов] на #[span(class='blue') Carl Zeiss 100 mm f/2 Macro Planar]
+									.discussion-card__reviews.reviews-block
+										.reviews-block__esstimate 5.0
+										ul.reviews-block__list 
+											li 
+											li 
+											li 
+											li 
+											li.star-t
+										.reviews-block__total 60 отзывов
+										.reviews-block__date (01,12,2024)

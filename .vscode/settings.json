@@ -1,0 +1,9 @@
+{
+    "scss.format.newlineBetweenRules": false,
+    "scss.format.newlineBetweenSelectors": false,
+    "scss.format.preserveNewLines": false,
+    "css.format.newlineBetweenSelectors": false,
+    "css.format.preserveNewLines": false,
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true
+}

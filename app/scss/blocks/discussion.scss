@@ -1,0 +1,417 @@
+.discussion {
+  padding-bottom: 32px;
+  @media screen and (max-width: $lg) {
+    padding-bottom: 19px;
+  }
+  &__title {
+    @media screen and (max-width: $md) {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  }
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 10px;
+    @media screen and (max-width: $lg) {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+  &__caption {
+    font-weight: 700;
+    font-size: 16px;
+    font-family: "Rubik", sans-serif;
+    grid-column: span 2;
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+  }
+  &__group {
+    display: grid;
+    gap: 10px;
+    @media screen and (max-width: $lg) {
+      grid-column: span 2;
+    }
+  }
+}
+.container {
+}
+.page-title {
+}
+.discussion-card {
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  min-height: 74px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  background: $whiteColor;
+  padding: 6px 7px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  &__image {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.13);
+    background: #fff;
+  }
+  &__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #307ff5;
+    font-family: "Rubik", sans-serif;
+  }
+  &__subtitle {
+    font-size: 12px;
+    color: #a4a4a4;
+    & span {
+      color: #4b4b4b;
+      &.blue {
+        color: #307ff5;
+      }
+    }
+  }
+  &__reviews {
+  }
+  & .reviews-block {
+    font-size: 12px;
+    & li {
+      width: 10px;
+      height: 10px;
+      mask-size: 10px 10px;
+    }
+  }
+}
+.reviews-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  color: #a4a4a4;
+  font-size: 14px;
+  &__esstimate {
+  }
+  &__list {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    & li {
+      width: 14px;
+      height: 14px;
+      background-image: url("../images/icons/star-yellow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      mask-size: 14px 14px;
+      &.star-t {
+        background-image: url("../images/icons/star-transparent.svg");
+      }
+    }
+  }
+  &__total {
+  }
+  &__date {
+  }
+}
+
+.discussion-category {
+  padding-bottom: 24px;
+  @media screen and (max-width: $lg) {
+    padding-bottom: 17px;
+  }
+  &__title {
+    @media screen and (max-width: $lg) {
+      font-size: 20px;
+      margin-bottom: 9px;
+    }
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+    @media screen and (max-width: $md) {
+      margin-bottom: 0px;
+      flex-direction: column;
+      align-items: flex-start;
+      & .discussion-category__btn-add {
+        width: 100%;
+      }
+    }
+  }
+  & .badges {
+    &__list {
+      gap: 8px;
+    }
+    &__item {
+      min-height: 23px;
+      padding: 3px 10px;
+      font-size: 12px;
+      line-height: 120%;
+      &.active {
+        border-color: #307ff5;
+        color: #307ff5;
+      }
+      @media (any-hover: hover) {
+        &:hover {
+          color: #307ff5;
+          border-color: #307ff5;
+        }
+      }
+    }
+  }
+  &__btn-add {
+    font-size: 14px;
+    line-height: 120%;
+    color: $mainColor;
+    min-height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4.5px 10.5px;
+    position: relative;
+    gap: 10px;
+    border: 1px solid #307ff5;
+    border-radius: 7px;
+    box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.05);
+    background-color: $whiteColor;
+    transition: all 0.25s;
+    &::before {
+      content: "";
+      display: block;
+      mask-image: url("../images/icons/camera-plus.svg");
+      background-color: #307ff5;
+      mask-repeat: no-repeat;
+      mask-size: 100%;
+      mask-position: center;
+      width: 16px;
+      height: 16px;
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #307ff5;
+        color: $whiteColor;
+        &::before {
+          background-color: $whiteColor;
+        }
+      }
+    }
+  }
+  &__table {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    background: $whiteColor;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    @media screen and (max-width: $lg) {
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+    }
+  }
+  &__pagination {
+    margin-top: 29px;
+  }
+}
+.discuss-table {
+  & .thead {
+    background-color: $whiteColor;
+    color: #a4a4a4;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    @media screen and (max-width: $lg) {
+      padding: 10px 0;
+      background-color: #f3f3f3;
+    }
+    &__name,
+    &__reviews,
+    &__photos,
+    &__rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      &::after {
+        content: "";
+        mask-image: url("../images/icons/blue-arrow-small.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        width: 8px;
+        height: 8px;
+        background-color: #307ff5;
+      }
+    }
+    &__name {
+      padding-left: 27px;
+      justify-content: flex-start;
+      @media screen and (max-width: $lg) {
+        padding: 0;
+        justify-content: center;
+      }
+    }
+    &__actions {
+      @media screen and (max-width: $lg) {
+        display: none;
+      }
+    }
+  }
+  &__header {
+    border-bottom: 1px solid #cfcfcf;
+    @media screen and (max-width: $lg) {
+      border: 0;
+      & .discuss-table__item {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        background-color: transparent;
+        padding: 0;
+        min-height: auto;
+        & > * {
+          padding: 0;
+        }
+      }
+    }
+    @media screen and (max-width: 389.98px) {
+      & .discuss-table__item {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+  &__body {
+    font-size: 16px;
+    @media screen and (max-width: $lg) {
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+      background: $whiteColor;
+      border: 1px solid #efefef;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+  &__item {
+    min-height: 63px;
+    display: grid;
+    grid-template-columns: 1fr 242px 275px 239px 304px;
+    background-color: $whiteColor;
+    @media screen and (max-width: $xxxl) {
+      grid-template-columns: 250px repeat(4, 1fr);
+    }
+    @media screen and (max-width: $lg) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px 6px;
+      padding: 14px 13px 22px;
+      align-items: center;
+    }
+    @media screen and (max-width: 389.98px) {
+      grid-template-columns: 1fr;
+    }
+    & > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      text-align: center;
+      &:not(:last-child) {
+        border-right: 1px solid #cfcfcf;
+        @media screen and (max-width: $lg) {
+          border: none;
+        }
+      }
+      @media screen and (max-width: $lg) {
+        padding: 0;
+      }
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid #cfcfcf;
+    }
+  }
+  &__body {
+  }
+  &__item-name {
+    font-weight: 700;
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    padding-left: 27px;
+    line-height: 24px;
+    &::before {
+      content: "";
+      display: block;
+      background-image: url("../images/icons/camera-table.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      top: -2px;
+      @media screen and (max-width: $lg) {
+        top: 0;
+      }
+    }
+    @media screen and (max-width: $lg) {
+      grid-column: span 3;
+    }
+  }
+  &__item-reviews,
+  &__item-photos {
+    @media screen and (max-width: $lg) {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      &::after {
+        content: attr(data-title);
+        color: #a4a4a4;
+        font-size: 14px;
+      }
+    }
+  }
+  &__item-actions {
+    @media screen and (max-width: $lg) {
+      grid-column: span 3;
+    }
+  }
+  &__item-rating {
+    @media screen and (max-width: $lg) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+    @media screen and (max-width: 389.98px) {
+      grid-column: span 3;
+    }
+  }
+  & .discussion-category__btn-add {
+    padding: 4.5px 16px;
+    &::before {
+      mask-image: url("../images/icons/add-review.svg");
+    }
+  }
+  &__item-text {
+    color: #a4a4a4;
+    font-size: 14px;
+    & a {
+      color: #307ff5;
+    }
+  }
+}

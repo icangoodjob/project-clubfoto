@@ -38,12 +38,14 @@
 body {
   // Скролл заблокирован
   background-color: #f3f3f3;
-  background-image: url("../images/main-bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  @media screen and (max-width: $md) {
-    background-image: url("../images/main-bg-mobile.svg");
+  &.show-bg {
+    background-image: url("../images/main-bg.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    @media screen and (max-width: $md) {
+      background-image: url("../images/main-bg-mobile.svg");
+    }
   }
   @media screen and (max-width: $md) {
     &.lock {
@@ -62,7 +64,7 @@ body {
 .wrapper {
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: clip;
   display: flex;
   flex-direction: column;
   // Прижимаем footer
@@ -120,6 +122,7 @@ body {
 @import "blocks/advice";
 @import "blocks/faq";
 @import "blocks/private";
+@import "blocks/discussion";
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>==============================================================================
 

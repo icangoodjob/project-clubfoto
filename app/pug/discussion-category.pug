@@ -1,0 +1,62 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Модели оборудования в категории “Цифровые фотоаппараты”";
+	- description += pageTitle;
+	- breadcrumbs = true;
+	- paginationList = ['1', '2', '3', '4', '5'];
+block content
+	.discussion-category
+		.container
+			.discussion-category__title.page-title= pageTitle
+			.discussion-category__top
+				.badges
+					.badges__body
+						ul.badges__list
+							each item, index in discussionPage.badges
+								li.badges__item(class={active: index === 0})
+									a(href="#")= item
+				button(type="button").discussion-category__btn-add Добавить новую модель
+			.discussion-category__table.discuss-table
+				.discuss-table__header.thead
+					.discuss-table__item 
+						.thead__name Название
+						.thead__reviews Отзывов
+						.thead__photos Фотографий
+						.thead__rating Рейтинг
+						.thead__actions Добавить отзыв
+				.discuss-table__body.tbody
+					each item, index in discussionPage.table
+						.discuss-table__item
+							.discuss-table__item-name= item.title
+							.discuss-table__item-reviews(data-title="Отзывов") 35
+							.discuss-table__item-photos(data-title="Фотографий") 256
+							.discuss-table__item-rating 
+								.reviews-block
+									ul.reviews-block__list 
+										li 
+										li 
+										li 
+										li 
+										li.star-t
+									.reviews-block__esstimate 5.0
+							.discuss-table__item-actions
+								if index == 0
+									.discuss-table__item-text
+										| Для того, чтобы оставить отзыв, необходимо #[a(href="register.html") зарегистрироваться].
+								else 
+									button(type="button").discussion-category__btn-add Оставить отзыв
+			.discussion-category__pagination
+				div.pagination
+					ul.pagination__list
+						li.pagination__item-first
+							a(href="#") В начало
+						li.pagination__item
+							a(href="#").pagination__link.pagination__link--prev
+						each item, index in paginationList
+							li.pagination__item(class={active: index === 1})
+								a(href="#").pagination__link= item
+						li.pagination__item
+							a(href="#").pagination__link.pagination__link--next
+						li.pagination__item-last
+							a(href="#") Последняя
