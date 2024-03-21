@@ -1,0 +1,17 @@
+.product-card__slider.product-slider
+	.product-slider__body.swiper
+		.product-slider__wrapper.swiper-wrapper
+			- for (var i = 0; i < 6; ++i) {
+				.product-slider__item.swiper-slide
+					.product-slider__image.ibg
+						img(src="images/product/big-photo.png", alt="")
+			- }
+		.product-slider__pagination
+	.product-slider__thumbs.thumbs-slider
+		.thumbs-slider__body.swiper
+			.thumbs-slider__wrapper.swiper-wrapper
+				- for (var i = 0; i < 6; ++i) {
+					.thumbs-slider__item.swiper-slide 
+						.thumbs-slider__image
+							img(src="images/product/big-photo.png", alt="")
+				- }

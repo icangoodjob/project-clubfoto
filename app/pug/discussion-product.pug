@@ -1,0 +1,70 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Фотоаппарат Nikon Z8 Body";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.product-discuss.product-card
+		.container 
+			.product-discuss__body 
+				.product-card__main
+					h1.product-card__title.page-title= pageTitle 
+					.product-card__top-buttons 
+						button(type="button").button-favorite.btn Добавить в избранное
+						button(type="button").button-add-note.btn Добавить заметку
+					.product-card__wrapper
+						include components/product_slider.pug
+						.product-card__content.content 
+							.content-group
+								.content-group__caption Адрес
+								.content-group__description
+									p Краснодарский край, Краснодар, Восточно-Кругликовская ул., 28/1 р-н&nbsp;Прикубанский
+							.content-group
+								.content-group__caption Характеристики
+								.content-group__description
+									p #[span Состояние:] Новое
+							.content-group
+								.content-group__caption Описание
+								.content-group__description
+									p
+										| Здравствуйте. Я купил фотоаппарат в сентябре. Продаю, так как я не пользовался им. Характеристика Sony Alpha ILCE-6400 Kit E PZ 16-50mm F/3.5-5.6 OSS Матрица: APS-C, 24 МПикс Видео: Full HD (1080p), Ultra HD (4K) Размер снимка: 6000x4000 пикс Диапазон ISO: 100-25600 Серийная съемка: 11 к/с Экран: 3', сенсорный, поворотный Широкий динамический диапазон. Запись 4К-видео. Поддержка S-Log и HLG. Высокая скорострельность в режиме серийной фотосъемки. Следящий автофокус по лицам и глазам. Сенсорный экран. Максимальный битрейт до 100 Мбит/с при съемке 4К. Нет выхода для подключения наушников. Отсутствие матричной стабилизации. Сенсорный экран работает только в режиме точечной фокусировки.Истинный гуру автофокуса среди беззеркалок с кропнутой матрицей в индустрии фотоаппаратов со сменной оптикой в целом. Шутка ли, 425-точечная система автоматической наводки на резкость в распоряжении камеры цепляет объект съёмки за каких-то 0.02 сек, «на ура» показывая себя в деле при фокусировке в следящем режиме по лицу и глазам. По прочим фронтам Sony A6400 body практически неотличим от других представителей «шеститысячной» лиги беззеркалок под знаком японского бренда, причём как внешне, так и в отношении «внутренностей». В основу модели лёг 24 МП сенсор изображения формата APS-C без стабилизирующей площадки. Диапазон его нативной светочувствительности измерен в границах от 100 до 25600 единиц ISO. В режиме «стрельбы» сериями камера берёт разгон до показателя в 11 к/с. Одним из кардинальных новшеств, реализованных на борту фотоаппарата, стало полноценное сенсорное управление тапом по 3-дюймовому экрану, откидывающемся в положение селфи. Также в пользовательское распоряжение любезно предоставлен электронный видоискатель высокого разрешения. Видеосъёмку беззеркалка производит в формате 4К со считыванием информации со всей ширины матрицы. Из видимых улучшений важно отметить поддержку HDR-видео в профилях HLG, HLG1-3. Одной «заправки» баков аккумуляторной батареи фотоаппарата хватает для того, чтобы «отщёлкать» свыше 400 снимков. Характеристики Sony A6400 Kit E PZ 16-50mm F/3.5-5.6 OSS
+							.content-group
+								.content-group__caption Спросите у продавца
+								form(action="#").content-group__form.feedback-form
+									.feedback-form__item
+										input(type="text" placeholder="Задайте вопрос...").form-input
+								+badges(productPage.badges)
+							.content-group
+								.content-group__info № 3523638877 · 29 февраля в 13:22 · 217 просмотров (+0 сегодня)
+				.product-card__data
+					.product-card__price 334 900 ₽
+					.product-card__inner
+						.product-card__buttons 
+							button(type="button").product-card__button.btn.btn-big.btn-green Показать телефон
+							button(type="button").product-card__button.btn.btn-big.btn-blue Написать сообщение
+						.product-card__user.user-product
+							.user-product__name User 123
+							.user-product__reviews.reviews-block reviews 
+							.user-product__status Частное лицо
+							.user-product__trust Надежный продавец
+						button(type="button").product-card__subscribe.btn Подписаться на продавца
+						.product-card__bottom 
+							form(action="#").product-card__form.feedback-form
+								.feedback-form__item
+									input(type="text" placeholder="Задайте вопрос...").form-input
+							+badges(productPage.badges)
+			.product-discuss__similar.discuss-similar
+				h2.discuss-similar__title.page-title Похожие объявления
+				.discuss-similar__slider.slider-similar
+					.slider-similar__body.swiper
+						.slider-similar__wrapper.swiper-wrapper
+							each slide, index in productPage.similar
+								.slider-similar__item.swiper-slide
+									.slider-similar__image.ibg
+										img(src=`images/product/similar-${slide.img}.png`, alt=slide.title)
+									.slider-similar__content 
+										.slider-similar__title= slide.title 
+										.slider-similar__price= slide.price
+										.slider-similar__text= slide.descr 
+										.slider-similar__date= slide.date
