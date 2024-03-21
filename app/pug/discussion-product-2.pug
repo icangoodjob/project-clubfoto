@@ -4,21 +4,95 @@ append variables
 	- let pageTitle = "Fujifilm X-T5 Kit XF 16-80mm F4 R OIS WR Black";
 	- description += pageTitle;
 	- breadcrumbs = true;
+	- paginationList = ['1', '2', '3', '4', '5'];
 block content
 	.product-detail.product-card
-		.container 
-			.product-detail__body 
-				include components/product_slider.pug
-				.product-card__info.info-product
-					.product-card__title.page-title= pageTitle
-					| reviews 
-					ul.product-card__list
-						each item in productPage.list
-							li.product-card__list-item 
-								span.product-card__list-caption= item.caption
-								span.product-card__list-value= item.value
-			.product-card__content.content
-				.content-group 
-					.content-group__caption Описание
-					.content-group__description 
-						p Здравствуйте. Я купил фотоаппарат в сентябре. Продаю, так как я не пользовался им. Характеристика Sony Alpha ILCE-6400 Kit E PZ 16-50mm F/3.5-5.6 OSS Матрица: APS-C, 24 МПикс Видео: Full HD (1080p), Ultra HD (4K) Размер снимка: 6000x4000 пикс Диапазон ISO: 100-25600 Серийная съемка: 11 к/с Экран: 3', сенсорный, поворотный Широкий динамический диапазон. Запись 4К-видео. Поддержка S-Log и HLG. Высокая скорострельность в режиме серийной фотосъемки. Следящий автофокус по лицам и глазам. Сенсорный экран. Максимальный битрейт до 100 Мбит/с при съемке 4К. Нет выхода для подключения наушников. Отсутствие матричной стабилизации. Сенсорный экран работает только в режиме точечной фокусировки. Истинный гуру автофокуса среди беззеркалок с кропнутой матрицей в индустрии фотоаппаратов со сменной оптикой в целом. Шутка ли, 425-точечная система автоматической наводки на резкость в распоряжении камеры цепляет объект съёмки за каких-то 0.02 сек, «на ура» показывая себя в деле при фокусировке в следящем режиме по лицу и глазам. По прочим фронтам Sony A6400 body практически неотличим от других представителей «шеститысячной» лиги беззеркалок под знаком японского бренда, причём как внешне, так и в отношении «внутренностей». В основу модели лёг 24 МП сенсор изображения формата APS-C без стабилизирующей площадки. Диапазон его нативной светочувствительности измерен в границах от 100 до 25600 единиц ISO. В режиме «стрельбы» сериями камера берёт разгон до показателя в 11 к/с. Одним из кардинальных новшеств, реализованных на борту фотоаппарата, стало полноценное сенсорное управление тапом по 3-дюймовому экрану, откидывающемся в положение селфи. Также в пользовательское распоряжение любезно предоставлен электронный видоискатель высокого разрешения. Видеосъёмку беззеркалка производит в формате 4К со считыванием информации со всей ширины матрицы. Из видимых улучшений важно отметить поддержку HDR-видео в профилях HLG, HLG1-3. Одной «заправки» баков аккумуляторной батареи фотоаппарата хватает для того, чтобы «отщёлкать» свыше 400 снимков.Характеристики Sony A6400 Kit E PZ 16-50mm F/3.5-5.6 OSS
+		.container
+			.product-detail__wrapper
+				.product-detail__body 
+					include components/product_slider.pug
+					.product-card__info.info-product
+						.product-card__title.page-title= pageTitle
+						.reviews-block
+							.reviews-block__estimate 5.0
+							ul.reviews-block__list 
+								li 
+								li 
+								li 
+								li 
+								li.star-t
+							.reviews-block__total 60 отзывов
+						ul.product-card__list
+							each item, index in productPage.list
+								- lastIndex = productPage.list.length - 1;
+								li.product-card__list-item(class=`${lastIndex == index ? "result" : ""}`)
+									span.product-card__list-caption
+										span= item.caption
+									span.product-card__list-value
+										span= item.value
+						button(type="button").product-card__button-learn-more.btn.btn-blue Узнать больше 
+				.product-card__content.content
+					.content-group 
+						.content-group__caption Описание
+						.content-group__description 
+							p Здравствуйте. Я купил фотоаппарат в сентябре. Продаю, так как я не пользовался им. Характеристика Sony Alpha ILCE-6400 Kit E PZ 16-50mm F/3.5-5.6 OSS Матрица: APS-C, 24 МПикс Видео: Full HD (1080p), Ultra HD (4K) Размер снимка: 6000x4000 пикс Диапазон ISO: 100-25600 Серийная съемка: 11 к/с Экран: 3', сенсорный, поворотный Широкий динамический диапазон. Запись 4К-видео. Поддержка S-Log и HLG. Высокая скорострельность в режиме серийной фотосъемки. Следящий автофокус по лицам и глазам. Сенсорный экран. Максимальный битрейт до 100 Мбит/с при съемке 4К. Нет выхода для подключения наушников. Отсутствие матричной стабилизации. Сенсорный экран работает только в режиме точечной фокусировки. Истинный гуру автофокуса среди беззеркалок с кропнутой матрицей в индустрии фотоаппаратов со сменной оптикой в целом. Шутка ли, 425-точечная система автоматической наводки на резкость в распоряжении камеры цепляет объект съёмки за каких-то 0.02 сек, «на ура» показывая себя в деле при фокусировке в следящем режиме по лицу и глазам. По прочим фронтам Sony A6400 body практически неотличим от других представителей «шеститысячной» лиги беззеркалок под знаком японского бренда, причём как внешне, так и в отношении «внутренностей». В основу модели лёг 24 МП сенсор изображения формата APS-C без стабилизирующей площадки. Диапазон его нативной светочувствительности измерен в границах от 100 до 25600 единиц ISO. В режиме «стрельбы» сериями камера берёт разгон до показателя в 11 к/с. Одним из кардинальных новшеств, реализованных на борту фотоаппарата, стало полноценное сенсорное управление тапом по 3-дюймовому экрану, откидывающемся в положение селфи. Также в пользовательское распоряжение любезно предоставлен электронный видоискатель высокого разрешения. Видеосъёмку беззеркалка производит в формате 4К со считыванием информации со всей ширины матрицы. Из видимых улучшений важно отметить поддержку HDR-видео в профилях HLG, HLG1-3. Одной «заправки» баков аккумуляторной батареи фотоаппарата хватает для того, чтобы «отщёлкать» свыше 400 снимков.Характеристики Sony A6400 Kit E PZ 16-50mm F/3.5-5.6 OSS
+					.content-group 
+						.content-group__caption Отзывы
+						.content-group__testimonials
+							each item in productPage.testimonials
+								.testimonials-item
+									.testimonials-item__avatar
+										img(src="images/testimonials/avatar.jpg", alt="avatar")
+									.testimonials-item__body
+										.testimonials-item__header
+											.testimonials-item__name Алексей Конов
+											.reviews-block
+												.reviews-block__estimate 5.0
+												ul.reviews-block__list 
+													li 
+													li 
+													li 
+													li 
+													li.star-t
+										if item.images
+											ul.testimonials-item__images-list 
+												each image in item.images
+													img(src=`images/testimonials/image-${image}.jpg`, alt="изображение")
+										.testimonials-item__content.content-testimonials
+											if item.experience
+												.content-testimonials__group 
+													| #[strong Опыт использования:] #{item.experience}
+											if item.plus
+												.content-testimonials__group 
+													| #[strong Достоинства:] #{item.plus}
+											if item.minus
+												.content-testimonials__group
+													| #[strong Недостатки:] #{item.minus}
+											if item.comment
+												.content-testimonials__group 
+													| #[strong Комментарий:] #{item.comment}
+										.testimonials-item__reactions 
+											.reactions-group 
+												button(type="button" title="Ответить").reaction-button.reaction-button--answer Ответить
+												button(type="button" title="Цитировать").reaction-button.reaction-button--quote Цитировать
+												button(type="button" title="Поделиться").reaction-button.reaction-button--share Поделиться
+											.reactions-group
+												button(type="button").reaction-button.reaction-button--like
+												button(type="button").reaction-button.reaction-button--dislike
+												button(type="button").reaction-button.reaction-button--favorites
+				.product-detail__pagination
+					div.pagination
+						ul.pagination__list
+							li.pagination__item-first
+								a(href="#") В начало
+							li.pagination__item
+								a(href="#").pagination__link.pagination__link--prev
+							each item, index in paginationList
+								li.pagination__item(class={active: index === 1})
+									a(href="#").pagination__link= item
+							li.pagination__item
+								a(href="#").pagination__link.pagination__link--next
+							li.pagination__item-last
+								a(href="#") Последняя
+			button(type="button").button-add-review.btn Оставить отзыв
+

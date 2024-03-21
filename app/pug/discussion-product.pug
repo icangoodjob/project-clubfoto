@@ -9,7 +9,7 @@ block content
 		.container 
 			.product-discuss__body 
 				.product-card__main
-					h1.product-card__title.page-title= pageTitle 
+					h1.product-discuss__title.page-title= pageTitle 
 					.product-card__top-buttons 
 						button(type="button").button-favorite.btn Добавить в избранное
 						button(type="button").button-add-note.btn Добавить заметку
@@ -45,10 +45,18 @@ block content
 							button(type="button").product-card__button.btn.btn-big.btn-blue Написать сообщение
 						.product-card__user.user-product
 							.user-product__name User 123
-							.user-product__reviews.reviews-block reviews 
+							.user-product__reviews.reviews-block
+								.reviews-block__estimate 5.0
+								ul.reviews-block__list 
+									li 
+									li 
+									li 
+									li 
+									li.star-t
+								.reviews-block__total 60 отзывов
 							.user-product__status Частное лицо
 							.user-product__trust Надежный продавец
-						button(type="button").product-card__subscribe.btn Подписаться на продавца
+						button(type="button").button-subscribe-user.btn Подписаться на продавца
 						.product-card__bottom 
 							form(action="#").product-card__form.feedback-form
 								.feedback-form__item
@@ -60,7 +68,7 @@ block content
 					.slider-similar__body.swiper
 						.slider-similar__wrapper.swiper-wrapper
 							each slide, index in productPage.similar
-								.slider-similar__item.swiper-slide
+								a(href="#").slider-similar__item.swiper-slide
 									.slider-similar__image.ibg
 										img(src=`images/product/similar-${slide.img}.png`, alt=slide.title)
 									.slider-similar__content 

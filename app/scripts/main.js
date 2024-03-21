@@ -364,6 +364,12 @@ if (cardMainSlider) {
   const sliderPagination = cardMainSlider.querySelector(
     ".product-slider__pagination"
   );
+  const buttonPrev = cardMainSlider.querySelector(
+    ".product-slider-button--prev"
+  );
+  const buttonNext = cardMainSlider.querySelector(
+    ".product-slider-button--next"
+  );
   cardNavSwiper = new Swiper(cardThumbsSlider, {
     slidesPerView: 5,
     spaceBetween: 12,
@@ -378,7 +384,6 @@ if (cardMainSlider) {
     wrapperClass: "product-slider__wrapper",
     speed: 600,
     spaceBetween: 10,
-    effect: "fade",
     thumbs: {
       swiper: cardNavSwiper,
     },
@@ -388,6 +393,10 @@ if (cardMainSlider) {
       renderBullet: function (index, className) {
         return '<span class="' + className + '">' + "</span>";
       },
+    },
+    navigation: {
+      nextEl: buttonNext,
+      prevEl: buttonPrev,
     },
   });
 }
@@ -404,6 +413,37 @@ if (similarSlider) {
     speed: 600,
   });
 }
+
+// Fancybox
+Fancybox.bind(":not(.swiper-slide-duplicate) > [data-fancybox]", {
+  groupAll: true,
+  placeFocusBack: false, // Починить баг с фенсибоксом и свипером
+  Image: {
+    wheel: "slide",
+  },
+});
+// Исправить баг с дублированием изображений в фенсибоксе, если свипер бесконечный
+document.addEventListener("DOMContentLoaded", function () {
+  let fancyboxInSlider = document.querySelectorAll(
+    ".swiper-slide-duplicate [data-fancybox]"
+  );
+  if (fancyboxInSlider.length) {
+    fancyboxInSlider.forEach(function (item) {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        let href = item.getAttribute("href");
+        item
+          .closest(".swiper")
+          .querySelector(
+            ".swiper-slide:not(.swiper-slide-duplicate) [data-fancybox][href='" +
+              href +
+              "']"
+          )
+          .click();
+      });
+    });
+  }
+});
 
 let root = document.querySelectorAll(".gallery__body");
 // Создаем новый observer (наблюдатель)

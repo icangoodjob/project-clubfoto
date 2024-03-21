@@ -2,11 +2,13 @@
 	.product-slider__body.swiper
 		.product-slider__wrapper.swiper-wrapper
 			- for (var i = 0; i < 6; ++i) {
-				.product-slider__item.swiper-slide
+				a(href=`images/product/big-photo.png` data-fancybox="gallery").product-slider__item.swiper-slide
 					.product-slider__image.ibg
 						img(src="images/product/big-photo.png", alt="")
 			- }
 		.product-slider__pagination
+		button(type="button").product-slider-button.product-slider-button--prev 
+		button(type="button").product-slider-button.product-slider-button--next
 	.product-slider__thumbs.thumbs-slider
 		.thumbs-slider__body.swiper
 			.thumbs-slider__wrapper.swiper-wrapper
