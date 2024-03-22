@@ -351,16 +351,14 @@ let sliderType = window.innerWidth < 991.98 ? "mobile" : "desktop";
 const cardMainSlider = document.querySelector(".product-slider__body");
 const cardThumbsSlider = document.querySelector(".thumbs-slider__body");
 const cardThumbschildren = cardThumbsSlider?.children[0].children.length;
-const cardMainChildren = cardMainSlider?.children[0].children.length;
 let cardNavSwiper;
 let cardMainSwiper;
-//   if (cardThumbsSlider && cardThumbschildren <= 5) {
-//     cardThumbsSlider.nextElementSibling.remove();
-//   }
-//   if (cardMainSlider && cardMainChildren <= 1) {
-//     cardMainSlider.querySelector(".main-slider__controls").remove();
-//   }
+// if (cardThumbsSlider && cardThumbschildren <= 5) {
+//   cardThumbsSlider.nextElementSibling.remove();
+// }
+
 if (cardMainSlider) {
+  const cardMainChildren = cardMainSlider?.children[0].children.length;
   const sliderPagination = cardMainSlider.querySelector(
     ".product-slider__pagination"
   );
@@ -370,12 +368,24 @@ if (cardMainSlider) {
   const buttonNext = cardMainSlider.querySelector(
     ".product-slider-button--next"
   );
+  if (cardMainChildren <= 1) {
+    buttonPrev.remove();
+    buttonNext.remove();
+    sliderPagination.remove();
+  }
   cardNavSwiper = new Swiper(cardThumbsSlider, {
     slidesPerView: 5,
-    spaceBetween: 12,
     slideClass: "thumbs-slider__item",
     wrapperClass: "thumbs-slider__wrapper",
     speed: 600,
+    breakpoints: {
+      300: {
+        spaceBetween: 5,
+      },
+      767.98: {
+        spaceBetween: 12,
+      },
+    },
   });
   cardMainSwiper = new Swiper(cardMainSlider, {
     slidesPerView: 1,
@@ -408,11 +418,38 @@ if (cardMainSlider) {
 const similarSlider = document.querySelector(".slider-similar__body");
 if (similarSlider) {
   let similarSwiper = new Swiper(similarSlider, {
-    slidesPerView: 3,
     spaceBetween: 38,
     speed: 600,
+    breakpoints: {
+      300: {
+        spaceBetween: 10,
+        slidesPerView: "auto",
+        centeredSlides: true,
+      },
+      767.98: {
+        spaceBetween: 38,
+        slidesPerView: 3,
+        centeredSlides: false,
+      },
+    },
   });
 }
+
+const unwrap = (element) => {
+  element.replaceWith(...element.children);
+};
+
+function removeTestimonialsItemBody() {
+  if (window.matchMedia("(max-width: 767.98px)").matches) {
+    const testimonialsIatems = document.querySelectorAll(".testimonials-item");
+    [...testimonialsIatems].forEach((item) => {
+      let itemBody = item.querySelector(".testimonials-item__body");
+      unwrap(itemBody);
+    });
+  }
+}
+removeTestimonialsItemBody();
+window.addEventListener("resize", removeTestimonialsItemBody);
 
 // Fancybox
 Fancybox.bind(":not(.swiper-slide-duplicate) > [data-fancybox]", {

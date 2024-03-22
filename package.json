@@ -45,6 +45,7 @@
 		"gulp-webp-html-nosvg": "^1.1.1",
 		"gulp-webpcss": "^1.1.1",
 		"gulp-zip": "^5.1.0",
+		"imagemin-pngquant": "^9.0.2",
 		"postcss": "^8.4.14",
 		"sass": "^1.49.7",
 		"terser-webpack-plugin": "^5.3.1",

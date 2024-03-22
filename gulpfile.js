@@ -19,48 +19,50 @@
   - "./dist/files/" - папка с другими файлами
 */
 
-import pkg from 'gulp';
+import pkg from "gulp";
 const { src, dest, parallel, series, watch: gulpWatch } = pkg;
 
-import browserSync from 'browser-sync'
-import bssi from 'browsersync-ssi'
-import pug from 'gulp-pug'
-import webpackStream from 'webpack-stream'
-import webpack from 'webpack'
-import named from 'vinyl-named'
-import TerserPlugin from 'terser-webpack-plugin'
-import gulpSass from 'gulp-sass'
-import dartSass from 'sass'
-import sassglob from 'gulp-sass-glob'
-const sass = gulpSass(dartSass)
-import postCss from 'gulp-postcss'
-import cssnano from 'cssnano'
-import autoprefixer from 'autoprefixer' // Добавление вендорных префиксов
-import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin'
-import changed from 'gulp-changed'
+import browserSync from "browser-sync";
+import bssi from "browsersync-ssi";
+import pug from "gulp-pug";
+import webpackStream from "webpack-stream";
+import webpack from "webpack";
+import named from "vinyl-named";
+import TerserPlugin from "terser-webpack-plugin";
+import gulpSass from "gulp-sass";
+import dartSass from "sass";
+import sassglob from "gulp-sass-glob";
+const sass = gulpSass(dartSass);
+import postCss from "gulp-postcss";
+import cssnano from "cssnano";
+import autoprefixer from "autoprefixer"; // Добавление вендорных префиксов
+import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
+import changed from "gulp-changed";
 import versionNumber from "gulp-version-number"; // Обновление версии css и js файлов
-import rename from 'gulp-rename'; // Переименование файла
-import groupCssMediaQueries from 'gulp-group-css-media-queries'; // Групировка медиа запросов
+import rename from "gulp-rename"; // Переименование файла
+import groupCssMediaQueries from "gulp-group-css-media-queries"; // Групировка медиа запросов
 import svgSprite from "gulp-svg-sprite"; // SVG sprite
 import newer from "gulp-newer"; // Проверка обновления изображений
 import plumber from "gulp-plumber"; // Обработка ошибок
 import notify from "gulp-notify"; // Сообщения (подсказки)
 import zipPlugin from "gulp-zip"; // Формирование zip архива
-import vinylFTP from 'vinyl-ftp'; // Подключение по ftp
-import util from 'gulp-util';
-import formatHTML from 'gulp-format-html'; // Форматирование резалютирующего html кода
-import { deleteAsync } from 'del';
-import concat from 'gulp-concat';
-import cleanJs from 'gulp-minify';
+import vinylFTP from "vinyl-ftp"; // Подключение по ftp
+import util from "gulp-util";
+import formatHTML from "gulp-format-html"; // Форматирование резалютирующего html кода
+import { deleteAsync } from "del";
+import concat from "gulp-concat";
+import cleanJs from "gulp-minify";
 
-import webp from 'gulp-webp';
-import webpHtmlNoSvg from 'gulp-webp-html-nosvg';
-import webpCss from 'gulp-webpcss';
+import webp from "gulp-webp";
+import webpHtmlNoSvg from "gulp-webp-html-nosvg";
+import webpCss from "gulp-webpcss";
 
-import ifPlugin from 'gulp-if';
+import ifPlugin from "gulp-if";
+
+import pngquant from "imagemin-pngquant";
 
 // Получаем имя папки проекта
-import * as nodePath from 'path';
+import * as nodePath from "path";
 const rootFolder = nodePath.basename(nodePath.resolve());
 
 // Пути к папке с исходниками и папке с результатом
@@ -68,11 +70,11 @@ const buildFolder = `./dist`;
 const srcFolder = `./app`;
 
 global.app = {
-  isBuild: process.argv.includes('--build'),
-  isDev: !process.argv.includes('--build'),
+  isBuild: process.argv.includes("--build"),
+  isDev: !process.argv.includes("--build"),
   plugins: {
     if: ifPlugin,
-  }
+  },
 };
 
 // Пути к папкам и файлам проекта
@@ -83,7 +85,7 @@ const path = {
     css: `${buildFolder}/styles/`,
     images: `${buildFolder}/images/`,
     fonts: `${buildFolder}/fonts/`,
-    files: `${buildFolder}/files/`
+    files: `${buildFolder}/files/`,
   },
   src: {
     html: `${srcFolder}/*.html`,
@@ -113,16 +115,16 @@ const path = {
   buildFolder: buildFolder,
   rootFolder: rootFolder,
   srcFolder: srcFolder,
-  ftp: `public_html` // Путь к нужной папке на удаленном сервере. gulp добавит имя папки проекта автоматически
-}
+  ftp: `public_html`, // Путь к нужной папке на удаленном сервере. gulp добавит имя папки проекта автоматически
+};
 
 // Настройка FTP соединения
 const configFTP = {
-  host: '', // Адрес FTP сервера
-  user: '', // Имя пользователя
-  password: '', // Пароль
-  parallel: 5 // Количество одновременных потоков
-}
+  host: "", // Адрес FTP сервера
+  user: "", // Имя пользователя
+  password: "", // Пароль
+  parallel: 5, // Количество одновременных потоков
+};
 
 // Раскомментировать, если нужна верстка под MODX
 const pathCurrent = process.cwd();
@@ -133,7 +135,7 @@ function browsersync() {
   browserSync.init({
     server: {
       baseDir: `${buildFolder}`,
-      middleware: bssi({ baseDir: `${buildFolder}`, ext: '.html' })
+      middleware: bssi({ baseDir: `${buildFolder}`, ext: ".html" }),
     },
     // ghostMode: { clicks: false },
     notify: false,
@@ -144,101 +146,118 @@ function browsersync() {
     // Для подключения к проекту на OpenServer
     // proxy: "project.local",
     // open: "external",
-  })
+  });
 }
 const plumberNotify = (title) => {
   return {
     errorHandler: notify.onError({
       title: title,
-      message: 'Error <%= error.message %>',
+      message: "Error <%= error.message %>",
       sound: false,
     }),
   };
 };
 
 function buildPug() {
-  return src(path.src.pug)
-    .pipe(plumber(plumberNotify("PUG")))
-    .pipe(changed(`${buildFolder}/`))
-    .pipe(pug({
-      // Cжатие HTML файла
-      pretty: true,
-      // Показывать в терминале какой файл обработан
-      verbose: true
-    }))
-    .pipe(
-      app.plugins.if(
-        app.isBuild,
-        versionNumber({
-          'value': '%DT%',
-          'append': {
-            'key': '_v',
-            'cover': 0,
-            'to': [
-              'css',
-              'js',
-            ]
-          },
-          'output': {
-            'file': 'version.json'
-          }
+  return (
+    src(path.src.pug)
+      .pipe(plumber(plumberNotify("PUG")))
+      .pipe(changed(`${buildFolder}/`))
+      .pipe(
+        pug({
+          // Cжатие HTML файла
+          pretty: true,
+          // Показывать в терминале какой файл обработан
+          verbose: true,
         })
       )
-    )
-    .pipe(
-      app.plugins.if(app.isBuild, webpHtmlNoSvg())
-    )
-    .pipe(formatHTML({
-      indent_size: 4,
-      indent_with_tabs: true,
-    }))
-    .pipe(dest(`${buildFolder}`))
-    // Раскомментировать, если нужно добавлять в папку assets/template
-    // .pipe(dest(pathModxTemplate))
-    .pipe(browserSync.stream())
+      .pipe(
+        app.plugins.if(
+          app.isBuild,
+          versionNumber({
+            value: "%DT%",
+            append: {
+              key: "_v",
+              cover: 0,
+              to: ["css", "js"],
+            },
+            output: {
+              file: "version.json",
+            },
+          })
+        )
+      )
+      .pipe(app.plugins.if(app.isBuild, webpHtmlNoSvg()))
+      .pipe(
+        formatHTML({
+          indent_size: 4,
+          indent_with_tabs: true,
+        })
+      )
+      .pipe(dest(`${buildFolder}`))
+      // Раскомментировать, если нужно добавлять в папку assets/template
+      // .pipe(dest(pathModxTemplate))
+      .pipe(browserSync.stream())
+  );
 }
 function styles() {
-  return src(path.src.scss)
-    .pipe(plumber(plumberNotify("SCSS")))
-    .pipe(sassglob())
-    .pipe(sass({
-      'include css': true,
-      outputStyle: 'expanded'
-    }))
-    .pipe(groupCssMediaQueries())
-    // .pipe(
-    //   webpCss({
-    //     webpClass: ".webp",
-    //     noWebpClass: ".no-webp"
-    //   }))
-    .pipe(postCss([
-      autoprefixer({
-        grid: true,
-        overrideBrowserslist: ['last 3 versions'],
-        cascade: false
-      }),
-    ]))
-    // Раскомментировать, если нужен неминифицированный файл стилей
-    .pipe(dest(path.build.css))
-    .pipe(postCss([
-      cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
-    ]))
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(dest(path.build.css))
-    .pipe(browserSync.stream())
+  return (
+    src(path.src.scss)
+      .pipe(plumber(plumberNotify("SCSS")))
+      .pipe(sassglob())
+      .pipe(
+        sass({
+          "include css": true,
+          outputStyle: "expanded",
+        })
+      )
+      .pipe(groupCssMediaQueries())
+      // .pipe(
+      //   webpCss({
+      //     webpClass: ".webp",
+      //     noWebpClass: ".no-webp"
+      //   }))
+      .pipe(
+        postCss([
+          autoprefixer({
+            grid: true,
+            overrideBrowserslist: ["last 3 versions"],
+            cascade: false,
+          }),
+        ])
+      )
+      // Раскомментировать, если нужен неминифицированный файл стилей
+      .pipe(dest(path.build.css))
+      .pipe(
+        postCss([
+          cssnano({
+            preset: ["default", { discardComments: { removeAll: true } }],
+          }),
+        ])
+      )
+      .pipe(rename({ suffix: ".min" }))
+      .pipe(dest(path.build.css))
+      .pipe(browserSync.stream())
+  );
 }
 function stylesLibs() {
-	return src(path.src.styleLibs)
-    .pipe(plumber(plumberNotify("STYLE LIBS")))
-		.pipe(concat('libs.css'))
-    // Раскомментировать, если нужен неминифицированный файл стилей
-		// .pipe(dest(path.build.css))
-    .pipe(postCss([
-      cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
-    ]))
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(dest(path.build.css))
-};
+  return (
+    src(path.src.styleLibs)
+      .pipe(plumber(plumberNotify("STYLE LIBS")))
+      .pipe(concat("libs.css"))
+      // Раскомментировать, если нужен неминифицированный файл стилей
+      // .pipe(dest(path.build.css))
+      .pipe(
+        postCss([
+          cssnano({
+            preset: ["default", { discardComments: { removeAll: true } }],
+          }),
+        ])
+      )
+      .pipe(rename({ suffix: ".min" }))
+      .pipe(dest(path.build.css))
+  );
+}
 // function scripts() {
 //   return src(path.src.js)
 //     .pipe(plumber(plumberNotify("JS")))
@@ -284,144 +303,162 @@ function jsDist() {
   return src(path.src.js)
     .pipe(plumber(plumberNotify("JS")))
 
-    .pipe(dest(path.build.js))
-};
+    .pipe(dest(path.build.js));
+}
 function jsLibs() {
   return src(path.src.jsLibs)
     .pipe(plumber(plumberNotify("JS")))
-    .pipe(concat('libs.js'))
-    .pipe(cleanJs({
-      noSource: true,
-      ext: {
-        min: '.js',
-      },
-    }))
-    .pipe(dest(path.build.js))
-};
+    .pipe(concat("libs.js"))
+    .pipe(
+      cleanJs({
+        noSource: true,
+        ext: {
+          min: ".js",
+        },
+      })
+    )
+    .pipe(dest(path.build.js));
+}
 function jsMin() {
   return src(path.build.js + "/*.js")
-    .pipe(cleanJs({
-      noSource: true,
-      ext: {
-        min: '.js',
-      },
-    }))
-    .pipe(dest(path.build.js))
-};
+    .pipe(
+      cleanJs({
+        noSource: true,
+        ext: {
+          min: ".js",
+        },
+      })
+    )
+    .pipe(dest(path.build.js));
+}
 
 function images() {
-  return src([path.src.images, `!${path.srcFolder}/images/favicons/**/*.*`])
-    .pipe(plumber(plumberNotify("IMAGES")))
-    // .pipe(newer(path.build.images))
-    .pipe(changed(path.build.images))
-    .pipe(webp())
-    .pipe(dest(path.build.images))
+  return (
+    src([path.src.images, `!${path.srcFolder}/images/favicons/**/*.*`])
+      .pipe(plumber(plumberNotify("IMAGES")))
+      // .pipe(newer(path.build.images))
+      .pipe(changed(path.build.images))
+      .pipe(webp())
+      .pipe(dest(path.build.images))
 
-    .pipe(src(path.src.images))
-    // .pipe(newer(path.build.images))
-    .pipe(changed(path.build.images))
-    .pipe(
-      app.plugins.if(app.isBuild,
-        imagemin([
-          gifsicle({ interlaced: true }),
-          mozjpeg({
-            progressive: true,
-            quality: 80
-          }),
-          optipng({ optimizationLevel: 3 }),
-          svgo({
-            plugins: [
-              {
-                name: 'removeViewBox',
-                active: false
-              },
-              {
-                name: 'cleanupIDs',
-                active: false
-              }
-            ]
-          })
-        ], {
-          verbose: true
-        })))
-    .pipe(dest(path.build.images))
+      .pipe(src(path.src.images))
+      // .pipe(newer(path.build.images))
+      .pipe(changed(path.build.images))
+      .pipe(
+        app.plugins.if(
+          app.isBuild,
+          imagemin(
+            [
+              gifsicle({ interlaced: true }),
+              mozjpeg({
+                progressive: true,
+                quality: 80,
+              }),
+              pngquant(),
+              // optipng({ optimizationLevel: 3 }),
+              svgo({
+                plugins: [
+                  {
+                    name: "removeViewBox",
+                    active: false,
+                  },
+                  {
+                    name: "cleanupIDs",
+                    active: false,
+                  },
+                ],
+              }),
+            ],
+            {
+              verbose: true,
+            }
+          )
+        )
+      )
+      .pipe(dest(path.build.images))
 
-    .pipe(src(path.src.svg))
-    .pipe(dest(path.build.images))
-    .pipe(browserSync.stream())
+      .pipe(src(path.src.svg))
+      .pipe(dest(path.build.images))
+      .pipe(browserSync.stream())
+  );
 }
 function fonts() {
   return src(path.src.fonts)
     .pipe(plumber(plumberNotify("FONTS")))
     .pipe(dest(path.build.fonts))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 function files() {
   return src(path.src.files)
     .pipe(plumber(plumberNotify("FILES")))
-    .pipe(dest(path.build.files))
+    .pipe(dest(path.build.files));
 }
 function sprite() {
   return src(path.src.svgicons)
     .pipe(plumber(plumberNotify("SPRITE")))
-    .pipe(svgSprite({
-      mode: {
-        symbol: {
-          sprite: '../icons/icons.svg',
-          // example: true
-        }
-      },
-      shape: {
-        id: {
-          separator: '',
-          generator: 'svg-'
+    .pipe(
+      svgSprite({
+        mode: {
+          symbol: {
+            sprite: "../icons/icons.svg",
+            // example: true
+          },
         },
-        transform: [
-          {
-            svgo: {
-              plugins: [
-                { removeXMLNS: true },
-                { convertPathData: false },
-                { removeViewBox: false },
-                { cleanupIDs: false },
-                { removeComments: true },
-                { removeEmptyAttrs: true },
-                { removeEmptyText: true },
-                { collapseGroups: true },
-                { convertPathData: false },
-                { removeAttrs: { attrs: '(fill|stroke)' } }
-              ]
-            }
-          }
-        ]
-      },
-      svg: {
-        rootAttributes: {
-          style: 'display: none;',
-          'aria-hidden': true
+        shape: {
+          id: {
+            separator: "",
+            generator: "svg-",
+          },
+          transform: [
+            {
+              svgo: {
+                plugins: [
+                  { removeXMLNS: true },
+                  { convertPathData: false },
+                  { removeViewBox: false },
+                  { cleanupIDs: false },
+                  { removeComments: true },
+                  { removeEmptyAttrs: true },
+                  { removeEmptyText: true },
+                  { collapseGroups: true },
+                  { convertPathData: false },
+                  { removeAttrs: { attrs: "(fill|stroke)" } },
+                ],
+              },
+            },
+          ],
         },
-        xmlDeclaration: false
-      }
-    }))
+        svg: {
+          rootAttributes: {
+            style: "display: none;",
+            "aria-hidden": true,
+          },
+          xmlDeclaration: false,
+        },
+      })
+    )
     .pipe(dest(path.build.images))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 const cleandist = () => {
-  return deleteAsync([path.clean], { force: true })
-}
+  return deleteAsync([path.clean], { force: true });
+};
 
 function startwatch() {
-  gulpWatch([path.watch.pug], { usePolling: true }, buildPug)
-  gulpWatch([path.watch.scss], { usePolling: true }, styles)
-  gulpWatch([path.watch.styleLibs], { usePolling: true }, stylesLibs)
+  gulpWatch([path.watch.pug], { usePolling: true }, buildPug);
+  gulpWatch([path.watch.scss], { usePolling: true }, styles);
+  gulpWatch([path.watch.styleLibs], { usePolling: true }, stylesLibs);
   // gulpWatch([path.watch.js], { usePolling: true }, scripts)
-  gulpWatch([path.watch.js], { usePolling: true }, jsDist)
-  gulpWatch([path.watch.jsLibs], { usePolling: true }, jsLibs)
-  gulpWatch([path.watch.images], { usePolling: true }, images)
-  gulpWatch([path.watch.fonts], { usePolling: true }, fonts)
-  gulpWatch([path.watch.svgicons], { usePolling: true }, sprite)
-  gulpWatch([path.watch.files], { usePolling: true }, files)
-  gulpWatch([`${buildFolder}/**/*.*`], { usePolling: true }).on('change', browserSync.reload)
+  gulpWatch([path.watch.js], { usePolling: true }, jsDist);
+  gulpWatch([path.watch.jsLibs], { usePolling: true }, jsLibs);
+  gulpWatch([path.watch.images], { usePolling: true }, images);
+  gulpWatch([path.watch.fonts], { usePolling: true }, fonts);
+  gulpWatch([path.watch.svgicons], { usePolling: true }, sprite);
+  gulpWatch([path.watch.files], { usePolling: true }, files);
+  gulpWatch([`${buildFolder}/**/*.*`], { usePolling: true }).on(
+    "change",
+    browserSync.reload
+  );
 }
 // ZIP
 function zip() {
@@ -429,7 +466,7 @@ function zip() {
   return src(`${path.buildFolder}/**/*.*`, {})
     .pipe(plumber(plumberNotify("ZIP")))
     .pipe(zipPlugin(`${path.rootFolder}.zip`))
-    .pipe(dest('./'));
+    .pipe(dest("./"));
 }
 // FTP
 function ftp() {
@@ -440,18 +477,29 @@ function ftp() {
     .pipe(ftpConnect.dest(`/${path.ftp}/${rootFolder}`));
 }
 
-const mainTasks = parallel(images, jsDist, jsLibs, jsMin, buildPug, styles, stylesLibs, sprite, fonts, files);
+const mainTasks = parallel(
+  images,
+  jsDist,
+  jsLibs,
+  jsMin,
+  buildPug,
+  styles,
+  stylesLibs,
+  sprite,
+  fonts,
+  files
+);
 // Добавлена задача cleandist в watch
-const watch = series(cleandist, mainTasks, parallel(browsersync, startwatch))
-const build = series(cleandist, mainTasks)
+const watch = series(cleandist, mainTasks, parallel(browsersync, startwatch));
+const build = series(cleandist, mainTasks);
 
 const deployFTP = series(build, ftp);
 const deployZIP = series(build, zip);
 
-export { build, watch, zip, ftp, cleandist }
+export { build, watch, zip, ftp, cleandist };
 
-export { deployFTP }
+export { deployFTP };
 
-export { deployZIP }
+export { deployZIP };
 
 export default watch;

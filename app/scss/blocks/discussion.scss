@@ -71,10 +71,12 @@
     font-size: 14px;
     color: #307ff5;
     font-family: "Rubik", sans-serif;
+    line-height: 120%;
   }
   &__subtitle {
     font-size: 12px;
     color: #a4a4a4;
+    line-height: 120%;
     & span {
       color: #4b4b4b;
       &.blue {
@@ -83,6 +85,7 @@
     }
   }
   &__reviews {
+    line-height: 120%;
   }
   & .reviews-block {
     font-size: 12px;
@@ -308,7 +311,7 @@
     }
   }
   &__item {
-    min-height: 63px;
+    min-height: 62px;
     display: grid;
     grid-template-columns: 1fr 242px 275px 239px 304px;
     background-color: $whiteColor;

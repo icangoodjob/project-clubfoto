@@ -40,10 +40,6 @@ body {
     }
   }
   @media screen and (max-width: $md) {
-    background-image: url("../images/main-bg-mobile.svg");
-  }
-
-  @media screen and (max-width: $md) {
     &.lock {
       overflow: hidden;
       touch-action: none;

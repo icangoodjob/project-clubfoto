@@ -1,109 +1,118 @@
 .main {
-	&__actions {
-	}
+  &__actions {
+  }
 }
 .actions-main {
-	&__body {
-		padding: 13px 0 17px;
-		position: relative;
-		@include line;
-		&::after {
-			content: "";
-			position: absolute;
-			width: 100%;
-			left: 0;
-			top: 0;
-			border-bottom: 1px solid rgba(#cfcfcf, 0.5);
-			box-shadow: 0px 1px 0px 0px $whiteColor;
-		}
-		@media screen and (max-width: $md) {
-			padding: 17px 0 17px;
-		}
-	}
-	&__items {
-		display: grid;
-		grid-template-columns: 240px minmax(200px, 300px) minmax(210px, 170px) minmax(210px, 170px) 1fr;
-		align-items: flex-end;
-		gap: 20px 30px;
-		@media screen and (max-width: $xxxl) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-		@media screen and (max-width: $md) {
-			grid-template-columns: 1fr;
-		}
-	}
-	&__item {
-		display: flex;
-		flex-direction: column;
-		gap: 7px;
-		@media screen and (max-width: $xxxl) {
-			&:last-child {
-				grid-column: span 2;
-				@media screen and (max-width: $md) {
-					grid-column: unset;
-					margin-top: 22px;
-				}
-			}
-		}
-	}
-	&__button {
-	}
-	&__label {
-		margin-left: 10px;
-		color: #a4a4a4;
-		font-family: "Rubik", sans-serif;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 110%;
-	}
+  &__body {
+    padding: 13px 0 17px;
+    position: relative;
+    @include line;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      border-bottom: 1px solid rgba(#cfcfcf, 0.5);
+      box-shadow: 0px 1px 0px 0px $whiteColor;
+    }
+    @media screen and (max-width: $md) {
+      padding: 17px 0 17px;
+    }
+  }
+  &__items {
+    display: grid;
+    grid-template-columns:
+      240px minmax(200px, 300px) minmax(210px, 170px) minmax(210px, 170px)
+      1fr;
+    align-items: flex-end;
+    gap: 20px 30px;
+    @media screen and (max-width: $xxxl) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    @media screen and (max-width: $xxxl) {
+      &:last-child {
+        grid-column: span 2;
+        @media screen and (max-width: $md) {
+          grid-column: unset;
+          margin-top: 22px;
+        }
+      }
+    }
+  }
+  &__button {
+  }
+  &__label {
+    margin-left: 10px;
+    color: #a4a4a4;
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 110%;
+  }
 }
 .galleries {
-	& .actions-main__items {
-		grid-template-columns: 240px repeat(5, 1fr);
-		@media screen and (max-width: $xxxl) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-		@media screen and (max-width: $md) {
-			grid-template-columns: 1fr;
-		}
-	}
-	& .actions-main__item {
-		&:last-child {
-			@media screen and (max-width: $xxxl) {
-				grid-column: unset;
-			}
-			@media screen and (max-width: $md) {
-				margin-top: 0;
-			}
-		}
-	}
+  & .actions-main__items {
+    grid-template-columns: 240px repeat(5, 1fr);
+    @media screen and (max-width: $xxxl) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  & .actions-main__item {
+    &:last-child {
+      @media screen and (max-width: $xxxl) {
+        grid-column: unset;
+      }
+      @media screen and (max-width: $md) {
+        margin-top: 0;
+      }
+    }
+  }
 }
 .btn {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	min-height: 54px;
-	font-family: "Rubik", sans-serif;
-	font-size: 18px;
-	font-weight: 400;
-	line-height: 110%;
-	padding: 10px;
-	border-radius: 16px;
-	border: 2px solid #307ff5;
-	background: $whiteColor;
-	box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.05);
-	transition:
-		color 0.2s ease 0s,
-		background-color 0.2s ease 0s;
-	@media (any-hover: hover) {
-		&:hover {
-			background-color: $blueColor;
-			color: $whiteColor;
-		}
-	}
-	&:active {
-		background-color: $blueColor;
-		color: $whiteColor;
-	}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 54px;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 110%;
+  padding: 10px;
+  border-radius: 16px;
+  border: 2px solid #307ff5;
+  background: $whiteColor;
+  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.05);
+  transition: color 0.2s ease 0s, background-color 0.2s ease 0s;
+  &::before {
+    transition: background-color 0.2s ease 0s;
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $blueColor;
+      color: $whiteColor;
+      &::before {
+        background-color: $whiteColor;
+      }
+    }
+  }
+  &:active {
+    background-color: $blueColor;
+    color: $whiteColor;
+    &::before {
+      background-color: $whiteColor;
+    }
+  }
 }
