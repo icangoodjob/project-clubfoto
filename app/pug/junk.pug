@@ -1,0 +1,196 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = 'Барахолка';
+	- description += pageTitle;
+	- breadcrumbs = true;
+	- paginationList = ['1', '2', '3', '4', '5'];
+block content
+	.junk 
+		.container 
+			.junk__heading
+				.junk__title.page-title= pageTitle
+				button(type="button").filter-btn-mobile Фильтры
+			.junk__body 
+				aside.junk__aside
+					.junk__aside-body
+						form(action="#").form.filter
+							button(type="button").filter-btn-close
+							.filter__title Фильтры
+							.filter-groups
+								fieldset.filter-group.filter-group--device
+									legend Оборудование
+									.filter-switches
+										.radio
+											label.radio__label
+												input(type="radio" name="device").real-radio
+												span Оборудование и аксессуары
+										.radio
+											label.radio__label
+												input(type="radio" name="device").real-radio
+												span Объективы
+										.radio
+											label.radio__label
+												input(type="radio" name="device").real-radio
+												span Компактные фотоаппараты
+										.radio
+											label.radio__label
+												input(type="radio" name="device").real-radio
+												span Плёночные фотоаппараты
+										.radio
+											label.radio__label
+												input(type="radio" name="device").real-radio
+												span Зеркальные фотоаппараты
+										.radio
+											label.radio__label
+												input(type="radio" name="device").real-radio
+												span Бинокли и телескопы
+								fieldset.filter-group.filter-group--brand
+									legend Бренд
+									.filter-switches
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="brande").real-checkbox
+												span Nikon
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="brande" checked).real-checkbox
+												span Canon
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="brande").real-checkbox
+												span Minolta
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="brande").real-checkbox
+												span Kodak
+								fieldset.filter-group.filter-group--novelty
+									.filter-switches
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="new").real-checkbox
+												span.custom-checkbox 
+												| Новые
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="used" checked).real-checkbox
+												span.custom-checkbox 
+												| Б/у
+								fieldset.filter-group.filter-group--price
+									legend Цена
+									.filter-price
+										.form-item 
+											input(type="number" name="price_from" placeholder="Цена от").filter-input
+										.form-item
+											input(type="number" name="price_to" placeholder="до, ₽").filter-input
+								fieldset.filter-group.filter-group--delivery
+									.filter-switches
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="delivery").real-checkbox
+												span.custom-checkbox
+												| С доставкой
+												span.info-icon
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="return").real-checkbox
+												span.custom-checkbox
+												| От 14 дней на возврат
+												
+								fieldset.filter-group.filter-group--rating
+									legend Рейтинг продавца
+									.filter-switches
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="rating").real-checkbox
+												span.custom-checkbox 
+												| От 4 звезд и выше
+								fieldset.filter-group.filter-group--words
+									legend Слова в описании
+									.form-item 
+										input(type="number" name="words" placeholder="Что для Вас важно?").filter-input
+								fieldset.filter-group.filter-group--names
+									.filter-switches
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="rating").real-checkbox
+												span.custom-checkbox 
+												| Искать только в названиях
+								fieldset.filter-group.filter-group--buttons 
+									button(type="submit").btn.btn-blue Показать 1234 объявлений
+									button(type="reset").filter-reset Сбросить фильтры
+								fieldset.filter-group.filter-group--keywords
+									legend Часто ищут
+									ul.filter-keywords
+										li 
+											a(href="#") Оборудование и аксессуары
+										li 
+											a(href="#") Объективы
+										li 
+											a(href="#") Компактные фотоаппараты
+										li 
+											a(href="#") Плёночные фотоаппараты
+										li 
+											a(href="#") Зеркальные фотоаппараты
+										li 
+											a(href="#") Бинокли и телескопы
+				.junk__sort.sort-junk
+					.sort-junk__item
+						.dropdown 
+							input(type="hidden" class="dropdown-input")
+							.dropdown__button 
+								span Сортировка
+							.dropdown__wrapper 
+								ul.dropdown__list 
+									li.dropdown__list-item Цена возрастание
+									li.dropdown__list-item.active Цена убывание
+									li.dropdown__list-item Еще сортировка
+					.sort-junk__item 
+						.sort-junk__switch.switch
+							label
+								input(type="checkbox").real-checkbox
+								| Сначала из моего города
+								span
+					.sort-junk__item 
+						.dropdown.dropdown-shown
+							input(type="hidden" class="dropdown-input")
+							.dropdown__button 
+								| Показывать по #[span 12 объявлений] 
+							.dropdown__wrapper 
+								ul.dropdown__list 
+									li.dropdown__list-item 24 объявления
+									li.dropdown__list-item 36 объявлений
+									li.dropdown__list-item 48 объявлений
+					.sort-junk__item 
+						button(type="button").sort-junk__save Сохранить поиск
+				.junk__cards
+					.junk__cards-wrapper
+						- var cardCount = 1;
+							while cardCount < 13
+								.junk__card.card-junk
+									a(href="#").card-junk__image.ibg
+										img(src=`images/junk/${cardCount}.jpg`, alt="")
+									.card-junk__content 
+										.card-junk__top 
+											a(href="#").card-junk__title Sony a6300
+											button(type="button" class=`${cardCount == 1 ? "active" : ""}`).card-junk__favorite.favorite-button
+										.card-junk__price 44000₽
+										.card-junk__description 
+											| Краснодарский край, Краснодар, ул. Героев-Разведчиков, 6к4, р-н Прикубанский 
+											| #[br]
+											| 11 февраля 15:01
+								- cardCount++
+					.junk__pagination 
+						nav.pagination
+							ul.pagination__list
+								li.pagination__item-first
+									a(href="#") В начало
+								li.pagination__item
+									a(href="#").pagination__link.pagination__link--prev
+								each item, index in paginationList
+									li.pagination__item(class={active: index === 1})
+										a(href="#").pagination__link= item
+								li.pagination__item
+									a(href="#").pagination__link.pagination__link--next
+								li.pagination__item-last
+									a(href="#") Последняя

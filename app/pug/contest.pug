@@ -1,0 +1,113 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = 'Конкурс "Весна идет"';
+	- description += pageTitle;
+	- breadcrumbs = true;
+	- paginationList = ['1', '2', '3', '4', '5'];
+block content
+	.contest 
+		.container 
+			.contest__title.page-title= pageTitle
+			.contest__wrapper
+				.contest__group.group-contest
+					.group-contest__title Состав жюри
+					.contest-slider.swiper
+						.contest-slider__wrapper.swiper-wrapper
+							- var n = 1;
+								while n < 8
+									.contest-slider__item
+										.contest-slider__image-wrap
+											if n == 3
+												span.contest-slider__status
+											.contest-slider__image
+												img(src=`images/contest/${n}.jpg`, alt="Грандмастер")
+										.contest-slider__content 
+											.contest-slider__name User123
+											.contest-slider__post Грандмастер
+									- n++
+						button(type="button").contest-slider__button.contest-slider__button--prev 
+						button(type="button").contest-slider__button.contest-slider__button--next
+				.contest__group.group-contest.winners
+					.group-contest__title Победители
+					.contest-winner
+						each item, index in contestPage.winners
+							.contest-winner__card
+								.contest-winner__image-wrap
+									.contest-winner__image.ibg
+										img(src=`images/contest/winner-${index+1}.png`, alt="Мастер и Маргарита")
+									.contest-winner__badges
+										case item.place
+											when "1"
+												.contest-winner__badge.badge-gold
+											when "2"
+												.contest-winner__badge.badge-silver
+											when "3"
+												.contest-winner__badge.badge-bronze
+								.contest-winner__content 
+									.contest-winner__title “Мастер и Маргарита”
+									.contest-winner__author от Moderator
+									.contest-winner__place #{item.place} место
+				.contest__group.group-contest.prizes
+					.group-contest__title Призы
+					.contest-prize
+						each item, index in contestPage.prizes
+							.contest-prize__card(class=`contest-prize__card--${item.place}`)
+								case item.place
+									when "1"
+										.contest-prize__badge.badge-gold
+									when "2"
+										.contest-prize__badge.badge-silver
+									when "3"
+										.contest-prize__badge.badge-bronze
+								.contest-prize__image
+									img(src=`images/contest/prize-${index+1}.png`, alt=item.title)
+								.contest-prize__content 
+									.contest-prize__title= item.title 
+									.contest-prize__place #{item.place} место
+				.contest__group.group-contest.rules
+					.accordeon
+						.accordeon__item
+							.group-contest__title.accordeon-title Правила участия
+							.contest-rules.accordeon-content
+								.contest-rules__content
+									p Для продолжения работы необходимо ознакомиться с настоящим Пользовательским Соглашением и принять его условия.
+									p Настоящее Пользовательское Соглашение (далее по тексту – #[strong «Соглашение»]), включая его неотъемлемые части – #[a(href="#") Условия использования] и #[a(href="#") Политику конфиденциальности], являясь публичной офертой в соответствии со статьей 435 и пунктом 2 статьи 437 Гражданского Кодекса РФ, заключается между
+									p #[strong 1) Индивидуальный предприниматель Васильев Г.А.] (далее по тексту – #[strong «Компания»]), юридическим лицом, зарегистрированным согласно законодательству РФ, которое является разработчиком и администратором тематического информационного Интернет-ресурса Клуб FOTO.RU (далее по тексту – #[strong «Сайт»]), с одной стороны, и
+									p #[strong 2) пользователем сети Интернет, посетителем Сайта] – физическим лицом, достигшим возраста 14 (Четырнадцати) лет (далее по тексту – #[strong «Пользователь»]), с другой стороны,о нижеследующем:
+									h3 1. Определения основных терминов Соглашения:
+									p #[strong 1.1. «Акцепт»] – принятие всех без исключения условий настоящего Соглашения Пользователем посредством осуществления процедуры Регистрации на Сайте.
+									p #[strong 1.2. «Регистрация»] – успешное заполнение Пользователем регистрационной формы, позволяющее создать на Сайте Учетную запись Пользователя.
+									h3 2. Предмет настоящего Соглашения
+									p #[strong 2.1.] В соответствии с настоящим Соглашением Компания предоставляет Пользователю Сервис, а Пользователь принимает его во временное использование в течение срока действия настоящего Соглашения (раздел 9).
+									p #[strong 2.2.] Настоящее Соглашение рассматривается Сторонами и принимается Пользователем исключительно совместно с Условиями использования и Политикой конфиденциальности, являющимися неотъемлемыми частями Соглашения. Пользователь обязуется незамедлительно информировать Компанию в порядке, предусмотренном разделом 8 Соглашения, в случае:
+									ul 
+										li если в действиях другого зарегистрированного пользователя усматриваются нарушения условий настоящего Соглашения;
+										li обнаружения копирования и использования информационного контента Сайта, в том числе, отдельных Сообщений и Материалов, на других Интернет-сайтах.
+									p #[strong 8.1.] Вопросы, предложения, комментарии, жалобы и иные сообщения Пользователя по вопросам работы Сайта или Сервиса, направляются Компании по следующему адресу электронной почты: #[a(href="mailto:info@foto.ru") info@foto.ru]
+									p #[strong 8.2.] Компания не несет ответственности за неполучение Пользователем ответа на его запрос. В случае неполучения Пользователем ответа Компании в течении 30 дней с даты получения запроса Компанией, Пользователь отправляет повторный запрос по почтовому адресу Компании, указанному ниже в ее реквизитах, заказным письмом, с уведомлением о вручении.
+					button(type="button").group-contest__button.btn.btn-blue Отправить свою работу
+				.contest__group.group-contest
+					.group-contest__title Работы участников
+					.contest-works.swiper
+						.contest-works__wrapper.swiper-wrapper
+							- var w = 1;
+								while w < 15
+									a(href=`images/contest/work-${w}.jpg` data-fancybox="works").contest-works__item
+										.contest-works__image.ibg
+											img(src=`images/contest/work-${w}.jpg`, alt=`Работа-${w}`)
+									- w++
+					.contest__pagination 
+						nav.pagination
+							ul.pagination__list
+								li.pagination__item-first
+									a(href="#") В начало
+								li.pagination__item
+									a(href="#").pagination__link.pagination__link--prev
+								each item, index in paginationList
+									li.pagination__item(class={active: index === 1})
+										a(href="#").pagination__link= item
+								li.pagination__item
+									a(href="#").pagination__link.pagination__link--next
+								li.pagination__item-last
+									a(href="#") Последняя

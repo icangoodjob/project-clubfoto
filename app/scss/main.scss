@@ -45,9 +45,12 @@ body {
       touch-action: none;
     }
   }
-
   // Сайт загружен
   .loaded & {
+  }
+  &.lock {
+    overflow: hidden;
+    touch-action: none;
   }
 }
 
@@ -121,6 +124,8 @@ body {
 @import "blocks/private";
 @import "blocks/discussion";
 @import "blocks/product";
+@import "blocks/contest";
+@import "blocks/junk";
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>==============================================================================
 /* ПОДКЛЮЧЕНИЕ СТИЛЕЙ АДАПТИВА */

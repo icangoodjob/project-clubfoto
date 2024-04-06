@@ -435,6 +435,72 @@ if (similarSlider) {
   });
 }
 
+const contestJury = document.querySelector(".contest-slider");
+if (contestJury) {
+  const sliderBtnPrev = contestJury.querySelector(
+    ".contest-slider__button--prev"
+  );
+  const sliderBtnNext = contestJury.querySelector(
+    ".contest-slider__button--next"
+  );
+  let contestJurySwiper = new Swiper(contestJury, {
+    slideClass: "contest-slider__item",
+    spaceBetween: 92,
+    navigation: {
+      nextEl: sliderBtnNext,
+      prevEl: sliderBtnPrev,
+    },
+    speed: 800,
+    breakpoints: {
+      300: {
+        slidesPerView: 1,
+      },
+      576: {
+        slidesPerView: 2,
+      },
+      991.98: {
+        slidesPerView: 3,
+      },
+      1199.98: {
+        slidesPerView: 4,
+      },
+    },
+  });
+}
+
+const workSlider = document.querySelector(".contest-works");
+let workSwiper = null;
+function initializeSwiper() {
+  if (!workSwiper && workSlider) {
+    workSwiper = new Swiper(workSlider, {
+      slideClass: "contest-works__item",
+      spaceBetween: 12,
+      slidesPerView: 1,
+      speed: 800,
+      centeredSlides: true,
+    });
+  }
+}
+function destroySwiper() {
+  if (workSwiper) {
+    workSwiper.destroy();
+    workSwiper = null;
+  }
+}
+function checkScreenWidth() {
+  if (window.matchMedia("(max-width: 767.98px)").matches) {
+    // Инициализация Swiper, если ширина экрана меньше или равна 991.98 пикселей
+    initializeSwiper();
+  } else {
+    // Отмена инициализации Swiper, если ширина экрана больше 991.98 пикселей
+    destroySwiper();
+  }
+}
+// Проверяем при загрузке страницы
+checkScreenWidth();
+// Проверяем при изменении размера экрана
+window.addEventListener("resize", checkScreenWidth);
+
 const unwrap = (element) => {
   element.replaceWith(...element.children);
 };
@@ -675,3 +741,73 @@ function initSimpleBar() {
   );
 }
 initSimpleBar();
+
+// Dropdown
+function deactivateAllDropdownTriggers() {
+  const activeDropdownButtons = document.querySelectorAll(
+    ".dropdown__button.active"
+  );
+  [...activeDropdownButtons].forEach((elem) => {
+    elem.classList.remove("active");
+  });
+}
+function handleDropdownClicks(event) {
+  let target = event.target;
+  if (target.matches(".dropdown__button")) {
+    if (target.classList.contains("active")) {
+      target.classList.remove("active");
+    } else {
+      deactivateAllDropdownTriggers();
+      target.classList.add("active");
+    }
+  } else {
+    if (target.matches(".dropdown__wrapper *")) {
+      deactivateAllDropdownTriggers();
+    }
+    if (!target.matches(".dropdown__wrapper *")) {
+      deactivateAllDropdownTriggers();
+    }
+  }
+  if (target.closest(".dropdown__list-item")) {
+    let parent = target.closest(".dropdown");
+    let dropdownButton = parent.querySelector(".dropdown__button span");
+    let dropdownInput = parent.querySelector(".dropdown-input");
+    if (dropdownInput) {
+      dropdownInput.value = target.textContent;
+    }
+    if (dropdownButton) {
+      dropdownButton.textContent = target.textContent;
+    }
+  }
+}
+document.addEventListener("click", handleDropdownClicks, false);
+
+// Кнопка добавления в избранное на странице "Барахолка"
+document.addEventListener("click", favoriteActive);
+function favoriteActive(e) {
+  let target = e.target;
+  if (target.closest(".favorite-button")) {
+    e.target.classList.toggle("active");
+  }
+}
+
+// Открытие и закрытие фильтров в мобильной версии
+const filterBtnOpen = document.querySelector(".filter-btn-mobile");
+const filterBtnClose = document.querySelector(".filter-btn-close");
+if (filterBtnOpen) {
+  filterBtnOpen.addEventListener("click", openMobileFilter);
+}
+if (filterBtnClose) {
+  filterBtnClose.addEventListener("click", closeMobileFiler);
+}
+function openMobileFilter() {
+  const filter = document.querySelector(".junk__aside");
+  filter.classList.add("active");
+  document.body.classList.add("lock");
+}
+
+function closeMobileFiler() {
+  const filter = document.querySelector(".junk__aside");
+  filter.classList.remove("active");
+  document.body.classList.remove("lock");
+}

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Конкурс &quot;Весна идет&quot;</title>
+	<meta name="description" content="Описание на странице - Конкурс &quot;Весна идет&quot;">
+	<meta name="keywords" content="Перечень ключевых слов">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://example.com">
+	<meta property="og:title" content="Конкурс &quot;Весна идет&quot;">
+	<meta property="og:description" content="Описание на странице - Конкурс &quot;Весна идет&quot;">
+	<meta property="twitter:title" content="Конкурс &quot;Весна идет&quot;">
+	<meta property="twitter:description" content="description">
+	<link rel="canonical" href="https://example.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap&_v=20240406183501" rel="stylesheet">
+	<link href="styles/libs.min.css?_v=20240406183501" rel="stylesheet">
+	<link href="styles/main.min.css?_v=20240406183501" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="shortcut icon" href="images/favicons/favicon.ico">
+	<meta name="msapplication-TileImage" content="images/favicons/msite-150х150.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="apple-mobile-web-app-title" content="Название">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="format-detection" content="date=no">
+</head>
+
+<body>
+	<div class="wrapper" id="wrapper">
+		<header class="header" id="header">
+			<div class="container">
+				<div class="header__body">
+					<div class="header__top top-header">
+						<div class="top-header__left">
+							<a class="top-header__logo" href="#">
+								<picture>
+									<source srcset="images/logo_pc.svg" media="(min-width: 1200px)">
+									<source srcset="images/logo_mobile.svg" media="(min-width: 300px)">
+									<img src="images/logo_pc.svg" alt="логотип">
+								</picture>
+							</a>
+							<nav class="top-header__menu header-menu" data-da=".menu-mobile__body, 991.98, 1">
+								<ul class="header-menu__list">
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Барахолка</a>
+									</li>
+									<li class="header-menu__item active">
+										<a class="header-menu__link" href="#">Фотолаборатории</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Фотостудии</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Словарь</a>
+									</li>
+									<li class="header-menu__item">
+										<a class="header-menu__link" href="#">Вопросы-ответы</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="top-header__right">
+							<nav class="header__nav nav-header" data-da=".menu-mobile__body, 389.98, 0">
+								<ul class="nav-header__list">
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/fotogora.svg" alt="Фотогора">
+											</div>
+											<div class="nav-header__text">Фотогора</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/forum.svg" alt="Форум">
+											</div>
+											<div class="nav-header__text">Форум</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/blog.svg" alt="Блог">
+											</div>
+											<div class="nav-header__text">Блог</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/market.svg" alt="Магазин">
+											</div>
+											<div class="nav-header__text">Магазин</div>
+										</a>
+									</li>
+									<li class="nav-header__item">
+										<a class="nav-header__link nav-header__link--signin" href="#">
+											<div class="nav-header__icon">
+												<img src="images/icons/menu/user.svg" alt="Вход">
+											</div>
+											<div class="nav-header__text">Вход</div>
+										</a>
+									</li>
+								</ul>
+							</nav>
+							<button class="nav-header__button" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+					</div>
+					<div class="header__search">
+						<form class="search-form form" action="#">
+							<input class="form__input search-form__input" type="text" placeholder="Поиск Club.FOTO.RU">
+							<button class="search-form__button" type="submit"></button>
+						</form>
+					</div>
+					<div class="header__categories categories-header" data-da=".menu-mobile__body, 767.98, 2">
+						<button class="categories-header__button" type="button">Категории</button>
+						<nav class="categories-header__menu menu-categories">
+							<ul class="menu-categories__list">
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="forums.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-forum.svg" alt="Форумы">
+										</span>
+										<span class="menu-categories__caption">Форумы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="gallery.html">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-gallery.svg" alt="Галерея фоторафий">
+										</span>
+										<span class="menu-categories__caption">Галерея фоторафий</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-personal_photo.svg" alt="Персональные фотоальбомы">
+										</span>
+										<span class="menu-categories__caption">Персональные фотоальбомы</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-archived_photo.svg" alt="Архивные фото">
+										</span>
+										<span class="menu-categories__caption">Архивные фото</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-projects.svg" alt="Выставки и проекты">
+										</span>
+										<span class="menu-categories__caption">Выставки и проекты</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-discuss_photo.svg" alt="Обсуждение фототехники">
+										</span>
+										<span class="menu-categories__caption">Обсуждение фототехники</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-school_photo.svg" alt="Школа фотографии">
+										</span>
+										<span class="menu-categories__caption">Школа фотографии</span>
+									</a>
+								</li>
+								<li class="menu-categories__item">
+									<a class="menu-categories__link" href="#">
+										<span class="menu-categories__icon icon-wrap">
+											<img src="images/icons/icon-classic_photo.svg" alt="Классики фотоискусства">
+										</span>
+										<span class="menu-categories__caption">Классики фотоискусства</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="menu-mobile">
+						<div class="menu-mobile__body"> </div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="breadcrumbs">
+			<div class="container">
+				<nav class="breadcrumbs__navigation">
+					<ul class="breadcrumbs__list">
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Главная</a>
+						</li>
+						<li class="breadcrumbs__item">
+							<a class="breadcrumbs__link" href="#">Форум</a>
+						</li>
+						<li class="breadcrumbs__item active">Целевая</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="main">
+			<div class="contest">
+				<div class="container">
+					<div class="contest__title page-title">Конкурс &quot;Весна идет&quot;</div>
+					<div class="contest__wrapper">
+						<div class="contest__group group-contest">
+							<div class="group-contest__title">Состав жюри</div>
+							<div class="contest-slider swiper">
+								<div class="contest-slider__wrapper swiper-wrapper">
+									<div class="contest-slider__item">
+										<div class="contest-slider__image-wrap">
+											<div class="contest-slider__image">
+												<picture>
+													<source srcset="images/contest/1.webp" type="image/webp">
+													<img src="images/contest/1.jpg" alt="Грандмастер">
+												</picture>
+											</div>
+										</div>
+										<div class="contest-slider__content">
+											<div class="contest-slider__name">User123</div>
+											<div class="contest-slider__post">Грандмастер</div>
+										</div>
+									</div>
+									<div class="contest-slider__item">
+										<div class="contest-slider__image-wrap">
+											<div class="contest-slider__image">
+												<picture>
+													<source srcset="images/contest/2.webp" type="image/webp">
+													<img src="images/contest/2.jpg" alt="Грандмастер">
+												</picture>
+											</div>
+										</div>
+										<div class="contest-slider__content">
+											<div class="contest-slider__name">User123</div>
+											<div class="contest-slider__post">Грандмастер</div>
+										</div>
+									</div>
+									<div class="contest-slider__item">
+										<div class="contest-slider__image-wrap">
+											<span class="contest-slider__status"></span>
+											<div class="contest-slider__image">
+												<picture>
+													<source srcset="images/contest/3.webp" type="image/webp">
+													<img src="images/contest/3.jpg" alt="Грандмастер">
+												</picture>
+											</div>
+										</div>
+										<div class="contest-slider__content">
+											<div class="contest-slider__name">User123</div>
+											<div class="contest-slider__post">Грандмастер</div>
+										</div>
+									</div>
+									<div class="contest-slider__item">
+										<div class="contest-slider__image-wrap">
+											<div class="contest-slider__image">
+												<picture>
+													<source srcset="images/contest/4.webp" type="image/webp">
+													<img src="images/contest/4.jpg" alt="Грандмастер">
+												</picture>
+											</div>
+										</div>
+										<div class="contest-slider__content">
+											<div class="contest-slider__name">User123</div>
+											<div class="contest-slider__post">Грандмастер</div>
+										</div>
+									</div>
+									<div class="contest-slider__item">
+										<div class="contest-slider__image-wrap">
+											<div class="contest-slider__image">
+												<picture>
+													<source srcset="images/contest/5.webp" type="image/webp">
+													<img src="images/contest/5.jpg" alt="Грандмастер">
+												</picture>
+											</div>
+										</div>
+										<div class="contest-slider__content">
+											<div class="contest-slider__name">User123</div>
+											<div class="contest-slider__post">Грандмастер</div>
+										</div>
+									</div>
+									<div class="contest-slider__item">
+										<div class="contest-slider__image-wrap">
+											<div class="contest-slider__image">
+												<picture>
+													<source srcset="images/contest/6.webp" type="image/webp">
+													<img src="images/contest/6.jpg" alt="Грандмастер">
+												</picture>
+											</div>
+										</div>
+										<div class="contest-slider__content">
+											<div class="contest-slider__name">User123</div>
+											<div class="contest-slider__post">Грандмастер</div>
+										</div>
+									</div>
+									<div class="contest-slider__item">
+										<div class="contest-slider__image-wrap">
+											<div class="contest-slider__image">
+												<picture>
+													<source srcset="images/contest/7.webp" type="image/webp">
+													<img src="images/contest/7.jpg" alt="Грандмастер">
+												</picture>
+											</div>
+										</div>
+										<div class="contest-slider__content">
+											<div class="contest-slider__name">User123</div>
+											<div class="contest-slider__post">Грандмастер</div>
+										</div>
+									</div>
+								</div>
+								<button class="contest-slider__button contest-slider__button--prev" type="button"> </button>
+								<button class="contest-slider__button contest-slider__button--next" type="button"></button>
+							</div>
+						</div>
+						<div class="contest__group group-contest winners">
+							<div class="group-contest__title">Победители</div>
+							<div class="contest-winner">
+								<div class="contest-winner__card">
+									<div class="contest-winner__image-wrap">
+										<div class="contest-winner__image ibg">
+											<picture>
+												<source srcset="images/contest/winner-1.webp" type="image/webp">
+												<img src="images/contest/winner-1.png" alt="Мастер и Маргарита">
+											</picture>
+										</div>
+										<div class="contest-winner__badges">
+											<div class="contest-winner__badge badge-gold"></div>
+										</div>
+									</div>
+									<div class="contest-winner__content">
+										<div class="contest-winner__title">“Мастер и Маргарита”</div>
+										<div class="contest-winner__author">от Moderator</div>
+										<div class="contest-winner__place">1 место</div>
+									</div>
+								</div>
+								<div class="contest-winner__card">
+									<div class="contest-winner__image-wrap">
+										<div class="contest-winner__image ibg">
+											<picture>
+												<source srcset="images/contest/winner-2.webp" type="image/webp">
+												<img src="images/contest/winner-2.png" alt="Мастер и Маргарита">
+											</picture>
+										</div>
+										<div class="contest-winner__badges">
+											<div class="contest-winner__badge badge-silver"></div>
+										</div>
+									</div>
+									<div class="contest-winner__content">
+										<div class="contest-winner__title">“Мастер и Маргарита”</div>
+										<div class="contest-winner__author">от Moderator</div>
+										<div class="contest-winner__place">2 место</div>
+									</div>
+								</div>
+								<div class="contest-winner__card">
+									<div class="contest-winner__image-wrap">
+										<div class="contest-winner__image ibg">
+											<picture>
+												<source srcset="images/contest/winner-3.webp" type="image/webp">
+												<img src="images/contest/winner-3.png" alt="Мастер и Маргарита">
+											</picture>
+										</div>
+										<div class="contest-winner__badges">
+											<div class="contest-winner__badge badge-bronze"></div>
+										</div>
+									</div>
+									<div class="contest-winner__content">
+										<div class="contest-winner__title">“Мастер и Маргарита”</div>
+										<div class="contest-winner__author">от Moderator</div>
+										<div class="contest-winner__place">3 место</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="contest__group group-contest prizes">
+							<div class="group-contest__title">Призы</div>
+							<div class="contest-prize">
+								<div class="contest-prize__card contest-prize__card--1">
+									<div class="contest-prize__badge badge-gold"></div>
+									<div class="contest-prize__image">
+										<picture>
+											<source srcset="images/contest/prize-1.webp" type="image/webp">
+											<img src="images/contest/prize-1.png" alt="Sony a6300">
+										</picture>
+									</div>
+									<div class="contest-prize__content">
+										<div class="contest-prize__title">Sony a6300</div>
+										<div class="contest-prize__place">1 место</div>
+									</div>
+								</div>
+								<div class="contest-prize__card contest-prize__card--2">
+									<div class="contest-prize__badge badge-silver"></div>
+									<div class="contest-prize__image">
+										<picture>
+											<source srcset="images/contest/prize-2.webp" type="image/webp">
+											<img src="images/contest/prize-2.png" alt="Godox MS300V-D">
+										</picture>
+									</div>
+									<div class="contest-prize__content">
+										<div class="contest-prize__title">Godox MS300V-D</div>
+										<div class="contest-prize__place">2 место</div>
+									</div>
+								</div>
+								<div class="contest-prize__card contest-prize__card--3">
+									<div class="contest-prize__badge badge-bronze"></div>
+									<div class="contest-prize__image">
+										<picture>
+											<source srcset="images/contest/prize-3.webp" type="image/webp">
+											<img src="images/contest/prize-3.png" alt="QZSD Q510 штатив">
+										</picture>
+									</div>
+									<div class="contest-prize__content">
+										<div class="contest-prize__title">QZSD Q510 штатив</div>
+										<div class="contest-prize__place">3 место</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="contest__group group-contest rules">
+							<div class="accordeon">
+								<div class="accordeon__item">
+									<div class="group-contest__title accordeon-title">Правила участия</div>
+									<div class="contest-rules accordeon-content">
+										<div class="contest-rules__content">
+											<p>Для продолжения работы необходимо ознакомиться с настоящим Пользовательским Соглашением и принять его условия.</p>
+											<p>Настоящее Пользовательское Соглашение (далее по тексту – <strong>«Соглашение»</strong>), включая его неотъемлемые части – <a href="#">Условия использования</a> и <a href="#">Политику конфиденциальности</a>, являясь публичной офертой в соответствии со статьей 435 и пунктом 2 статьи 437 Гражданского Кодекса РФ, заключается между</p>
+											<p>
+												<strong>1) Индивидуальный предприниматель Васильев Г.А.</strong> (далее по тексту – <strong>«Компания»</strong>), юридическим лицом, зарегистрированным согласно законодательству РФ, которое является разработчиком и администратором тематического информационного Интернет-ресурса Клуб FOTO.RU (далее по тексту – <strong>«Сайт»</strong>), с одной стороны, и
+											</p>
+											<p>
+												<strong>2) пользователем сети Интернет, посетителем Сайта</strong> – физическим лицом, достигшим возраста 14 (Четырнадцати) лет (далее по тексту – <strong>«Пользователь»</strong>), с другой стороны,о нижеследующем:
+											</p>
+											<h3>1. Определения основных терминов Соглашения:</h3>
+											<p>
+												<strong>1.1. «Акцепт»</strong> – принятие всех без исключения условий настоящего Соглашения Пользователем посредством осуществления процедуры Регистрации на Сайте.
+											</p>
+											<p>
+												<strong>1.2. «Регистрация»</strong> – успешное заполнение Пользователем регистрационной формы, позволяющее создать на Сайте Учетную запись Пользователя.
+											</p>
+											<h3>2. Предмет настоящего Соглашения</h3>
+											<p>
+												<strong>2.1.</strong> В соответствии с настоящим Соглашением Компания предоставляет Пользователю Сервис, а Пользователь принимает его во временное использование в течение срока действия настоящего Соглашения (раздел 9).
+											</p>
+											<p>
+												<strong>2.2.</strong> Настоящее Соглашение рассматривается Сторонами и принимается Пользователем исключительно совместно с Условиями использования и Политикой конфиденциальности, являющимися неотъемлемыми частями Соглашения. Пользователь обязуется незамедлительно информировать Компанию в порядке, предусмотренном разделом 8 Соглашения, в случае:
+											</p>
+											<ul>
+												<li>если в действиях другого зарегистрированного пользователя усматриваются нарушения условий настоящего Соглашения;</li>
+												<li>обнаружения копирования и использования информационного контента Сайта, в том числе, отдельных Сообщений и Материалов, на других Интернет-сайтах.</li>
+											</ul>
+											<p>
+												<strong>8.1.</strong> Вопросы, предложения, комментарии, жалобы и иные сообщения Пользователя по вопросам работы Сайта или Сервиса, направляются Компании по следующему адресу электронной почты: <a href="mailto:info@foto.ru">info@foto.ru</a>
+											</p>
+											<p>
+												<strong>8.2.</strong> Компания не несет ответственности за неполучение Пользователем ответа на его запрос. В случае неполучения Пользователем ответа Компании в течении 30 дней с даты получения запроса Компанией, Пользователь отправляет повторный запрос по почтовому адресу Компании, указанному ниже в ее реквизитах, заказным письмом, с уведомлением о вручении.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button class="group-contest__button btn btn-blue" type="button">Отправить свою работу</button>
+						</div>
+						<div class="contest__group group-contest">
+							<div class="group-contest__title">Работы участников</div>
+							<div class="contest-works swiper">
+								<div class="contest-works__wrapper swiper-wrapper">
+									<a class="contest-works__item" href="images/contest/work-1.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-1.webp" type="image/webp">
+												<img src="images/contest/work-1.jpg" alt="Работа-1">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-2.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-2.webp" type="image/webp">
+												<img src="images/contest/work-2.jpg" alt="Работа-2">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-3.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-3.webp" type="image/webp">
+												<img src="images/contest/work-3.jpg" alt="Работа-3">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-4.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-4.webp" type="image/webp">
+												<img src="images/contest/work-4.jpg" alt="Работа-4">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-5.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-5.webp" type="image/webp">
+												<img src="images/contest/work-5.jpg" alt="Работа-5">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-6.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-6.webp" type="image/webp">
+												<img src="images/contest/work-6.jpg" alt="Работа-6">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-7.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-7.webp" type="image/webp">
+												<img src="images/contest/work-7.jpg" alt="Работа-7">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-8.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-8.webp" type="image/webp">
+												<img src="images/contest/work-8.jpg" alt="Работа-8">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-9.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-9.webp" type="image/webp">
+												<img src="images/contest/work-9.jpg" alt="Работа-9">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-10.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-10.webp" type="image/webp">
+												<img src="images/contest/work-10.jpg" alt="Работа-10">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-11.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-11.webp" type="image/webp">
+												<img src="images/contest/work-11.jpg" alt="Работа-11">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-12.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-12.webp" type="image/webp">
+												<img src="images/contest/work-12.jpg" alt="Работа-12">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-13.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-13.webp" type="image/webp">
+												<img src="images/contest/work-13.jpg" alt="Работа-13">
+											</picture>
+										</div>
+									</a>
+									<a class="contest-works__item" href="images/contest/work-14.jpg" data-fancybox="works">
+										<div class="contest-works__image ibg">
+											<picture>
+												<source srcset="images/contest/work-14.webp" type="image/webp">
+												<img src="images/contest/work-14.jpg" alt="Работа-14">
+											</picture>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="contest__pagination">
+								<nav class="pagination">
+									<ul class="pagination__list">
+										<li class="pagination__item-first">
+											<a href="#">В начало</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link pagination__link--prev" href="#"></a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">1</a>
+										</li>
+										<li class="pagination__item active">
+											<a class="pagination__link" href="#">2</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">3</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">4</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link" href="#">5</a>
+										</li>
+										<li class="pagination__item">
+											<a class="pagination__link pagination__link--next" href="#"></a>
+										</li>
+										<li class="pagination__item-last">
+											<a href="#">Последняя</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__top">
+					<nav class="footer__menu menu-footer">
+						<ul class="menu-footer__list">
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Правила Клуба</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">О Клубе</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Вход / Регистрация</a>
+							</li>
+							<li class="menu-footer__item active">
+								<a class="menu-footer__link" href="#">Поиск авторов</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">ХудСовет</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Как связаться</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Статистика</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Реклама на сайте</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">FAQ</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив галереи</a>
+							</li>
+							<li class="menu-footer__item">
+								<a class="menu-footer__link" href="#">Архив форумов</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__bottom">
+					<a class="footer__logo" href="#" data-da=".footer__top, 767.98, 0">
+						<img src="images/footer-logo_pc.svg" alt="логотип" loading="lazy">
+					</a>
+					<div class="footer__social social-footer">
+						<ul class="social-footer__list">
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--youtube" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--mail" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--vk" href="#" target="_blank"> </a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--twitter" href="#" target="_blank"></a>
+							</li>
+							<li class="social-footer__item">
+								<a class="social-footer__link social-footer__link--telegram" href="#" target="_blank"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer__copy">Все права защищены © 2023</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="scripts/libs.js?_v=20240406183501" defer></script>
+	<script src="scripts/main.js?_v=20240406183501" defer></script>
+</body>
+
+</html>
