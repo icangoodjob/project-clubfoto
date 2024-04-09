@@ -9117,7 +9117,6 @@ a.auth__link {
   -ms-flex-align: center;
   align-items: center;
   gap: 6px;
-  cursor: pointer;
 }
 
 .dropdown__button::before,
@@ -9215,7 +9214,6 @@ a.auth__link {
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  cursor: pointer;
   -webkit-transition: color 0.25s;
   -o-transition: color 0.25s;
   transition: color 0.25s;
@@ -9242,13 +9240,14 @@ a.auth__link {
   transform: translateY(-50%);
   left: 0px;
   background-color: #307ff5;
-  -webkit-transition: left 0.25s;
-  -o-transition: left 0.25s;
-  transition: left 0.25s;
+  -webkit-transition: left 0.25s, background-color 0.25s;
+  -o-transition: left 0.25s, background-color 0.25s;
+  transition: left 0.25s, background-color 0.25s;
 }
 
 .switch input:checked ~ span::before {
-  left: 17px;
+  left: 16px;
+  background-color: rgba(75, 75, 75, 0.2);
 }
 
 /* ПОДКЛЮЧЕНИЕ СТИЛЕЙ АДАПТИВА */
@@ -12328,11 +12327,16 @@ a.auth__link {
     color: #307ff5;
   }
 
+  .dropdown__button {
+    cursor: pointer;
+  }
+
   .dropdown__list li:hover {
     color: #307ff5;
   }
 
   .switch label:hover {
+    cursor: pointer;
     color: #307ff5;
   }
 }
