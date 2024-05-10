@@ -501,6 +501,43 @@ checkScreenWidth();
 // Проверяем при изменении размера экрана
 window.addEventListener("resize", checkScreenWidth);
 
+const exhibitionDefaultSliers = document.querySelectorAll(
+  '[data-slider="default"]'
+);
+// if (exhibitionDefaultSliers.length) {
+//   [...exhibitionDefaultSliers].forEach((slider) => {
+//     let controls = renderSliderControls();
+//     // slider.appendChild(controls);
+//     const sliderBtnPrev = slider.querySelector(".slider-button-prev");
+//     const sliderBtnNext = slider.querySelector(".slider-button-next");
+//     const sliderPagination = slider.querySelector(".slider-pagination");
+//     new Swiper(slider, {
+//       slideClass: "exhibition-card",
+//       spaceBetween: 20,
+//       slidesPerView: "auto",
+//       speed: 800,
+//       navigation: {
+//         nextEl: sliderBtnNext,
+//         prevEl: sliderBtnPrev,
+//       },
+//       pagination: {
+//         el: sliderPagination,
+//         clickable: true,
+//       },
+//     });
+//   });
+// }
+
+function renderSliderControls() {
+  let controls = document.createElement("div");
+  controls.className = "slider-controls";
+  controls.innerHTML = `
+    <button class="slider-button slider-button-prev" type="button"></button>
+    <div class="slider-pagination"></div>
+    <button class="slider-button slider-button-next" type="button"></button>`;
+  return controls;
+}
+
 const unwrap = (element) => {
   element.replaceWith(...element.children);
 };

@@ -136,3 +136,50 @@ mixin authorBox(className, sectionTitle, textResult, countResult)
 				.author-box__result Всего #{textResult}: #[strong #{countResult}]
 			if block 
 				block
+mixin exhibitionCard([...arr], className)
+	if arr.length > 0
+		each item in arr
+			.exhibition-card(class=className)
+				.exhibition-card__image-wrap 
+					.exhibition-card__image.ibg
+						img(src=`images/exhibition/${item.img}.jpg`, alt="фото" loading="lazy")
+					.exhibition-card__views 12425
+					if item.badge
+						.exhibition-card__badge= item.badge
+				.exhibition-card__content 
+					.exhibition-card__title
+						if item.content 
+							| #{item.content}
+						else
+							| Выставка-реконструкция «Терракотовая армия. Бессмертные воины Китая» #[span 12+]
+mixin exhibitionBigCard([...arr])
+	if arr.length > 0
+		each item, index in arr
+			.exhibition-card.long-card
+				.exhibition-card__image-wrap 
+					.exhibition-card__image.ibg
+						img(src=`images/exhibition/big-${item}.jpg`, alt="фото" loading="lazy")
+					.exhibition-card__views 12425
+				.exhibition-card__content 
+					.exhibition-card__title
+						| Выставка-реконструкция «Терракотовая армия. Бессмертные воины Китая» #[span 12+]
+					.exhibition-card__description 
+						p Реконструкция сенсационной археологической находки XX века — многотысячного глиняного войска китайского
+					ul.exhibition-card__list
+						li.exhibition-card__list-item 30 ноября 2023 – 1 сентября 2024 10:00–21:00
+						li.exhibition-card__list-item ВДНХ, павильон 22
+						li.exhibition-card__list-item от 650 рублей
+					.exhibition-card__bottom 
+						button.exhibition-card__button Купить билет
+						button.exhibition-card__favorite(type="button" class=`${index % 2 == 0 ? 'active' : ''}`)
+							svg(width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg")
+								path(d="M11 21.5C16.5228 21.5 21 17.0228 21 11.5C21 5.97715 16.5228 1.5 11 1.5C5.47715 1.5 1 5.97715 1 11.5C1 17.0228 5.47715 21.5 11 21.5Z" stroke="#A4A4A4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+								path(fill-rule="evenodd" clip-rule="evenodd" d="M10.9966 8.56791C9.9969 7.3992 8.32987 7.08482 7.07735 8.15501C5.82482 9.22519 5.64848 11.0145 6.6321 12.2802C7.26211 13.0909 8.87558 14.5942 9.95424 15.5704C10.3127 15.8947 10.4919 16.0569 10.7066 16.122C10.8911 16.1779 11.102 16.1779 11.2866 16.122C11.5012 16.0569 11.6805 15.8947 12.0389 15.5704C13.1176 14.5942 14.731 13.0909 15.3611 12.2802C16.3447 11.0145 16.1899 9.21393 14.9158 8.15501C13.6417 7.09608 11.9963 7.3992 10.9966 8.56791Z" stroke="#A4A4A4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+mixin exhibitionActions([...arr], date)
+	if arr.length > 0
+		ul.exhibition-actions__list
+			each item, index in arr
+				li.exhibition-actions__item
+					a.exhibition-actions__btn(href="#" class=index==0 ? 'active' : '')= item
+			if block 
+				block

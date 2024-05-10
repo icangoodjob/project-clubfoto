@@ -1,0 +1,121 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Выставки в Москве";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.exhibition
+		.container
+			h1.exhibition__tilte.page-title #{pageTitle}
+			.exhibition__wrapper
+				.exhibition__main
+					.exhibition-groups
+						.exhibition-group
+							.exhibition-group__cards
+								.exhibition-cards(data-slider="default")
+									.exhibition-cards__wrapper
+										+exhibitionCard(exhibitionPage.defaultCard)
+							.exhibition-actions
+								form(action="#").exhibition-actions__boxes
+									.exhibition-actions__box
+										+exhibitionActions(exhibitionPage.actionsFirst)
+											li.exhibition-actions__item 
+												a(href="#").exhibition-actions__btn.btn-date Выбор даты
+										.checkbox 
+											label.checkbox__label
+												input(type="checkbox" name="free" checked).real-checkbox
+												span.custom-checkbox 
+												| Бесплатные
+									.exhibition-actions__box
+										.exhibition-actions__label Виды выставок
+										+exhibitionActions(exhibitionPage.actionsSecond)
+										button(type="button").exhibition-actions__filter Еще 12 фильтров
+								.exhibition-actions__result Найдено 217 выставок.
+						.exhibition-group
+							.exhibition-cards 
+								.exhibition-cards__wrapper
+									+exhibitionBigCard(exhibitionPage.bigCard)
+						.exhibition-group
+							.exhibition-group__caption Рекомендации
+							.exhibition-cards.small-cards
+								.exhibition-cards__wrapper
+									+exhibitionCard(exhibitionPage.smallCard)
+							.exhibition-cards 
+								.exhibition-cards__wrapper
+									+exhibitionBigCard(exhibitionPage.bigCard)
+						.exhibition-group
+							.exhibition-group__caption Не пропустите
+							.exhibition-cards.small-cards
+								.exhibition-cards__wrapper
+									+exhibitionCard(exhibitionPage.smallCard)
+							.exhibition-cards 
+								.exhibition-cards__wrapper
+									+exhibitionBigCard(exhibitionPage.bigCard)
+						.exhibition-group.exhibition-pagination
+							include ./components/paginationExtend
+					.exhibition-sections 
+						.exhibition-section
+							.exhibition-section__caption Выбор редакции
+							.exhibition-cards 
+								.exhibition-cards__wrapper
+									+exhibitionCard(exhibitionPage.defaultCard)
+						.exhibition-section
+							.exhibition-section__caption Каталог выставочных пространств
+							.exhibition-cards.small-cards
+								.exhibition-cards__wrapper
+									+exhibitionCard(exhibitionPage.smallCardSecond)
+					.exhibition-groups
+						.exhibition-group
+							.exhibition-group__caption Выставки в Москве
+							.exhibition-group__content
+								p Выставки в Москве пестрят названиями и именами, среди которых и мастера, и перспективные новички. Огромное разнообразие выставочных проектов отражает различные аспекты искусства, науки, истории и культуры. Самое время выбрать интересные события — и дать волю любознательности! В расписании выставок в Москве особое место занимают музеи, галереи и выставочные залы, которые предлагают художественные выставки. Здесь вы сможете оценить произведения живописи, скульптуры, графики и других художественных форм. Проекты могут быть посвящены как известным художникам, так и молодым талантам. Популярные места, предлагающие обширную афишу выставок в Москве — Государственная Третьяковская галерея, ГМИИ им. Пушкина, Мультимедиа Арт Музей. Ценители современного искусства тоже не останутся в накладе. Обратите внимание на афишу выставок в Москве, в которых присутствуют инсталляции и арт-объекты от художников, которые творят здесь и сейчас. Как правило, это экспериментальные и новаторские работы, предлагающие посетителям уникальные визуальные и эмоциональные впечатления, а также интерактивный опыт. В Москве можно найти множество фотографических выставок, объект интереса которых — уникальные и захватывающие снимки, созданные профессиональными фотографами разных стран и поколений. Это могут быть исторические ретроспективы или работы в русле актуального искусства.
+						.exhibition-group
+							.exhibition-group__caption Мы в соцсетях
+							ul.social-list
+								li.social-item
+									a(href="/" target="_blank").social-link.social-link--youtube 
+								li.social-item
+									a(href="/" target="_blank").social-link.social-link--email 
+								li.social-item
+									a(href="/" target="_blank").social-link.social-link--vk 
+								li.social-item
+									a(href="/" target="_blank").social-link.social-link--twitter 
+								li.social-item
+									a(href="/" target="_blank").social-link.social-link--telegram 
+						.exhibition-group
+							.exhibition-group__caption Подписаться на новости
+							form(action="#").exhibition-form
+								input(type="email" placeholder="Ваш email").form-input
+								button(type="submit").exhibition-form__button.btn.btn-blue Подписаться
+				aside.exhibition__aside
+					.exhibition__added
+						.added-card
+							.added-card__title Добавьте информацию про выставку, фестиваль или проект
+							span.added-card__icon 
+								svg(width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M62.5 15H39C30.5992 15 26.3988 15 23.1901 16.6349C20.3677 18.073 18.073 20.3677 16.6349 23.1901C15 26.3988 15 30.5992 15 39V81C15 89.4008 15 93.6012 16.6349 96.8099C18.073 99.6323 20.3677 101.927 23.1901 103.365C26.3988 105 30.5992 105 39 105H85C89.6499 105 91.9748 105 93.8823 104.489C99.0587 103.102 103.102 99.0587 104.489 93.8823C105 91.9748 105 89.6499 105 85M95 40V10M80 25H110M52.5 42.5C52.5 48.0228 48.0228 52.5 42.5 52.5C36.9772 52.5 32.5 48.0228 32.5 42.5C32.5 36.9772 36.9772 32.5 42.5 32.5C48.0228 32.5 52.5 36.9772 52.5 42.5ZM74.9502 59.5907L32.6557 98.0402C30.2768 100.203 29.0873 101.284 28.9821 102.221C28.8909 103.033 29.2023 103.838 29.8159 104.378C30.5239 105 32.1314 105 35.3464 105H82.2799C89.4757 105 93.0736 105 95.8996 103.791C99.4472 102.274 102.274 99.4472 103.791 95.8996C105 93.0736 105 89.4757 105 82.2799C105 79.8587 105 78.6482 104.735 77.5208C104.403 76.1039 103.765 74.7768 102.866 73.632C102.151 72.721 101.206 71.9647 99.3154 70.4523L85.3291 59.2633C83.4369 57.7495 82.4908 56.9927 81.449 56.7256C80.5307 56.4901 79.5643 56.5206 78.6627 56.8135C77.6397 57.1457 76.7432 57.9607 74.9502 59.5907Z" stroke="#307FF5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round")
+							button(type="button").added-card__button.btn.btn-blue Добавить
+						.added-card
+							.added-card__title Добавьте выставочное пространство
+							span.added-card__icon 
+								svg(width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg")
+									path(d="M80 66.8722C97.659 70.3442 110 78.2736 110 87.5C110 99.9264 87.6142 110 60 110C32.3858 110 10 99.9264 10 87.5C10 78.2736 22.341 70.3442 40 66.8722M60 85V45M60 45C68.2843 45 75 38.2843 75 30C75 21.7157 68.2843 15 60 15C51.7157 15 45 21.7157 45 30C45 38.2843 51.7157 45 60 45Z" stroke="#307FF5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round")
+							button(type="button").added-card__button.btn.btn-blue Добавить
+					a(href="/").exhibition-banner
+						.exhibition-banner__image 
+							img(src="images/exhibition/banner-1.png", alt="баннер")
+						.exhibition-banner__body
+							.exhibition-banner__caption Крепления для смартфонов 
+					.exhibition__events
+						.exhibition-group
+							.exhibition-group__caption Главные события
+						.exhibition-cards
+							.exhibition-cards__wrapper
+								+exhibitionCard(exhibitionPage.eventsCard)
+					a(href="/").exhibition-banner
+						.exhibition-banner__image 
+							img(src="images/exhibition/banner-2.png", alt="баннер")
+						.exhibition-banner__body
+							.exhibition-banner__caption Fotokvant COBAC-300A 
+							.exhibition-banner__descr светодиодный осветитель 3200-5600К с байонетом Bowens
