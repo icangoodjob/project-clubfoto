@@ -501,32 +501,154 @@ checkScreenWidth();
 // Проверяем при изменении размера экрана
 window.addEventListener("resize", checkScreenWidth);
 
-const exhibitionDefaultSliers = document.querySelectorAll(
-  '[data-slider="default"]'
-);
-// if (exhibitionDefaultSliers.length) {
-//   [...exhibitionDefaultSliers].forEach((slider) => {
-//     let controls = renderSliderControls();
-//     // slider.appendChild(controls);
-//     const sliderBtnPrev = slider.querySelector(".slider-button-prev");
-//     const sliderBtnNext = slider.querySelector(".slider-button-next");
-//     const sliderPagination = slider.querySelector(".slider-pagination");
-//     new Swiper(slider, {
-//       slideClass: "exhibition-card",
-//       spaceBetween: 20,
-//       slidesPerView: "auto",
-//       speed: 800,
-//       navigation: {
-//         nextEl: sliderBtnNext,
-//         prevEl: sliderBtnPrev,
-//       },
-//       pagination: {
-//         el: sliderPagination,
-//         clickable: true,
-//       },
-//     });
-//   });
-// }
+// Добавление/удаление класса active для кнопки Избранное
+const exhibitionCards = document.querySelectorAll(".exhibition-card");
+if (exhibitionCards.length) {
+  [...exhibitionCards].forEach((card) => {
+    const buttonFavorite = card.querySelector(".exhibition-card__favorite");
+    if (buttonFavorite) {
+      buttonFavorite.addEventListener("click", (e) => {
+        e.currentTarget.classList.toggle("active");
+      });
+    }
+  });
+}
+
+const exhibitionsGroups = document.querySelectorAll(".exhibition-group");
+let exhibitionMobileSwiper;
+function initExhibitionSlider() {
+  if (exhibitionsGroups.length) {
+    [...exhibitionsGroups].forEach((group) => {
+      const exhibitionSliders = group.querySelectorAll(".exhibition-cards");
+      if (exhibitionSliders.length) {
+        [...exhibitionSliders].forEach((exhibitionSlider, index) => {
+          let sliderWrapper = exhibitionSlider.querySelector(
+            ".exhibition-cards__wrapper"
+          );
+          let controls = renderSliderControls();
+          exhibitionSlider.appendChild(controls);
+          exhibitionSlider.classList.add("swiper");
+          sliderWrapper.classList.add("swiper-wrapper");
+          let sliderSpaceBetween =
+            exhibitionSlider.dataset.slider == "small" ? 7 : 10;
+          let sliderCount = exhibitionSlider.dataset.slider == "small" ? 4 : 3;
+          exhibitionMobileSwiper = new Swiper(exhibitionSlider, {
+            slideClass: "exhibition-card",
+            spaceBetween: sliderSpaceBetween,
+            slidesPerView: 2,
+            speed: 1000,
+            navigation: {
+              nextEl: ".slider-button-next",
+              prevEl: ".slider-button-prev",
+            },
+            pagination: {
+              el: ".slider-pagination",
+              clickable: true,
+            },
+            breakpoints: {
+              300: {
+                slidesPerView: "auto",
+                centeredSlides: true,
+              },
+              479.98: {
+                slidesPerView: 2,
+                centeredSlides: false,
+              },
+            },
+            on: {
+              init: function (swiper) {
+                let settingsCount = swiper.passedParams.slidesPerView;
+                let slides = swiper.slides;
+                if (slides.length <= settingsCount) {
+                  swiper.el.querySelector(".slider-controls")?.remove();
+                }
+              },
+            },
+          });
+        });
+      }
+    });
+  }
+}
+
+function destroyExhibitionSwiper() {
+  if (exhibitionMobileSwiper) {
+    exhibitionMobileSwiper.destroy();
+    exhibitionMobileSwiper = null;
+  }
+}
+
+function checkScreen() {
+  if (window.matchMedia("(max-width: 991.98px)").matches) {
+    // Инициализация Swiper, если ширина экрана меньше или равна 991.98 пикселей
+    initExhibitionSlider();
+  } else {
+    // Отмена инициализации Swiper, если ширина экрана больше 991.98 пикселей
+    return false;
+  }
+}
+checkScreen();
+
+const exhibitionSections = document.querySelectorAll(".exhibition-section");
+if (exhibitionSections.length) {
+  [...exhibitionSections].forEach((section) => {
+    const exhibitionSlider = section.querySelector(".exhibition-cards");
+    if (exhibitionSlider) {
+      let sliderWrapper = exhibitionSlider.querySelector(
+        ".exhibition-cards__wrapper"
+      );
+      let controls = renderSliderControls();
+      exhibitionSlider.appendChild(controls);
+      exhibitionSlider.classList.add("swiper");
+      sliderWrapper.classList.add("swiper-wrapper");
+      let sliderCount = exhibitionSlider.dataset.slider == "small" ? 4 : 3;
+      let exhibitionSwiper = new Swiper(exhibitionSlider, {
+        slideClass: "exhibition-card",
+        speed: 1000,
+        centeredSlides: false,
+        navigation: {
+          nextEl: ".slider-button-next",
+          prevEl: ".slider-button-prev",
+        },
+        pagination: {
+          el: ".slider-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          300: {
+            spaceBetween: exhibitionSlider.dataset.slider == "small" ? 6 : 10,
+            centeredSlides: true,
+            slidesPerView: "auto",
+          },
+          479.98: {
+            slidesPerView: 2,
+            spaceBetween: exhibitionSlider.dataset.slider == "small" ? 6 : 10,
+          },
+          991.98: {
+            spaceBetween: exhibitionSlider.dataset.slider == "small" ? 6 : 20,
+            slidesPerView: sliderCount,
+          },
+        },
+        on: {
+          init: function (swiper) {
+            let settingsCount = swiper.passedParams.slidesPerView;
+            let slides = swiper.slides;
+            // let totalGap =
+            //   swiper.passedParams.spaceBetween *
+            //   (swiper.passedParams.slidesPerView - 1);
+            // let containerWidth =
+            //   swiper.passedParams.slidesPerView * swiper.slides[0].clientWidth +
+            //   totalGap;
+            // swiper.el.style.height = containerHeight + 'px';
+            if (slides.length <= settingsCount) {
+              swiper.el.querySelector(".slider-controls")?.remove();
+            }
+          },
+        },
+      });
+    }
+  });
+}
 
 function renderSliderControls() {
   let controls = document.createElement("div");
@@ -549,6 +671,13 @@ function removeTestimonialsItemBody() {
       let itemBody = item.querySelector(".testimonials-item__body");
       unwrap(itemBody);
     });
+    const addedCards = document.querySelectorAll(".added-card");
+    if (addedCards.length) {
+      const addedWrapper = addedCards[0].closest(".exhibition__added");
+      if (addedWrapper) {
+        unwrap(addedWrapper);
+      }
+    }
   }
 }
 removeTestimonialsItemBody();
