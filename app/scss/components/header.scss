@@ -178,11 +178,75 @@
         }
       }
     }
+    &--bell {
+      width: 53px;
+      flex-shrink: 0;
+      height: 53px;
+      display: grid;
+      place-items: center;
+      // flex: 0 0 53px;
+      @media screen and (max-width: $md) {
+        width: 30px;
+        height: 30px;
+      }
+      @media screen and (max-width: 389.98px) {
+        width: 50px;
+        height: 50px;
+        flex: 0 0 50px;
+        & img {
+          width: auto;
+          height: auto;
+        }
+      }
+      & .nav-header__icon {
+        box-shadow: none;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+      }
+      @media (any-hover: hover) {
+        &:hover {
+          & .nav-header__icon {
+            box-shadow: none;
+          }
+        }
+      }
+    }
     @media screen and (max-width: 389.98px) {
       font-size: 16px;
       flex-direction: row;
       gap: 10px;
     }
+  }
+  &__count {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    width: 18px;
+    padding: 1px;
+    min-height: 14px;
+    max-height: 17px;
+    display: grid;
+    place-items: center;
+    background-color: #cf3c35;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    color: $whiteColor;
+    border-radius: 2px;
+    @media screen and (max-width: $md) {
+      top: 0;
+    }
+  }
+  &__circle {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #cf3c35;
+    border: 1px solid $whiteColor;
   }
   &__icon {
     width: 53px;
@@ -194,12 +258,14 @@
     box-shadow: $boxShadow;
     background: $bg;
     transition: box-shadow 0.15s ease 0s;
+    position: relative;
     @media screen and (max-width: $md) {
       width: 30px;
       height: 30px;
       flex: 0 0 30px;
       border-radius: 7px;
       background: #f3f3f3;
+      box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.05);
       box-shadow: 0px 2.7px 6.8px 0px rgba(0, 0, 0, 0.05);
       & img {
         width: 20px;
@@ -387,5 +453,6 @@
     height: 100%;
     min-height: 100vh;
     padding-top: 50px;
+    border-radius: 0px;
   }
 }

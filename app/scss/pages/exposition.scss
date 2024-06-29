@@ -168,8 +168,13 @@
   background-image: url("../images/icons/icon-video.svg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 90px 90px;
+  background-size: 100% 100%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  @media screen and (max-width: $md) {
+    width: 54px;
+    height: 54px;
+    background-size: 100% 100%;
+  }
 }
 .info-exposition {
   margin-bottom: 41px;

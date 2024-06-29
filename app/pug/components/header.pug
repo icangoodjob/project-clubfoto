@@ -21,7 +21,14 @@ header.header#header
 									a(href="#").nav-header__link(class=`${item.title == 'Вход' ? 'nav-header__link--signin' : ''}`)
 										.nav-header__icon 
 											img(src=`images/icons/menu/${item.icon}.svg`, alt=item.title)
+											if item.title == 'Вход'
+												span.nav-header__count 23
 										.nav-header__text= item.title
+							li.nav-header__item
+								a(href="#").nav-header__link.nav-header__link--bell
+									.nav-header__icon 
+										img(src=`images/icons/menu/bell.svg`, alt="уведомление")
+										.nav-header__circle
 					button.nav-header__button(type="button")
 						span
 						span
