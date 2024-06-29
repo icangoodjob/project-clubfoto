@@ -650,6 +650,124 @@ if (exhibitionSections.length) {
   });
 }
 
+const expositionCards = document.querySelectorAll(".exposition-card");
+if (expositionCards.length) {
+  [...expositionCards].forEach((card) => {
+    const expositionCardSlider = card.querySelector(".exposition-card__slider");
+    if (expositionCardSlider) {
+      const buttonPrev =
+        expositionCardSlider.querySelector(".slider-arrow-prev");
+      const buttonNext =
+        expositionCardSlider.querySelector(".slider-arrow-next");
+      const pagination =
+        expositionCardSlider.querySelector(".slider-pagination");
+      let expositionSwiper = new Swiper(expositionCardSlider, {
+        speed: 1000,
+        centeredSlides: false,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        grabCursor: true,
+        navigation: {
+          nextEl: buttonNext,
+          prevEl: buttonPrev,
+        },
+        pagination: {
+          el: pagination,
+          type: "bullets",
+          clickable: true,
+        },
+        on: {
+          init: function (swiper) {
+            const slides = swiper.slides;
+            if (slides.length < 2) {
+              const sliderControls =
+                swiper.navigation.nextEl.parentNode ||
+                swiper.navigation.prevEl.parentNode;
+              swiper.pagination.destroy();
+              swiper.navigation.destroy();
+              sliderControls.remove();
+            }
+          },
+        },
+      });
+    }
+  });
+}
+
+const expositionMainSlider = document.querySelector(".exposition-slider__body");
+const expositionSimilarSlider = document.querySelector(
+  ".similar-exposition__body"
+);
+let expositionMainSwiper = null;
+let expositionSimilarSwiper = null;
+function initExpositionSwiper() {
+  if (expositionMainSlider) {
+    const buttonPrev = expositionMainSlider.querySelector(".slider-arrow-prev");
+    const buttonNext = expositionMainSlider.querySelector(".slider-arrow-next");
+    const pagination = expositionMainSlider.querySelector(".slider-pagination");
+    expositionMainSwiper = new Swiper(expositionMainSlider, {
+      speed: 800,
+      slideClass: "exposition-slider__item",
+      centeredSlides: false,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      grabCursor: true,
+      navigation: {
+        nextEl: buttonNext,
+        prevEl: buttonPrev,
+      },
+      pagination: {
+        el: pagination,
+        type: "bullets",
+        clickable: true,
+      },
+      on: {
+        init: function (swiper) {
+          const slides = swiper.slides;
+          if (slides.length < 2) {
+            const sliderControls =
+              swiper.navigation.nextEl.parentNode ||
+              swiper.navigation.prevEl.parentNode;
+            swiper.pagination.destroy();
+            swiper.navigation.destroy();
+            sliderControls.remove();
+          }
+        },
+      },
+    });
+  }
+  if (expositionSimilarSlider) {
+    expositionSimilarSwiper = new Swiper(expositionSimilarSlider, {
+      speed: 800,
+      slideClass: "exposition-card",
+      centeredSlides: true,
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      grabCursor: true,
+    });
+  }
+}
+
+function destroyExpositionSwiper() {
+  if (expositionMainSwiper) {
+    expositionMainSwiper.destroy();
+    expositionMainSwiper = null;
+  }
+  if (expositionSimilarSwiper) {
+    expositionSimilarSwiper.destroy();
+    expositionSimilarSwiper = null;
+  }
+}
+function checkScreenExposition() {
+  if (window.matchMedia("(max-width: 767.98px)").matches) {
+    initExpositionSwiper();
+  } else {
+    destroyExpositionSwiper();
+  }
+}
+checkScreenExposition();
+window.addEventListener("resize", checkScreenExposition);
+
 function renderSliderControls() {
   let controls = document.createElement("div");
   controls.className = "slider-controls";
@@ -976,4 +1094,94 @@ function closeMobileFiler() {
   const filter = document.querySelector(".junk__aside");
   filter.classList.remove("active");
   document.body.classList.remove("lock");
+}
+
+// Яндекс карта
+const mapElem = document.getElementById("mapElem");
+var myMap, myPlacemark;
+function mapInit() {
+  (myMap = new ymaps.Map(
+    "map",
+    {
+      center: [55.818887, 37.618893],
+      zoom: 15,
+      controls: ["zoomControl"],
+    },
+    {
+      searchControlProvider: "yandex#search",
+    }
+  )),
+    (myPlacemark = new ymaps.Placemark(
+      myMap.getCenter(),
+      {
+        balloonContent: "Москва, Ак. Королева, 123",
+      },
+      {
+        preset: "islands#blueStretchyIcon",
+      }
+    ));
+  myMap.geoObjects.add(myPlacemark);
+  myMap.controls.remove("geolocationControl"); // удаляем геолокацию
+  myMap.controls.remove("searchControl"); // удаляем поиск
+  myMap.controls.remove("trafficControl"); // удаляем контроль трафика
+  myMap.controls.remove("typeSelector"); // удаляем тип
+  myMap.controls.remove("fullscreenControl"); // удаляем кнопку перехода в полноэкранный режим
+  myMap.controls.remove("rulerControl"); // удаляем контрол правил
+  myMap.behaviors.disable("scrollZoom");
+  if (window.innerWidth < 991.98) {
+    myMap.behaviors.disable("drag");
+    let version = map.firstChild
+      .getAttribute("class")
+      .replace("ymaps-", "")
+      .replace("-map", "");
+    let pane = document.querySelector(".ymaps-" + version + "-events-pane");
+    pane.innerHTML = "Чтобы переместить карту проведите по ней двумя пальцами";
+    pane.style.cssText =
+      "height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; z-index: 2500; color: #fff; font-size: 22px; font-family: Arial, sans-serif; display: flex; align-items: center; justify-content: center; text-align: center; background-color: rgba(0,0,0,0.45); opacity: 0; transition: opacity 0.45s; padding: 25px; box-sizing: border-box;";
+    // Показать надпись
+    map.addEventListener("touchmove", function (e) {
+      let touches = e.touches.length;
+      if (touches > 1) {
+        // Если точек касания больше одной
+        pane.style.opacity = "0";
+      } else {
+        pane.style.opacity = "1";
+      }
+    });
+    // Скрыть надпись
+    map.addEventListener("touchend", function () {
+      pane.style.opacity = "0";
+    });
+  }
+}
+if (mapElem) {
+  let isLoaded = false;
+  const loadMap = () => {
+    // создаем и вставляем апи карт
+    var script = document.createElement("script");
+    script.src = "https://api-maps.yandex.ru/2.1/?&lang=ru_RU";
+    document.body.appendChild(script);
+    isLoaded = true;
+    //инициализируем карту
+    script.onload = function () {
+      if (typeof ymaps === "undefined") return;
+      ymaps.ready(mapInit);
+    };
+  };
+  let observerOptions = {
+    // root: по умолчанию window, но можно задать любой элемент-контейнер
+    rootMargin: "0px 0px 0px 0px",
+  };
+  let observer = new IntersectionObserver(([entry]) => {
+    const targetInfo = entry.boundingClientRect;
+    const rootBoundsInfo = entry.rootBounds;
+    if (
+      (!isLoaded && targetInfo.top < rootBoundsInfo.bottom) ||
+      targetInfo.isIntersecting
+    ) {
+      loadMap();
+      // observer.unobserve(entry.target)
+    }
+  }, observerOptions);
+  observer.observe(mapElem);
 }

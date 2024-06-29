@@ -30,14 +30,14 @@
 body {
   // Скролл заблокирован
   background-color: #f3f3f3;
+  background-image: url("../images/main-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  @media screen and (max-width: $md) {
+    background-image: url("../images/main-bg-mobile.svg");
+  }
   &.show-bg {
-    background-image: url("../images/main-bg.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    @media screen and (max-width: $md) {
-      background-image: url("../images/main-bg-mobile.svg");
-    }
   }
   @media screen and (max-width: $md) {
     &.lock {
@@ -109,24 +109,25 @@ body {
 @import "components/pagination";
 @import "components/text-editor";
 // Подключение стилей для отдельных блоков
-@import "blocks/home";
-@import "blocks/forums";
-@import "blocks/galleries";
-@import "blocks/topic";
-@import "blocks/add-photo";
-@import "blocks/auth";
-@import "blocks/text-page";
-@import "blocks/main-photo";
-@import "blocks/author";
-@import "blocks/static-page";
-@import "blocks/advice";
-@import "blocks/faq";
-@import "blocks/private";
-@import "blocks/discussion";
-@import "blocks/product";
-@import "blocks/contest";
-@import "blocks/junk";
-@import "blocks/exhibition";
+@import "pages/home";
+@import "pages/forums";
+@import "pages/galleries";
+@import "pages/topic";
+@import "pages/add-photo";
+@import "pages/auth";
+@import "pages/text-page";
+@import "pages/main-photo";
+@import "pages/author";
+@import "pages/static-page";
+@import "pages/advice";
+@import "pages/faq";
+@import "pages/private";
+@import "pages/discussion";
+@import "pages/product";
+@import "pages/contest";
+@import "pages/junk";
+@import "pages/exhibition";
+@import "pages/exposition";
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>==============================================================================
 /* ПОДКЛЮЧЕНИЕ СТИЛЕЙ АДАПТИВА */

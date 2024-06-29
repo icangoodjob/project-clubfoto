@@ -1,0 +1,123 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Хорошее воспитание";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.exposition
+		.container
+			.exposition__title.page-title= pageTitle
+			.exposition__wrapper 
+				.exposition__main
+					.exposition-slider
+						.exposition-slider__body.swiper
+							.exposition-slider__wrapper.swiper-wrapper
+								each item, idx in expositionPage.mainSlider
+									a(href=`images/exposition/${item.img}.jpg` class=`${item.video ? "video-item" : ''}` data-fancybox="gallery").exposition-slider__item
+										.exposition-slider__image.ibg
+											img(src=`images/exposition/${item.img}.jpg` , alt="изображение")
+										if idx == expositionPage.mainSlider.length - 1
+											.exposition-slider__text Еще 43 фото
+										if item.video
+											.video-icon
+							.slider-controls
+								button(type="button").slider-arrow.slider-arrow-prev
+								button(type="button").slider-arrow.slider-arrow-next
+							.slider-pagination
+					.exposition__info.info-exposition
+						ul.info-exposition__list 
+							li.info-exposition__item
+								.info-exposition__caption Жанры
+								.info-exposition__value 
+									a(href="#") Фотография, Современное искусство
+							li.info-exposition__item
+								.info-exposition__caption Возраст
+								.info-exposition__value 
+									span 18+
+					.exposition__content.content-exposition
+						.content-exposition__group 
+							.content-exposition__caption О выставке
+							.content-exposition__body
+								p Московский музей современного искусства и Фонд Still Art представляют выставочный проект «Хорошее воспитание», посвященный fashion-фотографии, который станет первым событием в рамках новой партнерской программы музея и Фонда. В экспозиции будут представлены работы молодых российских авторов – лауреатов и победителей, отмеченных экспертным советом специального гранта, учрежденного Фондом 3 года назад – Дмитрия Булина, Николая Ефимцева, Егора Шабанова, Алексея Дунаева, Сергея Клычихина и Булата Арсланова.
+								p Все представленные на выставке авторы в своем творчестве подчеркнуто рассматривают модную фотографию не только как инструмент демонстрации вещей и моделей и работы с коммерческой составляющей, но и как ответ фотографического жанра на тенденции современного искусства.
+						.content-exposition__group 
+							.content-exposition__caption.caption-sm Отзывы
+							.content-exposition__body
+								.exposition__reviews.reviews-exposition
+									.reviews-exposition__items
+										- for (var i = 0; i < 2; ++i) {
+											.reviews-exposition__item 
+												.reviews-exposition__name Александр Невский
+												.reviews-exposition__date 13 марта 2024
+												ul.rating__list.r-3
+													li.rating__item
+													li.rating__item
+													li.rating__item
+													li.rating__item
+													li.rating__item
+												.reviews-exposition__description Классная студия, очень удобно что постоянный свет включён в стоимость, удешевляет съемку, если какой-то базовый прибор вдруг нужен. Был 2 раза в большом зале, просторно, достаточно большая циклорама, со светом из окон тоже классно делать кадры, много реквизита и декораций. Администраторы тоже приятные.
+										- }
+									button(type="button").button-add-review.btn.btn-blue Добавить отзыв
+				aside.exposition__aside(data-da=".exposition__main, 991.98, 2")
+					.exposition__map#mapElem
+						#map.map
+					.exposition__contacts.contacts-exposition
+						.contacts-exposition__price от 3455₽
+						.contacts-exposition__location
+							a(href="tel:84595623258").contacts-exposition__phone 8 459 562 32 58
+							address.contacts-exposition__address Москва, Ак. Королева, 123
+						.contacts-exposition__schedule.schedule
+							.schedule__label Расписание
+							.schedule__item пн-пт: 10:00-20:00
+							.schedule__item сб-вс: 10:00-20:00
+						form(action="#").exposition-form
+							select(name="date_short").select-choices
+								option(value="Камера" selected) 8 июня 
+								option(value="Камера 2") 9 июня
+								option(value="Камера 3") 10 июня
+							select(name="date_long").select-choices
+								option(value="Объектив" selected) 24 часа, 00:00 - 24:00 
+								option(value="Объектив 2") 24 часа, 00:00 - 23:00
+								option(value="Объектив 3") 24 часа, 00:00 - 22:00
+							button(type="submit").btn.btn-blue.exposition-form__button Забронировать 
+					a(href="#").exhibition-banner.exposition__banner
+						.exhibition-banner__image 
+							img(src="images/exhibition/banner-1.png", alt="Крепления для смартфонов")
+						.exhibition-banner__body 
+							.exhibition-banner__caption Крепления #[br] для смартфонов  
+			.exposition__similar.similar-exposition
+				.similar-exposition__title.page-title Похожие выставки
+				.similar-exposition__body.swiper
+					.similar-exposition__wrapper.swiper-wrapper
+						each el, index in expositionPage.similarCards
+							.similar-exposition__card.exposition-card
+								button(type="button").exposition-card__favorite.favorite-button
+								.exposition-card__slider.swiper
+									.swiper-wrapper
+										if el.images.length > 0
+											each image in el.images
+												.swiper-slide
+													.exposition-card__image.ibg
+														img(src=`images/exposition/similar-${image}.jpg`, alt=el.title)
+									.slider-controls
+										button(type="button").slider-arrow.slider-arrow-prev
+										button(type="button").slider-arrow.slider-arrow-next
+									.slider-pagination
+								.exposition-card__content
+									ul.exposition-card__list 
+										li.exposition-card__list-item 
+											| Студия
+											span 3 зала
+									.exposition-card__title OKvideo.pro
+									.exposition-card__bottom 
+										.exposition-card__price от 3455₽
+										.rating 
+											ul.rating__list.r-3
+												li.rating__item
+												li.rating__item
+												li.rating__item
+												li.rating__item
+												li.rating__item
+				.exposition__pagination 
+					include ./components/paginationExtend

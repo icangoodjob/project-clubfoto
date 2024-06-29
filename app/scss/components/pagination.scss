@@ -16,6 +16,7 @@
   }
   &__item {
     &.active {
+      pointer-events: none;
       & .pagination__link {
         border: 1px solid $blueColor;
       }
@@ -38,6 +39,12 @@
     font-weight: 500;
     line-height: 110%;
     border: 1px solid transparent;
+    transition: color 0.25s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $blueColor;
+      }
+    }
     &--prev,
     &--next {
       background-color: rgba(#4b4b4b, 0.2);
