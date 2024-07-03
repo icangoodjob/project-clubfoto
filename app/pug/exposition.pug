@@ -73,13 +73,13 @@ block content
 							.schedule__item сб-вс: 10:00-20:00
 						form(action="#").exposition-form
 							select(name="date_short").select-choices
-								option(value="Камера" selected) 8 июня 
-								option(value="Камера 2") 9 июня
-								option(value="Камера 3") 10 июня
+								option(value="8 июня" selected) 8 июня 
+								option(value="9 июня") 9 июня
+								option(value="10 июня") 10 июня
 							select(name="date_long").select-choices
-								option(value="Объектив" selected) 24 часа, 00:00 - 24:00 
-								option(value="Объектив 2") 24 часа, 00:00 - 23:00
-								option(value="Объектив 3") 24 часа, 00:00 - 22:00
+								option(value="24 часа, 00:00 - 24:00 " selected) 24 часа, 00:00 - 24:00 
+								option(value="24 часа, 00:00 - 23:00") 24 часа, 00:00 - 23:00
+								option(value="24 часа, 00:00 - 22:00") 24 часа, 00:00 - 22:00
 							button(type="submit").btn.btn-blue.exposition-form__button Забронировать 
 					a(href="#").exhibition-banner.exposition__banner
 						.exhibition-banner__image 
@@ -91,7 +91,7 @@ block content
 				.similar-exposition__body.swiper
 					.similar-exposition__wrapper.swiper-wrapper
 						each el, index in expositionPage.similarCards
-							.similar-exposition__card.exposition-card
+							.exposition-card
 								button(type="button").exposition-card__favorite.favorite-button
 								.exposition-card__slider.swiper
 									.swiper-wrapper

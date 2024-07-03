@@ -183,3 +183,42 @@ mixin exhibitionActions([...arr], date)
 					a.exhibition-actions__btn(href="#" class=index==0 ? 'active' : '')= item
 			if block 
 				block
+mixin expositionCard(item, imgPath)
+	.exposition-card
+		button(type="button").exposition-card__favorite.favorite-button
+		.exposition-card__slider.swiper
+			.swiper-wrapper
+				if item.images
+					each image in item.images
+						.swiper-slide
+							.exposition-card__image.ibg
+								img(src=`images/${imgPath}/studio-${image}.jpg`, alt="OKvideo.pro")
+			.slider-controls
+				button(type="button").slider-arrow.slider-arrow-prev
+				button(type="button").slider-arrow.slider-arrow-next
+			.slider-pagination
+		.exposition-card__content
+			ul.exposition-card__list 
+				li.exposition-card__list-item 
+					| Студия
+					span 3 зала
+			.exposition-card__title OKvideo.pro
+			.exposition-card__bottom
+				ul.exposition-card__list 
+					li.exposition-card__list-item 
+						| от 3455₽
+						span от 2 ч.
+				.rating 
+					ul.rating__list.r-3
+						li.rating__item
+						li.rating__item
+						li.rating__item
+						li.rating__item
+						li.rating__item
+mixin similarExposition(title)
+	.similar-exposition
+		.similar-exposition__title.page-title= title
+		.similar-exposition__body.swiper
+			.similar-exposition__wrapper.swiper-wrapper
+				if block 
+					block

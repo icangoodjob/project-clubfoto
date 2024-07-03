@@ -1,0 +1,57 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Фотостудии";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.studio-catalog.exposition
+		.container 
+			.studio-catalog__top.top-studio 
+				h1.top-studio__title.page-title= pageTitle
+				.top-studio__links 
+					a(href="#").top-studio__link Съемка и оборудование 
+					a(href="#").top-studio__link Для владельцев студий
+			.studio-catalog__actions.actions-studio
+				select(name="city").select-choices
+					option(value="Москва и МО" selected) Москва и МО
+					option(value="Москва и МО") Москва и МО
+					option(value="Москва и МО") Москва и МО
+				.actions-studio__search.search-form
+					input(type="text" placeholder="Поиск").form__input.search-form__input
+					button(type="submit").search-form__button
+						span.search-form__icon
+				.dropdown 
+					input(type="hidden" class="dropdown-input")
+					.dropdown__button 
+						span Показать по 10 залов
+					.dropdown__wrapper 
+						ul.dropdown__list 
+							li.dropdown__list-item Показать по 20 залов
+							li.dropdown__list-item.active Показать по 30 залов
+							li.dropdown__list-item Показать по 40 залов
+				button(type="button").reserv-button Мои брони
+				.actions-studio__switch.switch
+					label
+						input(type="checkbox").real-checkbox
+						| Карта
+						span
+				.badges
+					.badges__body
+						ul.badges__list
+							each item, index in studioCatalog.badges
+								li.badges__item(class={active: index === 0})
+									a(href="#")= item
+			.studio-catalog__cards 
+				each item in studioCatalog.cards 
+					if item.map 
+						.studio-catalog__map#mapElem 
+							.map#map
+					if item.banner 
+						a(href="#").studio-catalog__banner.banner.banner-green
+							.banner__image
+								img(src="/images/banners/kvant.png", alt="Fotokvant SL-360ARC")
+							.banner__body 
+								.banner__title Fotokvant SL&nbsp;-&nbsp;360ARC
+								.banner__sub-title светодиодный осветитель 3200-5600К 70Вт CRI 95 с пультом ду
+					+expositionCard(item, "exposition")
