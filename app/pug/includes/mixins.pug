@@ -186,6 +186,8 @@ mixin exhibitionActions([...arr], date)
 mixin expositionCard(item, imgPath)
 	.exposition-card
 		button(type="button").exposition-card__favorite.favorite-button
+			svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+				path(fill-rule="evenodd" clip-rule="evenodd" d="M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.89982 14.6651 9.84977 19.1041 11.4721 20.5408C11.6536 20.7016 11.7444 20.7819 11.8502 20.8135C11.9426 20.8411 12.0437 20.8411 12.1361 20.8135C12.2419 20.7819 12.3327 20.7016 12.5142 20.5408C14.1365 19.1041 19.0865 14.6651 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z" fill="#307FF5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
 		.exposition-card__slider.swiper
 			.swiper-wrapper
 				if item.images
@@ -193,10 +195,10 @@ mixin expositionCard(item, imgPath)
 						.swiper-slide
 							.exposition-card__image.ibg
 								img(src=`images/${imgPath}/studio-${image}.jpg`, alt="OKvideo.pro")
-			.slider-controls
+			.slider-controls.white-control
 				button(type="button").slider-arrow.slider-arrow-prev
 				button(type="button").slider-arrow.slider-arrow-next
-			.slider-pagination
+			.slider-pagination.white-control
 		.exposition-card__content
 			ul.exposition-card__list 
 				li.exposition-card__list-item 
@@ -208,7 +210,7 @@ mixin expositionCard(item, imgPath)
 					li.exposition-card__list-item 
 						| от 3455₽
 						span от 2 ч.
-				.rating 
+				.rating.rating-blue
 					ul.rating__list.r-3
 						li.rating__item
 						li.rating__item
@@ -222,3 +224,47 @@ mixin similarExposition(title)
 			.similar-exposition__wrapper.swiper-wrapper
 				if block 
 					block
+mixin btnFavorite
+	button(type="button").btn-favorite
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.89982 14.6651 9.84977 19.1041 11.4721 20.5408C11.6536 20.7016 11.7444 20.7819 11.8502 20.8135C11.9426 20.8411 12.0437 20.8411 12.1361 20.8135C12.2419 20.7819 12.3327 20.7016 12.5142 20.5408C14.1365 19.1041 19.0865 14.6651 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z" fill="#307FF5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+		| В избранное
+mixin btnShare
+	button(type="button").btn-share
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M7 11C6.07003 11 5.60504 11 5.22354 11.1022C4.18827 11.3796 3.37962 12.1883 3.10222 13.2235C3 13.605 3 14.07 3 15V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V15C21 14.07 21 13.605 20.8978 13.2235C20.6204 12.1883 19.8117 11.3796 18.7765 11.1022C18.395 11 17.93 11 17 11M16 7L12 3M12 3L8 7M12 3V15" stroke="#A4A4A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+		| Поделиться
+mixin ratingBlue(rating = 3)
+	.rating.rating-blue
+		ul(class=`r-${rating}`).rating__list
+			li.rating__item 
+			li.rating__item 
+			li.rating__item 
+			li.rating__item 
+			li.rating__item 
+		.rating__value 8 отзывов
+mixin studioContacts(list)
+	.studio-contacts
+		button(type="button").btn.btn-contacts
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
+			| Контакты
+		ul.studio-contacts__list 
+			each contact in list
+				li.studio-contacts__list-item #{contact}
+mixin btnVideo 
+	button(type="button").btn.btn-video 
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M9.5 8.96533C9.5 8.48805 9.5 8.24941 9.59974 8.11618C9.68666 8.00007 9.81971 7.92744 9.96438 7.9171C10.1304 7.90525 10.3311 8.03429 10.7326 8.29239L15.4532 11.3271C15.8016 11.551 15.9758 11.663 16.0359 11.8054C16.0885 11.9298 16.0885 12.0702 16.0359 12.1946C15.9758 12.337 15.8016 12.449 15.4532 12.6729L10.7326 15.7076C10.3311 15.9657 10.1304 16.0948 9.96438 16.0829C9.81971 16.0726 9.68666 15.9999 9.59974 15.8838C9.5 15.7506 9.5 15.512 9.5 15.0347V8.96533Z" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+		| Экскурсия по студии
+mixin btnReserve 
+	button(type="button").btn.btn-blue.btn-reserve 
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M9 11.4984L11 13.4984L15.5 8.99841M20 11.9984C20 16.9068 14.646 20.4768 12.698 21.6133C12.4766 21.7424 12.3659 21.807 12.2097 21.8405C12.0884 21.8665 11.9116 21.8665 11.7903 21.8405C11.6341 21.807 11.5234 21.7424 11.302 21.6133C9.35396 20.4768 4 16.9068 4 11.9984V7.21601C4 6.4165 4 6.01674 4.13076 5.67311C4.24627 5.36955 4.43398 5.09868 4.67766 4.88394C4.9535 4.64084 5.3278 4.50048 6.0764 4.21975L11.4382 2.20908C11.6461 2.13112 11.75 2.09214 11.857 2.07669C11.9518 2.06298 12.0482 2.06298 12.143 2.07669C12.25 2.09214 12.3539 2.13112 12.5618 2.20908L17.9236 4.21975C18.6722 4.50048 19.0465 4.64084 19.3223 4.88394C19.566 5.09868 19.7537 5.36955 19.8692 5.67311C20 6.01674 20 6.4165 20 7.21601V11.9984Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+		| Забронировать

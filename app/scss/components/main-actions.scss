@@ -80,39 +80,3 @@
     }
   }
 }
-.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 54px;
-  font-family: "Rubik", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 110%;
-  padding: 10px;
-  border-radius: 16px;
-  border: 2px solid #307ff5;
-  background: $whiteColor;
-  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.05);
-  transition: color 0.2s ease 0s, background-color 0.2s ease 0s;
-  &::before {
-    transition: background-color 0.2s ease 0s;
-  }
-  @media (any-hover: hover) {
-    &:hover {
-      background-color: $blueColor;
-      color: $whiteColor;
-      &::before {
-        background-color: $whiteColor;
-      }
-    }
-  }
-  &:active {
-    background-color: $blueColor;
-    color: $whiteColor;
-    &::before {
-      background-color: $whiteColor;
-    }
-  }
-}

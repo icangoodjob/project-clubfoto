@@ -1,0 +1,42 @@
+.studio {
+  padding-bottom: 16px;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 30px;
+  }
+}
+.top-studio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  &__info {
+    display: grid;
+    gap: 14px;
+  }
+  &__title {
+    margin-bottom: 0;
+  }
+  &__reactions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 33px;
+    & .rating {
+      gap: 33px;
+    }
+  }
+  & .top-main__banner {
+    margin-top: -30px;
+  }
+}
+.similar-exposition {
+  &__title {
+  }
+  &__body {
+  }
+
+  &__wrapper {
+  }
+}

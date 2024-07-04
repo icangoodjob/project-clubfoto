@@ -738,8 +738,8 @@ function initExpositionSwiper() {
   }
   if (expositionSimilarSlider) {
     expositionSimilarSwiper = new Swiper(expositionSimilarSlider, {
-      speed: 800,
       slideClass: "exposition-card",
+      speed: 800,
       centeredSlides: true,
       slidesPerView: "auto",
       spaceBetween: 10,
@@ -964,6 +964,9 @@ function documentActions(event) {
     target.classList.toggle("active");
     categoriesMenu?.classList.toggle("active");
   }
+  if (target.closest(".btn-contacts")) {
+    target.classList.toggle("active");
+  }
 }
 document.querySelector(".content-tab__header")?.click();
 
@@ -1185,3 +1188,5 @@ if (mapElem) {
   }, observerOptions);
   observer.observe(mapElem);
 }
+
+// Разворачиваем контакты

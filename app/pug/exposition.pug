@@ -21,10 +21,10 @@ block content
 											.exposition-slider__text Еще 43 фото
 										if item.video
 											.video-icon
-							.slider-controls
+							.slider-controls.white-control
 								button(type="button").slider-arrow.slider-arrow-prev
 								button(type="button").slider-arrow.slider-arrow-next
-							.slider-pagination
+							.slider-pagination.white-control
 					.exposition__info.info-exposition
 						ul.info-exposition__list 
 							li.info-exposition__item
@@ -50,12 +50,13 @@ block content
 											.reviews-exposition__item 
 												.reviews-exposition__name Александр Невский
 												.reviews-exposition__date 13 марта 2024
-												ul.rating__list.r-3
-													li.rating__item
-													li.rating__item
-													li.rating__item
-													li.rating__item
-													li.rating__item
+												.rating.rating-blue
+													ul.rating__list.r-3
+														li.rating__item
+														li.rating__item
+														li.rating__item
+														li.rating__item
+														li.rating__item
 												.reviews-exposition__description Классная студия, очень удобно что постоянный свет включён в стоимость, удешевляет съемку, если какой-то базовый прибор вдруг нужен. Был 2 раза в большом зале, просторно, достаточно большая циклорама, со светом из окон тоже классно делать кадры, много реквизита и декораций. Администраторы тоже приятные.
 										- }
 									button(type="button").button-add-review.btn.btn-blue Добавить отзыв
@@ -86,38 +87,39 @@ block content
 							img(src="images/exhibition/banner-1.png", alt="Крепления для смартфонов")
 						.exhibition-banner__body 
 							.exhibition-banner__caption Крепления #[br] для смартфонов  
-			.exposition__similar.similar-exposition
-				.similar-exposition__title.page-title Похожие выставки
-				.similar-exposition__body.swiper
-					.similar-exposition__wrapper.swiper-wrapper
-						each el, index in expositionPage.similarCards
-							.exposition-card
-								button(type="button").exposition-card__favorite.favorite-button
-								.exposition-card__slider.swiper
-									.swiper-wrapper
-										if el.images.length > 0
-											each image in el.images
-												.swiper-slide
-													.exposition-card__image.ibg
-														img(src=`images/exposition/similar-${image}.jpg`, alt=el.title)
-									.slider-controls
-										button(type="button").slider-arrow.slider-arrow-prev
-										button(type="button").slider-arrow.slider-arrow-next
-									.slider-pagination
-								.exposition-card__content
-									ul.exposition-card__list 
-										li.exposition-card__list-item 
-											| Студия
-											span 3 зала
-									.exposition-card__title OKvideo.pro
-									.exposition-card__bottom 
-										.exposition-card__price от 3455₽
-										.rating 
-											ul.rating__list.r-3
-												li.rating__item
-												li.rating__item
-												li.rating__item
-												li.rating__item
-												li.rating__item
+			.exposition__similar
+				.similar-exposition
+					.similar-exposition__title.page-title Похожие выставки
+					.similar-exposition__body.swiper
+						.similar-exposition__wrapper.swiper-wrapper
+							each el, index in expositionPage.similarCards
+								.exposition-card
+									button(type="button").exposition-card__favorite.favorite-button
+									.exposition-card__slider.swiper
+										.swiper-wrapper
+											if el.images.length > 0
+												each image in el.images
+													.swiper-slide
+														.exposition-card__image.ibg
+															img(src=`images/exposition/similar-${image}.jpg`, alt=el.title)
+										.slider-controls.white-control
+											button(type="button").slider-arrow.slider-arrow-prev
+											button(type="button").slider-arrow.slider-arrow-next
+										.slider-pagination.white-control
+									.exposition-card__content
+										ul.exposition-card__list 
+											li.exposition-card__list-item 
+												| Студия
+												span 3 зала
+										.exposition-card__title OKvideo.pro
+										.exposition-card__bottom 
+											.exposition-card__price от 3455₽
+											.rating.rating-blue 
+												ul.rating__list.r-3
+													li.rating__item
+													li.rating__item
+													li.rating__item
+													li.rating__item
+													li.rating__item
 				.exposition__pagination 
 					include ./components/paginationExtend

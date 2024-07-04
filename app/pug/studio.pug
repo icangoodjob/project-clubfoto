@@ -9,21 +9,15 @@ block content
 		.container 
 			.studio__top.top-studio
 				.top-studio__info
-					.top-studio__title.page-title= pagetitle
+					.top-studio__title.page-title= pageTitle
 					ul.custom-list
 						li.custom-list__item 
 							| Студия
 							span 3 локации
-					button(type="button").btn-favorite В избранное
-					button(type="button").btn-share Поделиться
-					.rating 
-						ul.rating__list.r-3 
-							li.rating__item 
-							li.rating__item 
-							li.rating__item 
-							li.rating__item 
-							li.rating__item 
-						.rating__value 8 отзывов
+					.top-studio__reactions
+						+btnFavorite
+						+btnShare
+						+ratingBlue
 				a(href="#").top-main__banner
 					.top-main__image.ibg
 						picture
@@ -33,15 +27,21 @@ block content
 					.top-main__banner-text
 						| Бленда для монитора для лучшей цветокоррекции
 			.studio__wrapper
-				each item in studioPage.cards
+				each item, index in studioPage.cards
 					.studio-card
 						if item.images
 							.studio-card__slider.swiper 
-								.swiper-wrapper
-									each image in item.images
-										.swiper-slide.studio-card__item
+								.studio-card__slider-wrapper.swiper-wrapper
+									each image, imageIndex in item.images
+										a(href=`/images/studio/studio-${image}.jpg` data-fancybox=`gallery-${index+1}`).swiper-slide.studio-card__slider-item
 											.studio-card__image.ibg
 												img(src=`/images/studio/studio-${image}.jpg`, alt=item.title)
+											if imageIndex == 2
+												.video-icon
+								.slider-controls.white-control
+									button(type="button").slider-arrow.slider-arrow-prev
+									button(type="button").slider-arrow.slider-arrow-next
+								.slider-pagination.white-control
 						.studio-card__body 
 							.studio-card__title= item.title
 							ul.custom-list
@@ -50,23 +50,13 @@ block content
 									span #{item.list[1]}
 							.studio-card__actions 
 								if item.contacts
-									.studio-card__contacts
-										button(type="button").studio-card__btn-contacts
-										ul.studio-card__contacts-list 
-											each contact in item.contacts
-												li.studio-card__contacts-item #{contact}
+									+studioContacts(item.contacts)
 								.studio-card__reactions 
-									button(type="button").btn-favorite В избранное
-									button(type="button").btn-share Поделиться
-									.rating 
-										ul.rating__list.r-3 
-											li.rating__item 
-											li.rating__item 
-											li.rating__item 
-											li.rating__item 
-											li.rating__item 
-										.rating__value 8 отзывов
-							.studio-card__content 
+									+btnFavorite
+									+btnShare
+									+ratingBlue
+							.studio-card__content
+								.studio-card__content-caption Описание
 								p Replace — фотостудия, которая вдохновляет! Интерьерная фотостудия в стиле минимализм в Москве. Большие окна. Идеальное дневное освещение. Мягкий, рассеянный свет.
 							if item.result	
 								.studio-card__bottom 
@@ -75,10 +65,10 @@ block content
 											| #{item.result[0]}
 											span #{item.result[1]}
 									.studio-card__buttons 
-										button(type="button").btn.btn-video Экскурсия по студии
-										button(type="button").btn.btn-reserv Забронировать
-			include ./components/paginationExtend
-			+similarExposition("Похожие локации")
-				each item in studioPage.similar
-					+expositionCard(item, "studio")
-			include ./components/paginationExtend
+										+btnVideo
+										+btnReserve
+				include ./components/paginationExtend
+				+similarExposition("Похожие локации")
+					each item in studioPage.similar
+						+expositionCard(item, "studio")
+				include ./components/paginationExtend
