@@ -1,0 +1,54 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Okvideo PRO";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.hall 
+		.container 
+			.hall__title.page-title= pageTitle
+			.hall__wrapper 
+				each item in hallPage.cards
+					.studio-card
+						.studio-card__body 
+							+studioCardSlider(item.images)
+							.studio-card__top
+								.studio-card__title= item.title
+								.studio-card__reactions 
+									+btnFavorite
+									+btnShare
+								if item.contacts
+									+studioContacts(item.contacts)
+								ul.custom-list
+								li.custom-list__item 
+									| #{item.list[0]}
+									span #{item.list[1]}
+								+ratingBlue
+								+studioCardAdvantages
+								+btnOpacity("Все услуги и оснащение")
+								.studio-card__content.content
+									.studio-card__content-caption Описание
+									p Replace — фотостудия, которая вдохновляет! Интерьерная фотостудия в стиле минимализм в Москве. Большие окна. Идеальное дневное освещение. Мягкий, рассеянный свет.
+								.studio-card__buttons 
+									+btnVideo
+									+btnHall
+								.studio-card__halls
+									//- each hall in item.otherHalls
+									//- 	+expositionCard(hall, "hall")
+								.studio-card__content.content
+									.studio-card__content-caption Описание
+									ul 
+										each rule in item.rules
+											li= rule
+									+btnOpacity("Правила, полный текст")
+								.studio-card__content.content
+									.studio-card__content-caption г. Москва и МО • текстильщики • Россия, Центральный федеральный округ, Москва, 8-я улица Текстильщиков, 8
+									p Около 10 минут от метро Текстильщики Выход №1 Путь мимо озера "Садки" самый короткий. Из метро необходимо пройти прямо между ТЦ Мост (справа) и культурным центром Москвич (слева), выйти на Люблинскую улицу, не переходить дорогу, повернуть налево, пройти мимо спорткомплекса Москвич около 200 метров и завернуть к озеру "Садки" налево, пройти мимо озера насквозь через парк и выйти на 8 улицу Текстильщиков. Далее около 200 метров по ней и вы у 6-этажного белого здания. Пройдите мимо калитки МГТС, вам в следующую с вывеской Фитнес. Далее в единственную дверь у калитки, там к лифту, поднимитесь на 5 этаж. Единственная дверь там -- наша студия.
+								.studio-card__map map
+								.studio-card__reviews 
+									+reviewsNew(item.reviews)
+								+btnAddReview
+								+similarExposition("Похожие локации")
+									each el in item.similar
+										+expositionCard(el, "studio")

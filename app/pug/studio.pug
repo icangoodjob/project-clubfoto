@@ -29,19 +29,7 @@ block content
 			.studio__wrapper
 				each item, index in studioPage.cards
 					.studio-card
-						if item.images
-							.studio-card__slider.swiper 
-								.studio-card__slider-wrapper.swiper-wrapper
-									each image, imageIndex in item.images
-										a(href=`/images/studio/studio-${image}.jpg` data-fancybox=`gallery-${index+1}`).swiper-slide.studio-card__slider-item
-											.studio-card__image.ibg
-												img(src=`/images/studio/studio-${image}.jpg`, alt=item.title)
-											if imageIndex == 2
-												.video-icon
-								.slider-controls.white-control
-									button(type="button").slider-arrow.slider-arrow-prev
-									button(type="button").slider-arrow.slider-arrow-next
-								.slider-pagination.white-control
+						+studioCardSlider([item.images], index)
 						.studio-card__body 
 							.studio-card__title= item.title
 							ul.custom-list
