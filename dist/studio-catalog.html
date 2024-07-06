@@ -231,16 +231,16 @@
 		<main class="main">
 			<div class="studio-catalog exposition">
 				<div class="container">
-					<div class="studio-catalog__top top-studio">
-						<h1 class="top-studio__title page-title">Фотостудии</h1>
-						<div class="top-studio__links">
-							<a class="top-studio__link" href="#">
+					<div class="studio-catalog__heading heading-studio">
+						<h1 class="heading-studio__title page-title">Фотостудии</h1>
+						<div class="heading-studio__links">
+							<a class="heading-studio__link" href="#">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M2 8.37722C2 8.0269 2 7.85174 2.01462 7.70421C2.1556 6.28127 3.28127 5.1556 4.70421 5.01462C4.85174 5 5.03636 5 5.40558 5C5.54785 5 5.61899 5 5.67939 4.99634C6.45061 4.94963 7.12595 4.46288 7.41414 3.746C7.43671 3.68986 7.45781 3.62657 7.5 3.5C7.54219 3.37343 7.56329 3.31014 7.58586 3.254C7.87405 2.53712 8.54939 2.05037 9.32061 2.00366C9.38101 2 9.44772 2 9.58114 2H14.4189C14.5523 2 14.619 2 14.6794 2.00366C15.4506 2.05037 16.126 2.53712 16.4141 3.254C16.4367 3.31014 16.4578 3.37343 16.5 3.5C16.5422 3.62657 16.5633 3.68986 16.5859 3.746C16.874 4.46288 17.5494 4.94963 18.3206 4.99634C18.381 5 18.4521 5 18.5944 5C18.9636 5 19.1483 5 19.2958 5.01462C20.7187 5.1556 21.8444 6.28127 21.9854 7.70421C22 7.85174 22 8.0269 22 8.37722V16.2C22 17.8802 22 18.7202 21.673 19.362C21.3854 19.9265 20.9265 20.3854 20.362 20.673C19.7202 21 18.8802 21 17.2 21H6.8C5.11984 21 4.27976 21 3.63803 20.673C3.07354 20.3854 2.6146 19.9265 2.32698 19.362C2 18.7202 2 17.8802 2 16.2V8.37722Z" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 									<path d="M12 16.5C14.2091 16.5 16 14.7091 16 12.5C16 10.2909 14.2091 8.5 12 8.5C9.79086 8.5 8 10.2909 8 12.5C8 14.7091 9.79086 16.5 12 16.5Z" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>Съемка и оборудование
 							</a>
-							<a class="top-studio__link" href="#">
+							<a class="heading-studio__link" href="#">
 								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M8 16.9988H16M11.0177 2.76278L4.23539 8.0379C3.78202 8.39052 3.55534 8.56683 3.39203 8.78764C3.24737 8.98322 3.1396 9.20356 3.07403 9.43783C3 9.7023 3 9.98948 3 10.5638V17.7988C3 18.9189 3 19.4789 3.21799 19.9067C3.40973 20.2831 3.71569 20.589 4.09202 20.7808C4.51984 20.9988 5.07989 20.9988 6.2 20.9988H17.8C18.9201 20.9988 19.4802 20.9988 19.908 20.7808C20.2843 20.589 20.5903 20.2831 20.782 19.9067C21 19.4789 21 18.9189 21 17.7988V10.5638C21 9.98948 21 9.7023 20.926 9.43783C20.8604 9.20356 20.7526 8.98322 20.608 8.78764C20.4447 8.56683 20.218 8.39052 19.7646 8.03791L12.9823 2.76278C12.631 2.48953 12.4553 2.3529 12.2613 2.30038C12.0902 2.25404 11.9098 2.25404 11.7387 2.30038C11.5447 2.3529 11.369 2.48953 11.0177 2.76278Z" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>Для владельцев студий
@@ -249,11 +249,13 @@
 					</div>
 					<div class="studio-catalog__actions actions-studio">
 						<div class="actions-studio__choice">
-							<select class="select-choices" name="city">
-								<option value="Москва и МО" selected>Москва и МО</option>
-								<option value="Москва и МО">Москва и МО</option>
-								<option value="Москва и МО">Москва и МО</option>
-							</select>
+							<div class="custom-choices">
+								<select class="select-choices" name="city">
+									<option value="Москва и МО" selected>Москва и МО</option>
+									<option value="Москва и МО">Москва и МО</option>
+									<option value="Москва и МО">Москва и МО</option>
+								</select>
+							</div>
 							<div class="actions-studio__search search-form">
 								<input class="form__input search-form__input" type="text" placeholder="Поиск">
 								<button class="search-form__button" type="submit">
@@ -364,12 +366,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -424,12 +426,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -484,12 +486,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -553,12 +555,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -613,12 +615,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -673,12 +675,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -733,12 +735,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -793,12 +795,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -853,12 +855,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -913,12 +915,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -973,12 +975,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1033,12 +1035,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1093,12 +1095,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1153,12 +1155,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1208,12 +1210,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1258,12 +1260,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1308,12 +1310,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1358,12 +1360,12 @@
 										</li>
 									</ul>
 									<div class="rating rating-blue">
-										<ul class="rating__list r-3">
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
-											<li class="rating__item"></li>
+										<ul class="r-3 rating__list">
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
+											<li class="rating__item"> </li>
 										</ul>
 									</div>
 								</div>
@@ -1402,8 +1404,11 @@
 								</li>
 							</ul>
 						</nav>
-						<button class="btn studio-catalog__add-btn" type="button">
-							Добавить свою студию </button>
+						<button class="btn btn-studio-add" type="button">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M16 13.3744C19.5318 14.0688 22 15.6547 22 17.5C22 19.9853 17.5228 22 12 22C6.47715 22 2 19.9853 2 17.5C2 15.6547 4.46819 14.0688 8 13.3744M12 17V3L17.3177 6.27244C17.7056 6.51114 17.8995 6.63049 17.9614 6.78085C18.0154 6.912 18.0111 7.0599 17.9497 7.18771C17.8792 7.33426 17.6787 7.44222 17.2777 7.65815L12 10.5" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>Добавить свою студию
+						</button>
 					</div>
 				</div>
 			</div>

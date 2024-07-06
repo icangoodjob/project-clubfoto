@@ -10,45 +10,83 @@ block content
 			.hall__title.page-title= pageTitle
 			.hall__wrapper 
 				each item in hallPage.cards
-					.studio-card
+					.studio-card.hall-card
 						.studio-card__body 
 							+studioCardSlider(item.images)
-							.studio-card__top
-								.studio-card__title= item.title
-								.studio-card__reactions 
-									+btnFavorite
-									+btnShare
-								if item.contacts
-									+studioContacts(item.contacts)
-								ul.custom-list
-								li.custom-list__item 
-									| #{item.list[0]}
-									span #{item.list[1]}
-								+ratingBlue
-								+studioCardAdvantages
-								+btnOpacity("Все услуги и оснащение")
-								.studio-card__content.content
-									.studio-card__content-caption Описание
-									p Replace — фотостудия, которая вдохновляет! Интерьерная фотостудия в стиле минимализм в Москве. Большие окна. Идеальное дневное освещение. Мягкий, рассеянный свет.
-								.studio-card__buttons 
-									+btnVideo
-									+btnHall
-								.studio-card__halls
-									//- each hall in item.otherHalls
-									//- 	+expositionCard(hall, "hall")
-								.studio-card__content.content
-									.studio-card__content-caption Описание
-									ul 
-										each rule in item.rules
-											li= rule
+							.studio-card__inner
+								+studioCardSlider(item.images)
+								.studio-card__info
+									.studio-card__info-main
+										.studio-card__title= item.title
+										.studio-card__reactions 
+											+btnFavorite
+											+btnShare
+										if item.contacts
+											+studioContacts(item.contacts)
+										ul.custom-list
+											li.custom-list__item 
+												| #{item.list[0]}
+												span #{item.list[1]}
+										+ratingBlue(3, true)
+									+studioCardAdvantages
+									+btnOpacity("Все услуги и оснащение")
+									.adaptive-banner-block
+									.studio-card__content.content
+										.content-caption Описание
+										p Replace — фотостудия, которая вдохновляет! Интерьерная фотостудия в стиле минимализм в Москве. Большие окна. Идеальное дневное освещение. Мягкий, рассеянный свет.
+									.studio-card__buttons 
+										+btnVideo
+										+btnHall
+									.studio-card__halls
+										each hall in item.otherHalls
+											+expositionCard(hall, "hall")
+									.studio-card__content.content
+										.content-caption Описание
+										ul 
+											each rule in item.rules
+												li= rule
 									+btnOpacity("Правила, полный текст")
-								.studio-card__content.content
-									.studio-card__content-caption г. Москва и МО • текстильщики • Россия, Центральный федеральный округ, Москва, 8-я улица Текстильщиков, 8
-									p Около 10 минут от метро Текстильщики Выход №1 Путь мимо озера "Садки" самый короткий. Из метро необходимо пройти прямо между ТЦ Мост (справа) и культурным центром Москвич (слева), выйти на Люблинскую улицу, не переходить дорогу, повернуть налево, пройти мимо спорткомплекса Москвич около 200 метров и завернуть к озеру "Садки" налево, пройти мимо озера насквозь через парк и выйти на 8 улицу Текстильщиков. Далее около 200 метров по ней и вы у 6-этажного белого здания. Пройдите мимо калитки МГТС, вам в следующую с вывеской Фитнес. Далее в единственную дверь у калитки, там к лифту, поднимитесь на 5 этаж. Единственная дверь там -- наша студия.
-								.studio-card__map map
-								.studio-card__reviews 
-									+reviewsNew(item.reviews)
-								+btnAddReview
+									.adaptive-form-block
+								aside.studio-card__aside
+									form(action="#" data-da=".adaptive-form-block, 767.98, 0").aside-studio__form.aside-studio
+										ul.custom-list
+											li.custom-list__item 
+												| #{item.result[0]}
+												span #{item.result[1]}
+										.aside-studio__items
+											.custom-choices.custom-choices-hall
+												select(name="hall").select-choices
+													option(value="Выберите зал" selected) Выберите зал
+													option(value="Зал 1") Зал 1
+													option(value="Зал 2") Зал 2
+											.custom-choices
+												select(name="hall_day").select-choices
+													option(value="8 июня" selected) 8 июня
+													option(value="9 июня") 9 июня
+													option(value="10 июня") 10 июня
+											.custom-choices
+												select(name="hall_time").select-choices
+													option(value="24 часа, 00:00 - 24:00" selected) 24 часа, 00:00 - 24:00
+													option(value="23 часа, 00:00 - 24:00") 23 часа, 00:00 - 23:00
+													option(value="22 часа, 00:00 - 24:00") 22 часа, 00:00 - 22:00
+											+btnReserve
+									a(href="#" data-da=".adaptive-banner-block, 767.98, 0").banner.banner-yellow.banner-long
+										.banner__image
+											img(src="/images/banners/yellow.png", alt="Крепления для смартфонов")
+										.banner__body 
+											.banner__title Крепления для смартфонов 
+								.studio-card__footer
+									.studio-card__content.content
+										.content-caption г. Москва и МО • текстильщики • Россия, Центральный федеральный округ, Москва, 8-я улица Текстильщиков, 8
+										p Около 10 минут от метро Текстильщики Выход №1 Путь мимо озера "Садки" самый короткий. Из метро необходимо пройти прямо между ТЦ Мост (справа) и культурным центром Москвич (слева), выйти на Люблинскую улицу, не переходить дорогу, повернуть налево, пройти мимо спорткомплекса Москвич около 200 метров и завернуть к озеру "Садки" налево, пройти мимо озера насквозь через парк и выйти на 8 улицу Текстильщиков. Далее около 200 метров по ней и вы у 6-этажного белого здания. Пройдите мимо калитки МГТС, вам в следующую с вывеской Фитнес. Далее в единственную дверь у калитки, там к лифту, поднимитесь на 5 этаж. Единственная дверь там -- наша студия.
+									.studio-card__map#mapElem 
+										.map#map
+									.studio-card__reviews
+										.studio-card__reviews-caption Отзывы
+										+reviewsNew(item.reviews)
+										+btnAddReview
+							.studio-card__similar
 								+similarExposition("Похожие локации")
 									each el in item.similar
 										+expositionCard(el, "studio")
+							include ./components/paginationExtend

@@ -5,7 +5,7 @@ append variables
 	- description += pageTitle;
 	- breadcrumbs = true;
 block content
-	.studio.exposition
+	.studio
 		.container 
 			.studio__top.top-studio
 				.top-studio__info
@@ -17,7 +17,7 @@ block content
 					.top-studio__reactions
 						+btnFavorite
 						+btnShare
-						+ratingBlue
+						+ratingBlue(3, true)
 				a(href="#").top-main__banner
 					.top-main__image.ibg
 						picture
@@ -27,24 +27,30 @@ block content
 					.top-main__banner-text
 						| Бленда для монитора для лучшей цветокоррекции
 			.studio__wrapper
+				a(href="#").banner.banner-long.banner-red
+					.banner__image
+						img(src="/images/banners/red.png", alt="Рюкзаки и сумки для оборудования фотографа")
+					.banner__body 
+						.banner__title Рюкзаки и сумки для оборудования фотографа
 				each item, index in studioPage.cards
 					.studio-card
-						+studioCardSlider([item.images], index)
-						.studio-card__body 
-							.studio-card__title= item.title
-							ul.custom-list
-								li.custom-list__item 
-									| #{item.list[0]}
-									span #{item.list[1]}
+						+studioCardSlider(item.images, index)
+						.studio-card__body
+							.studio-card__head
+								.studio-card__title= item.title
+								ul.custom-list
+									li.custom-list__item 
+										| #{item.list[0]}
+										span #{item.list[1]}
 							.studio-card__actions 
 								if item.contacts
 									+studioContacts(item.contacts)
 								.studio-card__reactions 
 									+btnFavorite
 									+btnShare
-									+ratingBlue
-							.studio-card__content
-								.studio-card__content-caption Описание
+									+ratingBlue(3, true)
+							.studio-card__content.content
+								.content-caption Описание
 								p Replace — фотостудия, которая вдохновляет! Интерьерная фотостудия в стиле минимализм в Москве. Большие окна. Идеальное дневное освещение. Мягкий, рассеянный свет.
 							if item.result	
 								.studio-card__bottom 

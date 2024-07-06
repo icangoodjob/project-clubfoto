@@ -1,0 +1,107 @@
+.exposition-card {
+  border: 1px solid #efefef;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  background-color: $whiteColor;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  &__slider {
+    & .slider-pagination {
+      bottom: 10px;
+    }
+  }
+  &__favorite {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 11px;
+    right: 13px;
+    z-index: 2;
+    background: transparent;
+    & svg {
+      pointer-events: none;
+    }
+    & svg path {
+      fill: transparent;
+    }
+    &.active {
+      & svg path {
+        fill: $blueColor;
+      }
+    }
+  }
+  &__image {
+    padding-bottom: math.div(214, 330) * 100%;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    &::before {
+      content: "";
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent);
+      transform: rotate(-180deg);
+      height: 19.4%;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+  &__content {
+    padding: 11px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #efefef;
+  }
+  &__list {
+    @include reset-list;
+    display: grid;
+    gap: 8px;
+  }
+
+  &__list-item {
+    color: #a4a4a4;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    & span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      &::before {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 5px;
+        background-color: $blueColor;
+        border-radius: 50%;
+      }
+    }
+  }
+  &__title {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    flex: 1 1 auto;
+  }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+  }
+  &__price {
+    font-size: 16px;
+    line-height: 120%;
+  }
+}

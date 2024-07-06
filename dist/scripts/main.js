@@ -698,8 +698,10 @@ const expositionMainSlider = document.querySelector(".exposition-slider__body");
 const expositionSimilarSlider = document.querySelector(
   ".similar-exposition__body"
 );
+const studioCardMainSliders = document.querySelectorAll(".studio-card__slider");
 let expositionMainSwiper = null;
 let expositionSimilarSwiper = null;
+let studioCardMainSwiper = null;
 function initExpositionSwiper() {
   if (expositionMainSlider) {
     const buttonPrev = expositionMainSlider.querySelector(".slider-arrow-prev");
@@ -746,6 +748,42 @@ function initExpositionSwiper() {
       grabCursor: true,
     });
   }
+  if (studioCardMainSliders) {
+    studioCardMainSliders.forEach((slider) => {
+      const buttonPrev = slider.querySelector(".slider-arrow-prev");
+      const buttonNext = slider.querySelector(".slider-arrow-next");
+      const sliderControls = slider.querySelector(".slider-controls");
+      const pagination = slider.querySelector(".slider-pagination");
+      studioCardMainSwiper = new Swiper(slider, {
+        speed: 800,
+        slideClass: "studio-card__slider-item",
+        centeredSlides: false,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        grabCursor: true,
+        navigation: {
+          nextEl: buttonNext,
+          prevEl: buttonPrev,
+        },
+        pagination: {
+          el: pagination,
+          type: "bullets",
+          clickable: true,
+        },
+        on: {
+          init: function (swiper) {
+            const slides = swiper.slides;
+            if (slides.length < 2) {
+              swiper.pagination.destroy();
+              swiper.navigation.destroy();
+              sliderControls?.remove();
+              pagination?.remove();
+            }
+          },
+        },
+      });
+    });
+  }
 }
 
 function destroyExpositionSwiper() {
@@ -756,6 +794,10 @@ function destroyExpositionSwiper() {
   if (expositionSimilarSwiper) {
     expositionSimilarSwiper.destroy();
     expositionSimilarSwiper = null;
+  }
+  if (studioCardMainSwiper) {
+    studioCardMainSwiper.destroy();
+    studioCardMainSwiper = null;
   }
 }
 function checkScreenExposition() {
@@ -966,6 +1008,9 @@ function documentActions(event) {
   }
   if (target.closest(".btn-contacts")) {
     target.classList.toggle("active");
+  }
+  if (target.closest(".btn-hall")) {
+    document.querySelector(".studio-card__halls")?.classList.toggle("active");
   }
 }
 document.querySelector(".content-tab__header")?.click();

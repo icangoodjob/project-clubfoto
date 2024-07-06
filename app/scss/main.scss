@@ -108,6 +108,10 @@ body {
 @import "components/main-badges";
 @import "components/pagination";
 @import "components/text-editor";
+
+@import "components/exposition-card";
+@import "components/studio-card";
+@import "components/reviews-item";
 // Подключение стилей для отдельных блоков
 @import "pages/home";
 @import "pages/forums";
@@ -130,8 +134,7 @@ body {
 @import "pages/exposition";
 @import "pages/studio-catalog";
 @import "pages/studio";
-
-@import "components/studio-card";
+@import "pages/hall";
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>==============================================================================
 /* ПОДКЛЮЧЕНИЕ СТИЛЕЙ АДАПТИВА */

@@ -1,0 +1,112 @@
+.hall {
+  padding-bottom: 30px;
+  @media screen and (max-width: $md) {
+    padding-bottom: 21px;
+  }
+  &__title {
+    margin-bottom: 13px;
+    @media screen and (max-width: $md) {
+      margin-bottom: 24px;
+      font-size: 20px;
+    }
+  }
+}
+
+.hall-card {
+  padding-bottom: 27px;
+  @media screen and (max-width: $md) {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  & .studio-card__slider {
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+  }
+  & .studio-card__inner {
+    .studio-card__slider {
+      grid-column: span 2;
+      display: none;
+      @media screen and (max-width: $md) {
+        display: block;
+        margin-bottom: 24px;
+      }
+    }
+  }
+  & .studio-card__info-main {
+    & .rating {
+      gap: 16px;
+      margin-top: 4px;
+      @media screen and (max-width: $md) {
+        margin-top: 0;
+      }
+    }
+  }
+  & .studio-card__body {
+    display: block;
+    gap: 0;
+  }
+  & .studio-contacts {
+    width: 100%;
+    @media screen and (max-width: $md) {
+      margin: 16px 0;
+    }
+  }
+  & .custom-list {
+    width: 100%;
+    @media screen and (max-width: $md) {
+      order: -1;
+    }
+  }
+  &__info {
+    & .rating {
+      margin-top: 4px;
+      @media screen and (max-width: $md) {
+        margin-top: 2px;
+      }
+    }
+  }
+  & .content {
+    ul {
+      li {
+        line-height: 154%;
+      }
+    }
+  }
+  & .pagination {
+    margin-top: 24px;
+  }
+  & .studio-card {
+    @media screen and (max-width: $md) {
+      &__title {
+        order: -1;
+      }
+      &__reactions {
+        order: 2;
+      }
+      & .studio-contacts {
+        order: 1;
+      }
+      & .rating {
+        order: 2;
+      }
+      &__buttons {
+        gap: 24px;
+      }
+    }
+  }
+}
+.adaptive-banner-block,
+.adaptive-form-block {
+  display: none;
+  @media screen and (max-width: $md) {
+    display: block;
+  }
+}
+.adaptive-form-block {
+  @media screen and (max-width: $md) {
+    margin-bottom: 24px;
+  }
+}

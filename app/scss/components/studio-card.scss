@@ -8,12 +8,26 @@
   font-size: 16px;
   line-height: 120%;
   &__slider {
+    margin-bottom: 8px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    @media screen and (max-width: $md) {
+      margin-bottom: 16px;
+    }
+    .hall & {
+      margin-bottom: 20px;
+    }
   }
   &__slider-wrapper {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 0.5fr;
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 0.48fr 1fr 0.48fr;
+    grid-template-rows: repeat(2, auto);
     gap: 18px;
+    @media screen and (max-width: $md) {
+      display: flex;
+      gap: 0;
+    }
   }
   &__slider-item {
     position: relative;
@@ -29,8 +43,20 @@
     padding-bottom: math.div(200, 330) * 100%;
     height: 100%;
     width: 100%;
+    @media screen and (max-width: $md) {
+      border-radius: 10px;
+      overflow: hidden;
+    }
   }
   &__body {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 8px;
+    @media screen and (max-width: $md) {
+      gap: 16px;
+    }
+  }
+  &__head {
     display: grid;
     gap: 8px;
   }
@@ -53,6 +79,9 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px 34px;
+    @media screen and (max-width: $md) {
+      gap: 10px 20px;
+    }
   }
   &__content {
     & p {
@@ -97,25 +126,198 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap;
+    @media screen and (max-width: $md) {
+      width: 100%;
+      & .btn {
+        flex: 1;
+        min-width: fit-content;
+      }
+    }
   }
   & .rating {
     gap: 30px;
+    @media screen and (max-width: $md) {
+      gap: 20px;
+    }
+  }
+  &__info {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 30px;
+    @media screen and (max-width: $md) {
+      gap: 24px;
+    }
+  }
+  &__info-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    @media screen and (max-width: $md) {
+      gap: 8px;
+    }
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 30px 18px;
+    align-items: start;
+    padding-left: 9px;
+    @media screen and (max-width: $xxl) {
+      grid-template-columns: 1fr 270px;
+    }
+    @media screen and (max-width: $md) {
+      border: 1px solid #efefef;
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+      background: $whiteColor;
+      display: block;
+    }
+  }
+  &__aside {
+    display: grid;
+    gap: 16px;
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+  }
+  &__advantages {
+    @include reset-list;
+    display: grid;
+    gap: 16px;
+  }
+  &__advantage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-family: $secondFamily;
+    font-size: 18px;
+    line-height: 110%;
+    & svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__halls {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    display: none;
+    @media screen and (max-width: $xxl) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+    &.active {
+      display: grid;
+    }
+  }
+  &__footer {
+    grid-column: span 2;
+  }
+  &__map {
+    height: 558px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0 27px;
+    @media screen and (max-width: $md) {
+      margin: 12px 0 24px;
+      height: 458px;
+    }
+    & .map {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__reviews {
+    display: grid;
+    justify-items: start;
+    gap: 40px;
+    max-width: 1028px;
+    &-caption {
+      font-family: $secondFamily;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 120%;
+    }
+  }
+  &__similar {
+    padding-left: 10px;
+    margin-top: 37px;
+    grid-column: span 2;
+    @media screen and (max-width: $md) {
+      margin-top: 24px;
+    }
+  }
+  & .pagination {
+    grid-column: span 2;
+  }
+  & .aside-studio {
+    & .choices {
+      margin: 0;
+    }
+    &__form {
+      display: grid;
+      gap: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px 10px 10px 10px;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+      background: $whiteColor;
+    }
+    &__items {
+      display: grid;
+      gap: 14px;
+    }
+    & .custom-list {
+      font-family: $secondFamily;
+      &__item {
+        text-align: center;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 120%;
+        color: $mainColor;
+        gap: 10px;
+        justify-content: center;
+        & span {
+          gap: 10px;
+          &::before {
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
+    }
   }
 }
 
 .studio-contacts {
   display: flex;
   align-items: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 16px 20px;
   overflow: hidden;
+  @media screen and (max-width: $xxl) {
+    width: 100%;
+  }
   &__list {
     @include reset-list;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
     transform: translate(-100%) scale(0);
     transition: transform 0.5s;
     transform-origin: right;
+    @media screen and (max-width: $xxl) {
+      transform: translate(0%) scale(1);
+      display: none;
+    }
   }
   &__list-item {
     display: flex;

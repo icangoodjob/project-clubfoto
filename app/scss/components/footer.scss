@@ -1,161 +1,161 @@
 .footer {
-	&__top {
-		padding: 22px 0 22px;
-		position: relative;
-		@include line;
-		&::after {
-			content: "";
-			position: absolute;
-			width: 100%;
-			left: 0;
-			top: 0;
-			border-bottom: 1px solid rgba(#cfcfcf, 0.5);
-			box-shadow: 0px 1px 0px 0px $whiteColor;
-		}
-		@media screen and (max-width: $md) {
-			padding: 20px 0;
-			display: grid;
-			grid-template-columns: 1fr;
-			justify-items: center;
-			gap: 20px;
-		}
-	}
-	&__menu {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+  &__top {
+    padding: 22px 0 22px;
+    position: relative;
+    @include line;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      border-bottom: 1px solid rgba(#cfcfcf, 0.5);
+      box-shadow: 0px 1px 0px 0px $whiteColor;
+    }
+    @media screen and (max-width: $md) {
+      padding: 20px 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 20px;
+    }
+  }
+  &__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-	&__bottom {
-		padding: 16px 0 23px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 10px;
-		@media screen and (max-width: $md) {
-			flex-direction: column;
-			justify-content: center;
-			gap: 20px;
-			padding: 20px 0 18px;
-		}
-	}
-	&__logo {
-	}
-	&__social {
-	}
-	&__copy {
-		color: #757c8d;
-		font-family: "Rubik", sans-serif;
-		font-size: 14px;
-		font-weight: 300;
-		line-height: 120%;
-	}
+  &__bottom {
+    padding: 16px 0 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    @media screen and (max-width: $md) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 0 18px;
+    }
+  }
+  &__logo {
+  }
+  &__social {
+  }
+  &__copy {
+    color: #757c8d;
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 120%;
+  }
 }
 .menu-footer {
-	&__list {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		flex-wrap: wrap;
-		@include reset-list;
-		@media screen and (max-width: $md) {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 20px 57px;
-		}
-		@media screen and (max-width: 389.98px) {
-			gap: 20px 30px;
-		}
-	}
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    @include reset-list;
+    @media screen and (max-width: $md) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 57px;
+    }
+    @media screen and (max-width: 389.98px) {
+      gap: 20px 30px;
+    }
+  }
 
-	&__item {
-		& + & {
-			@media screen and (min-width: $md) {
-				padding-left: 8px;
-				border-left: 1px solid $mainColor;
-			}
-		}
-		&.active {
-			& .menu-footer__link {
-				color: $blueColor;
-			}
-		}
-	}
+  &__item {
+    & + & {
+      @media screen and (min-width: $md) {
+        padding-left: 8px;
+        border-left: 1px solid $mainColor;
+      }
+    }
+    &.active {
+      & .menu-footer__link {
+        color: $blueColor;
+      }
+    }
+  }
 
-	&__link {
-		font-family: "Rubik", sans-serif;
-		font-size: 16px;
-		line-height: 120%;
-		transition: color 0.15s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $blueColor;
-			}
-		}
-	}
+  &__link {
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    line-height: 120%;
+    transition: color 0.15s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $blueColor;
+      }
+    }
+  }
 }
 a.menu-footer__link {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 .social-footer {
-	&__list {
-		@include reset-list;
-		display: flex;
-		align-items: center;
-		gap: 10px;
-	}
-	&__item {
-	}
-	&__link {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 32px;
-		height: 32px;
-		flex: 0 0 32px;
-		border-radius: 50%;
-		background-color: rgba(#9b9b9b, 0.5);
-		transition: background-color 0.2s ease 0s;
-		&::before {
-			content: "";
-			display: block;
-			width: 20px;
-			height: 20px;
-			background-color: $whiteColor;
-			mask-repeat: no-repeat;
-			mask-position: center center;
-			mask-size: 20px 20px;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				background-color: $blueColor;
-			}
-		}
-	}
-	&__link--youtube {
-		&::before {
-			mask-image: url("../images/icons/social/youtube.svg");
-		}
-	}
-	&__link--mail {
-		&::before {
-			mask-image: url("../images/icons/social/email.svg");
-		}
-	}
-	&__link--vk {
-		&::before {
-			mask-image: url("../images/icons/social/vk.svg");
-		}
-	}
-	&__link--twitter {
-		&::before {
-			mask-image: url("../images/icons/social/twitter.svg");
-		}
-	}
-	&__link--telegram {
-		&::before {
-			mask-image: url("../images/icons/social/telegram.svg");
-		}
-	}
+  &__list {
+    @include reset-list;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__item {
+  }
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 50%;
+    background-color: rgba(#9b9b9b, 0.5);
+    transition: background-color 0.2s ease 0s;
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: $whiteColor;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: 20px 20px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $blueColor;
+      }
+    }
+  }
+  &__link--youtube {
+    &::before {
+      mask-image: url("../images/icons/social/youtube.svg");
+    }
+  }
+  &__link--mail {
+    &::before {
+      mask-image: url("../images/icons/social/email.svg");
+    }
+  }
+  &__link--vk {
+    &::before {
+      mask-image: url("../images/icons/social/vk.svg");
+    }
+  }
+  &__link--twitter {
+    &::before {
+      mask-image: url("../images/icons/social/twitter.svg");
+    }
+  }
+  &__link--telegram {
+    &::before {
+      mask-image: url("../images/icons/social/telegram.svg");
+    }
+  }
 }

@@ -73,14 +73,16 @@ block content
 							.schedule__item пн-пт: 10:00-20:00
 							.schedule__item сб-вс: 10:00-20:00
 						form(action="#").exposition-form
-							select(name="date_short").select-choices
-								option(value="8 июня" selected) 8 июня 
-								option(value="9 июня") 9 июня
-								option(value="10 июня") 10 июня
-							select(name="date_long").select-choices
-								option(value="24 часа, 00:00 - 24:00 " selected) 24 часа, 00:00 - 24:00 
-								option(value="24 часа, 00:00 - 23:00") 24 часа, 00:00 - 23:00
-								option(value="24 часа, 00:00 - 22:00") 24 часа, 00:00 - 22:00
+							.custom-choices
+								select(name="date_short").select-choices
+									option(value="8 июня" selected) 8 июня 
+									option(value="9 июня") 9 июня
+									option(value="10 июня") 10 июня
+							.custom-choices
+								select(name="date_long").select-choices
+									option(value="24 часа, 00:00 - 24:00 " selected) 24 часа, 00:00 - 24:00 
+									option(value="24 часа, 00:00 - 23:00") 24 часа, 00:00 - 23:00
+									option(value="24 часа, 00:00 - 22:00") 24 часа, 00:00 - 22:00
 							button(type="submit").btn.btn-blue.exposition-form__button Забронировать 
 					a(href="#").exhibition-banner.exposition__banner
 						.exhibition-banner__image 
