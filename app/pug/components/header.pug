@@ -24,11 +24,12 @@ header.header#header
 											if item.title == 'Вход'
 												span.nav-header__count 23
 										.nav-header__text= item.title
-							li.nav-header__item
+							li.nav-header__item.nav-header__item--bell
 								a(href="#").nav-header__link.nav-header__link--bell
 									.nav-header__icon 
 										img(src=`images/icons/menu/bell.svg`, alt="уведомление")
 										.nav-header__circle
+								include ./notification
 					button.nav-header__button(type="button")
 						span
 						span

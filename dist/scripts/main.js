@@ -1234,4 +1234,36 @@ if (mapElem) {
   observer.observe(mapElem);
 }
 
-// Разворачиваем контакты
+// УВедомления
+document.addEventListener("click", notificationClicks);
+
+function deactivateNotification() {
+  const buttons = document.querySelectorAll(".nav-header__link--bell.active");
+  [...buttons].forEach((elem) => {
+    elem.classList.remove("active");
+  });
+}
+
+function notificationClicks(e) {
+  let target = e.target;
+  console.log(target);
+  if (target.matches(".nav-header__link--bell")) {
+    if (target.classList.contains("active")) {
+      target.classList.remove("active");
+    } else {
+      target.classList.add("active");
+    }
+  }
+  if (target.matches(".item-notification__option")) {
+    target.classList.toggle("active");
+  }
+  if (target.matches(".notification__wrapper > *")) {
+    e.stopPropagation();
+  }
+  // if (
+  //   !target.matches(".nav-header__link--bell") &&
+  //   !target.matches(".item-notification__option")
+  // ) {
+  //   deactivateNotification();
+  // }
+}

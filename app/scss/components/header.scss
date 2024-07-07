@@ -122,6 +122,15 @@
     }
   }
   &__item {
+    position: relative;
+    &--bell {
+      .nav-header__icon {
+        pointer-events: none;
+      }
+      @media screen and (max-width: $md) {
+        display: none;
+      }
+    }
   }
   &__text {
     @media screen and (max-width: $md) {

@@ -1,0 +1,226 @@
+.nav-header__link--bell.active {
+  & + .notification {
+    transform: translate(-100%, 0px);
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+.notification {
+  position: absolute;
+  top: 0;
+  transform: translate(-100%, 20px);
+  background: $whiteColor;
+  overflow-x: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  width: 480px;
+  height: 642px;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+  transition: transform 0.25s, opacity 0.25s;
+  opacity: 0;
+  pointer-events: none;
+  @media screen and (max-width: $xxl) {
+    height: 500px;
+    width: 400px;
+  }
+  @media screen and (max-width: $md) {
+    display: none;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  &__header {
+    min-height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 0 12px;
+    font-size: 16px;
+    line-height: 120%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: $whiteColor;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+  }
+  &__button {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+  }
+  &__body {
+  }
+  &__items {
+    overflow-y: auto;
+  }
+  &__actions {
+  }
+}
+
+.item-notification {
+  position: relative;
+  &__inner {
+    padding: 16px;
+    padding-left: 6px;
+    transition: background-color 0.25s;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    position: relative;
+    @media (any-hover: hover) {
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+  &__new {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $blueColor;
+    margin-top: 22px;
+    flex-shrink: 0;
+  }
+  &__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background-color: #a4a4a4;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+  &__message {
+    margin-bottom: 8px;
+    overflow: hidden;
+    display: block;
+    max-height: 120px;
+    -webkit-line-clamp: 6;
+    display: box;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 120%;
+    color: #0f0f0f;
+  }
+  &__image {
+    margin: 0 10px;
+    width: 86px;
+    height: 48px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__date {
+    color: #606060;
+    font-size: 14px;
+    line-height: 120%;
+  }
+  & .notification-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__actions {
+    display: none;
+  }
+  &__option {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    position: relative;
+    top: -8px;
+    & .notification-button {
+      pointer-events: none;
+    }
+    &.active {
+      & .actions-notification {
+        display: block;
+      }
+    }
+  }
+}
+.notification-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.25s;
+  @media (any-hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.notification-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.actions-notification {
+  padding: 8px 0;
+  background: $whiteColor;
+  color: #0f0f0f;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 5;
+  width: 400px;
+  border-radius: 12px;
+  display: none;
+  @media screen and (max-width: $xxl) {
+    width: 300px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 12px 0 16px;
+    line-height: 120%;
+    font-size: 14px;
+    min-height: 36px;
+    transition: background-color 0.25s;
+    @media (any-hover: hover) {
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}

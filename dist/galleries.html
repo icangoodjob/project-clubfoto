@@ -15,9 +15,9 @@
 	<meta property="twitter:title" content="Галерея">
 	<meta property="twitter:description" content="description">
 	<link rel="canonical" href="https://example.com">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
-	<link href="styles/libs.min.css" rel="stylesheet">
-	<link href="styles/main.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&amp;display=swap&_v=20240707130929" rel="stylesheet">
+	<link href="styles/libs.min.css?_v=20240707130929" rel="stylesheet">
+	<link href="styles/main.min.css?_v=20240707130929" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
 	<link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
@@ -113,13 +113,307 @@
 											<div class="nav-header__text">Вход</div>
 										</a>
 									</li>
-									<li class="nav-header__item">
+									<li class="nav-header__item nav-header__item--bell">
 										<a class="nav-header__link nav-header__link--bell" href="#">
 											<div class="nav-header__icon">
 												<img src="images/icons/menu/bell.svg" alt="уведомление">
 												<div class="nav-header__circle"></div>
 											</div>
 										</a>
+										<div class="notification">
+											<div class="notification__wrapper">
+												<div class="notification__header">
+													<div class="notification__title">Уведомления</div>
+													<div class="notification-button">
+														<div class="notification-icon">
+															<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																<path d="M12 9.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5m0-1c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5zM13.22 3l.55 2.2.13.51.5.18c.61.23 1.19.56 1.72.98l.4.32.5-.14 2.17-.62 1.22 2.11-1.63 1.59-.37.36.08.51c.05.32.08.64.08.98s-.03.66-.08.98l-.08.51.37.36 1.63 1.59-1.22 2.11-2.17-.62-.5-.14-.4.32c-.53.43-1.11.76-1.72.98l-.5.18-.13.51-.55 2.24h-2.44l-.55-2.2-.13-.51-.5-.18c-.6-.23-1.18-.56-1.72-.99l-.4-.32-.5.14-2.17.62-1.21-2.12 1.63-1.59.37-.36-.08-.51c-.05-.32-.08-.65-.08-.98s.03-.66.08-.98l.08-.51-.37-.36L3.6 8.56l1.22-2.11 2.17.62.5.14.4-.32c.53-.44 1.11-.77 1.72-.99l.5-.18.13-.51.54-2.21h2.44M14 2h-4l-.74 2.96c-.73.27-1.4.66-2 1.14l-2.92-.83-2 3.46 2.19 2.13c-.06.37-.09.75-.09 1.14s.03.77.09 1.14l-2.19 2.13 2 3.46 2.92-.83c.6.48 1.27.87 2 1.14L10 22h4l.74-2.96c.73-.27 1.4-.66 2-1.14l2.92.83 2-3.46-2.19-2.13c.06-.37.09-.75.09-1.14s-.03-.77-.09-1.14l2.19-2.13-2-3.46-2.92.83c-.6-.48-1.27-.87-2-1.14L14 2z"></path>
+															</svg>
+														</div>
+													</div>
+												</div>
+												<div class="notification__body">
+													<div class="notification__items">
+														<a class="notification__item item-notification" href="#">
+															<div class="item-notification__inner">
+																<div class="item-notification__new"> </div>
+																<div class="item-notification__avatar">
+																	<picture>
+																		<source srcset="images/notifications/avatar.webp" type="image/webp">
+																		<img src="images/notifications/avatar.jpg" alt="аватар">
+																	</picture>
+																</div>
+																<div class="item-notification__content">
+																	<div class="item-notification__message">На канале появилось новое видео. Советуем его посмотреть. На канале появилось новое видео. Советуем его посмотреть. На канале появилось новое видео. Советуем его посмотреть.</div>
+																	<div class="item-notification__date">28 мниут назад</div>
+																</div>
+																<div class="item-notification__image">
+																	<picture>
+																		<source srcset="images/notifications/image.webp" type="image/webp">
+																		<img src="images/notifications/image.jpg" alt="превью">
+																	</picture>
+																</div>
+																<div class="item-notification__option">
+																	<div class="notification-button">
+																		<div class="notification-icon">
+																			<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																				<path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="item-notification__actions actions-notification">
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7L6.19 6.9C4.31 8.11 2.83 9.89 2 12c1.57 3.99 5.45 6.82 10 6.82 1.77 0 3.44-.43 4.92-1.2l3.23 3.23.71-.71L3.85 3.15zM13.8 14.5c-.51.37-1.13.59-1.8.59-1.7 0-3.09-1.39-3.09-3.09 0-.67.22-1.29.59-1.8l4.3 4.3zM12 17.82c-3.9 0-7.35-2.27-8.92-5.82.82-1.87 2.18-3.36 3.83-4.38L8.79 9.5c-.54.69-.88 1.56-.88 2.5 0 2.25 1.84 4.09 4.09 4.09.95 0 1.81-.34 2.5-.88l1.67 1.67c-1.27.61-2.69.94-4.17.94zm-.51-9.87c.17-.02.34-.05.51-.05 2.25 0 4.09 1.84 4.09 4.09 0 .17-.02.34-.05.51l-1.01-1.01c-.21-1.31-1.24-2.33-2.55-2.55l-.99-.99zM9.12 5.59c.92-.26 1.88-.41 2.88-.41 4.55 0 8.43 2.83 10 6.82-.58 1.47-1.48 2.78-2.61 3.85l-.72-.72c.93-.87 1.71-1.92 2.25-3.13C19.35 8.45 15.9 6.18 12 6.18c-.7 0-1.39.08-2.06.22l-.82-.81z"></path>
+																				</svg>
+																			</div>Скрыть уведомление
+																		</div>
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7 3.48 3.48C6.22 8.21 6 9.22 6 10.32v5.15l-2 1.88V19h14.29l1.85 1.85.71-.71-17-16.99zM5 18v-.23l2-1.88v-5.47c0-.85.15-1.62.41-2.3L17.29 18H5zm5 2h4c0 1.1-.9 2-2 2s-2-.9-2-2zM9.28 5.75l-.7-.7c.43-.29.9-.54 1.42-.7v-.39c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v4.14l-1-1v-3.05c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03-.27.11-.51.24-.75.4z"></path>
+																				</svg>
+																			</div>Отключить все уведомления с канала
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</a>
+														<a class="notification__item item-notification" href="#">
+															<div class="item-notification__inner">
+																<div class="item-notification__new"> </div>
+																<div class="item-notification__avatar">
+																	<picture>
+																		<source srcset="images/notifications/avatar.webp" type="image/webp">
+																		<img src="images/notifications/avatar.jpg" alt="аватар">
+																	</picture>
+																</div>
+																<div class="item-notification__content">
+																	<div class="item-notification__message">На канале 'Хекслет' появилось новое видео: 'А вы с какими PHP-разработчиками чаще сталкиваетесь? #программирование #php #shorts'. Советуем его посмотреть.</div>
+																	<div class="item-notification__date">1 минуту назад</div>
+																</div>
+																<div class="item-notification__image">
+																	<picture>
+																		<source srcset="images/notifications/image.webp" type="image/webp">
+																		<img src="images/notifications/image.jpg" alt="превью">
+																	</picture>
+																</div>
+																<div class="item-notification__option">
+																	<div class="notification-button">
+																		<div class="notification-icon">
+																			<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																				<path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="item-notification__actions actions-notification">
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7L6.19 6.9C4.31 8.11 2.83 9.89 2 12c1.57 3.99 5.45 6.82 10 6.82 1.77 0 3.44-.43 4.92-1.2l3.23 3.23.71-.71L3.85 3.15zM13.8 14.5c-.51.37-1.13.59-1.8.59-1.7 0-3.09-1.39-3.09-3.09 0-.67.22-1.29.59-1.8l4.3 4.3zM12 17.82c-3.9 0-7.35-2.27-8.92-5.82.82-1.87 2.18-3.36 3.83-4.38L8.79 9.5c-.54.69-.88 1.56-.88 2.5 0 2.25 1.84 4.09 4.09 4.09.95 0 1.81-.34 2.5-.88l1.67 1.67c-1.27.61-2.69.94-4.17.94zm-.51-9.87c.17-.02.34-.05.51-.05 2.25 0 4.09 1.84 4.09 4.09 0 .17-.02.34-.05.51l-1.01-1.01c-.21-1.31-1.24-2.33-2.55-2.55l-.99-.99zM9.12 5.59c.92-.26 1.88-.41 2.88-.41 4.55 0 8.43 2.83 10 6.82-.58 1.47-1.48 2.78-2.61 3.85l-.72-.72c.93-.87 1.71-1.92 2.25-3.13C19.35 8.45 15.9 6.18 12 6.18c-.7 0-1.39.08-2.06.22l-.82-.81z"></path>
+																				</svg>
+																			</div>Скрыть уведомление
+																		</div>
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7 3.48 3.48C6.22 8.21 6 9.22 6 10.32v5.15l-2 1.88V19h14.29l1.85 1.85.71-.71-17-16.99zM5 18v-.23l2-1.88v-5.47c0-.85.15-1.62.41-2.3L17.29 18H5zm5 2h4c0 1.1-.9 2-2 2s-2-.9-2-2zM9.28 5.75l-.7-.7c.43-.29.9-.54 1.42-.7v-.39c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v4.14l-1-1v-3.05c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03-.27.11-.51.24-.75.4z"></path>
+																				</svg>
+																			</div>Отключить все уведомления с канала
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</a>
+														<a class="notification__item item-notification" href="#">
+															<div class="item-notification__inner">
+																<div class="item-notification__new"> </div>
+																<div class="item-notification__avatar">
+																	<picture>
+																		<source srcset="images/notifications/avatar.webp" type="image/webp">
+																		<img src="images/notifications/avatar.jpg" alt="аватар">
+																	</picture>
+																</div>
+																<div class="item-notification__content">
+																	<div class="item-notification__message">На канале появилось новое видео. Советуем его посмотреть. На канале появилось новое видео. Советуем его посмотреть. На канале появилось новое видео. Советуем его посмотреть.</div>
+																	<div class="item-notification__date">28 мниут назад</div>
+																</div>
+																<div class="item-notification__image">
+																	<picture>
+																		<source srcset="images/notifications/image.webp" type="image/webp">
+																		<img src="images/notifications/image.jpg" alt="превью">
+																	</picture>
+																</div>
+																<div class="item-notification__option">
+																	<div class="notification-button">
+																		<div class="notification-icon">
+																			<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																				<path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="item-notification__actions actions-notification">
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7L6.19 6.9C4.31 8.11 2.83 9.89 2 12c1.57 3.99 5.45 6.82 10 6.82 1.77 0 3.44-.43 4.92-1.2l3.23 3.23.71-.71L3.85 3.15zM13.8 14.5c-.51.37-1.13.59-1.8.59-1.7 0-3.09-1.39-3.09-3.09 0-.67.22-1.29.59-1.8l4.3 4.3zM12 17.82c-3.9 0-7.35-2.27-8.92-5.82.82-1.87 2.18-3.36 3.83-4.38L8.79 9.5c-.54.69-.88 1.56-.88 2.5 0 2.25 1.84 4.09 4.09 4.09.95 0 1.81-.34 2.5-.88l1.67 1.67c-1.27.61-2.69.94-4.17.94zm-.51-9.87c.17-.02.34-.05.51-.05 2.25 0 4.09 1.84 4.09 4.09 0 .17-.02.34-.05.51l-1.01-1.01c-.21-1.31-1.24-2.33-2.55-2.55l-.99-.99zM9.12 5.59c.92-.26 1.88-.41 2.88-.41 4.55 0 8.43 2.83 10 6.82-.58 1.47-1.48 2.78-2.61 3.85l-.72-.72c.93-.87 1.71-1.92 2.25-3.13C19.35 8.45 15.9 6.18 12 6.18c-.7 0-1.39.08-2.06.22l-.82-.81z"></path>
+																				</svg>
+																			</div>Скрыть уведомление
+																		</div>
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7 3.48 3.48C6.22 8.21 6 9.22 6 10.32v5.15l-2 1.88V19h14.29l1.85 1.85.71-.71-17-16.99zM5 18v-.23l2-1.88v-5.47c0-.85.15-1.62.41-2.3L17.29 18H5zm5 2h4c0 1.1-.9 2-2 2s-2-.9-2-2zM9.28 5.75l-.7-.7c.43-.29.9-.54 1.42-.7v-.39c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v4.14l-1-1v-3.05c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03-.27.11-.51.24-.75.4z"></path>
+																				</svg>
+																			</div>Отключить все уведомления с канала
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</a>
+														<a class="notification__item item-notification" href="#">
+															<div class="item-notification__inner">
+																<div class="item-notification__new"> </div>
+																<div class="item-notification__avatar">
+																	<picture>
+																		<source srcset="images/notifications/avatar.webp" type="image/webp">
+																		<img src="images/notifications/avatar.jpg" alt="аватар">
+																	</picture>
+																</div>
+																<div class="item-notification__content">
+																	<div class="item-notification__message">На канале 'Хекслет' появилось новое видео: 'А вы с какими PHP-разработчиками чаще сталкиваетесь? #программирование #php #shorts'. Советуем его посмотреть.</div>
+																	<div class="item-notification__date">1 минуту назад</div>
+																</div>
+																<div class="item-notification__image">
+																	<picture>
+																		<source srcset="images/notifications/image.webp" type="image/webp">
+																		<img src="images/notifications/image.jpg" alt="превью">
+																	</picture>
+																</div>
+																<div class="item-notification__option">
+																	<div class="notification-button">
+																		<div class="notification-icon">
+																			<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																				<path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="item-notification__actions actions-notification">
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7L6.19 6.9C4.31 8.11 2.83 9.89 2 12c1.57 3.99 5.45 6.82 10 6.82 1.77 0 3.44-.43 4.92-1.2l3.23 3.23.71-.71L3.85 3.15zM13.8 14.5c-.51.37-1.13.59-1.8.59-1.7 0-3.09-1.39-3.09-3.09 0-.67.22-1.29.59-1.8l4.3 4.3zM12 17.82c-3.9 0-7.35-2.27-8.92-5.82.82-1.87 2.18-3.36 3.83-4.38L8.79 9.5c-.54.69-.88 1.56-.88 2.5 0 2.25 1.84 4.09 4.09 4.09.95 0 1.81-.34 2.5-.88l1.67 1.67c-1.27.61-2.69.94-4.17.94zm-.51-9.87c.17-.02.34-.05.51-.05 2.25 0 4.09 1.84 4.09 4.09 0 .17-.02.34-.05.51l-1.01-1.01c-.21-1.31-1.24-2.33-2.55-2.55l-.99-.99zM9.12 5.59c.92-.26 1.88-.41 2.88-.41 4.55 0 8.43 2.83 10 6.82-.58 1.47-1.48 2.78-2.61 3.85l-.72-.72c.93-.87 1.71-1.92 2.25-3.13C19.35 8.45 15.9 6.18 12 6.18c-.7 0-1.39.08-2.06.22l-.82-.81z"></path>
+																				</svg>
+																			</div>Скрыть уведомление
+																		</div>
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7 3.48 3.48C6.22 8.21 6 9.22 6 10.32v5.15l-2 1.88V19h14.29l1.85 1.85.71-.71-17-16.99zM5 18v-.23l2-1.88v-5.47c0-.85.15-1.62.41-2.3L17.29 18H5zm5 2h4c0 1.1-.9 2-2 2s-2-.9-2-2zM9.28 5.75l-.7-.7c.43-.29.9-.54 1.42-.7v-.39c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v4.14l-1-1v-3.05c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03-.27.11-.51.24-.75.4z"></path>
+																				</svg>
+																			</div>Отключить все уведомления с канала
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</a>
+														<a class="notification__item item-notification" href="#">
+															<div class="item-notification__inner">
+																<div class="item-notification__new"> </div>
+																<div class="item-notification__avatar">
+																	<picture>
+																		<source srcset="images/notifications/avatar.webp" type="image/webp">
+																		<img src="images/notifications/avatar.jpg" alt="аватар">
+																	</picture>
+																</div>
+																<div class="item-notification__content">
+																	<div class="item-notification__message">На канале появилось новое видео. Советуем его посмотреть. На канале появилось новое видео. Советуем его посмотреть. На канале появилось новое видео. Советуем его посмотреть.</div>
+																	<div class="item-notification__date">28 мниут назад</div>
+																</div>
+																<div class="item-notification__image">
+																	<picture>
+																		<source srcset="images/notifications/image.webp" type="image/webp">
+																		<img src="images/notifications/image.jpg" alt="превью">
+																	</picture>
+																</div>
+																<div class="item-notification__option">
+																	<div class="notification-button">
+																		<div class="notification-icon">
+																			<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																				<path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="item-notification__actions actions-notification">
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7L6.19 6.9C4.31 8.11 2.83 9.89 2 12c1.57 3.99 5.45 6.82 10 6.82 1.77 0 3.44-.43 4.92-1.2l3.23 3.23.71-.71L3.85 3.15zM13.8 14.5c-.51.37-1.13.59-1.8.59-1.7 0-3.09-1.39-3.09-3.09 0-.67.22-1.29.59-1.8l4.3 4.3zM12 17.82c-3.9 0-7.35-2.27-8.92-5.82.82-1.87 2.18-3.36 3.83-4.38L8.79 9.5c-.54.69-.88 1.56-.88 2.5 0 2.25 1.84 4.09 4.09 4.09.95 0 1.81-.34 2.5-.88l1.67 1.67c-1.27.61-2.69.94-4.17.94zm-.51-9.87c.17-.02.34-.05.51-.05 2.25 0 4.09 1.84 4.09 4.09 0 .17-.02.34-.05.51l-1.01-1.01c-.21-1.31-1.24-2.33-2.55-2.55l-.99-.99zM9.12 5.59c.92-.26 1.88-.41 2.88-.41 4.55 0 8.43 2.83 10 6.82-.58 1.47-1.48 2.78-2.61 3.85l-.72-.72c.93-.87 1.71-1.92 2.25-3.13C19.35 8.45 15.9 6.18 12 6.18c-.7 0-1.39.08-2.06.22l-.82-.81z"></path>
+																				</svg>
+																			</div>Скрыть уведомление
+																		</div>
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7 3.48 3.48C6.22 8.21 6 9.22 6 10.32v5.15l-2 1.88V19h14.29l1.85 1.85.71-.71-17-16.99zM5 18v-.23l2-1.88v-5.47c0-.85.15-1.62.41-2.3L17.29 18H5zm5 2h4c0 1.1-.9 2-2 2s-2-.9-2-2zM9.28 5.75l-.7-.7c.43-.29.9-.54 1.42-.7v-.39c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v4.14l-1-1v-3.05c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03-.27.11-.51.24-.75.4z"></path>
+																				</svg>
+																			</div>Отключить все уведомления с канала
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</a>
+														<a class="notification__item item-notification" href="#">
+															<div class="item-notification__inner">
+																<div class="item-notification__new"> </div>
+																<div class="item-notification__avatar">
+																	<picture>
+																		<source srcset="images/notifications/avatar.webp" type="image/webp">
+																		<img src="images/notifications/avatar.jpg" alt="аватар">
+																	</picture>
+																</div>
+																<div class="item-notification__content">
+																	<div class="item-notification__message">На канале 'Хекслет' появилось новое видео: 'А вы с какими PHP-разработчиками чаще сталкиваетесь? #программирование #php #shorts'. Советуем его посмотреть.</div>
+																	<div class="item-notification__date">1 минуту назад</div>
+																</div>
+																<div class="item-notification__image">
+																	<picture>
+																		<source srcset="images/notifications/image.webp" type="image/webp">
+																		<img src="images/notifications/image.jpg" alt="превью">
+																	</picture>
+																</div>
+																<div class="item-notification__option">
+																	<div class="notification-button">
+																		<div class="notification-icon">
+																			<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																				<path d="M12 16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM10.5 12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm0-6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5z"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="item-notification__actions actions-notification">
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7L6.19 6.9C4.31 8.11 2.83 9.89 2 12c1.57 3.99 5.45 6.82 10 6.82 1.77 0 3.44-.43 4.92-1.2l3.23 3.23.71-.71L3.85 3.15zM13.8 14.5c-.51.37-1.13.59-1.8.59-1.7 0-3.09-1.39-3.09-3.09 0-.67.22-1.29.59-1.8l4.3 4.3zM12 17.82c-3.9 0-7.35-2.27-8.92-5.82.82-1.87 2.18-3.36 3.83-4.38L8.79 9.5c-.54.69-.88 1.56-.88 2.5 0 2.25 1.84 4.09 4.09 4.09.95 0 1.81-.34 2.5-.88l1.67 1.67c-1.27.61-2.69.94-4.17.94zm-.51-9.87c.17-.02.34-.05.51-.05 2.25 0 4.09 1.84 4.09 4.09 0 .17-.02.34-.05.51l-1.01-1.01c-.21-1.31-1.24-2.33-2.55-2.55l-.99-.99zM9.12 5.59c.92-.26 1.88-.41 2.88-.41 4.55 0 8.43 2.83 10 6.82-.58 1.47-1.48 2.78-2.61 3.85l-.72-.72c.93-.87 1.71-1.92 2.25-3.13C19.35 8.45 15.9 6.18 12 6.18c-.7 0-1.39.08-2.06.22l-.82-.81z"></path>
+																				</svg>
+																			</div>Скрыть уведомление
+																		</div>
+																		<div class="actions-notification__item">
+																			<div class="notification-icon">
+																				<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+																					<path d="m3.85 3.15-.7.7 3.48 3.48C6.22 8.21 6 9.22 6 10.32v5.15l-2 1.88V19h14.29l1.85 1.85.71-.71-17-16.99zM5 18v-.23l2-1.88v-5.47c0-.85.15-1.62.41-2.3L17.29 18H5zm5 2h4c0 1.1-.9 2-2 2s-2-.9-2-2zM9.28 5.75l-.7-.7c.43-.29.9-.54 1.42-.7v-.39c0-1.42 1.49-2.5 2.99-1.76.65.32 1.01 1.03 1.01 1.76v.39c2.44.75 4 3.06 4 5.98v4.14l-1-1v-3.05c0-2.47-1.19-4.36-3.13-5.1-1.26-.53-2.64-.5-3.84.03-.27.11-.51.24-.75.4z"></path>
+																				</svg>
+																			</div>Отключить все уведомления с канала
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
 									</li>
 								</ul>
 							</nav>
@@ -482,56 +776,80 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/4.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/4.jpg" data-fslightbox="gallery-clan-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
@@ -553,7 +871,10 @@
 									<div class="item-section__content">
 										<a class="banner banner-small" href="#">
 											<div class="banner__image ibg">
-												<img src="images/sections/banner/banner-small.jpg" alt="Баннер" loading="lazy">
+												<picture>
+													<source srcset="images/sections/banner/banner-small.webp" type="image/webp">
+													<img src="images/sections/banner/banner-small.jpg" alt="Баннер" loading="lazy">
+												</picture>
 											</div>
 										</a>
 									</div>
@@ -569,7 +890,10 @@
 										<div class="item-section__content">
 											<div class="card-winner">
 												<div class="card-winner__image ibg">
-													<img src="images/sections/winner/img.jpg" alt="Победители миниконкурсов">
+													<picture>
+														<source srcset="images/sections/winner/img.webp" type="image/webp">
+														<img src="images/sections/winner/img.jpg" alt="Победители миниконкурсов">
+													</picture>
 												</div>
 												<div class="card-winner__body">
 													<div class="card-winner__icon"> </div>
@@ -599,56 +923,80 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/4.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/4.jpg" data-fslightbox="gallery-recent-gallery">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 														</div>
@@ -670,7 +1018,10 @@
 									<div class="item-section__content">
 										<a class="banner banner-big" href="#">
 											<div class="banner__image ibg">
-												<img src="images/sections/banner/banner-big.jpg" alt="Баннер" loading="lazy">
+												<picture>
+													<source srcset="images/sections/banner/banner-big.webp" type="image/webp">
+													<img src="images/sections/banner/banner-big.jpg" alt="Баннер" loading="lazy">
+												</picture>
 											</div>
 										</a>
 									</div>
@@ -693,7 +1044,10 @@
 															<span class='item-gallery__badge item-gallery__badge--green'>Выбор Худсовета</span>
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-best-photo">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -706,7 +1060,10 @@
 															<span class='item-gallery__badge item-gallery__badge--red'>Выбор ЧКФР</span>
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-best-photo">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -719,7 +1076,10 @@
 															<span class='item-gallery__badge item-gallery__badge--green'>Выбор Худсовета</span>
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-best-photo">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -732,7 +1092,10 @@
 															<span class='item-gallery__badge item-gallery__badge--red'>Выбор ЧКФР</span>
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-best-photo">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -745,7 +1108,10 @@
 															<span class='item-gallery__badge item-gallery__badge--green'>Выбор Худсовета</span>
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-best-photo">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -758,7 +1124,10 @@
 															<span class='item-gallery__badge item-gallery__badge--red'>Выбор ЧКФР</span>
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-best-photo">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -797,7 +1166,10 @@
 															<span class='item-gallery__badge item-gallery__badge--green'>Выбор Худсовета</span>
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-best-week">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -810,7 +1182,10 @@
 															<span class='item-gallery__badge item-gallery__badge--red'>Выбор ЧКФР</span>
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-best-week">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -823,7 +1198,10 @@
 															<span class='item-gallery__badge item-gallery__badge--green'>Выбор Худсовета</span>
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-best-week">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -836,7 +1214,10 @@
 															<span class='item-gallery__badge item-gallery__badge--red'>Выбор ЧКФР</span>
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-best-week">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -849,7 +1230,10 @@
 															<span class='item-gallery__badge item-gallery__badge--green'>Выбор Худсовета</span>
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-best-week">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -862,7 +1246,10 @@
 															<span class='item-gallery__badge item-gallery__badge--red'>Выбор ЧКФР</span>
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-best-week">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -900,7 +1287,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -912,7 +1302,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -924,7 +1317,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -936,7 +1332,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -948,7 +1347,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -960,7 +1362,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -972,7 +1377,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -984,7 +1392,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-recomendation">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1022,7 +1433,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1034,7 +1448,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1046,7 +1463,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1058,7 +1478,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1070,7 +1493,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1082,7 +1508,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1094,7 +1523,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1106,7 +1538,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-popular">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1144,7 +1579,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-young">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1156,7 +1594,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-young">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1168,7 +1609,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-young">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1180,7 +1624,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/1.jpg" data-fslightbox="gallery-young">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1192,7 +1639,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/2.jpg" data-fslightbox="gallery-young">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1204,7 +1654,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photo/3.jpg" data-fslightbox="gallery-young">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photo/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/photo/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1242,7 +1695,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1254,7 +1710,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1266,7 +1725,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1278,7 +1740,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1290,7 +1755,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1302,7 +1770,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1314,7 +1785,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1326,7 +1800,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-best-series">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1365,7 +1842,10 @@
 															<span class='item-gallery__badge'>12</span>
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1378,7 +1858,10 @@
 															<span class='item-gallery__badge'>145</span>
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1391,7 +1874,10 @@
 															<span class='item-gallery__badge'>15</span>
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1404,7 +1890,10 @@
 															<span class='item-gallery__badge'>5</span>
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1417,7 +1906,10 @@
 															<span class='item-gallery__badge'>12</span>
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1430,7 +1922,10 @@
 															<span class='item-gallery__badge'>145</span>
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1443,7 +1938,10 @@
 															<span class='item-gallery__badge'>15</span>
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1456,7 +1954,10 @@
 															<span class='item-gallery__badge'>5</span>
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-best-series-second">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1494,7 +1995,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1506,7 +2010,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1518,7 +2025,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1530,7 +2040,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1542,7 +2055,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/1.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1554,7 +2070,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/2.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1566,7 +2085,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/3.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/3.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/3.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1578,7 +2100,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/main/4.jpg" data-fslightbox="gallery-most-comment">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/main/4.webp" type="image/webp">
+																		<img src="images/sections/galleries/main/4.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1605,7 +2130,10 @@
 									<div class="item-section__content">
 										<a class="banner banner-small" href="#">
 											<div class="banner__image ibg">
-												<img src="images/sections/banner/banner-small.jpg" alt="Баннер" loading="lazy">
+												<picture>
+													<source srcset="images/sections/banner/banner-small.webp" type="image/webp">
+													<img src="images/sections/banner/banner-small.jpg" alt="Баннер" loading="lazy">
+												</picture>
 											</div>
 										</a>
 									</div>
@@ -1623,7 +2151,10 @@
 												<li class="item-section__list-item big-news-item">
 													<a class="item-section__link big-news-link" href="#">
 														<div class="big-news-image">
-															<img src="images/sections/contests/1.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															<picture>
+																<source srcset="images/sections/contests/1.webp" type="image/webp">
+																<img src="images/sections/contests/1.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															</picture>
 														</div>
 														<div class="big-news-content">
 															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
@@ -1635,7 +2166,10 @@
 												<li class="item-section__list-item big-news-item">
 													<a class="item-section__link big-news-link" href="#">
 														<div class="big-news-image">
-															<img src="images/sections/contests/2.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															<picture>
+																<source srcset="images/sections/contests/2.webp" type="image/webp">
+																<img src="images/sections/contests/2.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															</picture>
 														</div>
 														<div class="big-news-content">
 															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
@@ -1647,7 +2181,10 @@
 												<li class="item-section__list-item big-news-item">
 													<a class="item-section__link big-news-link" href="#">
 														<div class="big-news-image">
-															<img src="images/sections/contests/3.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															<picture>
+																<source srcset="images/sections/contests/3.webp" type="image/webp">
+																<img src="images/sections/contests/3.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															</picture>
 														</div>
 														<div class="big-news-content">
 															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
@@ -1676,7 +2213,10 @@
 												<li class="item-section__list-item big-news-item">
 													<a class="item-section__link big-news-link" href="#">
 														<div class="big-news-image">
-															<img src="images/sections/showing/1.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															<picture>
+																<source srcset="images/sections/showing/1.webp" type="image/webp">
+																<img src="images/sections/showing/1.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															</picture>
 														</div>
 														<div class="big-news-content">
 															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
@@ -1688,7 +2228,10 @@
 												<li class="item-section__list-item big-news-item">
 													<a class="item-section__link big-news-link" href="#">
 														<div class="big-news-image">
-															<img src="images/sections/showing/2.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															<picture>
+																<source srcset="images/sections/showing/2.webp" type="image/webp">
+																<img src="images/sections/showing/2.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															</picture>
 														</div>
 														<div class="big-news-content">
 															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
@@ -1700,7 +2243,10 @@
 												<li class="item-section__list-item big-news-item">
 													<a class="item-section__link big-news-link" href="#">
 														<div class="big-news-image">
-															<img src="images/sections/showing/3.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															<picture>
+																<source srcset="images/sections/showing/3.webp" type="image/webp">
+																<img src="images/sections/showing/3.jpg" alt="20 редких и нежных фото о любви детей и собак." loading="lazy">
+															</picture>
 														</div>
 														<div class="big-news-content">
 															<div class="big-news-title">20 редких и нежных фото о любви детей и собак.</div>
@@ -1745,7 +2291,10 @@
 									<div class="item-section__content">
 										<a class="banner banner-big" href="#">
 											<div class="banner__image ibg">
-												<img src="images/sections/banner/banner-big.jpg" alt="Баннер" loading="lazy">
+												<picture>
+													<source srcset="images/sections/banner/banner-big.webp" type="image/webp">
+													<img src="images/sections/banner/banner-big.jpg" alt="Баннер" loading="lazy">
+												</picture>
 											</div>
 										</a>
 									</div>
@@ -1765,7 +2314,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photomodel/1.jpg" data-fslightbox="gallery-photomodel">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photomodel/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photomodel/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photomodel/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1776,7 +2328,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photomodel/2.jpg" data-fslightbox="gallery-photomodel">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photomodel/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photomodel/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photomodel/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1787,7 +2342,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photomodel/1.jpg" data-fslightbox="gallery-photomodel">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photomodel/1.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photomodel/1.webp" type="image/webp">
+																		<img src="images/sections/galleries/photomodel/1.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1798,7 +2356,10 @@
 														<div class="gallery__item item-gallery swiper-slide">
 															<a href="images/sections/galleries/photomodel/2.jpg" data-fslightbox="gallery-photomodel">
 																<div class="item-gallery__image ibg">
-																	<img src="images/sections/galleries/photomodel/2.jpg" alt="изображение галереи" loading="lazy">
+																	<picture>
+																		<source srcset="images/sections/galleries/photomodel/2.webp" type="image/webp">
+																		<img src="images/sections/galleries/photomodel/2.jpg" alt="изображение галереи" loading="lazy">
+																	</picture>
 																</div>
 															</a>
 															<div class="item-gallery__body">
@@ -1833,7 +2394,10 @@
 												<li class="small-news-item">
 													<a class="item-section__link small-news-link" href="#">
 														<div class="small-news-image">
-															<img src="images/sections/projects/1.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															<picture>
+																<source srcset="images/sections/projects/1.webp" type="image/webp">
+																<img src="images/sections/projects/1.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															</picture>
 														</div>
 														<div class="small-news-content">
 															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
@@ -1843,7 +2407,10 @@
 												<li class="small-news-item">
 													<a class="item-section__link small-news-link" href="#">
 														<div class="small-news-image">
-															<img src="images/sections/projects/2.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															<picture>
+																<source srcset="images/sections/projects/2.webp" type="image/webp">
+																<img src="images/sections/projects/2.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															</picture>
 														</div>
 														<div class="small-news-content">
 															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
@@ -1853,7 +2420,10 @@
 												<li class="small-news-item">
 													<a class="item-section__link small-news-link" href="#">
 														<div class="small-news-image">
-															<img src="images/sections/projects/3.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															<picture>
+																<source srcset="images/sections/projects/3.webp" type="image/webp">
+																<img src="images/sections/projects/3.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															</picture>
 														</div>
 														<div class="small-news-content">
 															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
@@ -1863,7 +2433,10 @@
 												<li class="small-news-item">
 													<a class="item-section__link small-news-link" href="#">
 														<div class="small-news-image">
-															<img src="images/sections/projects/4.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															<picture>
+																<source srcset="images/sections/projects/4.webp" type="image/webp">
+																<img src="images/sections/projects/4.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															</picture>
 														</div>
 														<div class="small-news-content">
 															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
@@ -1873,7 +2446,10 @@
 												<li class="small-news-item">
 													<a class="item-section__link small-news-link" href="#">
 														<div class="small-news-image">
-															<img src="images/sections/projects/5.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															<picture>
+																<source srcset="images/sections/projects/5.webp" type="image/webp">
+																<img src="images/sections/projects/5.jpg" alt="Культурное наследие СССР: 12 работ, от которых тепло на душе" loading="lazy">
+															</picture>
 														</div>
 														<div class="small-news-content">
 															<span class="item-section__link-text small-news-text">Культурное наследие СССР: 12 работ, от которых тепло на душе</span>
@@ -1961,7 +2537,10 @@
 									<div class="item-section__content">
 										<a class="banner banner-small" href="#">
 											<div class="banner__image ibg">
-												<img src="images/sections/banner/banner-small.jpg" alt="Баннер" loading="lazy">
+												<picture>
+													<source srcset="images/sections/banner/banner-small.webp" type="image/webp">
+													<img src="images/sections/banner/banner-small.jpg" alt="Баннер" loading="lazy">
+												</picture>
 											</div>
 										</a>
 									</div>
@@ -2041,8 +2620,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="scripts/libs.js" defer></script>
-	<script src="scripts/main.js" defer></script>
+	<script src="scripts/libs.js?_v=20240707130929" defer></script>
+	<script src="scripts/main.js?_v=20240707130929" defer></script>
 </body>
 
 </html>
