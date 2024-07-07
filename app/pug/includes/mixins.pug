@@ -284,9 +284,9 @@ mixin studioCardSlider([...arr], index)
 		.studio-card__slider.swiper 
 			.studio-card__slider-wrapper.swiper-wrapper
 				each image, imageIndex in arr
-					a(href=`/images/studio/studio-${image}.jpg` data-fancybox=`gallery-${index}`).swiper-slide.studio-card__slider-item
+					a(href=`images/studio/studio-${image}.jpg` data-fancybox=`gallery-${index}`).swiper-slide.studio-card__slider-item
 						.studio-card__image.ibg
-							img(src=`/images/studio/studio-${image}.jpg`, alt="фото")
+							img(src=`images/studio/studio-${image}.jpg`, alt="фото")
 						if imageIndex == 2
 							.video-icon
 			.slider-controls.white-control
