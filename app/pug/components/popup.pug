@@ -1,0 +1,25 @@
++popup("popup-booked")
+	.popup__steps 
+		include ../blocks/popupStepBooked
+	.popup-actions
+		button(type="button").btn.btn-blue Далее 
++popup("popup-booked-hall")
+	.popup__steps 
+		include ../blocks/popupStepBooked
+		include ../blocks/popupStepHall
+	.popup-actions
+		button(type="button").btn.btn-blue Далее 
++popup("popup-booked-calendar", "open-popup")
+	.popup__steps 
+		include ../blocks/popupStepBooked
+		include ../blocks/popupStepHall
+		.popup__step.step-popup.step-popup-calendar
+			.step-popup__heading 
+				.step-popup__title Выберите свободное время
+			.step-popup__calendar.popup-calendar
+				.popup-calendar__legends 
+					.popup-calendar__legend.popup-calendar__legend--lock Занято
+					.popup-calendar__legend Свободно
+			#calendar
+	.popup-actions
+		button(type="button").btn.btn-blue Забронировать 

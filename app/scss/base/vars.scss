@@ -71,8 +71,11 @@ $xxxl: 1400px;
 $fontSize: 14px;
 // Основные Цвета
 $mainColor: #4b4b4b;
+$mainColorSecondary: #4a4a4a;
 $whiteColor: #ffffff;
 $blueColor: #307ff5;
+$blueColorHover: #0142a3;
+$bgOverlay: #f3f3f3;
 $bg: #f3f3f3;
 $greenColor: #659d5c;
 $boxShadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.05);
@@ -82,3 +85,4 @@ $br10: 10px;
 $fontFamily: "Inter", sans-serif;
 $secondFamily: "Rubik", sans-serif;
 $fontWeight: 400;
+$time: 0.3s;

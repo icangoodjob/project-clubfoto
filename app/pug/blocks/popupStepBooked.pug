@@ -1,0 +1,10 @@
+.popup__step.step-popup
+    .step-popup__heading 
+        .step-popup__title Для чего бронируете?
+    .step-popup__radiobuttons 
+        each item, index in bookedPage.radiobuttons
+            .base-radio 
+                label.base-radio__label 
+                    input(type="radio" name="booked-radio[]" class="real-radio" checked=index===0)
+                    span.custom-radio
+                    span.base-radio__text= item.text

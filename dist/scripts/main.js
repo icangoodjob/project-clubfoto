@@ -219,12 +219,8 @@ if (galleryAwards) {
       clickable: true,
     },
     navigation: {
-      nextEl: galleryAwards.nextElementSibling.querySelector(
-        ".gallery__controls .slider-button-next"
-      ),
-      prevEl: galleryAwards.nextElementSibling.querySelector(
-        ".gallery__controls .slider-button-prev"
-      ),
+      nextEl: galleryAwards.nextElementSibling.querySelector(".gallery__controls .slider-button-next"),
+      prevEl: galleryAwards.nextElementSibling.querySelector(".gallery__controls .slider-button-prev"),
     },
     speed: 800,
     breakpoints: {
@@ -271,12 +267,8 @@ if (galleryPhotos) {
       clickable: true,
     },
     navigation: {
-      nextEl: galleryPhotos.nextElementSibling.querySelector(
-        ".gallery__controls .slider-button-next"
-      ),
-      prevEl: galleryPhotos.nextElementSibling.querySelector(
-        ".gallery__controls .slider-button-prev"
-      ),
+      nextEl: galleryPhotos.nextElementSibling.querySelector(".gallery__controls .slider-button-next"),
+      prevEl: galleryPhotos.nextElementSibling.querySelector(".gallery__controls .slider-button-prev"),
     },
     speed: 800,
     breakpoints: {
@@ -311,19 +303,13 @@ if (galleryPersonal) {
     slideClass: "gallery__item",
     lockClass: "swiper-lock",
     pagination: {
-      el: galleryPersonal.nextElementSibling.querySelector(
-        ".slider-pagination"
-      ),
+      el: galleryPersonal.nextElementSibling.querySelector(".slider-pagination"),
       type: "bullets",
       clickable: true,
     },
     navigation: {
-      nextEl: galleryPersonal.nextElementSibling.querySelector(
-        ".gallery__controls .slider-button-next"
-      ),
-      prevEl: galleryPersonal.nextElementSibling.querySelector(
-        ".gallery__controls .slider-button-prev"
-      ),
+      nextEl: galleryPersonal.nextElementSibling.querySelector(".gallery__controls .slider-button-next"),
+      prevEl: galleryPersonal.nextElementSibling.querySelector(".gallery__controls .slider-button-prev"),
     },
     speed: 800,
     breakpoints: {
@@ -359,15 +345,9 @@ let cardMainSwiper;
 
 if (cardMainSlider) {
   const cardMainChildren = cardMainSlider?.children[0].children.length;
-  const sliderPagination = cardMainSlider.querySelector(
-    ".product-slider__pagination"
-  );
-  const buttonPrev = cardMainSlider.querySelector(
-    ".product-slider-button--prev"
-  );
-  const buttonNext = cardMainSlider.querySelector(
-    ".product-slider-button--next"
-  );
+  const sliderPagination = cardMainSlider.querySelector(".product-slider__pagination");
+  const buttonPrev = cardMainSlider.querySelector(".product-slider-button--prev");
+  const buttonNext = cardMainSlider.querySelector(".product-slider-button--next");
   if (cardMainChildren <= 1) {
     buttonPrev.remove();
     buttonNext.remove();
@@ -437,12 +417,8 @@ if (similarSlider) {
 
 const contestJury = document.querySelector(".contest-slider");
 if (contestJury) {
-  const sliderBtnPrev = contestJury.querySelector(
-    ".contest-slider__button--prev"
-  );
-  const sliderBtnNext = contestJury.querySelector(
-    ".contest-slider__button--next"
-  );
+  const sliderBtnPrev = contestJury.querySelector(".contest-slider__button--prev");
+  const sliderBtnNext = contestJury.querySelector(".contest-slider__button--next");
   let contestJurySwiper = new Swiper(contestJury, {
     slideClass: "contest-slider__item",
     spaceBetween: 92,
@@ -522,15 +498,12 @@ function initExhibitionSlider() {
       const exhibitionSliders = group.querySelectorAll(".exhibition-cards");
       if (exhibitionSliders.length) {
         [...exhibitionSliders].forEach((exhibitionSlider, index) => {
-          let sliderWrapper = exhibitionSlider.querySelector(
-            ".exhibition-cards__wrapper"
-          );
+          let sliderWrapper = exhibitionSlider.querySelector(".exhibition-cards__wrapper");
           let controls = renderSliderControls();
           exhibitionSlider.appendChild(controls);
           exhibitionSlider.classList.add("swiper");
           sliderWrapper.classList.add("swiper-wrapper");
-          let sliderSpaceBetween =
-            exhibitionSlider.dataset.slider == "small" ? 7 : 10;
+          let sliderSpaceBetween = exhibitionSlider.dataset.slider == "small" ? 7 : 10;
           let sliderCount = exhibitionSlider.dataset.slider == "small" ? 4 : 3;
           exhibitionMobileSwiper = new Swiper(exhibitionSlider, {
             slideClass: "exhibition-card",
@@ -594,9 +567,7 @@ if (exhibitionSections.length) {
   [...exhibitionSections].forEach((section) => {
     const exhibitionSlider = section.querySelector(".exhibition-cards");
     if (exhibitionSlider) {
-      let sliderWrapper = exhibitionSlider.querySelector(
-        ".exhibition-cards__wrapper"
-      );
+      let sliderWrapper = exhibitionSlider.querySelector(".exhibition-cards__wrapper");
       let controls = renderSliderControls();
       exhibitionSlider.appendChild(controls);
       exhibitionSlider.classList.add("swiper");
@@ -655,12 +626,9 @@ if (expositionCards.length) {
   [...expositionCards].forEach((card) => {
     const expositionCardSlider = card.querySelector(".exposition-card__slider");
     if (expositionCardSlider) {
-      const buttonPrev =
-        expositionCardSlider.querySelector(".slider-arrow-prev");
-      const buttonNext =
-        expositionCardSlider.querySelector(".slider-arrow-next");
-      const pagination =
-        expositionCardSlider.querySelector(".slider-pagination");
+      const buttonPrev = expositionCardSlider.querySelector(".slider-arrow-prev");
+      const buttonNext = expositionCardSlider.querySelector(".slider-arrow-next");
+      const pagination = expositionCardSlider.querySelector(".slider-pagination");
       let expositionSwiper = new Swiper(expositionCardSlider, {
         speed: 1000,
         centeredSlides: false,
@@ -680,9 +648,7 @@ if (expositionCards.length) {
           init: function (swiper) {
             const slides = swiper.slides;
             if (slides.length < 2) {
-              const sliderControls =
-                swiper.navigation.nextEl.parentNode ||
-                swiper.navigation.prevEl.parentNode;
+              const sliderControls = swiper.navigation.nextEl.parentNode || swiper.navigation.prevEl.parentNode;
               swiper.pagination.destroy();
               swiper.navigation.destroy();
               sliderControls.remove();
@@ -695,9 +661,7 @@ if (expositionCards.length) {
 }
 
 const expositionMainSlider = document.querySelector(".exposition-slider__body");
-const expositionSimilarSlider = document.querySelector(
-  ".similar-exposition__body"
-);
+const expositionSimilarSlider = document.querySelector(".similar-exposition__body");
 const studioCardMainSliders = document.querySelectorAll(".studio-card__slider");
 let expositionMainSwiper = null;
 let expositionSimilarSwiper = null;
@@ -727,9 +691,7 @@ function initExpositionSwiper() {
         init: function (swiper) {
           const slides = swiper.slides;
           if (slides.length < 2) {
-            const sliderControls =
-              swiper.navigation.nextEl.parentNode ||
-              swiper.navigation.prevEl.parentNode;
+            const sliderControls = swiper.navigation.nextEl.parentNode || swiper.navigation.prevEl.parentNode;
             swiper.pagination.destroy();
             swiper.navigation.destroy();
             sliderControls.remove();
@@ -853,9 +815,7 @@ Fancybox.bind(":not(.swiper-slide-duplicate) > [data-fancybox]", {
 });
 // Исправить баг с дублированием изображений в фенсибоксе, если свипер бесконечный
 document.addEventListener("DOMContentLoaded", function () {
-  let fancyboxInSlider = document.querySelectorAll(
-    ".swiper-slide-duplicate [data-fancybox]"
-  );
+  let fancyboxInSlider = document.querySelectorAll(".swiper-slide-duplicate [data-fancybox]");
   if (fancyboxInSlider.length) {
     fancyboxInSlider.forEach(function (item) {
       item.addEventListener("click", function (e) {
@@ -863,11 +823,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let href = item.getAttribute("href");
         item
           .closest(".swiper")
-          .querySelector(
-            ".swiper-slide:not(.swiper-slide-duplicate) [data-fancybox][href='" +
-              href +
-              "']"
-          )
+          .querySelector(".swiper-slide:not(.swiper-slide-duplicate) [data-fancybox][href='" + href + "']")
           .click();
       });
     });
@@ -925,9 +881,7 @@ let tabsItem = document.querySelectorAll("[data-tab]");
 [...tabsItem].forEach((tab) => {
   tab.addEventListener("click", () => {
     let currentTab = tab.dataset.tab;
-    let currentContent = document.querySelector(
-      `[data-tab-content=${currentTab}]`
-    );
+    let currentContent = document.querySelector(`[data-tab-content=${currentTab}]`);
     tabContentBlock.forEach((item) => {
       item.classList.remove("show");
     });
@@ -995,10 +949,7 @@ function documentActions(event) {
     menuBody.classList.toggle("active");
     document.body.classList.toggle("lock");
   }
-  if (
-    !target.closest(".menu-mobile") &&
-    !target.closest(".nav-header__button")
-  ) {
+  if (!target.closest(".menu-mobile") && !target.closest(".nav-header__button")) {
     menuBody.classList.remove("active");
   }
   // Открытие категорий в мобильной версии
@@ -1067,18 +1018,13 @@ window.addEventListener("resize", () => {
 
 // Инициализация кастомного скроллбара
 function initSimpleBar() {
-  Array.prototype.forEach.call(
-    document.querySelectorAll("[data-simplebar]"),
-    (el) => new SimpleBar(el)
-  );
+  Array.prototype.forEach.call(document.querySelectorAll("[data-simplebar]"), (el) => new SimpleBar(el));
 }
 initSimpleBar();
 
 // Dropdown
 function deactivateAllDropdownTriggers() {
-  const activeDropdownButtons = document.querySelectorAll(
-    ".dropdown__button.active"
-  );
+  const activeDropdownButtons = document.querySelectorAll(".dropdown__button.active");
   [...activeDropdownButtons].forEach((elem) => {
     elem.classList.remove("active");
   });
@@ -1178,10 +1124,7 @@ function mapInit() {
   myMap.behaviors.disable("scrollZoom");
   if (window.innerWidth < 991.98) {
     myMap.behaviors.disable("drag");
-    let version = map.firstChild
-      .getAttribute("class")
-      .replace("ymaps-", "")
-      .replace("-map", "");
+    let version = map.firstChild.getAttribute("class").replace("ymaps-", "").replace("-map", "");
     let pane = document.querySelector(".ymaps-" + version + "-events-pane");
     pane.innerHTML = "Чтобы переместить карту проведите по ней двумя пальцами";
     pane.style.cssText =
@@ -1223,10 +1166,7 @@ if (mapElem) {
   let observer = new IntersectionObserver(([entry]) => {
     const targetInfo = entry.boundingClientRect;
     const rootBoundsInfo = entry.rootBounds;
-    if (
-      (!isLoaded && targetInfo.top < rootBoundsInfo.bottom) ||
-      targetInfo.isIntersecting
-    ) {
+    if ((!isLoaded && targetInfo.top < rootBoundsInfo.bottom) || targetInfo.isIntersecting) {
       loadMap();
       // observer.unobserve(entry.target)
     }
@@ -1267,3 +1207,189 @@ function notificationClicks(e) {
   //   deactivateNotification();
   // }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const popups = document.querySelectorAll(".popup");
+  // Скрипты для страницы Бронирование
+  document.addEventListener("click", popupActions);
+  const openPopup = (id) => {
+    const currentPopup = document.getElementById(`${id}`);
+    if (!currentPopup) return;
+    console.log(currentPopup);
+    currentPopup.classList.add("open-popup");
+  };
+  const closePopup = (popup) => {
+    if (popup) {
+      popup.classList.remove("open-popup");
+      document.removeEventListener("keydown", handleKeyDown);
+    }
+  };
+  // Отдельная функция для обработки клавиш
+  function handleKeyDown(event) {
+    if (event.key === "Escape" || event.key === "Backspace") {
+      event.preventDefault();
+      const activePopup = document.querySelector(".popup.open-popup");
+      if (activePopup) {
+        closePopup(activePopup);
+      }
+    }
+  }
+  // document.addEventListener("touchstart", openModal, { passive: false });
+  function popupActions(event) {
+    const target = event.target;
+    if (target.closest("[data-popup-button]")) {
+      event.preventDefault();
+      const popupId = target.dataset.popupButton;
+      openPopup(popupId);
+    }
+    if (target.closest("[data-popup-close]")) {
+      const popup = target.closest(".popup");
+      closePopup(popup);
+    }
+    if (target.classList.contains("popup") || target.classList.contains("popup__wrapper")) {
+      const popup = target.closest(".popup");
+      closePopup(popup);
+    }
+  }
+  // Глобальный обработчик клавиатуры
+  document.addEventListener("keydown", (event) => {
+    handleKeyDown(event);
+  });
+  let FullCalendar = window.FullCalendar;
+  const calendarEl = document.getElementById("calendar");
+  function isMobileDevice() {
+    return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  var isMobile = isMobileDevice();
+  function removeTimeCells() {
+    // Находим все элементы с data-time
+    const timeCells = calendarEl?.querySelectorAll(".fc-timegrid-slot-minor[data-time]");
+    // Удаляем каждый элемент
+    timeCells.forEach((cell) => {
+      cell.remove();
+    });
+
+    console.log(`Удалено ${timeCells.length} ячеек с data-time`);
+  }
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    // initialView: 'dayGridMonth', // options: 'dayGridMonth', 'timeGridWeek', etc.
+    initialView: isMobile ? "timeGridDay" : "timeGridWeek",
+    headerToolbar: {
+      // left: 'prev,next today',
+      center: "title",
+      right: "buttonNightTimeToggle",
+      left: "buttonToday,buttonPrev,buttonNext",
+    },
+    customButtons: {
+      buttonToday: {
+        text: "Сегодня",
+        click: function () {
+          calendar.today();
+        },
+      },
+      buttonPrev: {
+        hint: `button-prev`,
+        click: function () {
+          calendar.prev();
+        },
+      },
+      buttonNext: {
+        hint: `button-next`,
+        click: function () {
+          calendar.next();
+        },
+      },
+      buttonNightTimeToggle: {
+        text: "Показать ночное время",
+        click: function () {
+          // логика переключения ночного времени
+          var currentMinTime = calendar.getOption("slotMinTime");
+          calendar.setOption("slotMinTime", currentMinTime === "00:00" ? "06:00" : "00:00");
+          this.textContent = calendar.getOption("slotMinTime") === "00:00" ? "Показать дневное время" : "Показать ночное время";
+          // removeTimeCells();
+        },
+      },
+    },
+    allDaySlot: false,
+    height: "auto",
+    contentHeight: "auto",
+    expandRows: false,
+    // Формат времени
+    slotLabelFormat: {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: false, // 24-часовой формат
+      meridiem: "short",
+    },
+    firstDay: 1,
+    titleRangeSeparator: " - ",
+    titleFormat: {
+      month: "long",
+      day: "numeric",
+    },
+    // Упрощенный вид для мобильных
+    // views: {
+    //   timeGridDay: {
+    //     titleFormat: { month: "short", day: "numeric", weekday: "short" },
+    //   },
+    //   timeGridWeek: {
+    //     titleFormat: window.innerWidth < 768 ? { month: "short", day: "numeric" } : { month: "long", day: "numeric" },
+    //   },
+    // },
+    // Настройки временного диапазона
+    slotMinTime: "06:00", // Начинать с 00:00
+    slotMaxTime: "24:00", // Заканчивать в 24:00
+    events: function (fetchInfo, successCallback, failureCallback) {
+      // Ваши обычные события
+      const regularEvents = [
+        // {
+        //   title: "Обычное событие",
+        //   start: "2025-10-28T11:00:00",
+        //   end: "2025-10-28T12:00:00",
+        // },
+      ];
+      // Фоновые события для выделения ячеек
+      const backgroundEvents = [
+        {
+          start: "2025-10-28T08:00:00",
+          end: "2025-10-28T10:00:00",
+          display: "background",
+          color: "#307ff5",
+          textColor: "#333",
+        },
+        {
+          start: "2025-10-28T11:00:00",
+          end: "2025-10-28T11:00:00",
+          display: "background",
+          color: "#307ff5",
+          textColor: "white",
+        },
+      ];
+      const backgroundFailure = [
+        {
+          start: "2025-10-29T14:00:00",
+          end: "2025-10-29T16:00:00",
+          display: "background",
+          color: "#d8d8d8", // серый фон
+          textColor: "white",
+        },
+        {
+          start: "2025-10-29T09:00:00",
+          end: "2025-10-29T11:00:00",
+          display: "background",
+          color: "#d8d8d8", // серый фон
+          textColor: "white",
+        },
+      ];
+      successCallback([...regularEvents, ...backgroundEvents, ...backgroundFailure]);
+    },
+  });
+
+  calendar.render();
+  calendar.setOption("locale", "ru");
+  // removeTimeCells();
+  // // Или при изменении вида
+  // calendar.on("datesSet", function () {
+  //   setTimeout(removeTimeCells, 100);
+  // });
+});

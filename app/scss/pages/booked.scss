@@ -1,0 +1,11 @@
+/* Базовые стили для страницы с кнопками. Далее можно будет удалить */
+@import "../components/base-radio";
+.booked-page {
+  // .modals-page__buttons
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}

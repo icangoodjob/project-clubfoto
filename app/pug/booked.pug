@@ -1,0 +1,15 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Бронирование";
+	- description += pageTitle;
+	- breadcrumbs = true;
+block content
+	.booked-page 
+		.container
+			.booked-page__buttons
+				button(type="button" data-popup-button="popup-booked").btn.btn-blue Для чего бронируете?
+				button(type="button" data-popup-button="popup-booked-hall").btn.btn-blue Для чего бронируете? (с залами)
+				button(type="button" data-popup-button="popup-booked-calendar").btn.btn-blue Для чего бронируете? (с календарем)
+				button(type="button" data-popup-button="popup-services").btn.btn-blue Дополнительные услуги
+				button(type="button" data-popup-button="popup-order").btn.btn-blue Оформление заказа

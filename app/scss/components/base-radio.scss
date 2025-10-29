@@ -1,0 +1,14 @@
+.base-radio {
+  // .base-radio__label
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    @include hover {
+      cursor: pointer;
+    }
+  }
+  // .base-radio__text
+  &__text {
+  }
+}

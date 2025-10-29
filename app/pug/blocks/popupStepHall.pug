@@ -1,0 +1,10 @@
+.popup__step.step-popup
+    .step-popup__heading 
+        .step-popup__title Выберите зал
+    .step-popup__halls
+        each hall, hallIndex in bookedPage.halls
+            .hall-item
+                input(type="radio" name="booked-hall[]" class="hall-item__input" checked=hallIndex===0)
+                .hall-item__image.image-ibg
+                    img(src=`images/booked/popup-hall-${hallIndex+1}.jpg`, alt=hall.text)
+                .hall-item__content= hall.text
