@@ -1186,7 +1186,6 @@ function deactivateNotification() {
 
 function notificationClicks(e) {
   let target = e.target;
-  console.log(target);
   if (target.matches(".nav-header__link--bell")) {
     if (target.classList.contains("active")) {
       target.classList.remove("active");
@@ -1215,7 +1214,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const openPopup = (id) => {
     const currentPopup = document.getElementById(`${id}`);
     if (!currentPopup) return;
-    console.log(currentPopup);
     currentPopup.classList.add("open-popup");
   };
   const closePopup = (popup) => {
@@ -1226,7 +1224,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   // Отдельная функция для обработки клавиш
   function handleKeyDown(event) {
-    if (event.key === "Escape" || event.key === "Backspace") {
+    if (event.key === "Escape") {
       event.preventDefault();
       const activePopup = document.querySelector(".popup.open-popup");
       if (activePopup) {
@@ -1260,22 +1258,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function isMobileDevice() {
     return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
-  var isMobile = isMobileDevice();
-  function removeTimeCells() {
-    // Находим все элементы с data-time
-    const timeCells = calendarEl?.querySelectorAll(".fc-timegrid-slot-minor[data-time]");
-    // Удаляем каждый элемент
-    timeCells.forEach((cell) => {
-      cell.remove();
-    });
-
-    console.log(`Удалено ${timeCells.length} ячеек с data-time`);
-  }
+  // Массив для выделенных ячеек
+  let highlightedCells = [];
+  let isMobile = isMobileDevice();
   const calendar = new FullCalendar.Calendar(calendarEl, {
     // initialView: 'dayGridMonth', // options: 'dayGridMonth', 'timeGridWeek', etc.
     initialView: isMobile ? "timeGridDay" : "timeGridWeek",
     headerToolbar: {
-      // left: 'prev,next today',
       center: "title",
       right: "buttonNightTimeToggle",
       left: "buttonToday,buttonPrev,buttonNext",
@@ -1306,9 +1295,11 @@ document.addEventListener("DOMContentLoaded", () => {
           var currentMinTime = calendar.getOption("slotMinTime");
           calendar.setOption("slotMinTime", currentMinTime === "00:00" ? "06:00" : "00:00");
           this.textContent = calendar.getOption("slotMinTime") === "00:00" ? "Показать дневное время" : "Показать ночное время";
-          // removeTimeCells();
         },
       },
+    },
+    slotLabelInterval: {
+      hours: 1,
     },
     allDaySlot: false,
     height: "auto",
@@ -1318,15 +1309,19 @@ document.addEventListener("DOMContentLoaded", () => {
     slotLabelFormat: {
       hour: "numeric",
       minute: "2-digit",
-      hour12: false, // 24-часовой формат
+      omitZeroMinute: false,
       meridiem: "short",
     },
+    // Начинаем отсчет с понедельника (1)
     firstDay: 1,
+    // Разделитель между днями
     titleRangeSeparator: " - ",
     titleFormat: {
       month: "long",
       day: "numeric",
     },
+    slotDuration: "01:00:00", // продолжительность слота 1 час
+    slotLabelInterval: "01:00:00",
     // Упрощенный вид для мобильных
     // views: {
     //   timeGridDay: {
@@ -1339,6 +1334,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // Настройки временного диапазона
     slotMinTime: "06:00", // Начинать с 00:00
     slotMaxTime: "24:00", // Заканчивать в 24:00
+    // Включаем возможность выделения
+    selectable: true,
+    // Обработчик клика по ячейке
+    dateClick: function (info) {
+      const date = info.date;
+      const dayOfWeek = date.getDay();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const timeSlot = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
+
+      // Получаем полную дату в формате YYYY-MM-DD
+      const fullDate = date.toISOString().split("T")[0];
+
+      // Получаем название дня недели
+      const dayNames = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"];
+      const dayName = dayNames[dayOfWeek];
+
+      // Создаем уникальный ключ для дальнейшей фильтрации
+      const cellKey = `date-${fullDate}-time-${timeSlot}`;
+
+      // Проверяем, не выделена ли уже ячейка
+      const existingIndex = highlightedCells.findIndex((cell) => cell.key === cellKey);
+
+      if (existingIndex >= 0) {
+        // Удаляем выделение
+        removeHighlight(highlightedCells[existingIndex]);
+        highlightedCells.splice(existingIndex, 1);
+        // console.log("Выделение снято:", highlightedCells[existingIndex]);
+      } else {
+        // Добавляем выделение
+        const highlightedCell = createHighlight(date, dayOfWeek, dayName, fullDate, timeSlot);
+        highlightedCells.push(highlightedCell);
+        // console.log("Ячейка выделена:", highlightedCell);
+      }
+
+      // Выводим все выделенные ячейки в консоль
+      console.log("Все выделенные ячейки:", highlightedCells);
+    },
+
     events: function (fetchInfo, successCallback, failureCallback) {
       // Ваши обычные события
       const regularEvents = [
@@ -1348,7 +1382,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //   end: "2025-10-28T12:00:00",
         // },
       ];
-      // Фоновые события для выделения ячеек
+      // Можно создать массив с заранее выделенными ячейками
       const backgroundEvents = [
         {
           start: "2025-10-28T08:00:00",
@@ -1365,6 +1399,7 @@ document.addEventListener("DOMContentLoaded", () => {
           textColor: "white",
         },
       ];
+      // Массив для хранения забронированных объектов
       const backgroundFailure = [
         {
           start: "2025-10-29T14:00:00",
@@ -1381,15 +1416,80 @@ document.addEventListener("DOMContentLoaded", () => {
           textColor: "white",
         },
       ];
-      successCallback([...regularEvents, ...backgroundEvents, ...backgroundFailure]);
+      successCallback([...backgroundEvents, ...backgroundFailure]);
     },
   });
+  function createHighlight(date, dayOfWeek, dayName, fullDate, timeSlot) {
+    const event = {
+      start: date,
+      end: new Date(date.getTime() + 60 * 60 * 1000), // +1 час
+      display: "background",
+      color: "#307ff5",
+      rendering: "background",
+      className: "user-highlighted",
+      extendedProps: {
+        dayOfWeek: dayOfWeek,
+        dayName: dayName,
+        fullDate: fullDate,
+        timeSlot: timeSlot,
+        isHighlighted: true,
+      },
+    };
+
+    const calendarEvent = calendar.addEvent(event);
+
+    return {
+      key: `date-${fullDate}-time-${timeSlot}`,
+      event: calendarEvent,
+      dayOfWeek: dayOfWeek,
+      dayName: dayName,
+      fullDate: fullDate,
+      timeSlot: timeSlot,
+      timestamp: date.getTime(),
+    };
+  }
+
+  function removeHighlight(highlightedCell) {
+    highlightedCell.event.remove();
+  }
+
+  // Дополнительные функции для работы с массивом highlightedCells:
+
+  // Получить все выделенные ячейки для определенной даты
+  function getHighlightsByDate(dateString) {
+    return highlightedCells.filter((cell) => cell.fullDate === dateString);
+  }
+
+  // Получить все выделенные ячейки для определенного дня недели
+  function getHighlightsByDay(dayOfWeek) {
+    return highlightedCells.filter((cell) => cell.dayOfWeek === dayOfWeek);
+  }
+
+  // Получить все выделенные ячейки для определенного времени
+  function getHighlightsByTime(timeString) {
+    return highlightedCells.filter((cell) => cell.timeSlot === timeString);
+  }
+
+  // Очистить все выделения
+  function clearAllHighlights() {
+    highlightedCells.forEach((cell) => {
+      cell.event.remove();
+    });
+    highlightedCells = [];
+    console.log("Все выделения очищены");
+  }
+
+  // Получить выделения в удобном формате для отправки на сервер
+  function getHighlightsForServer() {
+    return highlightedCells.map((cell) => ({
+      date: cell.fullDate,
+      dayOfWeek: cell.dayOfWeek,
+      dayName: cell.dayName,
+      time: cell.timeSlot,
+      timestamp: cell.timestamp,
+    }));
+  }
 
   calendar.render();
   calendar.setOption("locale", "ru");
-  // removeTimeCells();
-  // // Или при изменении вида
-  // calendar.on("datesSet", function () {
-  //   setTimeout(removeTimeCells, 100);
-  // });
 });

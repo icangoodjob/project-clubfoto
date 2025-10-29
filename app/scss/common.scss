@@ -65,7 +65,7 @@
   background-color: $blueColor;
   border-radius: 10px;
   min-height: 48px;
-  padding: 12px 20px;
+  padding: 10px 20px;
   @media (any-hover: hover) {
     &:hover {
       color: $whiteColor;
@@ -73,6 +73,15 @@
       border-color: $blueColorHover;
     }
   }
+}
+
+.btn-border {
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 400;
+  font-size: 16px;
+  min-height: 48px;
+  border-width: 1px;
 }
 
 .btn-add {
@@ -996,7 +1005,7 @@
     line-height: 120%;
     margin-bottom: 12px;
   }
-  ul {
+  ul:not([class]) {
     @include reset-list;
     display: flex;
     flex-direction: column;
@@ -1010,7 +1019,7 @@
       &::before {
         content: "";
         position: absolute;
-        top: 11px;
+        top: 6px;
         left: 10px;
         width: 5px;
         height: 5px;

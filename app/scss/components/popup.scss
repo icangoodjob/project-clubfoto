@@ -55,11 +55,51 @@
     flex-direction: column;
     gap: 15px;
   }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px 20px;
+    margin-top: 15px;
+  }
+  &__bottom-quantity {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  &__bottom-info {
+    font-size: 16px;
+    line-height: 150%;
+    min-width: 102px;
+    color: $grayColor;
+    & strong {
+      color: $mainColorSecondary;
+      font-family: $secondFamily;
+    }
+  }
+  &__bottom-price {
+    margin-right: 13px;
+    font-size: 16px;
+    line-height: 140%;
+    color: $mainColorSecondary;
+    text-align: right;
+    & strong {
+      font-family: $secondFamily;
+      font-weight: 700;
+      font-size: 28px;
+    }
+    & span {
+      display: block;
+      color: $grayColor;
+    }
+  }
 }
 
 .popup-actions {
-  margin-top: 15px;
+  gap: 12px;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 
@@ -75,7 +115,10 @@
       border-bottom: 1px solid #eaeaea;
     }
   }
-  &__body {
+  &.step-popup-services {
+    gap: 0;
+    padding: 0;
+    border: 0;
   }
   &__radiobuttons {
     display: flex;
@@ -344,20 +387,11 @@
   }
 }
 .fc .fc-timegrid-slot {
-  height: 17px;
+  height: 35px;
 }
 .fc .fc-col-header-cell-cushion {
   font-weight: 400;
 }
-.fc-theme-standard td,
-.fc-theme-standard th {
-  //   border: none !important;
-  //   border-bottom: 1px solid #d8d8d8 !important;
-}
-
-// .fc-timegrid-slot.fc-timegrid-slot-lane.fc-timegrid-slot-minor {
-//   border-bottom: 1px solid #d8d8d8 !important;
-// }
 
 .fc .fc-toolbar.fc-header-toolbar {
   margin-bottom: 15px;
@@ -366,6 +400,148 @@
 .fc .fc-timegrid-col.fc-day-today {
   background-color: transparent;
 }
+
 .fc .fc-bg-event {
   opacity: 1;
+}
+
+.fc-direction-ltr .fc-timegrid-slot-label-frame {
+  text-align: left;
+}
+
+// Попап "доп. услуги"
+.services-items {
+  margin-top: 15px;
+}
+.services-item {
+  padding: 15px 0;
+  border-top: 1px solid #eaeaea;
+  &:last-child {
+    border-bottom: 1px solid #eaeaea;
+  }
+  // .services-item__header
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-right: 37px;
+    padding-left: 15px;
+    position: relative;
+    min-height: 48px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      right: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      mask-image: url("../images/icons/chevron-left.svg");
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: 20px 20px;
+      background-color: $grayColor;
+    }
+  }
+  // .services-item__actions
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+  }
+  // .services-item__price
+  &__price {
+    font-weight: 700;
+    font-size: 20px;
+    text-align: right;
+    font-family: $secondFamily;
+    min-width: 164px;
+  }
+  // .services-item__content
+  &__content {
+    margin-top: 15px;
+    padding: 0px 48px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+  }
+  & .checkbox__label {
+    gap: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    color: $mainColorSecondary;
+  }
+  & .custom-checkbox {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    &::before {
+      mask-image: url("../images/icons/check-white.svg");
+      background-color: $whiteColor;
+    }
+  }
+  & .real-checkbox:checked + .custom-checkbox {
+    background-color: $blueColor;
+  }
+}
+.services-item-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  // .services-item-card__image
+  &__image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 70px;
+    border: 2.15px solid $blueColor;
+  }
+  // .services-item-card__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    font-family: $secondFamily;
+    color: $mainColorSecondary;
+  }
+}
+.checkbox {
+  // .checkbox__label
+  &__label {
+  }
+}
+.real-checkbox {
+}
+.custom-checkbox {
+}
+.quantity-actions {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+.quantity-btn {
+  border: 1px solid #d2d2d2;
+  border-radius: 8px;
+  padding: 5px;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantity-input {
+  border-radius: 8px;
+  padding: 11px 14px;
+  width: 66px;
+  height: 46px;
+  flex-shrink: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  font-family: $secondFamily;
 }
