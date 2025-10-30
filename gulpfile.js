@@ -103,6 +103,7 @@ const path = {
   watch: {
     pug: `${srcFolder}/pug/**/*.pug`,
     scss: `${srcFolder}/scss/**/*.scss`,
+    new: `${srcFolder}/scss/new/*.scss`,
     styleLibs: `${srcFolder}/style/libs/**/*.css`,
     js: `${srcFolder}/scripts/**/*.js`,
     jsLibs: `${srcFolder}/scripts/libs/**/*.js`,
@@ -200,6 +201,43 @@ function buildPug() {
       .pipe(browserSync.stream())
   );
 }
+
+function newStyles() {
+  return (
+    src(`${srcFolder}/scss/new/**.scss`)
+      .pipe(plumber(plumberNotify("SCSS")))
+      .pipe(sassglob())
+      .pipe(
+        sass({
+          "include css": true,
+          outputStyle: "expanded",
+        })
+      )
+      .pipe(groupCssMediaQueries())
+      .pipe(
+        postCss([
+          autoprefixer({
+            grid: true,
+            overrideBrowserslist: ["last 3 versions"],
+            cascade: false,
+          }),
+        ])
+      )
+      // Раскомментировать, если нужен неминифицированный файл стилей
+      .pipe(dest(`${buildFolder}/styles/`))
+      .pipe(
+        postCss([
+          cssnano({
+            preset: ["default", { discardComments: { removeAll: true } }],
+          }),
+        ])
+      )
+      .pipe(rename({ suffix: ".min" }))
+      .pipe(dest(`${buildFolder}/styles/`))
+      .pipe(browserSync.stream())
+  );
+}
+
 function styles() {
   return (
     src(path.src.scss)
@@ -447,6 +485,7 @@ const cleandist = () => {
 function startwatch() {
   gulpWatch([path.watch.pug], { usePolling: true }, buildPug);
   gulpWatch([path.watch.scss], { usePolling: true }, styles);
+  gulpWatch([path.watch.scss], { usePolling: true }, newStyles);
   gulpWatch([path.watch.styleLibs], { usePolling: true }, stylesLibs);
   // gulpWatch([path.watch.js], { usePolling: true }, scripts)
   gulpWatch([path.watch.js], { usePolling: true }, jsDist);
@@ -455,10 +494,7 @@ function startwatch() {
   gulpWatch([path.watch.fonts], { usePolling: true }, fonts);
   gulpWatch([path.watch.svgicons], { usePolling: true }, sprite);
   gulpWatch([path.watch.files], { usePolling: true }, files);
-  gulpWatch([`${buildFolder}/**/*.*`], { usePolling: true }).on(
-    "change",
-    browserSync.reload
-  );
+  gulpWatch([`${buildFolder}/**/*.*`], { usePolling: true }).on("change", browserSync.reload);
 }
 // ZIP
 function zip() {
@@ -477,18 +513,7 @@ function ftp() {
     .pipe(ftpConnect.dest(`/${path.ftp}/${rootFolder}`));
 }
 
-const mainTasks = parallel(
-  images,
-  jsDist,
-  jsLibs,
-  jsMin,
-  buildPug,
-  styles,
-  stylesLibs,
-  sprite,
-  fonts,
-  files
-);
+const mainTasks = parallel(images, jsDist, jsLibs, jsMin, buildPug, styles, newStyles, stylesLibs, sprite, fonts, files);
 // Добавлена задача cleandist в watch
 const watch = series(cleandist, mainTasks, parallel(browsersync, startwatch));
 const build = series(cleandist, mainTasks);

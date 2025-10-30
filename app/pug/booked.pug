@@ -4,6 +4,13 @@ append variables
 	- let pageTitle = "Бронирование";
 	- description += pageTitle;
 	- breadcrumbs = true;
+
+append styles
+	link(href="styles/booked.min.css" rel="stylesheet")
+
+block popup 
+	include ./components/popup
+
 block content
 	.booked-page 
 		.container

@@ -1,3 +1,4 @@
+@use "sass:math";
 /* Стили для модальных окон */
 .popup {
   position: fixed;
@@ -5,18 +6,19 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f3f3f3;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   pointer-events: none;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 50;
   transition: opacity $time ease 0s;
   &.open-popup {
     opacity: 1;
     pointer-events: all;
     & .popup__content {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0%);
     }
   }
   &__wrapper {
@@ -29,15 +31,15 @@
   &__content {
     border-radius: 10px;
     background: $whiteColor;
-    max-width: 1280px;
+    max-width: 1315px;
     width: 100%;
     padding: 20px;
     position: relative;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
     background: $whiteColor;
     opacity: 0;
-    transform: translateY(20%);
-    transition: opacity $time ease 0s, transform $time ease 0s;
+    transform: translateY(-10%);
+    transition: opacity $time ease 0s, transform $time * 1.4 ease 0s;
   }
   &__close {
     width: 32px;
@@ -101,6 +103,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex: 1 1 auto;
 }
 
 .step-popup {
@@ -245,171 +248,7 @@
   }
 }
 
-.fc-today-button {
-  border: 1px solid #d2d2d2;
-  border-radius: 8px;
-  padding: 11px 14px;
-  width: 99px;
-  height: 42px;
-  font-size: 14px;
-  text-align: center;
-  padding: 10px 14px;
-  color: $mainColor;
-}
-.fc .fc-button-primary:disabled {
-  background-color: transparent;
-  border-color: #d2d2d2;
-  color: $mainColor;
-  pointer-events: none;
-}
-
-.fc-buttonPrev-button,
-.fc-buttonNext-button,
-.fc-buttonToday-button,
-.fc-buttonNightTimeToggle-button {
-  border: 1px solid #d2d2d2;
-  color: $mainColor;
-  border-radius: 8px;
-  padding: 11px 14px;
-  width: auto;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-top-right-radius: 8px;
-  &.fc-button-primary {
-    background-color: transparent;
-    border-radius: 8px;
-    border-color: #d2d2d2;
-    color: $mainColor;
-    &:hover {
-      background-color: transparent;
-      border-color: #d2d2d2;
-      color: $mainColor;
-    }
-    &:focus,
-    &:active {
-      box-shadow: none;
-      background-color: transparent;
-    }
-  }
-}
-
-.fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
-  border-bottom-right-radius: 8px;
-  border-top-right-radius: 8px;
-}
-.fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
-  margin-left: 0px;
-}
-
-.fc-buttonToday-button {
-  width: 99px;
-}
-
-.fc-buttonPrev-button,
-.fc-buttonNext-button {
-  width: 42px;
-  &::before {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 20px;
-    mask-image: url("../images/icons/chevron-left.svg");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    background-color: #a4a4a4;
-  }
-}
-
-.fc .fc-button-primary:not(:disabled).fc-button-active,
-.fc .fc-button-primary:not(:disabled):active {
-  background-color: transparent;
-  border-color: initial;
-  color: $mainColor;
-}
-
-.fc .fc-button-primary:not(:disabled).fc-button-active:focus,
-.fc .fc-button-primary:not(:disabled):active:focus {
-  box-shadow: none;
-}
-.fc-button-group {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.fc-buttonNext-button {
-  &::before {
-    transform: scaleX(-1);
-  }
-}
-
-.fc .fc-toolbar-title {
-  color: $blueColor;
-  font-size: 14px;
-  font-weight: 400;
-  margin: 0 14px;
-}
-
-.fc .fc-toolbar {
-  justify-content: flex-start;
-  gap: 9px;
-  & .fc-toolbar-chunk:last-child {
-    margin-left: auto;
-  }
-}
-
-.fc table {
-  font-weight: 400;
-  font-size: 14px;
-  & td {
-    height: 35px;
-    font-weight: 400;
-    &:has(.fc-scrollgrid-shrink) {
-      width: 102px;
-    }
-    // &.fc-timegrid-slot.fc-timegrid-slot-lane {
-    //   border: none;
-    // }
-  }
-  & .fc-scrollgrid-sync-inner {
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-.fc .fc-timegrid-slot {
-  height: 35px;
-}
-.fc .fc-col-header-cell-cushion {
-  font-weight: 400;
-}
-
-.fc .fc-toolbar.fc-header-toolbar {
-  margin-bottom: 15px;
-}
-
-.fc .fc-timegrid-col.fc-day-today {
-  background-color: transparent;
-}
-
-.fc .fc-bg-event {
-  opacity: 1;
-}
-
-.fc-direction-ltr .fc-timegrid-slot-label-frame {
-  text-align: left;
-}
-
-// Попап "доп. услуги"
+/* Дополнительные услуги */
 .services-items {
   margin-top: 15px;
 }
@@ -443,7 +282,20 @@
       mask-position: center;
       mask-size: 20px 20px;
       background-color: $grayColor;
+      transition: transform $time ease 0s;
     }
+    &.active {
+      &::before {
+        transform: translateY(-50%) rotate(-90deg) scale(-1, 1);
+      }
+    }
+    @include hover {
+      cursor: pointer;
+    }
+  }
+  & .checkbox__label {
+    font-weight: 700;
+    font-size: 20px;
   }
   // .services-item__actions
   &__actions {
@@ -466,12 +318,30 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
+    display: none;
+    &.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out both;
+    }
   }
+}
+
+.base-checkbox {
   & .checkbox__label {
     gap: 15px;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 16px;
     color: $mainColorSecondary;
+    & a {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      color: $blueColor;
+      text-decoration-color: currentColor;
+      transition: color $time ease;
+      @include hover {
+        color: $blueColorHover;
+      }
+    }
   }
   & .custom-checkbox {
     width: 18px;
@@ -486,6 +356,16 @@
     background-color: $blueColor;
   }
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .services-item-card {
   display: flex;
   align-items: center;
@@ -508,15 +388,7 @@
     color: $mainColorSecondary;
   }
 }
-.checkbox {
-  // .checkbox__label
-  &__label {
-  }
-}
-.real-checkbox {
-}
-.custom-checkbox {
-}
+
 .quantity-actions {
   display: flex;
   align-items: center;
@@ -544,4 +416,267 @@
   font-size: 20px;
   text-align: center;
   font-family: $secondFamily;
+}
+
+/* Оформление заказа  */
+.order-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.order-group {
+  &:not(:last-child) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
+  }
+  // .order-group__caption
+  &__caption {
+    font-weight: 700;
+    font-size: 20px;
+    font-family: $secondFamily;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+  // .order-group__fields
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+  // .order-group__field
+  &__field {
+    &:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  // .order-group__field-nickname
+  &__field-nickname {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 12px;
+      width: 32px;
+      height: 32px;
+      background-image: url("../images/icons/icon-vk.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 22px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      background-image: url("../images/icons/choice-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    & .form-input.form-input-nickname {
+      padding-left: 54px;
+      padding-right: 48px;
+    }
+  }
+  // .order-group__result
+  &__result {
+  }
+}
+.services-item-card {
+  .order-group & {
+    gap: 18px;
+  }
+  // .services-item-card__image
+  &__image {
+  }
+  // .services-item-card__content
+  &__content {
+  }
+  // .services-item-card__count
+  &__count {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    flex: 1 1 auto;
+    & .form-input.form-input-count {
+      width: 54px;
+      height: 49px;
+      text-align: center;
+      padding: 4px;
+    }
+  }
+  // .services-item-card__price
+  &__price {
+    min-width: 178px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: $secondFamily;
+  }
+}
+.order-group {
+  & .form-input {
+    min-height: 49px;
+    border-radius: 8px;
+    border: 1px solid #dfdfdf;
+    background: transparent;
+    padding: 11px 15px;
+    color: $mainColor;
+    font-family: $fontFamily;
+    &::placeholder {
+      color: $mainColor;
+      font-family: $fontFamily;
+    }
+    &:focus {
+      border-color: $mainColor;
+    }
+  }
+}
+
+.form-textarea {
+  min-height: 80px;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #dfdfdf;
+  background: transparent;
+  font-family: $fontFamily;
+  padding: 11px 15px;
+  color: $mainColor;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  width: 100%;
+  transition: border-color 0.2s ease 0s;
+  &::placeholder {
+    color: $mainColor;
+    font-family: $fontFamily;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 110%;
+    transition: opacity 0.2s ease 0s;
+  }
+  &:focus {
+    border-color: $mainColor;
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+.order-list {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  // .order-list__item
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    line-height: 120%;
+  }
+  // .order-list__item-name
+  &__item-name {
+    flex: 1 1 auto;
+  }
+  // .order-list__item-time
+  &__item-time {
+    width: 59px;
+  }
+  // .order-list__item-price
+  &__item-price {
+    font-weight: 700;
+    font-size: 20px;
+    font-family: $secondFamily;
+    min-width: 164px;
+    text-align: right;
+  }
+}
+.intermediate {
+  // .intermediate__price
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 1px;
+    font-size: 16px;
+    line-height: 120%;
+    & strong {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 190%;
+      font-family: $secondFamily;
+    }
+  }
+}
+
+.result-group {
+  display: flex;
+  flex-direction: column;
+  // .result-group__heading
+  &__heading {
+    max-width: 386px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  // .result-group__promocode
+  &__promocode {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    & .form-input {
+      &::placeholder {
+        text-align: center;
+      }
+    }
+  }
+  // .result-group__prices
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  // .result-group__price
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    line-height: 120%;
+    &--total {
+      font-family: $secondFamily;
+      font-weight: 700;
+      & .result-group__value {
+        font-size: 32px;
+      }
+    }
+  }
+  // .result-group__caption
+  &__caption {
+    font-size: 16px;
+    width: 45%;
+  }
+  // .result-group__value
+  &__value {
+    font-size: 20px;
+  }
+  // .result-group__agreement
+  &__agreement {
+    margin: 30px 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 30px;
+  }
 }

@@ -23,54 +23,11 @@ $xl: 1023px;
 $xxl: 1200px;
 $xxxl: 1400px;
 
-// (i) Стили будут применяться ко всем классам содержащим *__container. Например header__container, footer__container и т.д.
-@if ($responsiveType ==1) {
-  // Отзывчивая
-  [class*="__container"] {
-    @if ($maxWidthContainer > 0) {
-      max-width: $maxWidthContainer + px;
-      margin: 0 auto;
-    }
-
-    @if ($containerPadding > 0) {
-      padding: 0 math.div($containerPadding, 2) + px;
-    }
-  }
-} @else {
-  // По брейк-поинтам
-  [class*="__container"] {
-    margin: 0 auto;
-
-    @if ($maxWidthContainer > 0) {
-      max-width: $maxWidthContainer + px;
-    }
-
-    @if ($containerPadding > 0) {
-      padding: 0 math.div($containerPadding, 2) + px;
-    }
-
-    @media (max-width: $xxl) {
-      max-width: 980px;
-    }
-
-    @media (max-width: $lg) {
-      max-width: 750px;
-    }
-
-    @media (max-width: $md) {
-      max-width: 620px;
-    }
-
-    @media (max-width: $sm) {
-      max-width: 100%;
-    }
-  }
-}
-
 // размеры шрифтов
 $fontSize: 14px;
 // Основные Цвета
-$mainColor: #4b4b4b;
+// $mainColor: #4b4b4b;
+$mainColor: #4a4a4a;
 $mainColorSecondary: #4a4a4a;
 $whiteColor: #ffffff;
 $blueColor: #307ff5;

@@ -1,0 +1,35 @@
+.popup__step.step-popup.step-popup-services
+    .step-popup__heading 
+        .step-popup__title Дополнительные услуги
+    .services-items 
+        .services-item.services-item-card 
+            .services-item-card__image.image-ibg
+                img(src="images/booked/service-img.jpg", alt="карточка")
+            .services-item-card__content 
+                span Зал №2
+                span 8-14 сентября
+                span 06:00 - 12:00
+        each service, index in bookedPage.services
+            .services-item
+                .services-item__header.jsServiceHeader
+                    .checkbox.base-checkbox 
+                        label.checkbox__label
+                            input(type="checkbox" name="service" checked).real-checkbox
+                            span.custom-checkbox
+                            span= service.checkboxText
+                    .services-item__actions 
+                        .quantity-actions 
+                            button(type="button").quantity-btn.jsDecrease
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.1665 10H15.8332" stroke="#A4A4A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            input(type="number", name="service_count" value=service.count).quantity-input.jsCounter
+                            button(type="button").quantity-btn.jsIncrease
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.0002 15.832L10.0002 4.16537M15.8335 9.9987L4.16683 9.9987" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10.0002 15.832L10.0002 4.16537M15.8335 9.9987L4.16683 9.9987" stroke="black" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                        .services-item__price= service.price
+                .services-item__content.jsServiceContent
+                    p.
+                        В«Инструктаж по свету» входит: полноценная практика со студийным светом от нашего инструктора (и даже немного теории), -разбор нескольких базовых схем света и одной креативной. Внимание: инструктаж проводится только для одного человека, присутствие модели от фотостудии на съемке не предусмотрено, но можете пригласить свою модель

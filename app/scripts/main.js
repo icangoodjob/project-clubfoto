@@ -1248,7 +1248,58 @@ document.addEventListener("DOMContentLoaded", () => {
       const popup = target.closest(".popup");
       closePopup(popup);
     }
+    if (target.closest(".jsDecrease")) {
+      const button = target.closest(".jsDecrease");
+      const parent = button.closest(".quantity-actions");
+      let input = parent.querySelector(".jsCounter");
+      decreaseValue(input);
+    }
+    if (target.closest(".jsIncrease")) {
+      const button = target.closest(".jsIncrease");
+      const parent = button.closest(".quantity-actions");
+      let input = parent.querySelector(".jsCounter");
+      increaseValue(input);
+    }
+    if (target.classList.contains("jsServiceHeader")) {
+      const content = target.nextElementSibling;
+      target.classList.toggle("active");
+      content.classList.toggle("active");
+      console.log("header", content);
+    }
   }
+  function increaseValue(input) {
+    let value = parseInt(input.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    input.value = value;
+  }
+  function decreaseValue(input) {
+    let value = parseInt(input.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? (value = 1) : "";
+    value--;
+    input.value = value;
+  }
+
+  document.addEventListener("input", (event) => {
+    const target = event.target;
+    if (target.classList.contains("jsCounter")) {
+      const inputCounter = target.closest(".jsCounter");
+      limitInputValue(inputCounter);
+    }
+  });
+
+  function limitInputValue(input) {
+    const MAX_LENGTH = 3;
+    const MAX_VALUE = 99;
+    let value = input.value.replace(/\D/g, "");
+    if (value.length >= MAX_LENGTH) {
+      input.value = MAX_VALUE;
+    } else {
+      input.value = value;
+    }
+  }
+
   // Глобальный обработчик клавиатуры
   document.addEventListener("keydown", (event) => {
     handleKeyDown(event);

@@ -6,23 +6,31 @@
 			button(type="button").btn.btn-blue Далее 
 +popup("popup-booked-hall")
 	.popup__steps 
-		include ../blocks/popupStepBooked
+		.popup__step.step-popup
+			.step-popup__heading 
+				.step-popup__title Для чего бронируете?
+			.step-popup__radiobuttons 
+				each item, index in bookedPage.radiobuttons
+					+bookedRadio(item, index, "booked-radio-step-2")
 		include ../blocks/popupStepHall
 	.popup__bottom
 		.popup-actions
 			button(type="button").btn.btn-blue Далее 
 +popup("popup-booked-calendar")
 	.popup__steps 
-		include ../blocks/popupStepBooked
-		include ../blocks/popupStepHall
-		.popup__step.step-popup.step-popup-calendar
+		.popup__step.step-popup
 			.step-popup__heading 
-				.step-popup__title Выберите свободное время
-			.step-popup__calendar.popup-calendar
-				.popup-calendar__legends 
-					.popup-calendar__legend.popup-calendar__legend--lock Занято
-					.popup-calendar__legend Свободно
-			#calendar
+				.step-popup__title Для чего бронируете?
+			.step-popup__radiobuttons 
+				each item, index in bookedPage.radiobuttons
+					+bookedRadio(item, index, "booked-radio-step-3")
+		.popup__step.step-popup
+			.step-popup__heading 
+				.step-popup__title Выберите зал
+			.step-popup__halls
+				each hall, hallIndex in bookedPage.halls
+					+bookedHall(hall, hallIndex, "booked-hall-step-3")
+		include ../blocks/popupStepCalendar
 	.popup__bottom 
 		.popup__bottom-quantity
 			.popup__bottom-info Всего #[br] #[strong 1 заказ]
@@ -32,46 +40,91 @@
 				| #[strong 10 000 ₽] 
 				span включая скидку&nbsp;0 руб.
 			+btnReserve
-+popup("popup-services", "open-popup")
-	.popup__step.step-popup.step-popup-services
-		.step-popup__heading 
-			.step-popup__title Дополнительные услуги
-		.services-items 
-			.services-item.services-item-card 
-				.services-item-card__image.image-ibg
-					img(src="images/booked/service-img.jpg", alt="карточка")
-				.services-item-card__content 
-					span Зал №2
-					span 8-14 сентября
-					span 06:00 - 12:00
-			each service, index in bookedPage.services
-				.services-item
-					.services-item__header
-						.checkbox 
-							label.checkbox__label
-								input(type="checkbox" name="brande" checked).real-checkbox
-								span.custom-checkbox
-								span= service.checkboxText
-						.services-item__actions 
-							.quantity-actions 
-								button(type="button").quantity-btn
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M4.1665 10H15.8332" stroke="#A4A4A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-									</svg>
-								input(type="number", name="service_count" value=service.count).quantity-input
-								button(type="button").quantity-btn
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M10.0002 15.832L10.0002 4.16537M15.8335 9.9987L4.16683 9.9987" stroke="#307FF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M10.0002 15.832L10.0002 4.16537M15.8335 9.9987L4.16683 9.9987" stroke="black" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-									</svg>
-							.services-item__price= service.price
-					.services-item__content 
-						p.
-							В«Инструктаж по свету» входит: полноценная практика со студийным светом от нашего инструктора (и даже немного теории), -разбор нескольких базовых схем света и одной креативной. Внимание: инструктаж проводится только для одного человека, присутствие модели от фотостудии на съемке не предусмотрено, но можете пригласить свою модель
-		.popup__bottom 
-			button(type="button").btn.btn-border Назад 
-			.popup-actions
-				.popup__bottom-price 
-					| #[strong 10 000 ₽] 
-					span включая скидку&nbsp;0 руб.
-				button(type="button").btn.btn-blue Продолжить 
++popup("popup-services")
+	include ../blocks/popupStepServices
+	.popup__bottom 
+		button(type="button").btn.btn-border Назад 
+		.popup-actions
+			.popup__bottom-price 
+				| #[strong 10 000 ₽] 
+				span включая скидку&nbsp;0 руб.
+			button(type="button").btn.btn-blue Продолжить 
++popup("popup-order", "open-popup")
+	.popup__steps 
+		.popup__step.step-popup
+			.step-popup__heading 
+				.step-popup__title Оформление заказа
+			.order-groups
+				.order-group
+					.services-item-card 
+						.services-item-card__image.image-ibg
+							img(src="images/booked/service-img.jpg", alt="карточка")
+						.services-item-card__content 
+							span Зал №2
+							span 8-14 сентября
+							span 06:00 - 12:00
+						.services-item-card__count 
+							| Сколько человек будет в зале?
+							input(type="number", name="count_people" value="2").form-input.form-input-count
+						.services-item-card__price 18 000 ₽
+				.order-group
+					ul.order-list 
+						each listItem in bookedPage.orderPopup.serviceList
+							li.order-list__item 
+								span.order-list__item-name= listItem.title
+								span.order-list__item-time= listItem.time
+								span.order-list__item-price= listItem.price
+				.order-group
+					.intermediate__price 
+						| #[strong 18 900 ₽]
+						span Включая скидку 100 ₽
+				.order-group
+					.order-group__caption Как с Вами связаться?
+					.order-group__fields 
+						.order-group__field
+							input(type="text" name="order_name" placeholder="Имя Фамилия").form-input
+						.order-group__field
+							input(type="email" name="order_name" placeholder="Email").form-input
+						.order-group__field
+							input(type="tel" name="order_phone" placeholder="Телефон").form-input
+						.order-group__field.order-group__field-nickname
+							input(type="text" name="order_nickname" placeholder="Ник или ID без @").form-input.form-input-nickname
+						.order-group__field
+							textarea(name="order_message" placeholder="Комментарий").form-textarea
+				.order-group
+					.order-group__result.result-group
+						.result-group__heading
+							.result-group__promocode
+								.order-group__field
+									input(type="text" name="order_name" placeholder="Промокод / Сертификат").form-input
+								button(type="button").btn.btn-blue Применить 
+							.result-group__prices
+								.result-group__price 
+									span.result-group__caption Стоимость:
+									span.result-group__value 21 600 ₽
+								.result-group__price.result-group__price--total
+									span.result-group__caption #[strong Итого:]
+									span.result-group__value 21 600 ₽
+								.result-group__price 
+									span.result-group__caption Предоплата в&nbsp;течение 1 часа
+									span.result-group__value 10 800 ₽
+						.result-group__agreement
+							.checkbox.base-checkbox 
+								label.checkbox__label
+									input(type="checkbox" name="order_rules" checked).real-checkbox
+									span.custom-checkbox
+									span Я ознакомлен с #[a(href="#") правилами студии] «AppEvent Фотостудия» и согласен с ними
+							.checkbox.base-checkbox 
+								label.checkbox__label
+									input(type="checkbox" name="order_personal" checked).real-checkbox
+									span.custom-checkbox
+									span Я ознакомлен и согласен на обработку #[a(href="#") персональных данных] AppEvent
+							.checkbox.base-checkbox 
+								label.checkbox__label
+									input(type="checkbox" name="order_terms" checked).real-checkbox
+									span.custom-checkbox
+									span Я ознакомлен с #[a(href="") условиями/условиями использования] AppEvent и согласен с ними
+	.popup__bottom 
+		.popup-actions
+			button(type="button").btn.btn-border Отменить 
+			+btnReserve

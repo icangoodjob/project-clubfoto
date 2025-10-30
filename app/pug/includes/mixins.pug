@@ -331,3 +331,15 @@ mixin popup(popupId, popupClass)
 					</svg>
 				if block 
 					block
+mixin bookedRadio(item, index, name)
+	.base-radio 
+		label.base-radio__label 
+			input(type="radio" name=name class="real-radio" checked=index===0)
+			span.custom-radio
+			span.base-radio__text= item.text
+mixin bookedHall(item, index, name)
+	.hall-item
+		input(type="radio" name=name class="hall-item__input" checked=index===0)
+		.hall-item__image.image-ibg
+			img(src=`images/booked/popup-hall-${index+1}.jpg`, alt=item.text)
+		.hall-item__content= item.text
