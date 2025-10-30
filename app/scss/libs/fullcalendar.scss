@@ -117,8 +117,14 @@
 .fc .fc-toolbar {
   justify-content: flex-start;
   gap: 9px;
+  @include media($md) {
+    justify-content: space-between;
+  }
   & .fc-toolbar-chunk:last-child {
     margin-left: auto;
+    @include media($md) {
+      margin: 0;
+    }
   }
 }
 
@@ -163,4 +169,18 @@
 
 .fc-direction-ltr .fc-timegrid-slot-label-frame {
   text-align: left;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: transparent;
+}
+
+.fc-col-header-cell.fc-day-today {
+  background-color: $blueColor;
+  color: $whiteColor;
+}
+
+.fc-day-highlighted {
+  background-color: $blueColor;
+  color: $whiteColor;
 }

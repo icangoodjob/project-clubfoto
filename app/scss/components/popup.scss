@@ -47,6 +47,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    background-color: transparent;
     & svg {
       width: 19px;
       height: 19px;
@@ -64,11 +65,23 @@
     flex-wrap: wrap;
     gap: 15px 20px;
     margin-top: 15px;
+    & .btn {
+      @include media($sm) {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
   }
   &__bottom-quantity {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 10px 25px;
+    @include media($md) {
+      flex: 1 1 100%;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
   }
   &__bottom-info {
     font-size: 16px;
@@ -78,6 +91,9 @@
     & strong {
       color: $mainColorSecondary;
       font-family: $secondFamily;
+    }
+    @include media($md) {
+      min-width: auto;
     }
   }
   &__bottom-price {
@@ -90,20 +106,35 @@
       font-family: $secondFamily;
       font-weight: 700;
       font-size: 28px;
+      @include media($md) {
+        font-size: 20px;
+      }
     }
     & span {
       display: block;
       color: $grayColor;
     }
+    @include media($md) {
+      display: none;
+    }
+    &.mobile-price {
+      display: none;
+      @include media($md) {
+        display: block;
+        flex: 1 1 100%;
+        margin: 0;
+      }
+    }
   }
 }
 
 .popup-actions {
-  gap: 12px;
+  gap: 8px 12px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex: 1 1 auto;
+  flex-wrap: wrap;
 }
 
 .step-popup {
@@ -126,12 +157,18 @@
   &__radiobuttons {
     display: flex;
     justify-content: space-between;
-    gap: 10px 30px;
+    gap: 15px 30px;
     flex-wrap: wrap;
+    @include media($lg) {
+      flex-direction: column;
+    }
     & .base-radio {
       min-height: 48px;
       display: flex;
       align-items: center;
+      @include media($lg) {
+        min-height: auto;
+      }
       &__label {
         min-height: 100%;
       }
@@ -141,6 +178,13 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
+    @include media($lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media($md) {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
   }
   &__heading {
     // padding-bottom: 15px;
@@ -154,6 +198,10 @@
     font-family: $secondFamily;
     font-weight: 700;
     font-size: 32px;
+    max-width: calc(100% - 50px);
+    @include media($md) {
+      font-size: 24px;
+    }
     .step-popup-calendar & {
       font-size: 20px;
     }
@@ -263,9 +311,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     padding-right: 37px;
-    padding-left: 15px;
+    margin-left: 15px;
     position: relative;
     min-height: 48px;
     &::before {
@@ -292,6 +340,11 @@
     @include hover {
       cursor: pointer;
     }
+    @include media($md) {
+      flex-direction: column;
+      margin-left: 0;
+      align-items: flex-start;
+    }
   }
   & .checkbox__label {
     font-weight: 700;
@@ -302,6 +355,16 @@
     display: flex;
     align-items: center;
     gap: 17px;
+    @include media($md) {
+      width: 100%;
+      gap: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    @include media($sm) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   // .services-item__price
   &__price {
@@ -310,6 +373,10 @@
     text-align: right;
     font-family: $secondFamily;
     min-width: 164px;
+    @include media($md) {
+      min-width: auto;
+      font-size: 16px;
+    }
   }
   // .services-item__content
   &__content {
@@ -323,10 +390,16 @@
       display: block;
       animation: fadeIn 0.5s ease-in-out both;
     }
+    @include media($md) {
+      padding: 0;
+    }
   }
 }
 
 .base-checkbox {
+  &__text {
+    text-align: left;
+  }
   & .checkbox__label {
     gap: 15px;
     font-weight: 400;
@@ -367,32 +440,15 @@
 }
 
 .services-item-card {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  // .services-item-card__image
-  &__image {
-    flex-shrink: 0;
-    width: 100px;
-    height: 70px;
-    border: 2.15px solid $blueColor;
-  }
-  // .services-item-card__content
-  &__content {
-    display: flex;
-    flex-direction: column;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 120%;
-    font-family: $secondFamily;
-    color: $mainColorSecondary;
-  }
 }
 
 .quantity-actions {
   display: flex;
   align-items: center;
   gap: 17px;
+  @include media($md) {
+    gap: 10px;
+  }
 }
 .quantity-btn {
   border: 1px solid #d2d2d2;
@@ -404,10 +460,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include media($md) {
+    width: 30px;
+    height: 30px;
+  }
 }
 .quantity-input {
   border-radius: 8px;
-  padding: 11px 14px;
+  padding: 5px;
   width: 66px;
   height: 46px;
   flex-shrink: 0;
@@ -416,6 +476,11 @@
   font-size: 20px;
   text-align: center;
   font-family: $secondFamily;
+  @include media($md) {
+    height: 30px;
+    width: 40px;
+    font-size: 18px;
+  }
 }
 
 /* Оформление заказа  */
@@ -443,11 +508,21 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
+    @include media($xxl) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media($md) {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
   }
   // .order-group__field
   &__field {
     &:last-child {
       grid-column: 1 / -1;
+      @include media($md) {
+        grid-column: unset;
+      }
     }
   }
   // .order-group__field-nickname
@@ -489,14 +564,36 @@
   }
 }
 .services-item-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   .order-group & {
     gap: 18px;
+    @include media($md) {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+    }
   }
+
   // .services-item-card__image
   &__image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 70px;
+    border: 2.15px solid $blueColor;
   }
   // .services-item-card__content
   &__content {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    font-family: $secondFamily;
+    color: $mainColorSecondary;
+    @include media($md) {
+      font-size: 16px;
+    }
   }
   // .services-item-card__count
   &__count {
@@ -511,6 +608,10 @@
       text-align: center;
       padding: 4px;
     }
+    @include media($lg) {
+      flex-direction: column;
+      text-align: center;
+    }
   }
   // .services-item-card__price
   &__price {
@@ -519,6 +620,9 @@
     font-weight: 700;
     font-size: 20px;
     font-family: $secondFamily;
+    @include media($lg) {
+      min-width: auto;
+    }
   }
 }
 .order-group {
@@ -581,6 +685,15 @@
     gap: 15px;
     font-size: 16px;
     line-height: 120%;
+    @include media($md) {
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 10px;
+      &:not(:last-child) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eaeaea;
+      }
+    }
   }
   // .order-list__item-name
   &__item-name {
@@ -589,6 +702,10 @@
   // .order-list__item-time
   &__item-time {
     width: 59px;
+    flex-shrink: 0;
+    @include media($md) {
+      text-align: center;
+    }
   }
   // .order-list__item-price
   &__item-price {
@@ -597,6 +714,10 @@
     font-family: $secondFamily;
     min-width: 164px;
     text-align: right;
+    flex-shrink: 0;
+    @include media($md) {
+      min-width: auto;
+    }
   }
 }
 .intermediate {
@@ -628,15 +749,25 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    @include media($md) {
+      max-width: 100%;
+      margin: 0;
+    }
   }
   // .result-group__promocode
   &__promocode {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px 15px;
     & .form-input {
       &::placeholder {
         text-align: center;
+      }
+    }
+    @include media($md) {
+      flex-wrap: wrap;
+      & > * {
+        flex-grow: 1;
       }
     }
   }
@@ -658,6 +789,9 @@
       font-weight: 700;
       & .result-group__value {
         font-size: 32px;
+        @include media($md) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -665,10 +799,17 @@
   &__caption {
     font-size: 16px;
     width: 45%;
+    @include media($md) {
+      width: 50%;
+    }
   }
   // .result-group__value
   &__value {
     font-size: 20px;
+    line-height: 120%;
+    @include media($md) {
+      font-size: 16px;
+    }
   }
   // .result-group__agreement
   &__agreement {
@@ -678,5 +819,9 @@
     align-items: flex-end;
     text-align: right;
     gap: 30px;
+    @include media($md) {
+      gap: 15px;
+      margin: 20px 0 15px;
+    }
   }
 }

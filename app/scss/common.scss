@@ -472,11 +472,13 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  cursor: pointer;
   color: #757c8d;
   font-family: "Rubik", sans-serif;
   font-size: 16px;
   line-height: 110%;
+  @include hover {
+    cursor: pointer;
+  }
 }
 .real-radio,
 .real-checkbox {

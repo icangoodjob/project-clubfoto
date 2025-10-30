@@ -16,7 +16,7 @@
 	.popup__bottom
 		.popup-actions
 			button(type="button").btn.btn-blue Далее 
-+popup("popup-booked-calendar")
++popup("popup-booked-calendar", "open-popup")
 	.popup__steps 
 		.popup__step.step-popup
 			.step-popup__heading 
@@ -32,6 +32,9 @@
 					+bookedHall(hall, hallIndex, "booked-hall-step-3")
 		include ../blocks/popupStepCalendar
 	.popup__bottom 
+		.popup__bottom-price.mobile-price
+			| #[strong 10 000 ₽] 
+			span включая скидку&nbsp;0 руб.
 		.popup__bottom-quantity
 			.popup__bottom-info Всего #[br] #[strong 1 заказ]
 			.popup__bottom-info За один раз #[br] не больше 5-ти заказов
@@ -43,13 +46,16 @@
 +popup("popup-services")
 	include ../blocks/popupStepServices
 	.popup__bottom 
+		.popup__bottom-price.mobile-price
+			| #[strong 10 000 ₽] 
+			span включая скидку&nbsp;0 руб.
 		button(type="button").btn.btn-border Назад 
 		.popup-actions
 			.popup__bottom-price 
 				| #[strong 10 000 ₽] 
 				span включая скидку&nbsp;0 руб.
 			button(type="button").btn.btn-blue Продолжить 
-+popup("popup-order", "open-popup")
++popup("popup-order")
 	.popup__steps 
 		.popup__step.step-popup
 			.step-popup__heading 
@@ -113,17 +119,17 @@
 								label.checkbox__label
 									input(type="checkbox" name="order_rules" checked).real-checkbox
 									span.custom-checkbox
-									span Я ознакомлен с #[a(href="#") правилами студии] «AppEvent Фотостудия» и согласен с ними
+									span.base-checkbox__text Я ознакомлен с #[a(href="#") правилами студии] «AppEvent Фотостудия» и согласен с ними
 							.checkbox.base-checkbox 
 								label.checkbox__label
 									input(type="checkbox" name="order_personal" checked).real-checkbox
 									span.custom-checkbox
-									span Я ознакомлен и согласен на обработку #[a(href="#") персональных данных] AppEvent
+									span.base-checkbox__text Я ознакомлен и согласен на обработку #[a(href="#") персональных данных] AppEvent
 							.checkbox.base-checkbox 
 								label.checkbox__label
 									input(type="checkbox" name="order_terms" checked).real-checkbox
 									span.custom-checkbox
-									span Я ознакомлен с #[a(href="") условиями/условиями использования] AppEvent и согласен с ними
+									span.base-checkbox__text Я ознакомлен с #[a(href="") условиями/условиями использования] AppEvent и согласен с ними
 	.popup__bottom 
 		.popup-actions
 			button(type="button").btn.btn-border Отменить 
