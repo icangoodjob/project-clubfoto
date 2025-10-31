@@ -55,6 +55,12 @@
   }
 }
 
+.fc-buttonNightTimeToggle-button {
+  @include media($md) {
+    display: none;
+  }
+}
+
 .fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
@@ -67,6 +73,12 @@
 
 .fc-buttonToday-button {
   width: 99px;
+  @include media($md) {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
 }
 
 .fc-buttonPrev-button,
@@ -112,6 +124,10 @@
   font-size: 14px;
   font-weight: 400;
   margin: 0 14px;
+  @include media($md) {
+    margin: 0;
+    text-align: center;
+  }
 }
 
 .fc .fc-toolbar {
@@ -119,6 +135,12 @@
   gap: 9px;
   @include media($md) {
     justify-content: space-between;
+    &:has(.fc-buttonToday-button.active) {
+      flex-wrap: wrap;
+      & .fc-toolbar-chunk:first-child {
+        width: 100%;
+      }
+    }
   }
   & .fc-toolbar-chunk:last-child {
     margin-left: auto;
@@ -181,6 +203,20 @@
 }
 
 .fc-day-highlighted {
+  background-color: $blueColor;
+  color: $whiteColor;
+}
+
+.fc .fc-col-header-cell-cushion {
+  @include media($md) {
+    font-size: 12px;
+  }
+  @include media($sm) {
+    font-size: 12px;
+  }
+}
+
+.fc-day-highlight {
   background-color: $blueColor;
   color: $whiteColor;
 }

@@ -26,6 +26,14 @@
   gap: 14px;
 }
 
+html.lock body {
+  overflow: hidden;
+}
+
+body {
+  overflow: clip;
+}
+
 /* Стили для модальных окон */
 
 .popup {
@@ -1263,6 +1271,11 @@
   color: #ffffff;
 }
 
+.fc-day-highlight {
+  background-color: #307ff5;
+  color: #ffffff;
+}
+
 @media screen and (max-width: 1200px) {
   .order-group__fields {
     -ms-grid-columns: (1fr)[2];
@@ -1472,14 +1485,44 @@
     display: none;
   }
 
+  .fc-buttonNightTimeToggle-button {
+    display: none;
+  }
+
+  .fc-buttonToday-button {
+    display: none;
+  }
+
+  .fc-buttonToday-button.active {
+    display: block;
+  }
+
+  .fc .fc-toolbar-title {
+    margin: 0;
+    text-align: center;
+  }
+
   .fc .fc-toolbar {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
 
+  .fc .fc-toolbar:has(.fc-buttonToday-button.active) {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .fc .fc-toolbar:has(.fc-buttonToday-button.active) .fc-toolbar-chunk:first-child {
+    width: 100%;
+  }
+
   .fc .fc-toolbar .fc-toolbar-chunk:last-child {
     margin: 0;
+  }
+
+  .fc .fc-col-header-cell-cushion {
+    font-size: 12px;
   }
 }
 
@@ -1497,6 +1540,10 @@
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
+  }
+
+  .fc .fc-col-header-cell-cushion {
+    font-size: 12px;
   }
 }
 

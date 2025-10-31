@@ -1208,8 +1208,7 @@ function notificationClicks(e) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const popups = document.querySelectorAll(".popup");
-  // Скрипты для страницы Бронирование
+  // Скрипты для модальных окон Бронирование
   document.addEventListener("click", popupActions);
   const openPopup = (id) => {
     const currentPopup = document.getElementById(`${id}`);
@@ -1232,6 +1231,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+  function useScrollLock() {
+    const lockScroll = () => {
+      document?.documentElement?.classList.add("lock");
+    };
+
+    const unlockScroll = () => {
+      document?.documentElement?.classList.remove("lock");
+    };
+    return {
+      lockScroll,
+      unlockScroll,
+    };
+  }
+  const { lockScroll, unlockScroll } = useScrollLock();
   // document.addEventListener("touchstart", openModal, { passive: false });
   function popupActions(event) {
     const target = event.target;
@@ -1239,14 +1252,17 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       const popupId = target.dataset.popupButton;
       openPopup(popupId);
+      lockScroll();
     }
     if (target.closest("[data-popup-close]")) {
       const popup = target.closest(".popup");
       closePopup(popup);
+      unlockScroll();
     }
     if (target.classList.contains("popup") || target.classList.contains("popup__wrapper")) {
       const popup = target.closest(".popup");
       closePopup(popup);
+      unlockScroll();
     }
     if (target.closest(".jsDecrease")) {
       const button = target.closest(".jsDecrease");
@@ -1265,12 +1281,17 @@ document.addEventListener("DOMContentLoaded", () => {
       target.classList.toggle("active");
       content.classList.toggle("active");
     }
+    // Кнопка "Показать ночное время" в календаре
+    if (target.classList.contains("fc-buttonNightTimeToggle-button")) {
+      const buttonNightTimeToggle = target.closest(".fc-buttonNightTimeToggle-button");
+      buttonNightTimeToggle.textContent = isNightTime ? "Показать ночное время" : "Скрыть ночное время";
+    }
   }
   function increaseValue(input) {
     let value = parseInt(input.value, 10);
     value = isNaN(value) ? 0 : value;
     value++;
-    input.value = value;
+    input.value = input.value >= 99 ? 99 : value;
   }
   function decreaseValue(input) {
     let value = parseInt(input.value, 10);
@@ -1305,9 +1326,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   let FullCalendar = window.FullCalendar;
   const calendarEl = document.getElementById("calendar");
-  function isMobileDevice() {
-    return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  }
   function getToolbarConfig() {
     return window.innerWidth < 768
       ? {
@@ -1324,7 +1342,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function getTitleFormat() {
     return window.innerWidth < 768
       ? {
-          month: "long",
+          month: "short",
           year: "numeric",
         }
       : {
@@ -1337,8 +1355,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Массив для выделенных ячеек
   let highlightedCells = [];
-  let highlightedDays = [];
-  let isMobile = isMobileDevice();
+  // Состояние ночных часов
+  let isNightTime;
   const calendar = new FullCalendar.Calendar(calendarEl, {
     // initialView: 'dayGridMonth', // options: 'dayGridMonth', 'timeGridWeek', etc.
     initialView: getView(),
@@ -1351,18 +1369,21 @@ document.addEventListener("DOMContentLoaded", () => {
         text: "Сегодня",
         click: function () {
           calendar.today();
+          clearAllHighlights();
         },
       },
       buttonPrev: {
         hint: `button-prev`,
         click: function () {
           calendar.prev();
+          clearAllHighlights();
         },
       },
       buttonNext: {
         hint: `button-next`,
         click: function () {
           calendar.next();
+          clearAllHighlights();
         },
       },
       buttonNightTimeToggle: {
@@ -1370,17 +1391,15 @@ document.addEventListener("DOMContentLoaded", () => {
         click: function () {
           // логика переключения ночного времени
           let currentMinTime = calendar.getOption("slotMinTime");
-          let isNightTime = currentMinTime === "00:00";
+          isNightTime = currentMinTime === "00:00";
           let currentViewType = calendar.view.type;
           // Переключаем время
           if (currentViewType === "timeGridWeek") {
             calendar.setOption("slotMinTime", isNightTime ? "06:00" : "00:00");
             // Обновляем текст кнопки
-            this.text = isNightTime ? "Показать ночное время" : "Показать дневное время";
+            // upd: В этом месте почему-то не обновился текст. Пришлось дейстововать через делегироание событий и обращаться к кнопке по классу
+            this.text = isNightTime ? "Показать ночное время" : "Скрыть ночное время";
           }
-          // Принудительно обновляем кнопку
-          calendar.updateSize();
-          // calendar.setOption("slotMinTime", currentMinTime === "00:00" ? "06:00" : "00:00");
         },
       },
     },
@@ -1407,12 +1426,20 @@ document.addEventListener("DOMContentLoaded", () => {
     slotMaxTime: "24:00", // Заканчивать в 24:00
     // Включаем возможность выделения
     selectable: true,
+    views: {
+      timeGridWeek: {
+        dayHeaderFormat: {
+          weekday: "short", // скрыть день недели
+          day: "numeric", // только число
+          omitCommas: true,
+        },
+      },
+    },
     // Обработчик клика по ячейке
     windowResize: function (view) {
       calendar.setOption("headerToolbar", getToolbarConfig());
-      calendar.setOption("titleFormat", getTitleFormat());
+      // calendar.setOption("titleFormat", getTitleFormat());
       calendar.setOption("initialView", getView());
-
       // Меняем вид на мобильных
       if (window.innerWidth < 768 && view.type !== "timeGridWeek") {
         calendar.changeView("dayGridMonth");
@@ -1420,45 +1447,50 @@ document.addEventListener("DOMContentLoaded", () => {
         calendar.changeView("timeGridWeek");
       }
     },
+    // navLinks: true,
+    // navLinkDayClick: function (date, jsEvent) {
+    //   console.log("day", date.toISOString());
+    //   console.log("coords", jsEvent.pageX, jsEvent.pageY);
+    // },
     dateClick: function (info) {
       if (info.view.type === "dayGridMonth") {
         const date = info.date;
         const dateString = date.toISOString().split("T")[0];
-
-        console.log("Переключаемся на неделю с датой:", dateString);
-
-        // Переключаемся на weekly view с выбранной датой
+        const newHeaderToolbar = {
+          left: "buttonToday",
+          center: "title",
+          right: "buttonPrev,buttonNext",
+        };
+        // console.log("Переключаемся на неделю с датой:", dateString);
         calendar.changeView("timeGridWeek", dateString);
-        // const date = info.date;
-        // const dayOfWeek = date.getDay();
+        calendar.setOption("headerToolbar", newHeaderToolbar);
+        const todayButton = document.querySelector(".fc-buttonToday-button");
+        if (todayButton) {
+          todayButton.classList.add("active");
+        }
+        function highlightDateInHeader(date) {
+          const dateStr = calendar
+            .formatDate(date, {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            })
+            .split(".")
+            .reverse()
+            .join("-");
 
-        // // Получаем полную дату в формате YYYY-MM-DD
-        // const fullDate = date.toISOString().split("T")[0];
-
-        // // Получаем название дня недели
-        // const dayNames = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"];
-        // const dayName = dayNames[dayOfWeek];
-
-        // // Создаем уникальный ключ для дальнейшей фильтрации
-        // const dayKey = `date-${fullDate}`;
-
-        // // Проверяем, не выделен ли уже этот день
-        // const existingIndex = highlightedDays.findIndex((day) => day.key === dayKey);
-
-        // if (existingIndex >= 0) {
-        //   // Удаляем выделение
-        //   removeDayHighlight(highlightedDays[existingIndex]);
-        //   highlightedDays.splice(existingIndex, 1);
-        //   console.log("Выделение дня снято:", highlightedDays[existingIndex]);
-        // } else {
-        //   // Добавляем выделение
-        //   const highlightedDay = createDayHighlight(date, dayOfWeek, dayName, fullDate, info.dayEl);
-        //   highlightedDays.push(highlightedDay);
-        //   console.log("День выделен:", highlightedDay);
-        // }
-
-        // // Выводим все выделенные дни в консоль
-        // console.log("Все выделенные дни:", highlightedDays);
+          // Убираем предыдущую подсветку
+          document.querySelectorAll(".fc-col-header-cell.fc-day-highlight").forEach((el) => {
+            el.classList.remove("fc-day-highlight");
+          });
+          const headerCell = document.querySelector(`[data-date="${dateStr}"]`);
+          if (headerCell) {
+            headerCell.classList.add("fc-day-highlight");
+          }
+        }
+        setTimeout(() => {
+          highlightDateInHeader(date);
+        }, 100);
       } else {
         const date = info.date;
         const dayOfWeek = date.getDay();
@@ -1490,7 +1522,6 @@ document.addEventListener("DOMContentLoaded", () => {
           highlightedCells.push(highlightedCell);
           // console.log("Ячейка выделена:", highlightedCell);
         }
-
         // Выводим все выделенные ячейки в консоль
         console.log("Все выделенные ячейки:", highlightedCells);
       }
@@ -1617,7 +1648,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return highlightedCells.filter((cell) => cell.timeSlot === timeString);
   }
 
-  // Очистить все выделения
+  // Очистить все выделения (например, при переключении по стрелкам или нажатию на кнопку "Сегодня")
   function clearAllHighlights() {
     highlightedCells.forEach((cell) => {
       cell.event.remove();
@@ -1636,7 +1667,6 @@ document.addEventListener("DOMContentLoaded", () => {
       timestamp: cell.timestamp,
     }));
   }
-
   calendar.render();
   calendar.setOption("locale", "ru");
 });

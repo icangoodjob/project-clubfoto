@@ -1,4 +1,14 @@
 @use "sass:math";
+
+html.lock {
+  & body {
+    overflow: hidden;
+  }
+}
+
+body {
+  overflow: clip;
+}
 /* Стили для модальных окон */
 .popup {
   position: fixed;
