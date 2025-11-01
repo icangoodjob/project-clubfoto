@@ -49,7 +49,6 @@ body {
   overflow-x: hidden;
   z-index: 50;
   -webkit-transition: opacity 0.3s ease 0s;
-  -o-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
 }
 
@@ -95,7 +94,6 @@ body {
   transform: translateY(-10%);
   -webkit-transition: opacity 0.3s ease 0s, -webkit-transform 0.42s ease 0s;
   transition: opacity 0.3s ease 0s, -webkit-transform 0.42s ease 0s;
-  -o-transition: opacity 0.3s ease 0s, transform 0.42s ease 0s;
   transition: opacity 0.3s ease 0s, transform 0.42s ease 0s;
   transition: opacity 0.3s ease 0s, transform 0.42s ease 0s, -webkit-transform 0.42s ease 0s;
 }
@@ -295,7 +293,6 @@ body {
   z-index: 10;
   pointer-events: none;
   -webkit-transition: border-color 0.3s, opacity 0.3s;
-  -o-transition: border-color 0.3s, opacity 0.3s;
   transition: border-color 0.3s, opacity 0.3s;
 }
 
@@ -333,7 +330,6 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
   -webkit-transition: background-color 0.3s;
-  -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
 
@@ -428,7 +424,6 @@ body {
   background-color: #a4a4a4;
   -webkit-transition: -webkit-transform 0.3s ease 0s;
   transition: -webkit-transform 0.3s ease 0s;
-  -o-transition: transform 0.3s ease 0s;
   transition: transform 0.3s ease 0s;
   transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
 }
@@ -492,10 +487,8 @@ body {
   text-decoration: underline;
   text-underline-offset: 4px;
   color: #307ff5;
-  -webkit-text-decoration-color: currentColor;
   text-decoration-color: currentColor;
   -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
 
@@ -783,7 +776,6 @@ body {
   line-height: 110%;
   width: 100%;
   -webkit-transition: border-color 0.2s ease 0s;
-  -o-transition: border-color 0.2s ease 0s;
   transition: border-color 0.2s ease 0s;
 }
 
@@ -834,7 +826,6 @@ body {
   font-weight: 400;
   line-height: 110%;
   -webkit-transition: opacity 0.2s ease 0s;
-  -o-transition: opacity 0.2s ease 0s;
   transition: opacity 0.2s ease 0s;
 }
 
@@ -1274,6 +1265,15 @@ body {
 .fc-day-highlight {
   background-color: #307ff5;
   color: #ffffff;
+}
+
+.custom-day-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1431,9 +1431,45 @@ document.addEventListener("DOMContentLoaded", () => {
         dayHeaderFormat: {
           weekday: "short", // скрыть день недели
           day: "numeric", // только число
-          omitCommas: true,
         },
       },
+      timeGridFiveDay: {
+        type: "timeGrid",
+        duration: { days: 5 },
+        dayHeaderFormat: { weekday: "short", day: "numeric" },
+        allDaySlot: false, // убрать секцию all-day
+      },
+    },
+    // navLinks: true,
+    // navLinkDayClick: function (date, jsEvent) {
+    //   console.log("day", date.toISOString());
+    //   console.log("coords", jsEvent.pageX, jsEvent.pageY);
+    // },
+    // Кастомный рендеринг заголовков дней
+    dayHeaderContent: function (arg) {
+      const date = arg.date;
+      const dayNumber = date.getDate();
+      const weekDay = date.toLocaleDateString("ru-RU", { weekday: "short" });
+      if (arg.view.type === "timeGridWeek") {
+        return {
+          html: `
+                <div class="custom-day-header"
+                  data-date="${date.toISOString()}">
+                  <div class="day-week">${weekDay},&nbsp;</div>
+                  <div class="day-number">${dayNumber}</div>
+                </div>
+              `,
+        };
+      } else {
+        return {
+          html: `
+                <div class="custom-day-header"
+                  data-date="${date.toISOString()}">
+                  <div class="day-week">${weekDay}</div>
+                </div>
+              `,
+        };
+      }
     },
     // Обработчик клика по ячейке
     windowResize: function (view) {
@@ -1447,11 +1483,7 @@ document.addEventListener("DOMContentLoaded", () => {
         calendar.changeView("timeGridWeek");
       }
     },
-    // navLinks: true,
-    // navLinkDayClick: function (date, jsEvent) {
-    //   console.log("day", date.toISOString());
-    //   console.log("coords", jsEvent.pageX, jsEvent.pageY);
-    // },
+
     dateClick: function (info) {
       if (info.view.type === "dayGridMonth") {
         const date = info.date;
